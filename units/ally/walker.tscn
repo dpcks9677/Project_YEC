@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://yilgns5e82pf"]
+[gd_scene load_steps=16 format=3 uid="uid://yilgns5e82pf"]
 
 [ext_resource type="Texture2D" uid="uid://c5afmlu1gxvyg" path="res://sprites/walker.png" id="1_mahyk"]
 [ext_resource type="Script" path="res://scripts/walker.gd" id="1_p3m0m"]
@@ -63,22 +63,22 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.7,
 "texture": SubResource("AtlasTexture_eptga")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": SubResource("AtlasTexture_e1ulu")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": SubResource("AtlasTexture_c4omf")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": SubResource("AtlasTexture_ippf0")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": SubResource("AtlasTexture_5o7r2")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": SubResource("AtlasTexture_u06j0")
 }],
 "loop": true,
@@ -87,15 +87,28 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxjeb"]
-size = Vector2(20, 31)
+size = Vector2(30, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6vwg"]
+size = Vector2(20, 30)
 
 [node name="walker" type="CharacterBody2D"]
 script = ExtResource("1_p3m0m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6auqq")
-animation = &"attack"
+animation = &"walk"
+frame_progress = 0.845385
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_qxjeb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2.5)
-shape = SubResource("RectangleShape2D_qxjeb")
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_p6vwg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

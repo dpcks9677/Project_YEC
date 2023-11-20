@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m3kr00x5i7mo"
-path="res://.godot/imported/background1.png-6e9980c9f91d127afb775b5267c4dc41.ctex"
+uid="uid://4uvi6na7wap5"
+path="res://.godot/imported/Canine_White_Full.png-37b37794da31f49ed446b4915a7c3c36.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/background1.png"
-dest_files=["res://.godot/imported/background1.png-6e9980c9f91d127afb775b5267c4dc41.ctex"]
+source_file="res://units/ally/Canine_White_Full.png"
+dest_files=["res://.godot/imported/Canine_White_Full.png-37b37794da31f49ed446b4915a7c3c36.ctex"]
 
 [params]
 
