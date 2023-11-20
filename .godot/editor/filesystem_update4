@@ -2,3 +2,4 @@ res://scenes/stage/stage_1.tscn
 res://scripts/hud.gd
 res://units/ally/walker.tscn
 res://scenes/hud.tscn
+res://scripts/walker.gd
