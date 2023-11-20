@@ -1,0 +1,11 @@
+TextureRect
+Sprite2D
+Button
+TextureButton
+CanvasLayer
+ParallaxBackground
+Camera2D
+ParallaxLayer
+CollisionShape2D
+AnimatedSprite2D
+CharacterBody2D
