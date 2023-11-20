@@ -98,7 +98,7 @@ script = ExtResource("1_p3m0m")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6auqq")
 animation = &"walk"
-frame_progress = 0.845385
+frame_progress = 0.389697
 
 [node name="Area2D" type="Area2D" parent="."]
 
