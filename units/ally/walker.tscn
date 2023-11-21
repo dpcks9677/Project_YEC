@@ -110,5 +110,7 @@ shape = SubResource("RectangleShape2D_qxjeb")
 position = Vector2(10, 0)
 shape = SubResource("RectangleShape2D_8j5o1")
 
+[node name="attack_timer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="attack_range" to="." method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="attack_range" to="." method="_on_attack_range_area_exited"]

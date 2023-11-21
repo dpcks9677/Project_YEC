@@ -2,12 +2,16 @@ extends Area2D
 
 const speed = 1
 var state = "move"
+@export var health = 300
 
 func _physics_process(delta):
 	if state == "move":
 		move(delta)
 	elif state == "engage":
 		engage()
+		
+	if health <= 0:
+		queue_free()
 
 func move(delta):
 	#우측 자동이동 및 걷기 애니메이션 
@@ -20,7 +24,6 @@ func engage():
 	translate(Vector2(0,0))
 	$AnimatedSprite2D.flip_h = false
 	$AnimatedSprite2D.play("attack")
-	
 
 func ally():
 	pass
