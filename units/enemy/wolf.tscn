@@ -158,6 +158,9 @@ shape = SubResource("RectangleShape2D_wmcvv")
 
 [node name="attack_timer" type="Timer" parent="."]
 
+[node name="attacking_timer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="attack_range" to="." method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="attack_range" to="." method="_on_attack_range_area_exited"]
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="attacking_timer" to="." method="_on_attacking_timeout"]
