@@ -92,7 +92,7 @@ size = Vector2(30, 44)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8j5o1"]
 size = Vector2(0, 20)
 
-[node name="walker" type="CharacterBody2D"]
+[node name="walker" type="Area2D"]
 script = ExtResource("1_p3m0m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -110,5 +110,5 @@ shape = SubResource("RectangleShape2D_qxjeb")
 position = Vector2(10, 0)
 shape = SubResource("RectangleShape2D_8j5o1")
 
-[connection signal="body_entered" from="attack_range" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="attack_range" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="attack_range" to="." method="_on_attack_range_area_entered"]
+[connection signal="area_exited" from="attack_range" to="." method="_on_attack_range_area_exited"]

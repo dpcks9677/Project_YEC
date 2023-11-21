@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bc0xmsxkey1q3"]
+[gd_scene load_steps=17 format=3 uid="uid://bc0xmsxkey1q3"]
 
 [ext_resource type="Texture2D" uid="uid://cbkjrj2pwp33a" path="res://sprites/Canine_White_Full.png" id="1_1l170"]
 [ext_resource type="Script" path="res://scripts/wolf.gd" id="1_w0xni"]
@@ -103,10 +103,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6y6as"]
 size = Vector2(54, 26)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmcvv"]
-size = Vector2(0, 26)
-
-[node name="wolf" type="CharacterBody2D"]
+[node name="wolf" type="Area2D"]
 script = ExtResource("1_w0xni")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -120,9 +117,5 @@ frame_progress = 0.620753
 position = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_6y6as")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-20, 3)
-shape = SubResource("RectangleShape2D_wmcvv")
-
-[connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
-[connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
+[connection signal="area_entered" from="attack_range" to="." method="_on_attack_range_area_entered"]
+[connection signal="area_exited" from="attack_range" to="." method="_on_attack_range_area_exited"]
