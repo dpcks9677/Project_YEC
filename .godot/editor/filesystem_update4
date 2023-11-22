@@ -1,6 +1,5 @@
 res://units/enemy/wolf.tscn
-res://units/ally/walker.tscn
-res://scenes/stage/stage_1.tscn
-res://scenes/hud.tscn
-res://scripts/walker.gd
 res://scripts/wolf.gd
+res://scenes/stage/stage_1.tscn
+res://units/ally/walker.tscn
+res://scripts/walker.gd

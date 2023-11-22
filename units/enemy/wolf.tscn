@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bc0xmsxkey1q3"]
+[gd_scene load_steps=22 format=3 uid="uid://bc0xmsxkey1q3"]
 
 [ext_resource type="Texture2D" uid="uid://cbkjrj2pwp33a" path="res://sprites/Canine_White_Full.png" id="1_1l170"]
 [ext_resource type="Script" path="res://scripts/wolf.gd" id="1_w0xni"]
@@ -27,6 +27,22 @@ region = Rect2(96, 32, 48, 32)
 atlas = ExtResource("1_1l170")
 region = Rect2(144, 32, 48, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq52c"]
+atlas = ExtResource("1_1l170")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onl2p"]
+atlas = ExtResource("1_1l170")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqwi7"]
+atlas = ExtResource("1_1l170")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc1sn"]
+atlas = ExtResource("1_1l170")
+region = Rect2(144, 0, 48, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_v1nv1"]
 atlas = ExtResource("1_1l170")
 region = Rect2(0, 64, 48, 32)
@@ -54,26 +70,43 @@ region = Rect2(240, 64, 48, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_dnmkh"]
 animations = [{
 "frames": [{
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xil5v")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3sj4f")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_cahfv")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ag8k5")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_24a4w")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_f3k2k")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq52c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onl2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqwi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yc1sn")
+}],
+"loop": true,
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -106,13 +139,12 @@ size = Vector2(54, 26)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmcvv"]
 size = Vector2(0, 26)
 
-[node name="wolf" type="CharacterBody2D"]
+[node name="wolf" type="Area2D"]
 script = ExtResource("1_w0xni")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dnmkh")
 animation = &"attack"
-frame_progress = 0.620753
 
 [node name="attack_range" type="Area2D" parent="."]
 
@@ -124,5 +156,11 @@ shape = SubResource("RectangleShape2D_6y6as")
 position = Vector2(-20, 3)
 shape = SubResource("RectangleShape2D_wmcvv")
 
-[connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
-[connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
+[node name="attack_timer" type="Timer" parent="."]
+
+[node name="cooldown_timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="attack_range" to="." method="_on_attack_range_area_entered"]
+[connection signal="area_exited" from="attack_range" to="." method="_on_attack_range_area_exited"]
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="cooldown_timer" to="." method="_on_attacking_timeout"]

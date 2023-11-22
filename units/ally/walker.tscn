@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://yilgns5e82pf"]
+[gd_scene load_steps=18 format=3 uid="uid://yilgns5e82pf"]
 
 [ext_resource type="Texture2D" uid="uid://c5afmlu1gxvyg" path="res://sprites/walker.png" id="1_mahyk"]
 [ext_resource type="Script" path="res://scripts/walker.gd" id="1_p3m0m"]
@@ -18,6 +18,14 @@ region = Rect2(128, 128, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gajb"]
 atlas = ExtResource("1_mahyk")
 region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w0w6"]
+atlas = ExtResource("1_mahyk")
+region = Rect2(0, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bgo4"]
+atlas = ExtResource("1_mahyk")
+region = Rect2(128, 384, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eptga"]
 atlas = ExtResource("1_mahyk")
@@ -58,8 +66,19 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6gajb")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w0w6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bgo4")
+}],
+"loop": true,
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -92,13 +111,13 @@ size = Vector2(30, 44)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8j5o1"]
 size = Vector2(0, 20)
 
-[node name="walker" type="CharacterBody2D"]
+[node name="walker" type="Area2D"]
 script = ExtResource("1_p3m0m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6auqq")
-animation = &"walk"
-frame_progress = 0.389697
+animation = &"idle"
+frame_progress = 0.683093
 
 [node name="attack_range" type="Area2D" parent="."]
 
@@ -110,5 +129,11 @@ shape = SubResource("RectangleShape2D_qxjeb")
 position = Vector2(10, 0)
 shape = SubResource("RectangleShape2D_8j5o1")
 
-[connection signal="body_entered" from="attack_range" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="attack_range" to="." method="_on_area_2d_body_exited"]
+[node name="attack_timer" type="Timer" parent="."]
+
+[node name="cooldown_timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="attack_range" to="." method="_on_attack_range_area_entered"]
+[connection signal="area_exited" from="attack_range" to="." method="_on_attack_range_area_exited"]
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="cooldown_timer" to="." method="_on_cooldown_timer_timeout"]
