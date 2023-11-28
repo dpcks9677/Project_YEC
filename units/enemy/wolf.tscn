@@ -70,25 +70,25 @@ region = Rect2(240, 64, 48, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_dnmkh"]
 animations = [{
 "frames": [{
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xil5v")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3sj4f")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_cahfv")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ag8k5")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_24a4w")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_f3k2k")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -158,9 +158,9 @@ shape = SubResource("RectangleShape2D_wmcvv")
 
 [node name="attack_timer" type="Timer" parent="."]
 
-[node name="attacking_timer" type="Timer" parent="."]
+[node name="cooldown_timer" type="Timer" parent="."]
 
 [connection signal="area_entered" from="attack_range" to="." method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="attack_range" to="." method="_on_attack_range_area_exited"]
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
-[connection signal="timeout" from="attacking_timer" to="." method="_on_attacking_timeout"]
+[connection signal="timeout" from="cooldown_timer" to="." method="_on_attacking_timeout"]

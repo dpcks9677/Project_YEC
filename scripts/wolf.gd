@@ -2,7 +2,8 @@ extends Area2D
 
 const speed = 1
 var state = "move"
-@export var combat_state = "peace" #state flow peace -> cooldown -> attack -> end -> (feedback to cooldown) ...  -> peace
+@export var combat_state = "peace"
+@export var health = 1000
 var target = null
 
 func _physics_process(delta):
@@ -13,6 +14,9 @@ func _physics_process(delta):
 	elif state == "engage":
 		if target != null:
 			engage(target)
+	
+	if health <= 0:
+		queue_free()
 
 func move(delta):
 	#우측 자동이동 및 걷기 애니메이션 
@@ -22,36 +26,41 @@ func move(delta):
 	
 	
 func engage(target): #area_entered에서 target의 정보 받아온 후 target의 체력에 피해 줌 
-	if combat_state == "attack":
-		translate(Vector2(0,0))
-		$AnimatedSprite2D.play("attack")
-		target.health -= 100 #연산 
-		print(target.health)
-		combat_state = "attacking"
-	elif combat_state == "attacking":
-		$attacking_timer.start() 
-	elif combat_state == "cooldown": #여기 이상
+	if combat_state == "cooldown_start":
 		$AnimatedSprite2D.play("idle")
-	else:
+		$attack_timer.start(2)
 		combat_state = "cooldown"
-		$attack_timer.start()	
+	elif combat_state == "cooldown":
+		pass #timer waiting
+	elif combat_state == "attack_start":
+		$AnimatedSprite2D.play("attack")
+		if $AnimatedSprite2D.animation_finished:
+			target.health -= 100 #연산 
+			print(target.health)
+		combat_state = "attack"
+	elif combat_state == "attack":
+		$cooldown_timer.start()
+		await $AnimatedSprite2D.animation_finished
+		$AnimatedSprite2D.play("idle")
 
 func enemy():
 	pass
 
 func _on_attack_range_area_entered(area):
-	if area.has_method("ally"):
+	if area.has_method("ally"): #원하는 대로함 동작 안함 
+		if target == null:
+			target = area
 		state = "engage"
-		target = area
-
+		combat_state = "cooldown_start"
 
 func _on_attack_range_area_exited(area):
+	await $AnimatedSprite2D.animation_finished
 	state = "move"
 
 #공격 시 발동되는 타이머 
 func _on_attack_timer_timeout():
-	combat_state = "attack"
+	combat_state = "attack_start"
 
 #공격 후 애니메이션 처리를 위해 발동되는 타이머 
-func _on_attacking_timeout():
-	combat_state = "end"
+func _on_cooldown_timer_timeout():
+	combat_state = "cooldown_start"
