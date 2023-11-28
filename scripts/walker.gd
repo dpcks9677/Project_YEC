@@ -23,7 +23,6 @@ func move(delta):
 	translate(Vector2(speed,0))
 	$AnimatedSprite2D.play("walk")
 	
-	
 func engage(target):
 		if combat_state == "cooldown_start":
 			$AnimatedSprite2D.play("idle")
@@ -69,5 +68,3 @@ func _on_cooldown_timer_timeout():
 #queue에 target 정보 저장
 #*중간에 exit 될 때(넉백 or 죽음) queue에서 삭제
 #target == null 되면 queue에서 새로운 타깃 popup
-
-
