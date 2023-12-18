@@ -1,7 +1,7 @@
 extends Area2D
 
-const speed = 1
-var state = "move"
+@export var speed = 1
+@export var state = "move"
 @export var combat_state = "peace"
 @export var health = 1000
 var target = null

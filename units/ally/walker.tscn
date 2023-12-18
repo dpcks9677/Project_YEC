@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://yilgns5e82pf"]
 
-[ext_resource type="Texture2D" uid="uid://c5afmlu1gxvyg" path="res://sprites/walker.png" id="1_mahyk"]
+[ext_resource type="Texture2D" path="res://sprites/walker.png" id="1_mahyk"]
 [ext_resource type="Script" path="res://scripts/walker.gd" id="1_p3m0m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_er4g2"]

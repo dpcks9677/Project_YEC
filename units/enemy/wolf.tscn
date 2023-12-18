@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://bc0xmsxkey1q3"]
 
-[ext_resource type="Texture2D" uid="uid://cbkjrj2pwp33a" path="res://sprites/Canine_White_Full.png" id="1_1l170"]
+[ext_resource type="Texture2D" path="res://sprites/Canine_White_Full.png" id="1_1l170"]
 [ext_resource type="Script" path="res://scripts/wolf.gd" id="1_w0xni"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xil5v"]
