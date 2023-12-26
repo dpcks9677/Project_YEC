@@ -3,7 +3,7 @@ extends Area2D
 @export var speed = 1
 @export var state = "move"
 @export var combat_state = "peace"
-@export var health = 1000
+@export var health = 500
 var target = null
 
 func _physics_process(delta):
@@ -49,7 +49,7 @@ func enemy():
 func _on_attack_range_area_entered(area):
 	if area.has_method("ally"): #원하는 대로함 동작 안함 
 		if target == null:
-			target = area
+			target = get_parent().area
 		state = "engage"
 		combat_state = "cooldown_start"
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://bc0xmsxkey1q3"]
 
-[ext_resource type="Texture2D" path="res://sprites/Canine_White_Full.png" id="1_1l170"]
+[ext_resource type="Texture2D" uid="uid://dio1s4xwrxww8" path="res://sprites/enemy/wolf.png" id="1_1l170"]
 [ext_resource type="Script" path="res://scripts/wolf.gd" id="1_w0xni"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xil5v"]
@@ -145,6 +145,8 @@ script = ExtResource("1_w0xni")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dnmkh")
 animation = &"attack"
+frame = 5
+frame_progress = 1.0
 
 [node name="attack_range" type="Area2D" parent="."]
 

@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://ctwckxleeqllx" path="res://parallax/desert/background2.png" id="2_bumog"]
 [ext_resource type="Texture2D" uid="uid://cf746j746i4t4" path="res://parallax/desert/background3.png" id="3_ygsuu"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="4_b0td4"]
-[ext_resource type="PackedScene" uid="uid://bc0xmsxkey1q3" path="res://units/enemy/wolf.tscn" id="5_a4ljs"]
 [ext_resource type="PackedScene" uid="uid://chxi0l4hfi6e4" path="res://scenes/ally_base.tscn" id="6_ghqxf"]
-[ext_resource type="PackedScene" path="res://units/dummy.tscn" id="7_bwwob"]
+[ext_resource type="PackedScene" uid="uid://bc0xmsxkey1q3" path="res://units/enemy/wolf.tscn" id="7_bwwob"]
+[ext_resource type="PackedScene" uid="uid://oms4xo8wpeo7" path="res://units/ally/knight.tscn" id="7_fsbr2"]
 
 [node name="stage1" type="Node2D"]
 
@@ -38,11 +38,11 @@ centered = false
 position = Vector2(-1, 361)
 script = ExtResource("4_b0td4")
 
-[node name="wolf" parent="." instance=ExtResource("5_a4ljs")]
+[node name="wolf" parent="." instance=ExtResource("7_bwwob")]
 position = Vector2(393, 369)
 
 [node name="AllyBase" parent="." instance=ExtResource("6_ghqxf")]
 position = Vector2(-177, 358)
 
-[node name="dummy" parent="." instance=ExtResource("7_bwwob")]
-position = Vector2(87, 370)
+[node name="knight" parent="." instance=ExtResource("7_fsbr2")]
+position = Vector2(28, 356)

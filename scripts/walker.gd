@@ -45,7 +45,7 @@ func engage(target):
 func ally():
 	pass
 
-func _on_attack_range_area_entered(area): # target이 공격범위에 있는데도 무시하는 현상 발생 -> 계속해서 공격체크 필요
+func _on_attack_range_area_entered(area): # 여러 유닛이 공격범위에 있는데도 무시하는 현상 발생 -> 계속해서 공격체크 필요 -> queue로 구현하기 
 	if area.has_method("enemy"):
 		if target == null:
 			target = area
