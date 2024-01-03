@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="statusResource" load_steps=2 format=3 uid="uid://fxiqb5xyif71"]
+
+[ext_resource type="Script" path="res://scripts/statusResource.gd" id="1_wceq3"]
+
+[resource]
+script = ExtResource("1_wceq3")
+unit_tag = "ally"
+health = 1000
+speed = 1.0
+attack_damage = 100
+attack_type = false

@@ -1,7 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://bc0xmsxkey1q3"]
+[gd_scene load_steps=24 format=3 uid="uid://dfqtob326lbqu"]
 
 [ext_resource type="Texture2D" uid="uid://dio1s4xwrxww8" path="res://sprites/enemy/wolf.png" id="1_1l170"]
-[ext_resource type="Script" path="res://scripts/wolf.gd" id="1_w0xni"]
+[ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://units/components/engage_component.tscn" id="2_1ev0n"]
+[ext_resource type="PackedScene" uid="uid://cmsj0fjsp6eoh" path="res://units/components/attack_range_component.tscn" id="3_ckhxp"]
+[ext_resource type="Resource" uid="uid://dag2a3lvnif3i" path="res://scripts/resources/wolf.tres" id="3_utmsr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xil5v"]
 atlas = ExtResource("1_1l170")
@@ -67,7 +69,7 @@ region = Rect2(192, 64, 48, 32)
 atlas = ExtResource("1_1l170")
 region = Rect2(240, 64, 48, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_dnmkh"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlj8v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -133,36 +135,33 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6y6as"]
-size = Vector2(54, 26)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otpsa"]
+size = Vector2(95, 53)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmcvv"]
-size = Vector2(0, 26)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iy5f1"]
+size = Vector2(20, 54)
 
-[node name="wolf" type="Area2D"]
-script = ExtResource("1_w0xni")
+[node name="wolf" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_dnmkh")
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_qlj8v")
 animation = &"attack"
-frame = 5
-frame_progress = 1.0
 
-[node name="attack_range" type="Area2D" parent="."]
+[node name="engageComponent" parent="." instance=ExtResource("2_1ev0n")]
+_status = ExtResource("3_utmsr")
+unit_tag = "enemy"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range"]
-position = Vector2(3, 3)
-shape = SubResource("RectangleShape2D_6y6as")
+[node name="hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-20, 3)
-shape = SubResource("RectangleShape2D_wmcvv")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(3, 10)
+shape = SubResource("RectangleShape2D_otpsa")
 
-[node name="attack_timer" type="Timer" parent="."]
+[node name="attackRangeComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("3_ckhxp")]
+engage_Component = NodePath("../engageComponent")
 
-[node name="cooldown_timer" type="Timer" parent="."]
-
-[connection signal="area_entered" from="attack_range" to="." method="_on_attack_range_area_entered"]
-[connection signal="area_exited" from="attack_range" to="." method="_on_attack_range_area_exited"]
-[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
-[connection signal="timeout" from="cooldown_timer" to="." method="_on_attacking_timeout"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
+position = Vector2(-35, 10)
+shape = SubResource("RectangleShape2D_iy5f1")
+debug_color = Color(0.866667, 0.352941, 0.0588235, 0.419608)

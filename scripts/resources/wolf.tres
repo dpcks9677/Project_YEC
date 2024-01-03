@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="statusResource" load_steps=2 format=3 uid="uid://dag2a3lvnif3i"]
+
+[ext_resource type="Script" path="res://scripts/statusResource.gd" id="1_brce6"]
+
+[resource]
+script = ExtResource("1_brce6")
+unit_tag = "enemy"
+health = 500
+speed = 1.5
+attack_damage = 50
+attack_type = false
