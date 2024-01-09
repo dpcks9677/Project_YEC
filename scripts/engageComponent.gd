@@ -9,6 +9,7 @@ class_name engageComponent
 @export var speed : float
 @export var attack_damage : int
 @export var attack_type: bool
+@export var ads: float
 
 #combat state
 @export var state = "move"
@@ -23,6 +24,9 @@ func _ready():
 	speed = _status.speed
 	attack_damage = _status.attack_damage
 	attack_type = _status.attack_type
+	ads = _status.ads
+	$cooldown_timer.wait_time = ads * 0.5
+	
 	
 func _process(_delta):
 	stateSetter()
@@ -54,21 +58,21 @@ func move():
 	
 func engage(target):
 	if combat_state == "cooldown_start":
-		get_parent().get_node("AnimatedSprite2D").play("idle")
-		$attack_timer.start(1) #공격 전 대기시간 
+		get_parent().get_node("AnimatedSprite2D").play("idle", ads*0.5) #애니메이션 재생 시간 = ads * 1/2
+		$attack_timer.start(ads*0.5) #공격 전 대기시간 
 		combat_state = "cooldown"
 	elif combat_state == "cooldown":
 		pass #timer waiting
 	elif combat_state == "attack":
-		get_parent().get_node("AnimatedSprite2D").play("attack") 
+		get_parent().get_node("AnimatedSprite2D").play("attack", ads*0.5) 
 		if get_parent().get_node("AnimatedSprite2D").animation_finished:
 			target.get_parent().get_node("engageComponent").health -= attack_damage #연산 
 			print(target.get_parent().get_node("engageComponent").health)
 		combat_state = "after_attack"
 	elif combat_state == "after_attack":
-		$cooldown_timer.start()
+		$cooldown_timer.start(ads*0.5)
 		await get_parent().get_node("AnimatedSprite2D").animation_finished
-		get_parent().get_node("AnimatedSprite2D").play("idle")
+		get_parent().get_node("AnimatedSprite2D").play("idle", ads*0.5)
 
 #attackRangeComponent에서 시그널을 받아서 동작
 #queue 구현해야 함. target[]에서 enemy 감지시 target에 들어감. target이 빈 리스트가 아니면 engage 

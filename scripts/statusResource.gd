@@ -11,6 +11,9 @@ class_name statusResource
 #SPEED
 @export var speed : float
 
-#ATTACK_INFO
+#DAMAGE_INFO
 @export var attack_damage : int
 @export var attack_type : bool # 0 = physics / 1 = magic
+
+#ATTACK_SPEED
+@export var ads : float
