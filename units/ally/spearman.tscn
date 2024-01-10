@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://fbdbf7roi2eh"]
+[gd_scene load_steps=24 format=3 uid="uid://fbdbf7roi2eh"]
 
 [ext_resource type="Texture2D" uid="uid://bj73sh24qrx53" path="res://sprites/ally/spearman.png" id="1_2hx22"]
 [ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://units/components/engage_component.tscn" id="2_fqbp8"]
 [ext_resource type="PackedScene" uid="uid://cmsj0fjsp6eoh" path="res://units/components/attack_range_component.tscn" id="2_ohoib"]
 [ext_resource type="Resource" uid="uid://fxiqb5xyif71" path="res://scripts/resources/spearman.tres" id="3_si0jx"]
+[ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://units/components/healthbar_component.tscn" id="5_l1yw4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7hdsa"]
 atlas = ExtResource("1_2hx22")
@@ -91,7 +92,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -123,7 +124,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eqf53")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk",
 "speed": 5.0
 }]
@@ -139,6 +140,8 @@ size = Vector2(30, 103.5)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c6kc0")
 animation = &"attack"
+frame = 6
+frame_progress = 1.0
 flip_h = true
 
 [node name="engageComponent" parent="." instance=ExtResource("2_fqbp8")]
@@ -157,3 +160,10 @@ engage_Component = NodePath("../engageComponent")
 position = Vector2(36, 1)
 shape = SubResource("RectangleShape2D_gvtpl")
 debug_color = Color(0.862745, 0.360784, 0, 0.419608)
+
+[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("5_l1yw4")]
+offset_left = -46.0
+offset_top = -62.0
+offset_right = -46.0
+offset_bottom = -62.0
+engage_Component = NodePath("../engageComponent")

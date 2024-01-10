@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://oms4xo8wpeo7"]
+[gd_scene load_steps=25 format=3 uid="uid://oms4xo8wpeo7"]
 
 [ext_resource type="Texture2D" uid="uid://desh5w0ghu1ws" path="res://sprites/ally/knight.png" id="1_2vx0n"]
 [ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://units/components/engage_component.tscn" id="2_67gpm"]
 [ext_resource type="PackedScene" uid="uid://cmsj0fjsp6eoh" path="res://units/components/attack_range_component.tscn" id="3_0hk0e"]
 [ext_resource type="Resource" uid="uid://dmej1s0qks1mo" path="res://scripts/resources/knight.tres" id="3_1txna"]
+[ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://units/components/healthbar_component.tscn" id="5_3ich1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cctns"]
 atlas = ExtResource("1_2vx0n")
@@ -136,10 +137,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsekv"]
-size = Vector2(93, 97.5)
+size = Vector2(93, 99.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fltbt"]
-size = Vector2(26, 97)
+size = Vector2(26, 99.5)
 
 [node name="knight" type="Node2D"]
 
@@ -156,13 +157,20 @@ _status = ExtResource("3_1txna")
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(3.5, 4.75)
+position = Vector2(3.5, 3.75)
 shape = SubResource("RectangleShape2D_xsekv")
 
 [node name="attackRangeComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("3_0hk0e")]
 engage_Component = NodePath("../engageComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
-position = Vector2(37, 5)
+position = Vector2(37, 3.75)
 shape = SubResource("RectangleShape2D_fltbt")
 debug_color = Color(0.811765, 0.411765, 0, 0.419608)
+
+[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("5_3ich1")]
+offset_left = -33.0
+offset_top = -58.0
+offset_right = -33.0
+offset_bottom = -58.0
+engage_Component = NodePath("../engageComponent")
