@@ -14,6 +14,8 @@ class_name engageComponent
 #combat state
 @export var state = "move"
 @export var combat_state = "peace"
+var isAttackTimerStart = false
+var isAttack = false
 var target = null
 var target_queue = Queue.new()
 
@@ -38,7 +40,7 @@ func stateSetter(): #state: move, engage
 		if target_queue._head != null:
 			target = target_queue.dequeue()
 			state = "engage"
-			combat_state = "cooldown_start"
+			combat_state = "cooldown"
 	elif state == "engage":
 		engage(target)
 		if target == null:
@@ -56,22 +58,25 @@ func move():
 	get_parent().get_node("AnimatedSprite2D").play("walk")
 	
 func engage(target):
-	if combat_state == "cooldown_start":
+	if combat_state == "cooldown":
 		get_parent().get_node("AnimatedSprite2D").play("idle")
-		$attack_timer.start(ads * 0.4)
-		combat_state = "cooldown"
-	elif combat_state == "cooldown":
-		pass #timer waiting
+		if isAttackTimerStart == false:
+			$attack_timer.start(ads * 0.4)
+			isAttackTimerStart = true
+		await $attack_timer.timeout
+		combat_state = "attack"
 	elif combat_state == "attack":
 		get_parent().get_node("AnimatedSprite2D").play("attack") 
-		if get_parent().get_node("AnimatedSprite2D").animation_finished:
-			target.get_parent().get_node("engageComponent").health -= attack_damage #연산 
-			print(target.get_parent().get_node("engageComponent").health)
-		combat_state = "after_attack"
-	elif combat_state == "after_attack":
-		$cooldown_timer.start(ads*0.6)
 		await get_parent().get_node("AnimatedSprite2D").animation_finished
-		get_parent().get_node("AnimatedSprite2D").play("idle", ads*0.6)
+		if isAttack == false:
+			if is_instance_valid(target):
+				target.get_parent().get_node("engageComponent").health -= attack_damage #연산 
+				print(target.get_parent().get_node("engageComponent").health)
+			isAttack = true
+		await get_parent().get_node("AnimatedSprite2D").animation_finished
+		combat_state = "cooldown"
+		isAttackTimerStart = false
+		isAttack = false
 
 #attackRangeComponent에서 시그널을 받아서 동작
 #queue 구현해야 함. target[]에서 enemy 감지시 target에 들어감. target이 빈 리스트가 아니면 engage 
@@ -88,12 +93,6 @@ func attack_range_entered(area):
 #attackRangeComponent에서 시그널을 받아서 동작
 func attack_range_exited(area):
 	await get_parent().get_node("AnimatedSprite2D").animation_finished
-
-func _on_attack_timer_timeout():
-	combat_state = "attack"
-	
-func _on_cooldown_timer_timeout():
-	combat_state = "cooldown_start"
 
 func checkHealth():
 	if health <= 0:

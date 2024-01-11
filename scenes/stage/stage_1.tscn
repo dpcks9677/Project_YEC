@@ -42,8 +42,20 @@ script = ExtResource("4_b0td4")
 [node name="AllyBase" parent="." instance=ExtResource("6_ghqxf")]
 position = Vector2(-177, 358)
 
-[node name="wolf" parent="." instance=ExtResource("7_bwwob")]
+[node name="wolf4" parent="." instance=ExtResource("7_bwwob")]
+position = Vector2(844, 396)
+
+[node name="wolf3" parent="." instance=ExtResource("7_bwwob")]
 position = Vector2(680, 392)
+
+[node name="wolf2" parent="." instance=ExtResource("7_bwwob")]
+position = Vector2(767, 384)
+
+[node name="wolf" parent="." instance=ExtResource("7_bwwob")]
+position = Vector2(640, 384)
 
 [node name="spearman" parent="." instance=ExtResource("8_oeoe5")]
 position = Vector2(105, 368)
+
+[node name="spearman2" parent="." instance=ExtResource("8_oeoe5")]
+position = Vector2(63, 367)
