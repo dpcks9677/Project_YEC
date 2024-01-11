@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_kgvtx")
-unit_tag = "Ally"
+unit_tag = "ally"
 health = 2000
-speed = 0.0
+speed = 0.5
 attack_damage = 50
 attack_type = false
 ads = 2.0

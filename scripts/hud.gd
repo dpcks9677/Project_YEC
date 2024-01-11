@@ -1,22 +1,25 @@
 extends CanvasLayer
 
-var character = preload("res://units/ally/walker.tscn")
-# Called when the node enters the scene tree for the first time.
+
+@export var slot_1 : PackedScene
+@export var slot_2 : PackedScene
+@export var slot_3 : PackedScene
+@export var slot_4 : PackedScene
+@export var slot_5 : PackedScene
+@export var slot_6 : PackedScene
+@export var slot_7 : PackedScene
+@export var slot_8 : PackedScene
+
 func _ready():
-	pass # Replace with function body.
+	slot_1 = preload("res://units/ally/spearman.tscn")
+	slot_2 = preload("res://units/ally/knight.tscn")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-
-func _on_button_pressed():
-	spawn()
-
-func spawn():
+func spawn(unit):
 	#인스턴스화
-	var target = character.instantiate()
+	var target = unit.instantiate()
 	
 	#좌표 설정
 	target.position.x = 0
@@ -25,3 +28,9 @@ func spawn():
 	#stage1 씬에 노드 추가 
 	get_tree().get_root().get_node("stage1").add_child(target)
 	print("spawned")
+
+func _on_slot_1_button_up():
+	spawn(slot_1)
+
+func _on_slot_2_button_up():
+	spawn(slot_2)

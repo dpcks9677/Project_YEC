@@ -1,20 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgqrwgbhcpkd3"]
+[gd_scene load_steps=3 format=3 uid="uid://cgqrwgbhcpkd3"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_kg7ub"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_6aga8"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_kg7ub")
 
-[node name="Button" type="Button" parent="."]
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = SubResource("AnimatedTexture_6aga8")
+
+[node name="slot_1" type="Button" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -55.0
-offset_top = -42.0
-offset_right = 55.0
-offset_bottom = -11.0
+offset_left = -213.0
+offset_top = -235.0
+offset_right = -134.0
+offset_bottom = -204.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "press me"
+
+[node name="slot_2" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -213.0
+offset_top = -201.0
+offset_right = -134.0
+offset_bottom = -170.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -22,4 +45,90 @@ size_flags_vertical = 0
 text = "press me
 "
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="slot_3" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -213.0
+offset_top = -168.0
+offset_right = -134.0
+offset_bottom = -137.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "press me
+"
+
+[node name="slot_4" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -213.0
+offset_top = -135.0
+offset_right = -134.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "press me
+"
+
+[node name="slot_5" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -213.0
+offset_top = -102.0
+offset_right = -134.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "press me
+"
+
+[node name="slot_6" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -213.0
+offset_top = -70.0
+offset_right = -134.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "press me
+"
+
+[node name="slot_7" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -213.0
+offset_top = -38.0
+offset_right = -134.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "press me
+"
+
+[connection signal="button_up" from="slot_1" to="." method="_on_slot_1_button_up"]
+[connection signal="button_up" from="slot_2" to="." method="_on_slot_2_button_up"]

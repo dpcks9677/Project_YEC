@@ -52,9 +52,9 @@ func stateSetter(): #state: move, engage
 #자동이동 및 걷기 애니메이션 
 func move():
 	if unit_tag == "ally":
-		get_parent().translate(Vector2(speed,0))
+		get_parent().translate(Vector2(1,0)*speed)
 	elif unit_tag == "enemy": 
-		get_parent().translate(Vector2(-speed, 0))
+		get_parent().translate(Vector2(-1, 0)*speed)
 	get_parent().get_node("AnimatedSprite2D").play("walk")
 	
 func engage(target):
