@@ -1,10 +1,10 @@
 [gd_scene load_steps=25 format=3 uid="uid://dfqtob326lbqu"]
 
 [ext_resource type="Texture2D" uid="uid://dio1s4xwrxww8" path="res://sprites/enemy/wolf.png" id="1_1l170"]
-[ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://units/components/engage_component.tscn" id="2_1ev0n"]
-[ext_resource type="PackedScene" uid="uid://cmsj0fjsp6eoh" path="res://units/components/attack_range_component.tscn" id="3_ckhxp"]
+[ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://system/components/engage_component.tscn" id="2_1ev0n"]
+[ext_resource type="PackedScene" uid="uid://cmsj0fjsp6eoh" path="res://system/components/attack_range_component.tscn" id="3_ckhxp"]
 [ext_resource type="Resource" uid="uid://dag2a3lvnif3i" path="res://scripts/resources/wolf.tres" id="3_utmsr"]
-[ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://units/components/healthbar_component.tscn" id="5_3yi0b"]
+[ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://system/components/healthbar_component.tscn" id="5_3yi0b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xil5v"]
 atlas = ExtResource("1_1l170")
