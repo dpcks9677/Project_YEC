@@ -10,3 +10,4 @@ speed = 0.5
 attack_damage = 50
 attack_type = false
 ads = 2.0
+mana = 20

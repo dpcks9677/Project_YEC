@@ -41,7 +41,7 @@ func _process(delta):
 #마나에 관한 기능들을 처리 
 func manaHandler():
 	if isManaCooldown == false:
-		if current_mana + regen_mana >= max_mana: #현재마나 + 재생 될 마나가 최대 마나보다 크다면 
+		if current_mana + regen_mana >= max_mana: #(현재마나 + 재생 될 마나)가 최대 마나보다 크다면 
 			current_mana = max_mana
 		else:
 			current_mana += regen_mana

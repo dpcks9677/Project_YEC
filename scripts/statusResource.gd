@@ -17,3 +17,6 @@ class_name statusResource
 
 #ATTACK_SPEED
 @export var ads : float
+
+#MANA
+@export var mana : int

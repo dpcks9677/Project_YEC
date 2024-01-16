@@ -10,6 +10,7 @@ class_name engageComponent
 @export var attack_damage : int
 @export var attack_type: bool
 @export var ads: float
+@export var mana : int
 
 #combat state
 @export var state = "move"
@@ -27,7 +28,7 @@ func _ready():
 	attack_damage = _status.attack_damage
 	attack_type = _status.attack_type
 	ads = _status.ads
-	
+	mana = _status.mana
 	
 func _process(_delta):
 	stateSetter()
