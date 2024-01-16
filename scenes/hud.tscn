@@ -1,15 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgqrwgbhcpkd3"]
+[gd_scene load_steps=4 format=3 uid="uid://cgqrwgbhcpkd3"]
 
-[ext_resource type="Script" path="res://scripts/hud.gd" id="1_kg7ub"]
+[ext_resource type="Script" path="res://scripts/unitSummoner.gd" id="2_72s3t"]
+[ext_resource type="Script" path="res://scripts/manaUI.gd" id="3_mg34p"]
+[ext_resource type="Script" path="res://scripts/populationUI.gd" id="3_snkth"]
 
 [node name="HUD" type="CanvasLayer"]
-script = ExtResource("1_kg7ub")
 
 [node name="unitSummoner" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_72s3t")
 
 [node name="slot_1" type="Button" parent="unitSummoner"]
 layout_mode = 1
@@ -141,6 +143,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("3_mg34p")
 
 [node name="manaLabel" type="Label" parent="manaUI"]
 layout_mode = 0
@@ -150,5 +153,20 @@ offset_right = 243.0
 offset_bottom = 25.0
 text = "this is mana"
 
-[connection signal="button_up" from="unitSummoner/slot_1" to="." method="_on_slot_1_button_up"]
-[connection signal="button_up" from="unitSummoner/slot_2" to="." method="_on_slot_2_button_up"]
+[node name="populationUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_snkth")
+
+[node name="populationLabel" type="Label" parent="populationUI"]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 3.0
+offset_right = 427.0
+offset_bottom = 26.0
+text = "this is pop"
+
+[connection signal="button_up" from="unitSummoner/slot_1" to="unitSummoner" method="_on_slot_1_button_up"]
+[connection signal="button_up" from="unitSummoner/slot_2" to="unitSummoner" method="_on_slot_2_button_up"]

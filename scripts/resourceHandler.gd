@@ -15,23 +15,24 @@ class_name resourceHandler
 #인구 수 
 @export var population_lv : int
 @export var population : int 
+@export var isPopulationFull : bool
 
 func _ready():
 	#고정 값 대신 stage 별 기본 정보들을 참조해서 불러올 수 있도록 설계하기 
 	
 	#마나
 	mana_lv = 1
-	max_mana = 25
-	regen_mana = 2
+	max_mana = 25 #최대 마나량 공식 만들기 
+	regen_mana = 2 #리젠 마나량 공식 만들기 
 	current_mana = 0
 	
 	#공격력 
 	atk_lv = 1
-	atk_multiplier = 1.0
+	atk_multiplier = 1.0 #공격력 공식 만들기 
 	
 	#인구 수 
 	population_lv = 1
-	population = 10
+	population = 0
 
 func _process(delta):
 	atkHandler()
@@ -59,6 +60,10 @@ func atkHandler():
 
 #인구수에 관한 기능들을 처리 
 func populationHandler():
-	pass
+	if population >= population_lv * 10:
+		isPopulationFull = true
+	else:
+		isPopulationFull = false
+		
 
 
