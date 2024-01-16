@@ -53,4 +53,4 @@ func _on_slot_2_button_up():
 
 #manaUI 관련 스크립트 
 func displayMana():
-	get_node("manaUI").get_node("manaLabel").text = str("your mana: ", rsc.current_mana)
+	get_node("manaUI").get_node("manaLabel").text = str("mana: ", rsc.current_mana, " / ", rsc.max_mana)
