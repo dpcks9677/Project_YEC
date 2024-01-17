@@ -38,8 +38,8 @@ func spawn(unit):
 			rsc.current_mana -= target.get_node("engageComponent")._status.mana
 			
 			#좌표 설정
-			target.position.x = 0
-			target.position.y = 360
+			target.position.x = -500
+			target.position.y = 150
 			
 			#stage1 씬에 노드 추가 
 			get_tree().get_root().get_node("stage1").add_child(target)

@@ -1,60 +1,102 @@
 [gd_scene load_steps=9 format=3 uid="uid://ocgj24hkyqfm"]
 
-[ext_resource type="Texture2D" uid="uid://b4jv7cou0r7ba" path="res://parallax/desert/background1.png" id="1_8546p"]
 [ext_resource type="PackedScene" uid="uid://cgqrwgbhcpkd3" path="res://scenes/hud.tscn" id="1_tghqr"]
 [ext_resource type="PackedScene" uid="uid://bipawj12cbpmb" path="res://system/handler/resourceHandler.tscn" id="2_67fy2"]
-[ext_resource type="Texture2D" uid="uid://ctwckxleeqllx" path="res://parallax/desert/background2.png" id="2_bumog"]
-[ext_resource type="Texture2D" uid="uid://cf746j746i4t4" path="res://parallax/desert/background3.png" id="3_ygsuu"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="4_b0td4"]
 [ext_resource type="PackedScene" uid="uid://chxi0l4hfi6e4" path="res://scenes/ally_base.tscn" id="6_ghqxf"]
 [ext_resource type="PackedScene" uid="uid://dfqtob326lbqu" path="res://units/enemy/wolf.tscn" id="7_bwwob"]
+[ext_resource type="Texture2D" uid="uid://oxk0lpk12pbx" path="res://background/country-platform-back.png" id="9_8rlfd"]
+[ext_resource type="Texture2D" uid="uid://b1cvrcik2j8no" path="res://background/country-platform-forest.png" id="10_xd1r7"]
+[ext_resource type="Texture2D" uid="uid://em3nyjlamx7s" path="res://background/country-platform-tiles-example.png" id="11_weh4p"]
 
 [node name="stage1" type="Node2D"]
 
 [node name="HUD" parent="." instance=ExtResource("1_tghqr")]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("4_b0td4")
+
 [node name="resourceHandler" parent="." instance=ExtResource("2_67fy2")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(640, 0)
+[node name="background" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1152, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("1_8546p")
-centered = false
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/background"]
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("9_8rlfd")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(640, 0)
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/background"]
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("9_8rlfd")
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-texture = ExtResource("2_bumog")
-centered = false
+[node name="forest" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_mirroring = Vector2(1152, 0)
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
-motion_mirroring = Vector2(640, 0)
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/forest"]
+position = Vector2(30, -41)
+scale = Vector2(2.075, 2.075)
+texture = ExtResource("10_xd1r7")
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
-texture = ExtResource("3_ygsuu")
-centered = false
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/forest"]
+position = Vector2(330, -41)
+scale = Vector2(2.075, 2.075)
+texture = ExtResource("10_xd1r7")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1, 361)
-zoom = Vector2(0.5, 0.5)
-script = ExtResource("4_b0td4")
+[node name="forest2" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(630, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/forest2"]
+position = Vector2(30, -41)
+scale = Vector2(2.075, 2.075)
+texture = ExtResource("10_xd1r7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/forest2"]
+position = Vector2(330, -41)
+scale = Vector2(2.075, 2.075)
+texture = ExtResource("10_xd1r7")
+
+[node name="road" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/road"]
+position = Vector2(0, 112)
+texture = ExtResource("11_weh4p")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/road"]
+position = Vector2(-384, 112)
+texture = ExtResource("11_weh4p")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/road"]
+position = Vector2(384, 112)
+texture = ExtResource("11_weh4p")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/road"]
+position = Vector2(-768, 112)
+texture = ExtResource("11_weh4p")
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/road"]
+position = Vector2(768, 112)
+texture = ExtResource("11_weh4p")
 
 [node name="AllyBase" parent="." instance=ExtResource("6_ghqxf")]
-position = Vector2(-177, 358)
+position = Vector2(-500, 150)
+script = null
 
 [node name="wolf4" parent="." instance=ExtResource("7_bwwob")]
-position = Vector2(844, 396)
+position = Vector2(766, 150)
 
 [node name="wolf3" parent="." instance=ExtResource("7_bwwob")]
-position = Vector2(680, 392)
+position = Vector2(602, 150)
 
 [node name="wolf2" parent="." instance=ExtResource("7_bwwob")]
-position = Vector2(767, 384)
+position = Vector2(689, 150)
 
 [node name="wolf" parent="." instance=ExtResource("7_bwwob")]
-position = Vector2(640, 384)
+position = Vector2(562, 150)

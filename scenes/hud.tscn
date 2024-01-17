@@ -20,15 +20,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -13.0
-offset_top = -35.0
-offset_right = 66.0
-offset_bottom = -4.0
+offset_left = -5.0
+offset_top = 520.0
+offset_right = 24.0
+offset_bottom = 551.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "press me"
+text = "1"
 
 [node name="slot_2" type="Button" parent="unitSummoner"]
 layout_mode = 1
@@ -37,15 +37,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -13.0
-offset_top = -1.0
-offset_right = 66.0
-offset_bottom = 30.0
+offset_left = 30.0
+offset_top = 520.0
+offset_right = 60.0
+offset_bottom = 551.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "press me
+text = "2
 "
 
 [node name="slot_3" type="Button" parent="unitSummoner"]
@@ -55,16 +55,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -13.0
-offset_top = 32.0
-offset_right = 66.0
-offset_bottom = 63.0
+offset_left = 66.0
+offset_top = 520.0
+offset_right = 95.0
+offset_bottom = 551.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "press me
-"
+text = "3"
 
 [node name="slot_4" type="Button" parent="unitSummoner"]
 layout_mode = 1
@@ -73,15 +72,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -13.0
-offset_top = 65.0
-offset_right = 66.0
-offset_bottom = 96.0
+offset_left = 101.0
+offset_top = 520.0
+offset_right = 131.0
+offset_bottom = 551.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "press me
+text = "4
 "
 
 [node name="slot_5" type="Button" parent="unitSummoner"]
@@ -91,16 +90,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -13.0
-offset_top = 98.0
-offset_right = 66.0
-offset_bottom = 129.0
+offset_left = 12.0
+offset_top = 555.0
+offset_right = 42.0
+offset_bottom = 586.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "press me
-"
+text = "5"
 
 [node name="slot_6" type="Button" parent="unitSummoner"]
 layout_mode = 1
@@ -109,16 +107,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -13.0
-offset_top = 130.0
-offset_right = 66.0
-offset_bottom = 161.0
+offset_left = 48.0
+offset_top = 555.0
+offset_right = 78.0
+offset_bottom = 586.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "press me
-"
+text = "6"
 
 [node name="slot_7" type="Button" parent="unitSummoner"]
 layout_mode = 1
@@ -127,16 +124,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -13.0
-offset_top = 162.0
-offset_right = 66.0
-offset_bottom = 193.0
+offset_left = 84.0
+offset_top = 555.0
+offset_right = 114.0
+offset_bottom = 586.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "press me
-"
+text = "7"
 
 [node name="manaUI" type="Control" parent="."]
 layout_mode = 3
@@ -147,10 +143,10 @@ script = ExtResource("3_mg34p")
 
 [node name="manaLabel" type="Label" parent="manaUI"]
 layout_mode = 0
-offset_left = 203.0
-offset_top = 2.0
-offset_right = 243.0
-offset_bottom = 25.0
+offset_left = 12.0
+offset_top = 7.0
+offset_right = 106.0
+offset_bottom = 30.0
 text = "this is mana"
 
 [node name="populationUI" type="Control" parent="."]
@@ -162,10 +158,10 @@ script = ExtResource("3_snkth")
 
 [node name="populationLabel" type="Label" parent="populationUI"]
 layout_mode = 0
-offset_left = 347.0
-offset_top = 3.0
-offset_right = 427.0
-offset_bottom = 26.0
+offset_left = 1047.0
+offset_top = 7.0
+offset_right = 1127.0
+offset_bottom = 30.0
 text = "this is pop"
 
 [connection signal="button_up" from="unitSummoner/slot_1" to="unitSummoner" method="_on_slot_1_button_up"]
