@@ -3,6 +3,9 @@ class_name engageComponent
 
 @export var _status: statusResource
 
+#이동속도 상수 설정 
+var MOVEMENT_VALUE = 0.0008 # 1/(20*delta) delta = 프레임 수라고 생각하면 됨 (60으로 상정함) 
+
 #stat
 @export var unit_tag : String
 @export var health : int
@@ -30,14 +33,24 @@ func _ready():
 	ads = _status.ads
 	mana = _status.mana
 	
-func _process(_delta):
-	stateSetter()
+	get_parent().rotates = false
+	get_parent().cubic_interp = false
+	get_parent().loop = false
+	
+	#시작 좌표 설정 / topLane, bottomLane에 배치하는 로직도 짜야 함 
+	if unit_tag == "ally":
+		get_parent().progress_ratio = 0.0
+	if unit_tag == "enemy":
+		get_parent().progress_ratio = 1.0
+		
+func _process(delta):
+	stateSetter(delta)
 	checkHealth()
 
 #캐릭터 상태 설정
-func stateSetter(): #state: move, engage
+func stateSetter(delta): #state: move, engage
 	if state == "move":
-		move()
+		move(delta)
 		if target_queue._head != null:
 			target = target_queue.dequeue()
 			state = "engage"
@@ -51,11 +64,11 @@ func stateSetter(): #state: move, engage
 				state = "move"
 				
 #자동이동 및 걷기 애니메이션 
-func move():
+func move(delta):
 	if unit_tag == "ally":
-		get_parent().translate(Vector2(1,0)*speed)
+		get_parent().progress_ratio += MOVEMENT_VALUE * speed
 	elif unit_tag == "enemy": 
-		get_parent().translate(Vector2(-1, 0)*speed)
+		get_parent().progress_ratio -= MOVEMENT_VALUE * speed
 	get_parent().get_node("AnimatedSprite2D").play("walk")
 	
 func engage(target):

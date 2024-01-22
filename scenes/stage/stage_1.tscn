@@ -1,13 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=7 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="PackedScene" uid="uid://cgqrwgbhcpkd3" path="res://scenes/hud.tscn" id="1_tghqr"]
 [ext_resource type="PackedScene" uid="uid://bipawj12cbpmb" path="res://system/handler/resourceHandler.tscn" id="2_67fy2"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="4_b0td4"]
-[ext_resource type="PackedScene" uid="uid://chxi0l4hfi6e4" path="res://scenes/ally_base.tscn" id="6_ghqxf"]
 [ext_resource type="PackedScene" uid="uid://dfqtob326lbqu" path="res://units/enemy/wolf.tscn" id="7_bwwob"]
-[ext_resource type="Texture2D" uid="uid://oxk0lpk12pbx" path="res://background/country-platform-back.png" id="9_8rlfd"]
-[ext_resource type="Texture2D" uid="uid://b1cvrcik2j8no" path="res://background/country-platform-forest.png" id="10_xd1r7"]
-[ext_resource type="Texture2D" uid="uid://em3nyjlamx7s" path="res://background/country-platform-tiles-example.png" id="11_weh4p"]
+[ext_resource type="Texture2D" uid="uid://cmfkhk3g6ji4l" path="res://background/field.png" id="9_nekbk"]
+
+[sub_resource type="Curve2D" id="Curve2D_hha3b"]
+_data = {
+"points": PackedVector2Array(-824.262, -5.29732, 824.262, 5.29732, -1444, 201, -270.365, 5.21191, 270.365, -5.21191, -496, 146, -111.244, -1.05946, 111.244, 1.05946, 18, 170, -208.714, -15.8919, 208.714, 15.8919, 529, 162, -150.444, -19.0703, 150.444, 19.0703, 939, 216, 0, 0, 0, 0, 1468, 187, 0, 0, 0, 0, 1515, 187)
+}
+point_count = 7
 
 [node name="stage1" type="Node2D"]
 
@@ -16,87 +19,19 @@
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_b0td4")
 
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("9_nekbk")
+
+[node name="laneSetter" type="Node2D" parent="."]
+
+[node name="bottomLane" type="Path2D" parent="laneSetter"]
+position = Vector2(1, 0)
+curve = SubResource("Curve2D_hha3b")
+
+[node name="wolf" parent="laneSetter/bottomLane" instance=ExtResource("7_bwwob")]
+position = Vector2(1515, 187)
+progress = 2968.76
+loop = false
+
 [node name="resourceHandler" parent="." instance=ExtResource("2_67fy2")]
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="background" type="ParallaxLayer" parent="ParallaxBackground"]
-texture_filter = 1
-motion_scale = Vector2(0, 0)
-motion_mirroring = Vector2(1152, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/background"]
-scale = Vector2(4.5, 4.5)
-texture = ExtResource("9_8rlfd")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/background"]
-scale = Vector2(4.5, 4.5)
-texture = ExtResource("9_8rlfd")
-
-[node name="forest" type="ParallaxLayer" parent="ParallaxBackground"]
-texture_filter = 1
-motion_mirroring = Vector2(1152, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/forest"]
-position = Vector2(30, -41)
-scale = Vector2(2.075, 2.075)
-texture = ExtResource("10_xd1r7")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/forest"]
-position = Vector2(330, -41)
-scale = Vector2(2.075, 2.075)
-texture = ExtResource("10_xd1r7")
-
-[node name="forest2" type="ParallaxLayer" parent="ParallaxBackground"]
-texture_filter = 1
-position = Vector2(630, 0)
-motion_mirroring = Vector2(1152, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/forest2"]
-position = Vector2(30, -41)
-scale = Vector2(2.075, 2.075)
-texture = ExtResource("10_xd1r7")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/forest2"]
-position = Vector2(330, -41)
-scale = Vector2(2.075, 2.075)
-texture = ExtResource("10_xd1r7")
-
-[node name="road" type="ParallaxLayer" parent="ParallaxBackground"]
-texture_filter = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/road"]
-position = Vector2(0, 112)
-texture = ExtResource("11_weh4p")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/road"]
-position = Vector2(-384, 112)
-texture = ExtResource("11_weh4p")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/road"]
-position = Vector2(384, 112)
-texture = ExtResource("11_weh4p")
-
-[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/road"]
-position = Vector2(-768, 112)
-texture = ExtResource("11_weh4p")
-
-[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/road"]
-position = Vector2(768, 112)
-texture = ExtResource("11_weh4p")
-
-[node name="AllyBase" parent="." instance=ExtResource("6_ghqxf")]
-position = Vector2(-500, 150)
-script = null
-
-[node name="wolf4" parent="." instance=ExtResource("7_bwwob")]
-position = Vector2(766, 150)
-
-[node name="wolf3" parent="." instance=ExtResource("7_bwwob")]
-position = Vector2(602, 150)
-
-[node name="wolf2" parent="." instance=ExtResource("7_bwwob")]
-position = Vector2(689, 150)
-
-[node name="wolf" parent="." instance=ExtResource("7_bwwob")]
-position = Vector2(562, 150)

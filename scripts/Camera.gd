@@ -1,6 +1,6 @@
 extends Camera2D
 
-const MOVE_SPEED = 250
+const MOVE_SPEED = 500
 
 func _process(delta):
 	if Input.is_action_pressed("ui_left"):

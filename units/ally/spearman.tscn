@@ -135,7 +135,8 @@ size = Vector2(100, 103)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvtpl"]
 size = Vector2(30, 103.5)
 
-[node name="spearman" type="Node2D"]
+[node name="spearman" type="PathFollow2D"]
+position = Vector2(0, -26)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c6kc0")
@@ -167,3 +168,4 @@ offset_top = -62.0
 offset_right = -46.0
 offset_bottom = -62.0
 engage_Component = NodePath("../engageComponent")
+metadata/_edit_use_anchors_ = true

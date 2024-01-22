@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://oms4xo8wpeo7"]
+[gd_scene load_steps=22 format=3 uid="uid://oms4xo8wpeo7"]
 
 [ext_resource type="Texture2D" uid="uid://desh5w0ghu1ws" path="res://sprites/ally/knight.png" id="1_2vx0n"]
 [ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://system/components/engage_component.tscn" id="2_67gpm"]
@@ -22,21 +22,9 @@ region = Rect2(256, 256, 128, 128)
 atlas = ExtResource("1_2vx0n")
 region = Rect2(384, 256, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_to8pw"]
-atlas = ExtResource("1_2vx0n")
-region = Rect2(512, 256, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gwa38"]
-atlas = ExtResource("1_2vx0n")
-region = Rect2(640, 256, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_3l2me"]
 atlas = ExtResource("1_2vx0n")
 region = Rect2(768, 256, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1m5ca"]
-atlas = ExtResource("1_2vx0n")
-region = Rect2(896, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q44el"]
 atlas = ExtResource("1_2vx0n")
@@ -86,16 +74,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ab6ab")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_to8pw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gwa38")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_3l2me")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1m5ca")
 }],
 "loop": false,
 "name": &"attack",
@@ -142,25 +121,29 @@ size = Vector2(93, 99.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fltbt"]
 size = Vector2(26, 99.5)
 
-[node name="knight" type="Node2D"]
+[node name="knight" type="PathFollow2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -23)
 sprite_frames = SubResource("SpriteFrames_008ov")
 animation = &"attack"
-frame = 7
+frame = 4
 frame_progress = 1.0
 flip_h = true
 
 [node name="engageComponent" parent="." instance=ExtResource("2_67gpm")]
+position = Vector2(0, -23)
 _status = ExtResource("3_1txna")
 
 [node name="hitbox" type="Area2D" parent="."]
+position = Vector2(0, -23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(3.5, 3.75)
 shape = SubResource("RectangleShape2D_xsekv")
 
 [node name="attackRangeComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("3_0hk0e")]
+position = Vector2(0, -23)
 engage_Component = NodePath("../engageComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
@@ -170,7 +153,7 @@ debug_color = Color(0.811765, 0.411765, 0, 0.419608)
 
 [node name="HealthBarComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("5_3ich1")]
 offset_left = -33.0
-offset_top = -58.0
+offset_top = -81.0
 offset_right = -33.0
-offset_bottom = -58.0
+offset_bottom = -81.0
 engage_Component = NodePath("../engageComponent")

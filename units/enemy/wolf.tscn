@@ -142,7 +142,8 @@ size = Vector2(95, 53)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy5f1"]
 size = Vector2(20, 54)
 
-[node name="wolf" type="Node2D"]
+[node name="wolf" type="PathFollow2D"]
+position = Vector2(0, -19)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -173,3 +174,4 @@ offset_top = -28.0
 offset_right = -33.0
 offset_bottom = -28.0
 engage_Component = NodePath("../engageComponent")
+metadata/_edit_use_anchors_ = true
