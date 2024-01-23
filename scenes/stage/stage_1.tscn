@@ -1,22 +1,40 @@
-[gd_scene load_steps=8 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=12 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="PackedScene" uid="uid://cgqrwgbhcpkd3" path="res://scenes/hud.tscn" id="1_tghqr"]
 [ext_resource type="PackedScene" uid="uid://bipawj12cbpmb" path="res://system/handler/resourceHandler.tscn" id="2_67fy2"]
+[ext_resource type="Texture2D" uid="uid://cb2nuvforb0rh" path="res://background/stage1.png" id="3_22536"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="4_b0td4"]
 [ext_resource type="PackedScene" uid="uid://dfqtob326lbqu" path="res://units/enemy/wolf.tscn" id="7_bwwob"]
-[ext_resource type="Texture2D" uid="uid://celktl1y5lxf8" path="res://background/field.png" id="9_nekbk"]
 
-[sub_resource type="Curve2D" id="Curve2D_7qpno"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1429, 132, -111.377, 0, 111.377, 0, -1264, 69, -143.435, 36.5268, 143.435, -36.5268, -572, -20, -245.888, -8.01809, 245.888, 8.01809, 48, 24, -112.253, -0.890899, 112.253, 0.890899, 492, 4, -237.87, -40.0904, 237.87, 40.0904, 824, 36, -122.944, -49.8903, 122.944, 49.8903, 1242, 47, 0, 0, 0, 0, 1453, 91)
-}
-point_count = 8
+[sub_resource type="Gradient" id="Gradient_vnvry"]
+colors = PackedColorArray(0.658824, 0.380392, 0.25098, 1, 0.307909, 0.160637, 0.0915456, 1)
 
-[sub_resource type="Curve2D" id="Curve2D_hha3b"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r8qrj"]
+gradient = SubResource("Gradient_vnvry")
+fill_from = Vector2(0.509174, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_xwco7"]
+colors = PackedColorArray(0.424007, 0.519573, 0.870754, 1, 0.229448, 0.145847, 0.306612, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hpwid"]
+gradient = SubResource("Gradient_xwco7")
+width = 128
+height = 128
+fill_from = Vector2(0, 0.490826)
+fill_to = Vector2(1, 0.486239)
+
+[sub_resource type="Curve2D" id="Curve2D_6u51i"]
 _data = {
-"points": PackedVector2Array(-824.262, -5.29732, 824.262, 5.29732, -1444, 201, -270.365, 5.21191, 270.365, -5.21191, -496, 146, -111.244, -1.05946, 111.244, 1.05946, 18, 170, -208.714, -15.8919, 208.714, 15.8919, 529, 162, -150.444, -19.0703, 150.444, 19.0703, 939, 216, 0, 0, 0, 0, 1468, 187, 0, 0, 0, 0, 1515, 187)
+"points": PackedVector2Array(-217.789, -0.0768551, 0, 0, -892.026, 73.6852, 0, 0, 0, 0, -867.026, 73.694, -56.7372, 18.334, 56.7372, -18.334, -674.019, 53.7621, -41.381, 2.65508, 41.381, -2.65508, -538.006, 17.8101, -69.3012, 13.4106, 69.3012, -13.4106, -336.005, 14.8814, -144.251, 2.07042, 144.251, -2.07042, -3.99577, -12.0014, -96.1615, -14.1761, 96.1615, 14.1761, 369.989, 31.1306, -90.5054, -12.0528, 90.5054, 12.0528, 554.989, 31.1959, -114.548, -8.5257, 114.548, 8.5257, 838.987, 37.2961, -156.262, -24.8039, 156.262, 24.8039, 1129.98, 65.3988)
 }
-point_count = 7
+point_count = 10
+
+[sub_resource type="Curve2D" id="Curve2D_cwoqo"]
+_data = {
+"points": PackedVector2Array(-86.5579, -1.88049, 0, 0, -1194, 244, 0, 0, 0, 0, -1164, 244, -42.7018, 10.4882, 42.7018, -10.4882, -832, 227, -41.2034, -8.24069, 41.2034, 8.24069, -681, 236, -59.1831, 12.7356, 59.1831, -12.7356, -500, 260, -91.3967, -15.7322, 91.3967, 15.7322, -200, 235, -146.834, -3.74577, 146.834, 3.74577, 111, 216, -161.817, -2.24746, 161.817, 2.24746, 521, 256, -183.543, 5.24408, 183.543, -5.24408, 923, 241)
+}
+point_count = 9
 
 [node name="stage1" type="Node2D"]
 
@@ -25,18 +43,29 @@ point_count = 7
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_b0td4")
 
+[node name="ground" type="Sprite2D" parent="."]
+position = Vector2(-0.499964, 177.5)
+scale = Vector2(40.7656, 6.23438)
+texture = SubResource("GradientTexture2D_r8qrj")
+
+[node name="sky" type="Sprite2D" parent="."]
+position = Vector2(-4.86374e-05, -168)
+scale = Vector2(20.3906, 5.51563)
+texture = SubResource("GradientTexture2D_hpwid")
+
 [node name="background" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
-texture = ExtResource("9_nekbk")
+position = Vector2(0, 40)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("3_22536")
 
 [node name="laneSetter" type="Node2D" parent="."]
 
 [node name="topLane" type="Path2D" parent="laneSetter"]
 rotation = -0.000352888
-curve = SubResource("Curve2D_7qpno")
+curve = SubResource("Curve2D_6u51i")
 
 [node name="wolf" parent="laneSetter/topLane" instance=ExtResource("7_bwwob")]
-position = Vector2(1453, 91)
+position = Vector2(1129.98, 65.3988)
 rotation = 0.00251445
 progress = 2968.76
 rotates = false
@@ -44,12 +73,15 @@ cubic_interp = false
 loop = false
 
 [node name="bottomLane" type="Path2D" parent="laneSetter"]
-position = Vector2(1, 0)
-curve = SubResource("Curve2D_hha3b")
+position = Vector2(251, -105)
+curve = SubResource("Curve2D_cwoqo")
 
 [node name="wolf" parent="laneSetter/bottomLane" instance=ExtResource("7_bwwob")]
-position = Vector2(1515, 187)
+position = Vector2(923, 241)
+rotation = -0.0285637
 progress = 2968.76
+rotates = false
+cubic_interp = false
 loop = false
 
 [node name="resourceHandler" parent="." instance=ExtResource("2_67fy2")]

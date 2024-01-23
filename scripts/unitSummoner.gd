@@ -37,10 +37,6 @@ func spawn(unit):
 			#마나 지불 
 			rsc.current_mana -= target.get_node("engageComponent")._status.mana
 			
-			#좌표 설정
-			target.position.x = -1313
-			target.position.y = 186
-			
 			#stage1 씬에 노드 추가 
 			get_tree().get_root().get_node("stage1").get_node("laneSetter").get_node("bottomLane").add_child(target)
 			print("spawned")
