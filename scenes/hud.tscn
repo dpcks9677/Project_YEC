@@ -180,8 +180,10 @@ offset_left = 5.0
 offset_top = 257.0
 offset_right = 102.0
 offset_bottom = 327.0
-text = "button"
-vertical_icon_alignment = 2
+theme_override_font_sizes/font_size = 30
+text = "botton"
+alignment = 1
+text_overrun_behavior = 1
 
 [connection signal="button_up" from="unitSummoner/slot_1" to="unitSummoner" method="_on_slot_1_button_up"]
 [connection signal="button_up" from="unitSummoner/slot_2" to="unitSummoner" method="_on_slot_2_button_up"]

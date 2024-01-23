@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bipawj12cbpmb" path="res://system/handler/resourceHandler.tscn" id="2_67fy2"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="4_b0td4"]
 [ext_resource type="PackedScene" uid="uid://dfqtob326lbqu" path="res://units/enemy/wolf.tscn" id="7_bwwob"]
-[ext_resource type="Texture2D" uid="uid://cmfkhk3g6ji4l" path="res://background/field.png" id="9_nekbk"]
+[ext_resource type="Texture2D" uid="uid://celktl1y5lxf8" path="res://background/field.png" id="9_nekbk"]
 
 [sub_resource type="Curve2D" id="Curve2D_7qpno"]
 _data = {
