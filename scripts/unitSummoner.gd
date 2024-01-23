@@ -53,3 +53,4 @@ func _on_slot_1_button_up():
 
 func _on_slot_2_button_up():
 	spawn(slot_2)
+

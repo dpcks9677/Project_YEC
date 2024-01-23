@@ -1,10 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=8 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="PackedScene" uid="uid://cgqrwgbhcpkd3" path="res://scenes/hud.tscn" id="1_tghqr"]
 [ext_resource type="PackedScene" uid="uid://bipawj12cbpmb" path="res://system/handler/resourceHandler.tscn" id="2_67fy2"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="4_b0td4"]
 [ext_resource type="PackedScene" uid="uid://dfqtob326lbqu" path="res://units/enemy/wolf.tscn" id="7_bwwob"]
 [ext_resource type="Texture2D" uid="uid://cmfkhk3g6ji4l" path="res://background/field.png" id="9_nekbk"]
+
+[sub_resource type="Curve2D" id="Curve2D_7qpno"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1429, 132, -111.377, 0, 111.377, 0, -1264, 69, -143.435, 36.5268, 143.435, -36.5268, -572, -20, -245.888, -8.01809, 245.888, 8.01809, 48, 24, -112.253, -0.890899, 112.253, 0.890899, 492, 4, -237.87, -40.0904, 237.87, 40.0904, 824, 36, -122.944, -49.8903, 122.944, 49.8903, 1242, 47, 0, 0, 0, 0, 1453, 91)
+}
+point_count = 8
 
 [sub_resource type="Curve2D" id="Curve2D_hha3b"]
 _data = {
@@ -24,6 +30,18 @@ scale = Vector2(5, 5)
 texture = ExtResource("9_nekbk")
 
 [node name="laneSetter" type="Node2D" parent="."]
+
+[node name="topLane" type="Path2D" parent="laneSetter"]
+rotation = -0.000352888
+curve = SubResource("Curve2D_7qpno")
+
+[node name="wolf" parent="laneSetter/topLane" instance=ExtResource("7_bwwob")]
+position = Vector2(1453, 91)
+rotation = 0.00251445
+progress = 2968.76
+rotates = false
+cubic_interp = false
+loop = false
 
 [node name="bottomLane" type="Path2D" parent="laneSetter"]
 position = Vector2(1, 0)
