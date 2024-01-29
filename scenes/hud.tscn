@@ -1,12 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgqrwgbhcpkd3"]
+[gd_scene load_steps=7 format=3 uid="uid://cgqrwgbhcpkd3"]
 
 [ext_resource type="Script" path="res://scripts/unitSummoner.gd" id="2_72s3t"]
 [ext_resource type="Script" path="res://scripts/manaUI.gd" id="3_mg34p"]
 [ext_resource type="Script" path="res://scripts/populationUI.gd" id="3_snkth"]
 [ext_resource type="Script" path="res://scripts/laneUI.gd" id="4_2p0go"]
 [ext_resource type="PackedScene" uid="uid://dqhjv2biwvh6a" path="res://scenes/unit_button.tscn" id="5_mv6qo"]
+[ext_resource type="Texture2D" uid="uid://cdfayawxksdx7" path="res://sprites/UI/UI.png" id="6_23gcs"]
 
 [node name="HUD" type="CanvasLayer"]
+
+[node name="mainUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 92.0
+offset_right = 40.0
+offset_bottom = 132.0
 
 [node name="unitSummoner" type="Control" parent="."]
 layout_mode = 3
@@ -188,6 +196,11 @@ alignment = 1
 [node name="unitButton" parent="." instance=ExtResource("5_mv6qo")]
 offset_top = 92.0
 offset_bottom = -481.0
+
+[node name="Ui" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(2.17043, 2.16333)
+texture = ExtResource("6_23gcs")
 
 [connection signal="button_up" from="unitSummoner/slot_1" to="unitSummoner" method="_on_slot_1_button_up"]
 [connection signal="button_up" from="unitSummoner/slot_2" to="unitSummoner" method="_on_slot_2_button_up"]

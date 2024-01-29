@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqhjv2biwvh6a"]
+[gd_scene load_steps=6 format=3 uid="uid://dqhjv2biwvh6a"]
 
 [ext_resource type="Texture2D" uid="uid://bj73sh24qrx53" path="res://sprites/ally/spearman.png" id="1_67ffq"]
+[ext_resource type="FontFile" uid="uid://bim5gbmsstdin" path="res://sprites/UI/font/GravityBold8.ttf" id="2_02x0j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms08w"]
 bg_color = Color(0.109804, 0.490196, 0.964706, 0.611765)
@@ -57,8 +58,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ypga7")
 
 [node name="mana" type="Label" parent="."]
 layout_mode = 0
-offset_left = 90.0
-offset_top = 53.0
-offset_right = 130.0
-offset_bottom = 76.0
+offset_left = 76.0
+offset_top = 57.0
+offset_right = 116.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("2_02x0j")
 text = "20"
