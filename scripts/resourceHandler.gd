@@ -28,7 +28,7 @@ func _ready():
 	
 	#공격력 
 	atk_lv = 1
-	atk_multiplier = 1.0 #공격력 공식 만들기 
+	atk_multiplier = 1.0 + atk_lv * 0.1 #공격력 공식 = 100% + 10% * lv
 	
 	#인구 수 
 	population_lv = 1

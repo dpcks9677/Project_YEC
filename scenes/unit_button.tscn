@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqhjv2biwvh6a"]
+
+[ext_resource type="Texture2D" uid="uid://bj73sh24qrx53" path="res://sprites/ally/spearman.png" id="1_67ffq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms08w"]
+bg_color = Color(0.109804, 0.490196, 0.964706, 0.611765)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+anti_aliasing = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7y2t"]
+atlas = ExtResource("1_67ffq")
+region = Rect2(20, 17, 91, 96)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypga7"]
+bg_color = Color(0.580392, 0.74902, 0.976471, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[node name="unitButton" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1039.0
+offset_bottom = -573.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 113.0
+offset_bottom = 75.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ms08w")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 91.0
+offset_bottom = 96.0
+scale = Vector2(1.1, 1.1)
+texture_normal = SubResource("AtlasTexture_w7y2t")
+
+[node name="ColorRect" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 56.0
+offset_right = 111.0
+offset_bottom = 74.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ypga7")
+
+[node name="mana" type="Label" parent="."]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 53.0
+offset_right = 130.0
+offset_bottom = 76.0
+text = "20"
