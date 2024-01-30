@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqhjv2biwvh6a"]
+[gd_scene load_steps=7 format=3 uid="uid://dqhjv2biwvh6a"]
 
-[ext_resource type="Texture2D" uid="uid://bj73sh24qrx53" path="res://sprites/ally/spearman.png" id="1_67ffq"]
-[ext_resource type="FontFile" uid="uid://bim5gbmsstdin" path="res://sprites/UI/font/GravityBold8.ttf" id="2_02x0j"]
+[ext_resource type="Script" path="res://scripts/unitButton.gd" id="1_po7nm"]
+[ext_resource type="FontFile" uid="uid://dc7t4klf4ftuh" path="res://sprites/UI/font/GravityBold8.ttf" id="2_02x0j"]
+[ext_resource type="Texture2D" uid="uid://dk2p3lgf6gvkt" path="res://sprites/portrait/knight.png" id="2_b3xba"]
+[ext_resource type="Texture2D" uid="uid://kaukuu5h8xbn" path="res://sprites/object/crystal.png" id="4_8re6u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms08w"]
 bg_color = Color(0.109804, 0.490196, 0.964706, 0.611765)
@@ -10,10 +12,6 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 anti_aliasing = false
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w7y2t"]
-atlas = ExtResource("1_67ffq")
-region = Rect2(20, 17, 91, 96)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypga7"]
 bg_color = Color(0.580392, 0.74902, 0.976471, 1)
@@ -33,6 +31,7 @@ offset_right = -1039.0
 offset_bottom = -573.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_po7nm")
 
 [node name="background" type="Panel" parent="."]
 layout_mode = 0
@@ -43,10 +42,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ms08w")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 91.0
-offset_bottom = 96.0
-scale = Vector2(1.1, 1.1)
-texture_normal = SubResource("AtlasTexture_w7y2t")
+offset_left = -4.0
+offset_top = -14.0
+offset_right = 124.0
+offset_bottom = 114.0
+scale = Vector2(0.9, 0.9)
+action_mode = 0
+texture_normal = ExtResource("2_b3xba")
 
 [node name="ColorRect" type="Panel" parent="."]
 layout_mode = 0
@@ -58,9 +60,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ypga7")
 
 [node name="mana" type="Label" parent="."]
 layout_mode = 0
-offset_left = 76.0
-offset_top = 57.0
-offset_right = 116.0
-offset_bottom = 80.0
+offset_left = 87.0
+offset_top = 59.0
+offset_right = 110.0
+offset_bottom = 73.0
 theme_override_fonts/font = ExtResource("2_02x0j")
+theme_override_font_sizes/font_size = 13
 text = "20"
+
+[node name="crystal" type="Sprite2D" parent="."]
+position = Vector2(77, 65)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("4_8re6u")
+
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

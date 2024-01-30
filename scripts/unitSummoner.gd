@@ -1,22 +1,34 @@
 extends Control
 
-#유닛 씬 형식 선언 
-@export var slot_1 : PackedScene
-@export var slot_2 : PackedScene
-@export var slot_3 : PackedScene
-@export var slot_4 : PackedScene
-@export var slot_5 : PackedScene
-@export var slot_6 : PackedScene
-@export var slot_7 : PackedScene
-@export var slot_8 : PackedScene
+#유닛 씬 데이터타입 정의 
+@export var slot_1_Scene : PackedScene
+@export var slot_2_Scene : PackedScene
+@export var slot_3_Scene : PackedScene
+@export var slot_4_Scene : PackedScene
+@export var slot_5_Scene : PackedScene
+@export var slot_6_Scene : PackedScene
+@export var slot_7_Scene : PackedScene
+@export var slot_8_Scene : PackedScene
+
+#유닛 이름 데이터타입 정의 
+@export var slot_1_Unit : String
+@export var slot_2_Unit : String
+@export var slot_3_Unit : String
+@export var slot_4_Unit : String
+@export var slot_5_Unit : String
+@export var slot_6_Unit : String
+@export var slot_7_Unit : String
+@export var slot_8_Unit : String
 
 #resourceHandler 형식 선언
 @export var rsc : resourceHandler
 
 func _ready():
+	#slot_n_unit에 string으로 유닛 이름을 넘겨받아 변수에 저장 
+	
 	#slot 불러 올 때, 직접 경로를 적지 않고, 데이터를 인계받아서 자리에 맞게 유닛을 매치 할 수 있도록 설계 
-	slot_1 = preload("res://units/ally/spearman.tscn")
-	slot_2 = preload("res://units/ally/knight.tscn")
+	slot_1_Scene = preload("res://units/ally/spearman.tscn")
+	slot_2_Scene = preload("res://units/ally/knight.tscn")
 	
 	rsc = get_tree().get_root().get_node("stage1").get_node("resourceHandler")
 
@@ -49,8 +61,8 @@ func spawn(unit):
 			rsc.population += 1
 
 func _on_slot_1_button_up():
-	spawn(slot_1)
+	spawn(slot_1_Scene)
 
 func _on_slot_2_button_up():
-	spawn(slot_2)
+	spawn(slot_2_Scene)
 
