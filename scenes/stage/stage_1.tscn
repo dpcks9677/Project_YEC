@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=13 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="PackedScene" uid="uid://cgqrwgbhcpkd3" path="res://scenes/hud.tscn" id="1_tghqr"]
 [ext_resource type="PackedScene" uid="uid://bipawj12cbpmb" path="res://system/handler/resourceHandler.tscn" id="2_67fy2"]
 [ext_resource type="Texture2D" uid="uid://rsa1dtif5ngn" path="res://background/stage1.png" id="3_22536"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="4_b0td4"]
+[ext_resource type="PackedScene" uid="uid://cv1h8mnftsm3h" path="res://units/ally/archer.tscn" id="5_d2he3"]
 [ext_resource type="PackedScene" uid="uid://dfqtob326lbqu" path="res://units/enemy/wolf.tscn" id="7_bwwob"]
 
 [sub_resource type="Gradient" id="Gradient_vnvry"]
@@ -54,7 +55,6 @@ scale = Vector2(20.3906, 5.51563)
 texture = SubResource("GradientTexture2D_hpwid")
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(0, 40)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("3_22536")
 
@@ -65,12 +65,8 @@ rotation = -0.000352888
 curve = SubResource("Curve2D_6u51i")
 
 [node name="wolf" parent="laneSetter/topLane" instance=ExtResource("7_bwwob")]
-position = Vector2(1129.98, 65.3988)
-rotation = 0.00251445
-progress = 2968.76
-rotates = false
-cubic_interp = false
-loop = false
+position = Vector2(-892.026, 73.6852)
+rotation = 0.000351868
 
 [node name="bottomLane" type="Path2D" parent="laneSetter"]
 position = Vector2(251, -105)
@@ -83,5 +79,8 @@ progress = 2968.76
 rotates = false
 cubic_interp = false
 loop = false
+
+[node name="archer" parent="laneSetter/bottomLane" instance=ExtResource("5_d2he3")]
+position = Vector2(-1194, 244)
 
 [node name="resourceHandler" parent="." instance=ExtResource("2_67fy2")]

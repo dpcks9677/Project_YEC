@@ -43,6 +43,11 @@ func _ready():
 	if unit_tag == "enemy":
 		get_parent().progress_ratio = 1.0
 		
+	#collision layer 설정 
+	if get_parent().get_parent().get_name() == "bottomLane":
+		get_parent().get_node("hitbox").set_collision_mask_value(1, false)
+		get_parent().get_node("hitbox").set_collision_mask_value(2, true)
+		
 func _process(delta):
 	stateSetter(delta)
 	checkHealth()
@@ -96,19 +101,34 @@ func engage(target):
 #queue 구현해야 함. target[]에서 enemy 감지시 target에 들어감. target이 빈 리스트가 아니면 engage 
 func attack_range_entered(area):
 	if unit_tag == "ally":
-		#사거리에 적이 들어오면 target_queue의 끝에 target ID 삽입 
-		if area.get_parent().get_node("engageComponent").unit_tag == "enemy":
-			target_queue.enqueue(area)
+		if area.get_name() == "hitbox":
+			#사거리에 적이 들어오면 target_queue의 끝에 target ID 삽입 
+			if area.get_parent().get_node("engageComponent").unit_tag == "enemy":
+				target_queue.enqueue(area)
 		
 	elif unit_tag == "enemy":
-		if area.get_parent().get_node("engageComponent").unit_tag == "ally":
-			target_queue.enqueue(area)
+		if area.get_name() == "hitbox":
+			if area.get_parent().get_node("engageComponent").unit_tag == "ally":
+				target_queue.enqueue(area)
 
 #attackRangeComponent에서 시그널을 받아서 동작
 func attack_range_exited(area):
-	await get_parent().get_node("AnimatedSprite2D").animation_finished
+	if unit_tag == "ally":
+		if area.get_name() == "hitbox":
+			#사거리에 적이 들어오면 target_queue의 끝에 target ID 삽입 
+			if area.get_parent().get_node("engageComponent").unit_tag == "enemy":
+				pass
+		
+	elif unit_tag == "enemy":
+		if area.get_name() == "hitbox":
+			if area.get_parent().get_node("engageComponent").unit_tag == "ally":
+				pass
 
 func checkHealth():
 	if health <= 0:
-		#사망모션 추가 후 사망처리 부드럽게 처리 할 필요가 있음
+		get_parent().get_node("AnimatedSprite2D").play("idle")
+		get_parent().get_node("AnimatedSprite2D").pause()
+		for i in range(16):
+			get_parent().get_node("AnimatedSprite2D").modulate.a -= 16 #천천히 안 사라짐 
+		#await get_parent().get_node("AnimatedSprite2D").animation_finished #<- 뭔가 이상 ...
 		get_parent().queue_free()

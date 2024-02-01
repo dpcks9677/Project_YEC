@@ -23,9 +23,13 @@ extends Control
 #resourceHandler 형식 선언
 @export var rsc : resourceHandler
 
+func _init():
+	#스테이지 진입 전 준비 씬에서 정보를 넘겨받아서 작성해야 함.
+	slot_1_Unit = "spearman" 
+	slot_2_Unit = "knight"
+	slot_3_Unit = "archer"
+
 func _ready():
-	#slot_n_unit에 string으로 유닛 이름을 넘겨받아 변수에 저장 
-	
 	#slot 불러 올 때, 직접 경로를 적지 않고, 데이터를 인계받아서 자리에 맞게 유닛을 매치 할 수 있도록 설계 
 	slot_1_Scene = preload("res://units/ally/spearman.tscn")
 	slot_2_Scene = preload("res://units/ally/knight.tscn")

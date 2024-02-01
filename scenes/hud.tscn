@@ -19,130 +19,33 @@ offset_bottom = 132.0
 [node name="unitSummoner" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 391.0
+offset_bottom = 408.0
 script = ExtResource("2_72s3t")
 
-[node name="slot_1" type="Button" parent="unitSummoner"]
+[node name="unitButton1" parent="unitSummoner" instance=ExtResource("5_mv6qo")]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -5.0
-offset_top = 520.0
-offset_right = 24.0
-offset_bottom = 551.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "1"
+offset_top = 100.0
+offset_right = -278.0
+offset_bottom = -233.0
 
-[node name="slot_2" type="Button" parent="unitSummoner"]
+[node name="unitButton2" parent="unitSummoner" instance=ExtResource("5_mv6qo")]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = 520.0
-offset_right = 60.0
-offset_bottom = 551.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "2
-"
+offset_top = 170.0
+offset_right = -278.0
+offset_bottom = -163.0
 
-[node name="slot_3" type="Button" parent="unitSummoner"]
+[node name="unitButton3" parent="unitSummoner" instance=ExtResource("5_mv6qo")]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 66.0
-offset_top = 520.0
-offset_right = 95.0
-offset_bottom = 551.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "3"
+offset_top = 240.0
+offset_right = -278.0
+offset_bottom = -93.0
 
-[node name="slot_4" type="Button" parent="unitSummoner"]
+[node name="unitButton4" parent="unitSummoner" instance=ExtResource("5_mv6qo")]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 101.0
-offset_top = 520.0
-offset_right = 131.0
-offset_bottom = 551.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "4
-"
-
-[node name="slot_5" type="Button" parent="unitSummoner"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = 555.0
-offset_right = 42.0
-offset_bottom = 586.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "5"
-
-[node name="slot_6" type="Button" parent="unitSummoner"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 48.0
-offset_top = 555.0
-offset_right = 78.0
-offset_bottom = 586.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "6"
-
-[node name="slot_7" type="Button" parent="unitSummoner"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 84.0
-offset_top = 555.0
-offset_right = 114.0
-offset_bottom = 586.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "7"
+offset_top = 310.0
+offset_right = -278.0
+offset_bottom = -23.0
 
 [node name="manaUI" type="Control" parent="."]
 layout_mode = 3
@@ -185,23 +88,16 @@ script = ExtResource("4_2p0go")
 
 [node name="laneSelector" type="CheckButton" parent="laneUI"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 257.0
-offset_right = 102.0
-offset_bottom = 327.0
+offset_top = 450.0
+offset_right = 147.0
+offset_bottom = 520.0
 theme_override_font_sizes/font_size = 30
 text = "button"
 alignment = 1
-
-[node name="unitButton" parent="." instance=ExtResource("5_mv6qo")]
-offset_top = 92.0
-offset_bottom = -481.0
 
 [node name="Ui" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(2.17043, 2.16333)
 texture = ExtResource("6_23gcs")
 
-[connection signal="button_up" from="unitSummoner/slot_1" to="unitSummoner" method="_on_slot_1_button_up"]
-[connection signal="button_up" from="unitSummoner/slot_2" to="unitSummoner" method="_on_slot_2_button_up"]
 [connection signal="toggled" from="laneUI/laneSelector" to="laneUI" method="_on_lane_selector_toggled"]

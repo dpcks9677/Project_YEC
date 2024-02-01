@@ -41,7 +41,7 @@ func dequeue():
 	if _length == 0:
 		_tail = null
 	return data
-
+	
 func peek():
 	return _head.data
 

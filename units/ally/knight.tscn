@@ -149,7 +149,7 @@ engage_Component = NodePath("../engageComponent")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
 position = Vector2(37, 3.75)
 shape = SubResource("RectangleShape2D_fltbt")
-debug_color = Color(0.811765, 0.411765, 0, 0.419608)
+debug_color = Color(0.862745, 0.360784, 0, 0.419608)
 
 [node name="HealthBarComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("5_3ich1")]
 offset_left = -33.0
