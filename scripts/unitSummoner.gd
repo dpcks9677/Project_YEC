@@ -1,47 +1,39 @@
 extends Control
 
-#유닛 씬 데이터타입 정의 
-@export var slot_1_Scene : PackedScene
-@export var slot_2_Scene : PackedScene
-@export var slot_3_Scene : PackedScene
-@export var slot_4_Scene : PackedScene
-@export var slot_5_Scene : PackedScene
-@export var slot_6_Scene : PackedScene
-@export var slot_7_Scene : PackedScene
-@export var slot_8_Scene : PackedScene
-
-#유닛 이름 데이터타입 정의 
-@export var slot_1_Unit : String
-@export var slot_2_Unit : String
-@export var slot_3_Unit : String
-@export var slot_4_Unit : String
-@export var slot_5_Unit : String
-@export var slot_6_Unit : String
-@export var slot_7_Unit : String
-@export var slot_8_Unit : String
+#유닛 이름, 씬 저장 할 배열 선언 
+@export var unitName := [null, null, null, null, null, null, null, null]
+@export var unitScene := [null, null, null, null, null, null, null, null]
 
 #resourceHandler 형식 선언
 @export var rsc : resourceHandler
 
 func _init():
 	#스테이지 진입 전 준비 씬에서 정보를 넘겨받아서 작성해야 함.
-	slot_1_Unit = "spearman" 
-	slot_2_Unit = "knight"
-	slot_3_Unit = "archer"
+	unitName[0] = "spearman" 
+	unitName[1] = "knight"
+	unitName[2] = "archer"
+
 
 func _ready():
-	#slot 불러 올 때, 직접 경로를 적지 않고, 데이터를 인계받아서 자리에 맞게 유닛을 매치 할 수 있도록 설계 
-	slot_1_Scene = preload("res://units/ally/spearman.tscn")
-	slot_2_Scene = preload("res://units/ally/knight.tscn")
-	
 	rsc = get_tree().get_root().get_node("stage1").get_node("resourceHandler")
-
+	
+	#씬 불러 올 때, 직접 경로를 적지 않고, 데이터를 인계받아서 자리에 맞게 유닛을 매치 할 수 있도록 설계 
+	for i in range(8) :
+		unitScene[i] = load("res://units/ally/" + str(unitName[i]) + ".tscn")
+		
 func _process(delta):
 	pass
 
 func spawn(unit):
 	#인스턴스화 먼저 (정보 얻어와야 함) 
-	var target = unit.instantiate()
+	var target
+	var idx
+	
+	for i in range(8):
+		if str(unitName[i]) == str(unit):
+			idx = i
+
+	target = unitScene[idx].instantiate()
 	
 	if rsc.isPopulationFull == true: #인구 수 확인 
 		print("no space")
@@ -63,10 +55,3 @@ func spawn(unit):
 			
 			#인구수 1 증가 
 			rsc.population += 1
-
-func _on_slot_1_button_up():
-	spawn(slot_1_Scene)
-
-func _on_slot_2_button_up():
-	spawn(slot_2_Scene)
-
