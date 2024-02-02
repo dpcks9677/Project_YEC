@@ -43,10 +43,29 @@ func _ready():
 	if unit_tag == "enemy":
 		get_parent().progress_ratio = 1.0
 		
-	#collision layer 설정 
-	if get_parent().get_parent().get_name() == "bottomLane":
+	#collision layer 설정 2 = top / 3 = bottom
+	if get_parent().get_parent().get_name() == "topLane":
+		#콜리전 마스크 설정 
 		get_parent().get_node("hitbox").set_collision_mask_value(1, false)
 		get_parent().get_node("hitbox").set_collision_mask_value(2, true)
+		get_parent().get_node("attackRangeComponent").set_collision_mask_value(1, false)
+		get_parent().get_node("attackRangeComponent").set_collision_mask_value(2, true)
+		#콜리전 레이어 설정 
+		get_parent().get_node("hitbox").set_collision_layer_value(1, false)
+		get_parent().get_node("hitbox").set_collision_layer_value(2, true)
+		get_parent().get_node("attackRangeComponent").set_collision_layer_value(1, false)
+		get_parent().get_node("attackRangeComponent").set_collision_layer_value(2, true)
+	if get_parent().get_parent().get_name() == "bottomLane":
+		#콜리전 마스크 설정 
+		get_parent().get_node("hitbox").set_collision_mask_value(1, false)
+		get_parent().get_node("hitbox").set_collision_mask_value(3, true)
+		get_parent().get_node("attackRangeComponent").set_collision_mask_value(1, false)
+		get_parent().get_node("attackRangeComponent").set_collision_mask_value(3, true)
+		#콜리전 레이어 설정 
+		get_parent().get_node("hitbox").set_collision_layer_value(1, false)
+		get_parent().get_node("hitbox").set_collision_layer_value(3, true)
+		get_parent().get_node("attackRangeComponent").set_collision_layer_value(1, false)
+		get_parent().get_node("attackRangeComponent").set_collision_layer_value(3, true)
 		
 func _process(delta):
 	stateSetter(delta)

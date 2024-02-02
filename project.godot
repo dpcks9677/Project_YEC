@@ -21,6 +21,11 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
+[layer_names]
+
+2d_render/layer_2="topLane"
+2d_render/layer_3="bottomLane"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

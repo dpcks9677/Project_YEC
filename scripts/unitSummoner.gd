@@ -48,10 +48,10 @@ func spawn(unit):
 			#stage1 씬에 노드 추가 false = top / true = bottom 
 			if get_parent().get_node("laneUI").currentLane == true:
 				get_tree().get_root().get_node("stage1").get_node("laneSetter").get_node("bottomLane").add_child(target)
-				print("top spawned")
+				print("bottom spawned")
 			else:
 				get_tree().get_root().get_node("stage1").get_node("laneSetter").get_node("topLane").add_child(target)
-				print("bottom spawned")
+				print("top spawned")
 			
 			#인구수 1 증가 
 			rsc.population += 1
