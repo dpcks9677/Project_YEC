@@ -41,6 +41,7 @@ point_count = 9
 [node name="stage1" type="Node2D"]
 
 [node name="HUD" parent="." instance=ExtResource("1_tghqr")]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_b0td4")
@@ -86,6 +87,15 @@ cubic_interp = false
 loop = false
 
 [node name="archer" parent="laneSetter/bottomLane" instance=ExtResource("5_d2he3")]
+position = Vector2(-1194, 244)
+
+[node name="wolf2" parent="laneSetter/bottomLane" instance=ExtResource("7_bwwob")]
+position = Vector2(-1194, 244)
+
+[node name="wolf3" parent="laneSetter/bottomLane" instance=ExtResource("7_bwwob")]
+position = Vector2(-1194, 244)
+
+[node name="wolf4" parent="laneSetter/bottomLane" instance=ExtResource("7_bwwob")]
 position = Vector2(-1194, 244)
 
 [node name="resourceHandler" parent="." instance=ExtResource("2_67fy2")]

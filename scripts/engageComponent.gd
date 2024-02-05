@@ -2,6 +2,7 @@ extends Node2D
 class_name engageComponent
 
 @export var _status: statusResource
+@export var rsc: resourceHandler
 
 #이동속도 상수 설정 
 var MOVEMENT_VALUE = 0.0008 # 1/(20*delta) delta = 프레임 수라고 생각하면 됨 (60으로 상정함) 
@@ -24,6 +25,8 @@ var target = null
 var target_queue = Queue.new()
 
 func _ready():
+	rsc = get_tree().get_root().get_node("stage1").get_node("resourceHandler")
+	
 	#resource에서 넘겨받은 것들 집어넣기 
 	unit_tag = _status.unit_tag
 	health = _status.health
@@ -150,4 +153,5 @@ func checkHealth():
 		for i in range(16):
 			get_parent().get_node("AnimatedSprite2D").modulate.a -= 16 #천천히 안 사라짐 
 		#await get_parent().get_node("AnimatedSprite2D").animation_finished #<- 뭔가 이상 ...
+		rsc.population -= 1
 		get_parent().queue_free()
