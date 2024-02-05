@@ -157,6 +157,7 @@ size = Vector2(94, 101)
 size = Vector2(368, 207)
 
 [node name="archer" type="PathFollow2D"]
+scale = Vector2(0.8, 0.8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_exblc")

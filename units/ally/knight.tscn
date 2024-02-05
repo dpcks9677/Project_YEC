@@ -122,6 +122,7 @@ size = Vector2(93, 99.5)
 size = Vector2(26, 99.5)
 
 [node name="knight" type="PathFollow2D"]
+scale = Vector2(0.8, 0.8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -23)

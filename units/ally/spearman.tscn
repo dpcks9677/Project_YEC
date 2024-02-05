@@ -137,6 +137,7 @@ size = Vector2(30, 103.5)
 
 [node name="spearman" type="PathFollow2D"]
 position = Vector2(0, -26)
+scale = Vector2(0.8, 0.8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c6kc0")

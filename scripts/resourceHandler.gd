@@ -66,4 +66,3 @@ func populationHandler():
 		isPopulationFull = false
 		
 
-
