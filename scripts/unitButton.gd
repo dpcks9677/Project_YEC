@@ -24,6 +24,7 @@ func _ready():
 		get_node("manaTag").get_node("mana").set_text(str(unitRes.mana))
 	else: #유닛 정보가 없을 때 (슬롯에 유닛을 넣지 않았을 때) 
 		remove_child(get_node("manaTag"))
+		get_node("TextureButton").disabled = true
 		modulate = Color(0.3, 0.3, 0.3, 1) #비활성화 톤 
 
 func _on_texture_button_pressed():
