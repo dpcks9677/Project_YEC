@@ -111,8 +111,13 @@ func engage(target):
 		await get_parent().get_node("AnimatedSprite2D").animation_finished
 		if isAttack == false:
 			if is_instance_valid(target):
-				target.get_parent().get_node("engageComponent").health -= attack_damage #연산 
-				print(target.get_parent().get_node("engageComponent").health)
+				if target.get_name() == "hitbox": #유닛 공격 
+					target.get_parent().get_node("engageComponent").health -= attack_damage #연산 
+					print(target.get_parent().get_node("engageComponent").health)
+				elif target.get_name() == "allyBase": #아군 베이스 공격 
+					get_tree().get_root().get_node("stage1").get_node("resourceHandler").allyBaseHealth -= attack_damage
+				elif target.get_name() == "enemyBase": #적군 베이스 공격
+					get_tree().get_root().get_node("stage1").get_node("resourceHandler").enemyBaseHealth -= attack_damage
 			isAttack = true
 		await get_parent().get_node("AnimatedSprite2D").animation_finished
 		combat_state = "cooldown"
@@ -127,11 +132,15 @@ func attack_range_entered(area):
 			#사거리에 적이 들어오면 target_queue의 끝에 target ID 삽입 
 			if area.get_parent().get_node("engageComponent").unit_tag == "enemy":
 				target_queue.enqueue(area)
+		elif area.get_name() == "enemyBase":
+			target_queue.enqueue(area)
 		
 	elif unit_tag == "enemy":
 		if area.get_name() == "hitbox":
 			if area.get_parent().get_node("engageComponent").unit_tag == "ally":
 				target_queue.enqueue(area)
+		elif area.get_name() == "allyBase":
+			target_queue.enqueue(area)
 
 #attackRangeComponent에서 시그널을 받아서 동작
 func attack_range_exited(area):

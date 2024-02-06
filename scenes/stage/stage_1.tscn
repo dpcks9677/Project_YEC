@@ -1,12 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=15 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="PackedScene" uid="uid://cgqrwgbhcpkd3" path="res://scenes/hud.tscn" id="1_tghqr"]
 [ext_resource type="PackedScene" uid="uid://bipawj12cbpmb" path="res://system/handler/resourceHandler.tscn" id="2_67fy2"]
 [ext_resource type="Texture2D" uid="uid://rsa1dtif5ngn" path="res://background/stage1.png" id="3_22536"]
+[ext_resource type="Script" path="res://scripts/base.gd" id="4_43ct3"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="4_b0td4"]
-[ext_resource type="PackedScene" uid="uid://cv1h8mnftsm3h" path="res://units/ally/archer.tscn" id="5_d2he3"]
-[ext_resource type="PackedScene" uid="uid://oms4xo8wpeo7" path="res://units/ally/knight.tscn" id="5_ea8ir"]
-[ext_resource type="PackedScene" uid="uid://dfqtob326lbqu" path="res://units/enemy/wolf.tscn" id="7_bwwob"]
+[ext_resource type="PackedScene" uid="uid://dfqtob326lbqu" path="res://units/enemy/wolf.tscn" id="5_q5r2w"]
 
 [sub_resource type="Gradient" id="Gradient_vnvry"]
 colors = PackedColorArray(0.658824, 0.380392, 0.25098, 1, 0.307909, 0.160637, 0.0915456, 1)
@@ -28,20 +27,25 @@ fill_to = Vector2(1, 0.486239)
 
 [sub_resource type="Curve2D" id="Curve2D_6u51i"]
 _data = {
-"points": PackedVector2Array(-217.789, -0.0768551, 0, 0, -892.026, 73.6852, 0, 0, 0, 0, -867.026, 73.694, -56.7372, 18.334, 56.7372, -18.334, -674.019, 53.7621, -41.381, 2.65508, 41.381, -2.65508, -538.006, 17.8101, -69.3012, 13.4106, 69.3012, -13.4106, -336.005, 14.8814, -144.251, 2.07042, 144.251, -2.07042, -3.99577, -12.0014, -96.1615, -14.1761, 96.1615, 14.1761, 369.989, 31.1306, -90.5054, -12.0528, 90.5054, 12.0528, 554.989, 31.1959, -114.548, -8.5257, 114.548, 8.5257, 838.987, 37.2961, -156.262, -24.8039, 156.262, 24.8039, 1129.98, 65.3988)
+"points": PackedVector2Array(-217.789, -0.0768551, 0, 0, -892.026, 73.6852, 0, 0, 0, 0, -867.026, 73.694, -56.7372, 18.334, 56.7372, -18.334, -685.027, 77.7583, -41.381, 2.65508, 41.381, -2.65508, -548.014, 40.8066, -69.3012, 13.4106, 69.3012, -13.4106, -330.01, 28.8835, -144.251, 2.07042, 144.251, -2.07042, 9.99929, 2.00353, -96.1615, -14.1761, 96.1615, 14.1761, 372.983, 48.1316, -90.5054, -12.0528, 90.5054, 12.0528, 556.985, 41.1966, -114.548, -8.5257, 114.548, 8.5257, 906.978, 63.3201)
 }
-point_count = 10
+point_count = 9
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5bsn"]
+size = Vector2(37.9831, 67.7549)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nq36a"]
+size = Vector2(37.9953, 65.0003)
 
 [sub_resource type="Curve2D" id="Curve2D_cwoqo"]
 _data = {
-"points": PackedVector2Array(-86.5579, -1.88049, 0, 0, -1194, 244, 0, 0, 0, 0, -1164, 244, -42.7018, 10.4882, 42.7018, -10.4882, -832, 227, -41.2034, -8.24069, 41.2034, 8.24069, -681, 236, -59.1831, 12.7356, 59.1831, -12.7356, -500, 260, -91.3967, -15.7322, 91.3967, 15.7322, -200, 235, -146.834, -3.74577, 146.834, 3.74577, 111, 216, -161.817, -2.24746, 161.817, 2.24746, 521, 256, -183.543, 5.24408, 183.543, -5.24408, 923, 241)
+"points": PackedVector2Array(-86.5579, -1.88049, 0, 0, -1197, 259, 0, 0, 0, 0, -1169, 259, -42.7018, 10.4882, 42.7018, -10.4882, -860, 253, -41.2034, -8.24069, 41.2034, 8.24069, -697, 247, -59.1831, -5.53326, 59.1831, 5.53326, -508, 280, -91.3967, -15.7322, 91.3967, 15.7322, -216, 253, -48.6817, -7.64851, 48.6817, 7.64851, 64, 241, -102.238, -20.1298, 102.238, 20.1298, 211, 253, -32.8434, -0.529732, 32.8434, 0.529732, 380, 252, 0, 0, 0, 0, 539, 273, -75.6643, 11.2373, 75.6643, -11.2373, 702, 266)
 }
-point_count = 9
+point_count = 11
 
 [node name="stage1" type="Node2D"]
 
 [node name="HUD" parent="." instance=ExtResource("1_tghqr")]
-visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_b0td4")
@@ -66,36 +70,47 @@ texture = ExtResource("3_22536")
 rotation = -0.000352888
 curve = SubResource("Curve2D_6u51i")
 
-[node name="wolf" parent="laneSetter/topLane" instance=ExtResource("7_bwwob")]
-position = Vector2(-892.026, 73.6852)
-rotation = 0.000351868
+[node name="allyBase" type="Area2D" parent="laneSetter/topLane"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_43ct3")
 
-[node name="knight" parent="laneSetter/topLane" instance=ExtResource("5_ea8ir")]
-position = Vector2(-892.026, 73.6852)
-rotation = 0.000351868
+[node name="CollisionShape2D" type="CollisionShape2D" parent="laneSetter/topLane/allyBase"]
+position = Vector2(-909.026, 73.6792)
+shape = SubResource("RectangleShape2D_r5bsn")
+
+[node name="enemyBase" type="Area2D" parent="laneSetter/topLane"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_43ct3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="laneSetter/topLane/enemyBase"]
+position = Vector2(912.98, 56.3222)
+shape = SubResource("RectangleShape2D_nq36a")
 
 [node name="bottomLane" type="Path2D" parent="laneSetter"]
 position = Vector2(251, -105)
 curve = SubResource("Curve2D_cwoqo")
 
-[node name="wolf" parent="laneSetter/bottomLane" instance=ExtResource("7_bwwob")]
-position = Vector2(923, 241)
-rotation = -0.0285637
-progress = 2968.76
-rotates = false
-cubic_interp = false
-loop = false
+[node name="allyBase" type="Area2D" parent="laneSetter/bottomLane"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("4_43ct3")
 
-[node name="archer" parent="laneSetter/bottomLane" instance=ExtResource("5_d2he3")]
-position = Vector2(-1194, 244)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="laneSetter/bottomLane/allyBase"]
+position = Vector2(-1201, 261)
+shape = SubResource("RectangleShape2D_r5bsn")
 
-[node name="wolf2" parent="laneSetter/bottomLane" instance=ExtResource("7_bwwob")]
-position = Vector2(-1194, 244)
+[node name="enemyBase" type="Area2D" parent="laneSetter/bottomLane"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("4_43ct3")
 
-[node name="wolf3" parent="laneSetter/bottomLane" instance=ExtResource("7_bwwob")]
-position = Vector2(-1194, 244)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="laneSetter/bottomLane/enemyBase"]
+position = Vector2(703, 270)
+shape = SubResource("RectangleShape2D_nq36a")
 
-[node name="wolf4" parent="laneSetter/bottomLane" instance=ExtResource("7_bwwob")]
-position = Vector2(-1194, 244)
+[node name="wolf" parent="laneSetter/bottomLane" instance=ExtResource("5_q5r2w")]
+position = Vector2(-1197, 259)
 
 [node name="resourceHandler" parent="." instance=ExtResource("2_67fy2")]

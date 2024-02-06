@@ -17,6 +17,10 @@ class_name resourceHandler
 @export var population : int 
 @export var isPopulationFull : bool
 
+#체력
+@export var allyBaseHealth : int
+@export var enemyBaseHealth : int
+
 func _ready():
 	#고정 값 대신 stage 별 기본 정보들을 참조해서 불러올 수 있도록 설계하기 
 	
@@ -33,11 +37,16 @@ func _ready():
 	#인구 수 
 	population_lv = 1
 	population = 0
+	
+	#베이스 체력
+	allyBaseHealth = 4000
+	enemyBaseHealth = 4000
 
 func _process(delta):
 	atkHandler()
 	populationHandler()
 	manaHandler()
+	checkBaseHealth()
 	
 #마나에 관한 기능들을 처리 
 func manaHandler():
@@ -65,4 +74,5 @@ func populationHandler():
 	else:
 		isPopulationFull = false
 		
-
+func checkBaseHealth():
+	pass
