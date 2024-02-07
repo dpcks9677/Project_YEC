@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/populationUI.gd" id="3_snkth"]
 [ext_resource type="Script" path="res://scripts/laneUI.gd" id="4_2p0go"]
 [ext_resource type="PackedScene" uid="uid://dqhjv2biwvh6a" path="res://scenes/unit_button.tscn" id="5_mv6qo"]
-[ext_resource type="Texture2D" uid="uid://c2ky0gknwql1t" path="res://sprites/UI/UI.png" id="6_23gcs"]
+[ext_resource type="Texture2D" uid="uid://dcawahocjvjmd" path="res://sprites/UI/UI.png" id="6_23gcs"]
 
 [node name="HUD" type="CanvasLayer"]
 
