@@ -86,6 +86,7 @@ size = Vector2(94, 101.75)
 size = Vector2(367, 181.188)
 
 [node name="archer" type="PathFollow2D"]
+position = Vector2(0, -41)
 scale = Vector2(0.8, 0.8)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -120,9 +121,9 @@ shape = SubResource("RectangleShape2D_6rxks")
 debug_color = Color(0.862745, 0.360784, 0, 0.419608)
 
 [node name="HealthBarComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("3_1csq0")]
-offset_left = -27.5
+offset_left = -42.5
 offset_top = -60.0
-offset_right = -27.5
+offset_right = -42.5
 offset_bottom = -60.0
 engage_Component = NodePath("../engageComponent")
 metadata/_edit_use_anchors_ = true
