@@ -107,7 +107,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lahky")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -141,9 +141,7 @@ scale = Vector2(0.8, 0.8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c6kc0")
-animation = &"attack"
-frame = 6
-frame_progress = 1.0
+animation = &"walk"
 flip_h = true
 
 [node name="engageComponent" parent="." instance=ExtResource("2_fqbp8")]

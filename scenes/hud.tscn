@@ -95,7 +95,7 @@ theme_override_font_sizes/font_size = 30
 text = "button"
 alignment = 1
 
-[node name="Ui" type="Sprite2D" parent="."]
+[node name="UIFrame" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(2.17043, 2.16333)
 texture = ExtResource("6_23gcs")

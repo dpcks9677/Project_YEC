@@ -9,7 +9,7 @@ func _ready():
 	health = engage_Component.health
 	$healthBar.max_value = health
 
-func _process(_delta):
+func _physics_process(_delta):
 	setHealth()
 
 func setHealth(): #체력바 갱신 

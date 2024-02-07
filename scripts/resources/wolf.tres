@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_brce6")
 unit_tag = "enemy"
-health = 500
+health = 1500
 speed = 1.5
 attack_damage = 50
 attack_type = false

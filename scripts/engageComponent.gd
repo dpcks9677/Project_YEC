@@ -13,13 +13,12 @@ var MOVEMENT_VALUE = 0.0008 # 1/(20*delta) delta = 프레임 수라고 생각하
 @export var speed : float
 @export var attack_damage : int
 @export var attack_type: bool
-@export var ads: float
+@export var ads : float
 @export var mana : int
 
 #combat state
-@export var state = "move"
-@export var combat_state = "peace"
-var isAttackTimerStart = false
+@export var state : String
+@export var combat_state : String
 var isAttack = false
 var target = null
 var target_queue = Queue.new()
@@ -35,6 +34,10 @@ func _ready():
 	attack_type = _status.attack_type
 	ads = _status.ads
 	mana = _status.mana
+	
+	#set state
+	state = "move"
+	combat_state = "peace"
 	
 	get_parent().rotates = false
 	get_parent().cubic_interp = false
@@ -69,15 +72,15 @@ func _ready():
 		get_parent().get_node("hitbox").set_collision_layer_value(3, true)
 		get_parent().get_node("attackRangeComponent").set_collision_layer_value(1, false)
 		get_parent().get_node("attackRangeComponent").set_collision_layer_value(3, true)
-		
-func _process(delta):
-	stateSetter(delta)
+	
+func _physics_process(_delta):
+	stateSetter()
 	checkHealth()
 
 #캐릭터 상태 설정
-func stateSetter(delta): #state: move, engage
+func stateSetter(): #state: move, engage
 	if state == "move":
-		move(delta)
+		move()
 		if target_queue._head != null:
 			target = target_queue.dequeue()
 			state = "engage"
@@ -89,40 +92,43 @@ func stateSetter(delta): #state: move, engage
 				target = target_queue.dequeue()
 			else:
 				state = "move"
+				combat_state = "peace"
+				#target 관련 코드
 				
 #자동이동 및 걷기 애니메이션 
-func move(delta):
+func move():
 	if unit_tag == "ally":
 		get_parent().progress_ratio += MOVEMENT_VALUE * speed
 	elif unit_tag == "enemy": 
 		get_parent().progress_ratio -= MOVEMENT_VALUE * speed
-	get_parent().get_node("AnimatedSprite2D").play("walk")
+	get_parent().get_node("AnimationPlayer").play("walk")
 	
 func engage(target):
 	if combat_state == "cooldown":
-		get_parent().get_node("AnimatedSprite2D").play("idle")
-		if isAttackTimerStart == false:
-			$attack_timer.start(ads * 0.4)
-			isAttackTimerStart = true
-		await $attack_timer.timeout
+		isAttack = false
+		get_parent().get_node("AnimationPlayer").play("idle")
+		await waiting_animation()
 		combat_state = "attack"
 	elif combat_state == "attack":
-		get_parent().get_node("AnimatedSprite2D").play("attack") 
-		await get_parent().get_node("AnimatedSprite2D").animation_finished
-		if isAttack == false:
-			if is_instance_valid(target):
-				if target.get_name() == "hitbox": #유닛 공격 
-					target.get_parent().get_node("engageComponent").health -= attack_damage #연산 
-					print(target.get_parent().get_node("engageComponent").health)
-				elif target.get_name() == "allyBase": #아군 베이스 공격 
-					get_tree().get_root().get_node("stage1").get_node("resourceHandler").allyBaseHealth -= attack_damage
-				elif target.get_name() == "enemyBase": #적군 베이스 공격
-					get_tree().get_root().get_node("stage1").get_node("resourceHandler").enemyBaseHealth -= attack_damage
-			isAttack = true
-		await get_parent().get_node("AnimatedSprite2D").animation_finished
+		get_parent().get_node("AnimationPlayer").play("attack")
+		await waiting_animation()
+		damage(target)
 		combat_state = "cooldown"
-		isAttackTimerStart = false
-		isAttack = false
+
+func waiting_animation(): #await 키워드와 함께 사용 
+	return get_parent().get_node("AnimationPlayer").animation_finished
+
+func damage(target):
+	if isAttack == false:
+		if is_instance_valid(target):
+			if target.get_name() == "hitbox": #유닛 공격 
+				target.get_parent().get_node("engageComponent").health -= attack_damage #연산 
+				print(target.get_parent().get_node("engageComponent").health)
+			elif target.get_name() == "allyBase": #아군 베이스 공격 
+				get_tree().get_root().get_node("stage1").get_node("resourceHandler").allyBaseHealth -= attack_damage
+			elif target.get_name() == "enemyBase": #적군 베이스 공격
+				get_tree().get_root().get_node("stage1").get_node("resourceHandler").enemyBaseHealth -= attack_damage
+	isAttack = true
 
 #attackRangeComponent에서 시그널을 받아서 동작
 #queue 구현해야 함. target[]에서 enemy 감지시 target에 들어감. target이 빈 리스트가 아니면 engage 
@@ -157,10 +163,7 @@ func attack_range_exited(area):
 
 func checkHealth():
 	if health <= 0:
-		get_parent().get_node("AnimatedSprite2D").play("idle")
-		get_parent().get_node("AnimatedSprite2D").pause()
-		for i in range(16):
-			get_parent().get_node("AnimatedSprite2D").modulate.a -= 16 #천천히 안 사라짐 
-		#await get_parent().get_node("AnimatedSprite2D").animation_finished #<- 뭔가 이상 ...
+		get_parent().get_node("AnimationPlayer").play("idle")
+		get_parent().get_node("AnimationPlayer").pause()
 		rsc.population -= 1
 		get_parent().queue_free()
