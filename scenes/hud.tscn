@@ -214,18 +214,18 @@ texture_progress = SubResource("GradientTexture2D_1j2dl")
 
 [node name="allyHealthLabel" type="Label" parent="healthUI"]
 layout_mode = 0
-offset_left = 489.0
+offset_left = 482.0
 offset_top = 9.0
-offset_right = 532.0
+offset_right = 525.0
 offset_bottom = 32.0
 theme_override_fonts/font = ExtResource("8_qjguh")
 text = "4000"
 horizontal_alignment = 2
 
 [node name="enemyHealthLabel" type="Label" parent="healthUI"]
-offset_left = 619.0
+offset_left = 623.0
 offset_top = 9.0
-offset_right = 662.0
+offset_right = 666.0
 offset_bottom = 32.0
 theme_override_fonts/font = ExtResource("8_qjguh")
 text = "4000"
