@@ -74,7 +74,7 @@ fill_to = Vector2(0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qgen0"]
 atlas = ExtResource("7_ffenq")
-region = Rect2(16, 40, 112, 48)
+region = Rect2(16, 40, 112, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbmv4"]
 atlas = ExtResource("7_ffenq")
