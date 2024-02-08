@@ -59,17 +59,19 @@ scale = Vector2(40.7656, 6.23438)
 texture = SubResource("GradientTexture2D_r8qrj")
 
 [node name="sky" type="Sprite2D" parent="."]
-position = Vector2(-4.86374e-05, -168)
+position = Vector2(-4.86374e-05, -109)
 scale = Vector2(20.3906, 5.51563)
 texture = SubResource("GradientTexture2D_hpwid")
 
 [node name="background" type="Sprite2D" parent="."]
+position = Vector2(0, 59.0003)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("3_22536")
 
 [node name="laneSetter" type="Node2D" parent="."]
 
 [node name="topLane" type="Path2D" parent="laneSetter"]
+position = Vector2(0, 60.3165)
 rotation = -0.000352888
 curve = SubResource("Curve2D_6u51i")
 
@@ -100,7 +102,7 @@ position = Vector2(-892.026, 73.6852)
 rotation = 0.000351868
 
 [node name="bottomLane" type="Path2D" parent="laneSetter"]
-position = Vector2(251, -105)
+position = Vector2(251, -44.6835)
 curve = SubResource("Curve2D_cwoqo")
 
 [node name="allyBase" type="Area2D" parent="laneSetter/bottomLane"]
