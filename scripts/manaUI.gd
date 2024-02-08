@@ -6,10 +6,13 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rsc = get_tree().get_root().get_node("stage1").get_node("resourceHandler")
+	$manaBar.max_value = rsc.max_mana
+	$manaBar.set_value(0)
 
-func _process(delta):
+func _physics_process(delta):
 	displayMana()
 
 #manaUI 관련 스크립트 
 func displayMana():
-	get_node("manaLabel").text = str("mana: ", rsc.current_mana, " / ", rsc.max_mana)
+	$manaLabel.text = str(rsc.current_mana, " / ", rsc.max_mana)
+	$manaBar.set_value(rsc.current_mana)

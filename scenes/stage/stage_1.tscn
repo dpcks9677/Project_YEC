@@ -46,6 +46,8 @@ point_count = 11
 
 [node name="stage1" type="Node2D"]
 
+[node name="resourceHandler" parent="." instance=ExtResource("2_67fy2")]
+
 [node name="HUD" parent="." instance=ExtResource("1_tghqr")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -118,5 +120,3 @@ script = ExtResource("4_43ct3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="laneSetter/bottomLane/enemyBase"]
 position = Vector2(703, 270)
 shape = SubResource("RectangleShape2D_nq36a")
-
-[node name="resourceHandler" parent="." instance=ExtResource("2_67fy2")]

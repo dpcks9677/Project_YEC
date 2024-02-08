@@ -29,6 +29,6 @@ offset_right = 65.0
 offset_bottom = 3.0
 theme_override_styles/background = SubResource("StyleBoxFlat_wgbou")
 theme_override_styles/fill = SubResource("StyleBoxFlat_spqik")
-step = 0.1
+step = 1.0
 value = 50.0
 show_percentage = false
