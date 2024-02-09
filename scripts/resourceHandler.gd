@@ -10,6 +10,7 @@ class_name resourceHandler
 
 #공격력 계수 
 @export var atk_lv : int
+@export var atk_max_lv : int
 @export var atk_multiplier : float
 
 #인구 수 
@@ -32,6 +33,7 @@ func _ready():
 	
 	#공격력 
 	atk_lv = 1
+	atk_max_lv = 3
 	atk_multiplier = 1.0 + atk_lv * 0.1 #공격력 공식 = 100% + 10% * lv
 	
 	#인구 수 

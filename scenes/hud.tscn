@@ -78,11 +78,11 @@ region = Rect2(16, 40, 112, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbmv4"]
 atlas = ExtResource("7_ffenq")
-region = Rect2(128, 48, 96, 24)
+region = Rect2(264, 48, 96, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_babsw"]
 atlas = ExtResource("7_ffenq")
-region = Rect2(232, 48, 96, 32)
+region = Rect2(368, 48, 96, 32)
 
 [node name="HUD" type="CanvasLayer"]
 metadata/_edit_horizontal_guides_ = [29.0]
@@ -242,6 +242,16 @@ offset_bottom = 54.0
 theme_override_fonts/font = ExtResource("8_yc6xc")
 theme_override_font_sizes/font_size = 13
 text = "00/00"
+
+[node name="attackLabel" type="Label" parent="resourceUI"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 36.0
+offset_right = 99.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("8_yc6xc")
+theme_override_font_sizes/font_size = 13
+text = "0/0"
 
 [node name="allyHealthBorder" type="Sprite2D" parent="."]
 position = Vector2(430, 24)

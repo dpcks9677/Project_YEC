@@ -7,9 +7,14 @@ func _ready():
 
 func _process(delta):
 	displayPopulation()
+	displayAttack()
 
 func displayPopulation():
 	if rsc.population < 10: #01 처럼 표기하기 위해 if문 사용 
-		get_node("populationLabel").text = str("0", rsc.population, "/", rsc.population_lv * 10)
+		$populationLabel.text = str("0", rsc.population, "/", rsc.population_lv * 10)
 	else:
-		get_node("populationLabel").text = str(rsc.population, "/", rsc.population_lv * 10)
+		$populationLabel.text = str(rsc.population, "/", rsc.population_lv * 10)
+		
+func displayAttack():
+	$attackLabel.text = str(rsc.atk_lv, "/", rsc.atk_max_lv)
+
