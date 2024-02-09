@@ -9,4 +9,7 @@ func _process(delta):
 	displayPopulation()
 
 func displayPopulation():
-	get_node("populationLabel").text = str("pop: ", rsc.population, " / ", rsc.population_lv * 10)
+	if rsc.population < 10:
+		get_node("populationLabel").text = str("0", rsc.population, "/", rsc.population_lv * 10)
+	else:
+		get_node("populationLabel").text = str(rsc.population, "/", rsc.population_lv * 10)

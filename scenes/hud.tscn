@@ -85,6 +85,7 @@ atlas = ExtResource("7_ffenq")
 region = Rect2(232, 48, 96, 32)
 
 [node name="HUD" type="CanvasLayer"]
+metadata/_edit_horizontal_guides_ = [29.0]
 
 [node name="mainUI" type="Control" parent="."]
 layout_mode = 3
@@ -123,22 +124,6 @@ layout_mode = 1
 offset_top = 310.0
 offset_right = -278.0
 offset_bottom = -23.0
-
-[node name="populationUI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("3_snkth")
-
-[node name="populationLabel" type="Label" parent="populationUI"]
-layout_mode = 0
-offset_left = 923.0
-offset_top = 10.0
-offset_right = 1118.0
-offset_bottom = 65.0
-theme_override_font_sizes/font_size = 40
-text = "this is pop"
 
 [node name="laneUI" type="Control" parent="."]
 layout_mode = 3
@@ -223,6 +208,7 @@ text = "4000"
 horizontal_alignment = 2
 
 [node name="enemyHealthLabel" type="Label" parent="healthUI"]
+layout_mode = 0
 offset_left = 623.0
 offset_top = 9.0
 offset_right = 666.0
@@ -236,9 +222,26 @@ scale = Vector2(2.17043, 2.16333)
 texture = ExtResource("6_23gcs")
 
 [node name="manaBorder" type="Sprite2D" parent="."]
-position = Vector2(170.083, 59.25)
+position = Vector2(170, 47)
 scale = Vector2(3.03125, 3.03125)
 texture = SubResource("AtlasTexture_qgen0")
+
+[node name="populationUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_snkth")
+
+[node name="populationLabel" type="Label" parent="populationUI"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 36.0
+offset_right = 232.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("8_yc6xc")
+theme_override_font_sizes/font_size = 13
+text = "00/00"
 
 [node name="allyHealthBorder" type="Sprite2D" parent="."]
 position = Vector2(430, 24)
