@@ -226,14 +226,14 @@ position = Vector2(170, 47)
 scale = Vector2(3.03125, 3.03125)
 texture = SubResource("AtlasTexture_qgen0")
 
-[node name="populationUI" type="Control" parent="."]
+[node name="resourceUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_snkth")
 
-[node name="populationLabel" type="Label" parent="populationUI"]
+[node name="populationLabel" type="Label" parent="resourceUI"]
 layout_mode = 0
 offset_left = 160.0
 offset_top = 36.0
