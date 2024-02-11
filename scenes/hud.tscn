@@ -5,11 +5,11 @@
 [ext_resource type="Script" path="res://scripts/populationUI.gd" id="3_snkth"]
 [ext_resource type="Script" path="res://scripts/laneUI.gd" id="4_2p0go"]
 [ext_resource type="PackedScene" uid="uid://dqhjv2biwvh6a" path="res://scenes/unit_button.tscn" id="5_mv6qo"]
-[ext_resource type="Texture2D" uid="uid://cy2hxyvyrvg74" path="res://sprites/UI/UI.png" id="6_23gcs"]
+[ext_resource type="Texture2D" uid="uid://dcawahocjvjmd" path="res://sprites/UI/UI.png" id="6_23gcs"]
 [ext_resource type="Script" path="res://scripts/baseHealthBar.gd" id="7_c3y18"]
-[ext_resource type="Texture2D" uid="uid://fdm60kj0548t" path="res://sprites/UI/UIset.png" id="7_ffenq"]
-[ext_resource type="FontFile" uid="uid://badsu6v0qe541" path="res://sprites/UI/font/Pixel Gosub.otf" id="8_qjguh"]
-[ext_resource type="FontFile" uid="uid://ckgny4acmcutx" path="res://sprites/UI/font/GravityBold8.ttf" id="8_yc6xc"]
+[ext_resource type="Texture2D" uid="uid://d8bu6d07c1l7" path="res://sprites/UI/UIset.png" id="7_ffenq"]
+[ext_resource type="FontFile" uid="uid://b5x7w5dtj5kdw" path="res://sprites/UI/font/Pixel Gosub.otf" id="8_qjguh"]
+[ext_resource type="FontFile" uid="uid://dntp26o3qfwr0" path="res://sprites/UI/font/GravityBold8.ttf" id="8_yc6xc"]
 
 [sub_resource type="Gradient" id="Gradient_dk8t7"]
 interpolation_mode = 2

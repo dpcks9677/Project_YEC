@@ -76,5 +76,15 @@ func populationHandler():
 	else:
 		isPopulationFull = false
 		
+func decreasePopulation():
+	population -= 1
+
+#베이스 체력 관련 처리 
+func allyBaseDamage(damage):
+	allyBaseHealth -= damage
+	
+func enemyBaseDamage(damage):
+	enemyBaseHealth -= damage
+		
 func checkBaseHealth():
 	pass

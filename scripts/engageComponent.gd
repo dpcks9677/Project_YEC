@@ -1,6 +1,10 @@
 extends Node2D
 class_name engageComponent
 
+signal dead
+signal waiting_to_killed
+signal waiting_end
+
 @export var _status: statusResource
 @export var rsc: resourceHandler
 
@@ -93,9 +97,7 @@ func stateSetter(): #state: move, engage
 			else:
 				state = "move"
 				combat_state = "peace"
-				#target 관련 코드
-				
-#자동이동 및 걷기 애니메이션 
+
 func move():
 	if unit_tag == "ally":
 		get_parent().progress_ratio += MOVEMENT_VALUE * speed
@@ -112,23 +114,26 @@ func engage(target):
 	elif combat_state == "attack":
 		get_parent().get_node("AnimationPlayer").play("attack")
 		await waiting_animation()
-		damage(target)
+		deal_damage(target)
 		combat_state = "cooldown"
 
 func waiting_animation(): #await 키워드와 함께 사용 
 	return get_parent().get_node("AnimationPlayer").animation_finished
 
-func damage(target):
+func deal_damage(target): #데미지 주기 
 	if isAttack == false:
 		if is_instance_valid(target):
 			if target.get_name() == "hitbox": #유닛 공격 
-				target.get_parent().get_node("engageComponent").health -= attack_damage #연산 
+				target.get_parent().get_node("engageComponent").take_damage(attack_damage)
 				print(target.get_parent().get_node("engageComponent").health)
 			elif target.get_name() == "allyBase": #아군 베이스 공격 
-				get_tree().get_root().get_node("stage1").get_node("resourceHandler").allyBaseHealth -= attack_damage
+				get_tree().get_root().get_node("stage1").get_node("resourceHandler").allyBaseDamage(attack_damage)
 			elif target.get_name() == "enemyBase": #적군 베이스 공격
-				get_tree().get_root().get_node("stage1").get_node("resourceHandler").enemyBaseHealth -= attack_damage
+				get_tree().get_root().get_node("stage1").get_node("resourceHandler").enemyBaseDamage(attack_damage)
 	isAttack = true
+
+func take_damage(damage):
+	health -= damage
 
 #attackRangeComponent에서 시그널을 받아서 동작
 #queue 구현해야 함. target[]에서 enemy 감지시 target에 들어감. target이 빈 리스트가 아니면 engage 
@@ -148,22 +153,14 @@ func attack_range_entered(area):
 		elif area.get_name() == "allyBase":
 			target_queue.enqueue(area)
 
-#attackRangeComponent에서 시그널을 받아서 동작
-func attack_range_exited(area):
-	if unit_tag == "ally":
-		if area.get_name() == "hitbox":
-			#사거리에 적이 들어오면 target_queue의 끝에 target ID 삽입 
-			if area.get_parent().get_node("engageComponent").unit_tag == "enemy":
-				pass
-		
-	elif unit_tag == "enemy":
-		if area.get_name() == "hitbox":
-			if area.get_parent().get_node("engageComponent").unit_tag == "ally":
-				pass
-
 func checkHealth():
 	if health <= 0:
-		get_parent().get_node("AnimationPlayer").play("idle")
-		get_parent().get_node("AnimationPlayer").pause()
-		rsc.population -= 1
-		get_parent().queue_free()
+		emit_signal("dead")
+		
+func _on_dead():
+	# var killer = 
+	state = "dead"
+	get_parent().get_node("AnimationPlayer").play("dead")
+	await get_parent().get_node("AnimationPlayer").animation_finished
+	rsc.decreasePopulation()
+	get_parent().queue_free()

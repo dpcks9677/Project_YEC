@@ -5,6 +5,3 @@ class_name attackRangeComponent
 
 func _on_area_entered(area):
 	engage_Component.attack_range_entered(area)
-
-func _on_area_exited(area):
-	engage_Component.attack_range_exited(area)
