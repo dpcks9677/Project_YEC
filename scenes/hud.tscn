@@ -5,35 +5,38 @@
 [ext_resource type="Script" path="res://scripts/populationUI.gd" id="3_snkth"]
 [ext_resource type="Script" path="res://scripts/laneUI.gd" id="4_2p0go"]
 [ext_resource type="PackedScene" uid="uid://dqhjv2biwvh6a" path="res://scenes/unit_button.tscn" id="5_mv6qo"]
-[ext_resource type="Texture2D" uid="uid://dcawahocjvjmd" path="res://sprites/UI/UI.png" id="6_23gcs"]
+[ext_resource type="Texture2D" uid="uid://cy2hxyvyrvg74" path="res://sprites/UI/UI.png" id="6_23gcs"]
 [ext_resource type="Script" path="res://scripts/baseHealthBar.gd" id="7_c3y18"]
-[ext_resource type="Texture2D" uid="uid://d8bu6d07c1l7" path="res://sprites/UI/UIset.png" id="7_ffenq"]
-[ext_resource type="FontFile" uid="uid://b5x7w5dtj5kdw" path="res://sprites/UI/font/Pixel Gosub.otf" id="8_qjguh"]
-[ext_resource type="FontFile" uid="uid://dntp26o3qfwr0" path="res://sprites/UI/font/GravityBold8.ttf" id="8_yc6xc"]
+[ext_resource type="Texture2D" uid="uid://fdm60kj0548t" path="res://sprites/UI/UIset.png" id="7_ffenq"]
+[ext_resource type="FontFile" uid="uid://badsu6v0qe541" path="res://sprites/UI/font/Pixel Gosub.otf" id="8_qjguh"]
+[ext_resource type="FontFile" uid="uid://ckgny4acmcutx" path="res://sprites/UI/font/GravityBold8.ttf" id="8_yc6xc"]
 
-[sub_resource type="Gradient" id="Gradient_bfgl1"]
-offsets = PackedFloat32Array(0, 0.516129, 1)
-colors = PackedColorArray(0.0313726, 0.352941, 0.6, 1, 0.184314, 0.447059, 0.6, 1, 0.0313726, 0.352941, 0.6, 1)
+[sub_resource type="Gradient" id="Gradient_dk8t7"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.302817, 0.992958)
+colors = PackedColorArray(0.13423, 0.1147, 0.31, 1, 0.108, 0.24, 0.2114, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_dlnee"]
-gradient = SubResource("Gradient_bfgl1")
+gradient = SubResource("Gradient_dk8t7")
 width = 202
 height = 20
 
-[sub_resource type="Gradient" id="Gradient_kqkai"]
-offsets = PackedFloat32Array(0, 0.526882, 1)
-colors = PackedColorArray(0.31, 0.747, 1, 1, 0.0431373, 0.478431, 0.815686, 1, 0.301961, 0.72549, 0.976471, 1)
+[sub_resource type="Gradient" id="Gradient_0it2a"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.274648, 0.359155, 0.598592, 0.732394, 0.823944)
+colors = PackedColorArray(0.0705882, 0.537255, 0.764706, 1, 0.66, 0.861667, 0.88, 1, 0.1806, 0.803383, 0.86, 1, 0.1, 0.7, 1, 1, 0.162, 0.4449, 0.9, 1, 0.2088, 0.27696, 0.72, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_16m4b"]
-gradient = SubResource("Gradient_kqkai")
+gradient = SubResource("Gradient_0it2a")
 width = 202
 height = 20
 fill_from = Vector2(1, 0)
 fill_to = Vector2(1, 0.901709)
 
 [sub_resource type="Gradient" id="Gradient_0aw8d"]
+interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(0.3, 0.045, 0, 1, 0.3, 0.05775, 0.015, 1, 0.3, 0.045, 0, 1)
+colors = PackedColorArray(0.3, 0.045, 0, 1, 0.23483, 0.0371243, 0.0092476, 1, 0.3, 0.045, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_q8lqg"]
 gradient = SubResource("Gradient_0aw8d")
@@ -42,8 +45,9 @@ height = 17
 fill_to = Vector2(0, 1)
 
 [sub_resource type="Gradient" id="Gradient_aaf4r"]
-offsets = PackedFloat32Array(0, 0.505376, 1)
-colors = PackedColorArray(0.607843, 0.0901961, 0, 1, 0.999998, 0.350274, 0.244027, 1, 0.827451, 0.137255, 0, 1)
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.15493, 0.316901, 0.612676, 0.880282)
+colors = PackedColorArray(0.61, 0.101667, 0, 1, 1, 0.33, 0.33, 1, 0.83, 0.159083, 0.0249, 1, 0.56, 0.1078, 0.084, 1, 0.323167, 0.028, 0.35, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3vdqm"]
 gradient = SubResource("Gradient_aaf4r")
@@ -53,8 +57,9 @@ fill_from = Vector2(0, 0.110182)
 fill_to = Vector2(0, 0.808)
 
 [sub_resource type="Gradient" id="Gradient_8bgkv"]
-offsets = PackedFloat32Array(0, 0.516129, 1)
-colors = PackedColorArray(0.368583, 0.085, 0.5, 1, 0.411833, 0.27, 0.5, 1, 0.368583, 0.085, 0.5, 1)
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.267606)
+colors = PackedColorArray(0.206407, 0.0476, 0.28, 1, 0.147433, 0.034, 0.2, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xyp7p"]
 gradient = SubResource("Gradient_8bgkv")
@@ -62,12 +67,13 @@ width = 202
 height = 17
 fill_to = Vector2(0, 1)
 
-[sub_resource type="Gradient" id="Gradient_we535"]
-offsets = PackedFloat32Array(0, 0.516129, 1)
-colors = PackedColorArray(0.607843, 0.141176, 0.827451, 1, 0.804306, 0.528419, 0.977964, 1, 0.607843, 0.141176, 0.827451, 1)
+[sub_resource type="Gradient" id="Gradient_y1un6"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.161972, 0.28169, 0.556338, 0.880282)
+colors = PackedColorArray(0.589667, 0, 0.61, 1, 0.766, 0.46, 1, 1, 0.593333, 0.178, 0.89, 1, 0.441, 0.084, 0.56, 1, 0.185333, 0.032, 0.4, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1j2dl"]
-gradient = SubResource("Gradient_we535")
+gradient = SubResource("Gradient_y1un6")
 width = 202
 height = 17
 fill_to = Vector2(0, 1)
