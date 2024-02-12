@@ -106,7 +106,9 @@ func move():
 	get_parent().get_node("AnimationPlayer").play("walk")
 	
 func engage(target):
-	if combat_state == "cooldown":
+	if get_target_state(target) == "dead":
+		get_parent().get_node("AnimationPlayer").play("idle")
+	elif combat_state == "cooldown":
 		isAttack = false
 		get_parent().get_node("AnimationPlayer").play("idle")
 		await waiting_animation()
@@ -116,6 +118,12 @@ func engage(target):
 		await waiting_animation()
 		deal_damage(target)
 		combat_state = "cooldown"
+
+func get_target_state(target):
+	if is_instance_valid(target):
+		return target.get_parent().get_node("engageComponent").state
+	else:
+		return null
 
 func waiting_animation(): #await 키워드와 함께 사용 
 	return get_parent().get_node("AnimationPlayer").animation_finished
