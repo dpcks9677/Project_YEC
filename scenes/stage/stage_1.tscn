@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scripts/base.gd" id="4_43ct3"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="4_b0td4"]
 [ext_resource type="PackedScene" uid="uid://c7m578amgnxic" path="res://units/enemy/rhino.tscn" id="6_krl3s"]
-[ext_resource type="PackedScene" uid="uid://cv1h8mnftsm3h" path="res://units/ally/archer.tscn" id="6_wm7ol"]
+[ext_resource type="PackedScene" uid="uid://oms4xo8wpeo7" path="res://units/ally/knight.tscn" id="7_2d63h"]
 
 [sub_resource type="Gradient" id="Gradient_vnvry"]
 colors = PackedColorArray(0.658824, 0.380392, 0.25098, 1, 0.307909, 0.160637, 0.0915456, 1)
@@ -93,11 +93,12 @@ script = ExtResource("4_43ct3")
 position = Vector2(912.98, 56.3222)
 shape = SubResource("RectangleShape2D_nq36a")
 
-[node name="archer" parent="laneSetter/topLane" instance=ExtResource("6_wm7ol")]
-position = Vector2(-892.026, 73.6852)
-rotation = 0.000351868
-
 [node name="rhino" parent="laneSetter/topLane" instance=ExtResource("6_krl3s")]
+position = Vector2(906.978, 63.3201)
+rotation = 0.0742921
+progress = 1813.34
+
+[node name="knight" parent="laneSetter/topLane" instance=ExtResource("7_2d63h")]
 position = Vector2(-892.026, 73.6852)
 rotation = 0.000351868
 

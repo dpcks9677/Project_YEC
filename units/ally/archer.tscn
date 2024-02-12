@@ -126,8 +126,14 @@ size = Vector2(94, 101.75)
 size = Vector2(367, 181.188)
 
 [node name="archer" type="PathFollow2D"]
-position = Vector2(0, -41)
+position = Vector2(0, -50)
 scale = Vector2(0.8, 0.8)
+
+[node name="shadow" type="Polygon2D" parent="."]
+position = Vector2(-7.5, 16.25)
+scale = Vector2(1, 1)
+color = Color(0.121569, 0.121569, 0.121569, 0.592157)
+polygon = PackedVector2Array(-37.5, 18.75, -45, 22.5, -50, 28.75, -43.75, 36.25, -32.5, 38.75, 28.75, 38.75, 41.25, 36.25, 47.5, 30, 42.5, 22.5, 33.75, 18.75)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_bdxdh")
