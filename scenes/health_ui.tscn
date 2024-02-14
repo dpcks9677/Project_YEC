@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://cd2oi5x35nqsi"]
+
+[ext_resource type="Script" path="res://scripts/baseHealthBar.gd" id="1_2s47r"]
+[ext_resource type="FontFile" uid="uid://353fbh7tehj0" path="res://sprites/UI/font/Pixel Gosub.otf" id="2_ybwtf"]
+
+[sub_resource type="Gradient" id="Gradient_0aw8d"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.3, 0.045, 0, 1, 0.23483, 0.0371243, 0.0092476, 1, 0.3, 0.045, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q8lqg"]
+gradient = SubResource("Gradient_0aw8d")
+width = 202
+height = 17
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_aaf4r"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.15493, 0.316901, 0.612676, 0.880282)
+colors = PackedColorArray(0.61, 0.101667, 0, 1, 1, 0.33, 0.33, 1, 0.83, 0.159083, 0.0249, 1, 0.56, 0.1078, 0.084, 1, 0.323167, 0.028, 0.35, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3vdqm"]
+gradient = SubResource("Gradient_aaf4r")
+width = 202
+height = 17
+fill_from = Vector2(0, 0.110182)
+fill_to = Vector2(0, 0.808)
+
+[sub_resource type="Gradient" id="Gradient_8bgkv"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.267606)
+colors = PackedColorArray(0.206407, 0.0476, 0.28, 1, 0.147433, 0.034, 0.2, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xyp7p"]
+gradient = SubResource("Gradient_8bgkv")
+width = 202
+height = 17
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_y1un6"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.161972, 0.28169, 0.556338, 0.880282)
+colors = PackedColorArray(0.589667, 0, 0.61, 1, 0.766, 0.46, 1, 1, 0.593333, 0.178, 0.89, 1, 0.441, 0.084, 0.56, 1, 0.185333, 0.032, 0.4, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1j2dl"]
+gradient = SubResource("Gradient_y1un6")
+width = 202
+height = 17
+fill_to = Vector2(0, 1)
+
+[node name="healthUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2s47r")
+
+[node name="allyHealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 14.0
+offset_right = 534.0
+offset_bottom = 31.0
+value = 50.0
+texture_under = SubResource("GradientTexture2D_q8lqg")
+texture_progress = SubResource("GradientTexture2D_3vdqm")
+
+[node name="enemyHealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 614.0
+offset_top = 15.0
+offset_right = 816.0
+offset_bottom = 32.0
+value = 50.0
+fill_mode = 1
+texture_under = SubResource("GradientTexture2D_xyp7p")
+texture_progress = SubResource("GradientTexture2D_1j2dl")
+
+[node name="allyHealthLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 482.0
+offset_top = 9.0
+offset_right = 525.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("2_ybwtf")
+text = "4000"
+horizontal_alignment = 2
+
+[node name="enemyHealthLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 623.0
+offset_top = 9.0
+offset_right = 666.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("2_ybwtf")
+text = "4000"

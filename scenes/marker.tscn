@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn36akha122i3"]
+
+[ext_resource type="Script" path="res://marker.gd" id="1_meddw"]
+
+[node name="marker" type="PathFollow2D"]
+script = ExtResource("1_meddw")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-2, -2)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(0, 0, 1, 0, 2, 0, 2, 2, 0, 2)

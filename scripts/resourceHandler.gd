@@ -44,7 +44,7 @@ func _ready():
 	allyBaseHealth = 4000
 	enemyBaseHealth = 4000
 
-func _process(delta):
+func _process(_delta):
 	atkHandler()
 	populationHandler()
 	manaHandler()

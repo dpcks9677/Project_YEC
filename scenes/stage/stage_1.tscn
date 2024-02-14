@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scripts/base.gd" id="4_43ct3"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="4_b0td4"]
 [ext_resource type="PackedScene" uid="uid://c7m578amgnxic" path="res://units/enemy/rhino.tscn" id="6_krl3s"]
-[ext_resource type="PackedScene" uid="uid://oms4xo8wpeo7" path="res://units/ally/knight.tscn" id="7_2d63h"]
+[ext_resource type="PackedScene" uid="uid://fbdbf7roi2eh" path="res://units/ally/spearman.tscn" id="7_ies5v"]
 
 [sub_resource type="Gradient" id="Gradient_vnvry"]
 colors = PackedColorArray(0.658824, 0.380392, 0.25098, 1, 0.307909, 0.160637, 0.0915456, 1)
@@ -98,7 +98,7 @@ position = Vector2(906.978, 63.3201)
 rotation = 0.0742921
 progress = 1813.34
 
-[node name="knight" parent="laneSetter/topLane" instance=ExtResource("7_2d63h")]
+[node name="spearman" parent="laneSetter/topLane" instance=ExtResource("7_ies5v")]
 position = Vector2(-892.026, 73.6852)
 rotation = 0.000351868
 

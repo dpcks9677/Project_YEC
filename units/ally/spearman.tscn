@@ -20,18 +20,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.74902)]
-}
 
 [sub_resource type="Animation" id="Animation_y8n25"]
 resource_name = "attack"
@@ -136,7 +124,6 @@ color = Color(0.121569, 0.121569, 0.121569, 0.592157)
 polygon = PackedVector2Array(-37.5, 18.75, -45, 22.5, -50, 28.75, -43.75, 36.25, -32.5, 38.75, 28.75, 38.75, 41.25, 36.25, 47.5, 30, 42.5, 22.5, 33.75, 18.75)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.74902)
 texture = ExtResource("1_pddrv")
 flip_h = true
 hframes = 8
@@ -151,12 +138,14 @@ libraries = {
 _status = ExtResource("3_si0jx")
 
 [node name="hitbox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ny7yn")
 
 [node name="attackRangeComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("2_ohoib")]
+visible = false
 engage_Component = NodePath("../engageComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]

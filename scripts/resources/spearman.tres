@@ -6,7 +6,7 @@
 script = ExtResource("1_wceq3")
 unit_tag = "ally"
 health = 1500
-speed = 1.0
+speed = 5.0
 attack_damage = 100
 attack_type = false
 ads = 2.0

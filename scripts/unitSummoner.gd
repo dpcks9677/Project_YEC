@@ -1,5 +1,7 @@
 extends Control
 
+signal unitSpawn
+
 #유닛 이름, 씬 저장 할 배열 선언 
 @export var unitName := [null, null, null, null, null, null, null, null]
 @export var unitScene := [null, null, null, null, null, null, null, null]
@@ -22,13 +24,14 @@ func _ready():
 		if unitScene != null:
 			unitScene[i] = load("res://units/ally/" + str(unitName[i]) + ".tscn")
 		
-func _process(delta):
+func _process(_delta):
 	pass
 
 func spawn(unit):
 	#인스턴스화 먼저 (정보 얻어와야 함) 
 	var target
-	var idx
+	var targetUnitTag : String
+	var idx : int
 	
 	for i in range(8):
 		if str(unitName[i]) == str(unit):
@@ -56,3 +59,8 @@ func spawn(unit):
 			
 			#인구수 1 증가 
 			rsc.population += 1
+			
+			#minimapUI에 객체 추적 노드 추가
+			get_parent().get_node("minimapUI").spawnMarker(target)
+			
+	

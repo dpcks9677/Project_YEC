@@ -19,7 +19,7 @@ func _ready():
 	$allyHealthBar.value = rsc.allyBaseHealth
 	$enemyHealthBar.value = rsc.enemyBaseHealth
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	healthSetter()
 
 func healthSetter():

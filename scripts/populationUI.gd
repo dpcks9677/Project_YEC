@@ -5,7 +5,7 @@ extends Control
 func _ready():
 	rsc = get_tree().get_root().get_node("stage1").get_node("resourceHandler")
 
-func _process(delta):
+func _process(_delta):
 	displayPopulation()
 	displayAttack()
 

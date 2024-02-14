@@ -1,10 +1,6 @@
 extends Node2D
 class_name engageComponent
 
-signal dead
-signal waiting_to_killed
-signal waiting_end
-
 @export var _status: statusResource
 @export var rsc: resourceHandler
 
@@ -108,6 +104,7 @@ func move():
 func engage(target):
 	if get_target_state(target) == "dead":
 		get_parent().get_node("AnimationPlayer").play("idle")
+		await waiting_animation()
 	elif combat_state == "cooldown":
 		isAttack = false
 		get_parent().get_node("AnimationPlayer").play("idle")
@@ -120,8 +117,8 @@ func engage(target):
 		combat_state = "cooldown"
 
 func get_target_state(target):
-	if is_instance_valid(target):
-		return target.get_parent().get_node("engageComponent").state
+	if (is_instance_valid(target) and (target.get_name() != "allyBase" and target.get_name() != "enemyBase")): 
+		return target.get_parent().get_node("engageComponent").state #베이스 공격시 오류 출력 
 	else:
 		return null
 
@@ -163,12 +160,8 @@ func attack_range_entered(area):
 
 func checkHealth():
 	if health <= 0:
-		emit_signal("dead")
-		
-func _on_dead():
-	# var killer = 
-	state = "dead"
-	get_parent().get_node("AnimationPlayer").play("dead")
-	await get_parent().get_node("AnimationPlayer").animation_finished
-	rsc.decreasePopulation()
-	get_parent().queue_free()
+		state = "dead"
+		get_parent().get_node("AnimationPlayer").play("dead")
+		await get_parent().get_node("AnimationPlayer").animation_finished
+		rsc.decreasePopulation()
+		get_parent().queue_free()

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw2o3o55caxgh"]
+
+[ext_resource type="Script" path="res://scripts/unitSummoner.gd" id="1_lxg88"]
+[ext_resource type="PackedScene" uid="uid://dqhjv2biwvh6a" path="res://scenes/unit_button.tscn" id="2_003sc"]
+
+[node name="unitSummoner" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 391.0
+offset_bottom = 408.0
+script = ExtResource("1_lxg88")
+
+[node name="unitButton1" parent="." instance=ExtResource("2_003sc")]
+layout_mode = 1
+offset_top = 100.0
+offset_right = -278.0
+offset_bottom = -233.0
+
+[node name="unitButton2" parent="." instance=ExtResource("2_003sc")]
+layout_mode = 1
+offset_top = 170.0
+offset_right = -278.0
+offset_bottom = -163.0
+
+[node name="unitButton3" parent="." instance=ExtResource("2_003sc")]
+layout_mode = 1
+offset_top = 240.0
+offset_right = -278.0
+offset_bottom = -93.0
+
+[node name="unitButton4" parent="." instance=ExtResource("2_003sc")]
+layout_mode = 1
+offset_top = 310.0
+offset_right = -278.0
+offset_bottom = -23.0
