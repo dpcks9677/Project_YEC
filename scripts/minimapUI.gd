@@ -15,6 +15,11 @@ func spawnMarker(target): #unit_tag 식별, 마커 스폰 라인 설정, progres
 	#unit_tag 식별 
 	unit_tag = target.get_node("engageComponent").unit_tag
 	
+	if unit_tag == "ally":
+		markerInstant.get_node("Polygon2D").set_color(Color(0,1,0,0.8))
+	elif unit_tag == "enemy":
+		markerInstant.get_node("Polygon2D").set_color(Color(1,0,0,0.8))
+	
 	#라인에 따라 객체 생성하기 
 	if target.get_parent().get_name() == "topLane":
 		get_node("topLane").add_child(markerInstant)

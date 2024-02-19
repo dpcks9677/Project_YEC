@@ -8,4 +8,4 @@ script = ExtResource("1_meddw")
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(-2, -2)
 scale = Vector2(2, 2)
-polygon = PackedVector2Array(0, 0, 1, 0, 2, 0, 2, 2, 0, 2)
+polygon = PackedVector2Array(-0.5, -0.5, 2.5, -0.5, 2.5, 2.5, -0.5, 2.5)
