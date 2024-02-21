@@ -1,25 +1,54 @@
 extends Control
 
+signal manaUpgrade
+signal popUpgrade
+signal attackUpgrade
+
+@export var state : String
+
 func _enter_tree():
 	if get_name() == str("manaUpgradeButton"):
+		state = "mana"
 		get_node("TextureButton").texture_normal = load("res://sprites/UI/mana.png")
 	if get_name() == str("popUpgradeButton"):
+		state = "pop"
 		get_node("TextureButton").texture_normal = load("res://sprites/UI/pop.png")
 	if get_name() == str("attackUpgradeButton"):
+		state = "attack"
 		get_node("TextureButton").texture_normal = load("res://sprites/UI/att.png")
 
-func _ready():
-	pass # Replace with function body.
+func _physics_process(_delta):
+	#업그레이드 진행 시 버튼 비활성화 
+	if state == "mana" and get_parent().get_parent().get_parent().get_node("resourceHandler").isManaUpgrade == true:
+		get_node("TextureButton").set_disabled(true)
+		modulateDown()
+	elif state == "pop" and get_parent().get_parent().get_parent().get_node("resourceHandler").isPopUpgrade == true:
+		get_node("TextureButton").set_disabled(true)
+		modulateDown()
+	elif state == "attack" and get_parent().get_parent().get_parent().get_node("resourceHandler").isAttackUpgrade == true :
+		get_node("TextureButton").set_disabled(true)
+		modulateDown()
+
+func modulateDown():
+	modulate = Color(0.5, 0.5, 0.5, 1) #색조 변경 
+
+func modulateUp():
+	modulate = Color(1, 1, 1, 1) #색조 변경 (원래대로) 
 
 func _on_texture_button_pressed():
-	modulate = Color(0.5, 0.5, 0.5, 1) #색조 변경 
-	
+	modulateDown()
 	position.x -= 2
 	position.y += 2
 	
 func _on_texture_button_button_up():
-	print("pressed")
-	modulate = Color(1, 1, 1, 1) #색조 변경 (원래대로) 
-
+	modulateUp()
 	position.x += 2
 	position.y -= 2
+	
+	#upgrade 버튼 상호작용시 resourceHandler에게 signal 방출 
+	if state == "mana":
+		emit_signal("manaUpgrade")
+	elif state == "pop":
+		emit_signal("popUpgrade")
+	elif state == "attack":
+		emit_signal("attackUpgrade")

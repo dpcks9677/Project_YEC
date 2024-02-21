@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dqhjv2biwvh6a"]
 
 [ext_resource type="Script" path="res://scripts/unitButton.gd" id="1_po7nm"]
-[ext_resource type="FontFile" uid="uid://dc7t4klf4ftuh" path="res://sprites/UI/font/GravityBold8.ttf" id="2_02x0j"]
-[ext_resource type="Texture2D" uid="uid://kaukuu5h8xbn" path="res://sprites/object/crystal.png" id="4_8re6u"]
+[ext_resource type="FontFile" uid="uid://dntp26o3qfwr0" path="res://sprites/UI/font/GravityBold8.ttf" id="2_02x0j"]
+[ext_resource type="Texture2D" uid="uid://bn8rqh8dx68n1" path="res://sprites/object/crystal.png" id="4_8re6u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms08w"]
 bg_color = Color(0.109804, 0.490196, 0.964706, 0.611765)
