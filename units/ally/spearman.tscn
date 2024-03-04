@@ -114,8 +114,8 @@ size = Vector2(100, 103)
 size = Vector2(30, 103.5)
 
 [node name="spearman" type="PathFollow2D"]
-position = Vector2(0, -41)
 scale = Vector2(0.8, 0.8)
+rotates = false
 
 [node name="shadow" type="Polygon2D" parent="."]
 position = Vector2(1.25, 5)

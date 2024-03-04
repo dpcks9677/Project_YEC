@@ -10,9 +10,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_6u51i"]
 _data = {
-"points": PackedVector2Array(-217.789, -0.0768551, 0, 0, -892.026, 73.6852, 0, 0, 0, 0, -867.026, 73.694, -56.7372, 18.334, 56.7372, -18.334, -685.027, 77.7583, -41.381, 2.65508, 41.381, -2.65508, -548.014, 40.8066, -69.3012, 13.4106, 69.3012, -13.4106, -330.01, 28.8835, -144.251, 2.07042, 144.251, -2.07042, 9.99929, 2.00353, -96.1615, -14.1761, 96.1615, 14.1761, 372.983, 48.1316, -90.5054, -12.0528, 90.5054, 12.0528, 556.985, 41.1966, -114.548, -8.5257, 114.548, 8.5257, 906.978, 63.3201)
+"points": PackedVector2Array(-217.789, -0.0768551, 0, 0, -892.026, 73.6852, 0, 0, 0, 0, -867.026, 73.694, -56.7372, 18.334, 56.7372, -18.334, -685.027, 77.7583, -41.381, 2.65508, 41.381, -2.65508, -548.014, 40.8066, 0, 0, 0, 0, -372.348, 33.8435, -69.3012, 13.4106, 69.3012, -13.4106, -330.01, 28.8835, -144.251, 2.07042, 144.251, -2.07042, 9.99929, 2.00353, -96.1615, -14.1761, 96.1615, 14.1761, 372.983, 48.1316, -90.5054, -12.0528, 90.5054, 12.0528, 556.985, 41.1966, -114.548, -8.5257, 114.548, 8.5257, 906.978, 63.3201)
 }
-point_count = 9
+point_count = 10
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5bsn"]
 size = Vector2(37.9831, 67.7549)
@@ -53,7 +53,7 @@ fill_to = Vector2(1, 0.486239)
 [node name="laneSetter" type="Node2D" parent="resourceHandler"]
 
 [node name="topLane" type="Path2D" parent="resourceHandler/laneSetter"]
-position = Vector2(0, 60.3165)
+position = Vector2(1, 52.432)
 rotation = -0.000352888
 curve = SubResource("Curve2D_6u51i")
 
@@ -75,14 +75,13 @@ script = ExtResource("4_43ct3")
 position = Vector2(912.98, 56.3222)
 shape = SubResource("RectangleShape2D_nq36a")
 
-[node name="rhino" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("6_krl3s")]
-position = Vector2(906.978, 63.3201)
-rotation = 0.0742921
-progress = 1813.34
-
 [node name="spearman" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("7_ies5v")]
 position = Vector2(-892.026, 73.6852)
 rotation = 0.000351868
+
+[node name="rhino" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("6_krl3s")]
+position = Vector2(906.978, 63.3201)
+progress = 1823.91
 
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]
 position = Vector2(251, -44.6835)
@@ -120,6 +119,6 @@ scale = Vector2(20.3906, 5.51563)
 texture = SubResource("GradientTexture2D_hpwid")
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(0, 59.0003)
+position = Vector2(1, 59.0003)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("3_22536")

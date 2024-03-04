@@ -1,21 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckibj4cs45exg"]
+[gd_scene load_steps=7 format=3 uid="uid://ckibj4cs45exg"]
 
 [ext_resource type="Script" path="res://scripts/upgradeButton.gd" id="1_cldcf"]
+[ext_resource type="Texture2D" uid="uid://r0go7d0gtnu5" path="res://sprites/UI/pop.png" id="2_f0qt4"]
 
-[sub_resource type="Gradient" id="Gradient_umug6"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 0.545098)
+[sub_resource type="Gradient" id="Gradient_er4y5"]
+colors = PackedColorArray(0, 0, 0, 0.509804, 0, 0, 0, 0.509804)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_1qhxi"]
-gradient = SubResource("Gradient_umug6")
-width = 160
-height = 90
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6ci1o"]
+gradient = SubResource("Gradient_er4y5")
+width = 13
+height = 45
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_aijon"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8)
+colors = PackedColorArray(0.3506, 0.6, 0.252, 1, 0.5787, 0.6, 0.174, 1, 0.9, 0.4998, 0.072, 1, 0.9, 0.27225, 0.063, 1, 0.9, 0.045, 0.045, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w1nos"]
+gradient = SubResource("Gradient_aijon")
+width = 13
+height = 45
+fill_from = Vector2(1, 1)
 
 [node name="upgrade_button" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1072.0
+offset_bottom = -603.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cldcf")
@@ -26,13 +42,18 @@ offset_right = 160.0
 offset_bottom = 90.0
 scale = Vector2(0.5, 0.5)
 action_mode = 0
-texture_normal = SubResource("GradientTexture2D_1qhxi")
+texture_normal = ExtResource("2_f0qt4")
 
-[node name="upgradeBar" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 28.0
-offset_bottom = 63.0
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 14.0
+offset_bottom = 45.0
+max_value = 5.0
+value = 3.0
+fill_mode = 3
+texture_under = SubResource("GradientTexture2D_6ci1o")
+texture_progress = SubResource("GradientTexture2D_w1nos")
 
 [connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
