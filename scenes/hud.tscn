@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bl6fqlkphcdqm" path="res://scenes/lane_ui.tscn" id="2_xk6q3"]
 [ext_resource type="PackedScene" uid="uid://lrwtd3g6eche" path="res://scenes/mana_ui.tscn" id="3_p1jyn"]
 [ext_resource type="PackedScene" uid="uid://cd2oi5x35nqsi" path="res://scenes/health_ui.tscn" id="4_krx5n"]
-[ext_resource type="Texture2D" uid="uid://dcawahocjvjmd" path="res://sprites/UI/UI.png" id="6_23gcs"]
+[ext_resource type="Texture2D" uid="uid://c2ky0gknwql1t" path="res://sprites/UI/UI.png" id="6_23gcs"]
 [ext_resource type="PackedScene" uid="uid://wmog657ymq7" path="res://scenes/resource_ui.tscn" id="7_2ebg7"]
-[ext_resource type="Texture2D" uid="uid://d8bu6d07c1l7" path="res://sprites/UI/UIset.png" id="7_ffenq"]
+[ext_resource type="Texture2D" uid="uid://b6w8yksvxb421" path="res://sprites/UI/UIset.png" id="7_ffenq"]
 [ext_resource type="PackedScene" uid="uid://ckibj4cs45exg" path="res://scenes/upgrade_button.tscn" id="9_xeaar"]
 [ext_resource type="PackedScene" uid="uid://b300txn8xe4of" path="res://scenes/minimap_ui.tscn" id="11_x64b2"]
 
