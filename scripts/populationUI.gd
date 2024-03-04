@@ -3,7 +3,7 @@ extends Control
 @export var rsc : resourceHandler
 
 func _ready():
-	rsc = get_tree().get_root().get_node("stage1").get_node("resourceHandler")
+	rsc = get_parent().get_parent()
 
 func _process(_delta):
 	displayPopulation()

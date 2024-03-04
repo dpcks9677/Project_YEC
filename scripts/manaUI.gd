@@ -5,8 +5,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	rsc = get_tree().get_root().get_node("stage1").get_node("resourceHandler")
-	$manaBar.max_value = rsc.max_mana
+	rsc = get_parent().get_parent()
+	$manaBar.set_max(rsc.max_mana)
 	$manaBar.set_value(0)
 
 func _physics_process(_delta):

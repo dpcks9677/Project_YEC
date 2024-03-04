@@ -19,13 +19,13 @@ func _enter_tree():
 
 func _physics_process(_delta):
 	#업그레이드 진행 시 버튼 비활성화 
-	if state == "mana" and get_parent().get_parent().get_parent().get_node("resourceHandler").isManaUpgrade == true:
+	if state == "mana" and get_parent().get_parent().get_parent().isManaUpgrade == true:
 		get_node("TextureButton").set_disabled(true)
 		modulateDown()
-	elif state == "pop" and get_parent().get_parent().get_parent().get_node("resourceHandler").isPopUpgrade == true:
+	elif state == "pop" and get_parent().get_parent().get_parent().isPopUpgrade == true:
 		get_node("TextureButton").set_disabled(true)
 		modulateDown()
-	elif state == "attack" and get_parent().get_parent().get_parent().get_node("resourceHandler").isAttackUpgrade == true :
+	elif state == "attack" and get_parent().get_parent().get_parent().isAttackUpgrade == true :
 		get_node("TextureButton").set_disabled(true)
 		modulateDown()
 

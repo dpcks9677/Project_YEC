@@ -9,7 +9,7 @@ extends Control
 
 
 func _ready():
-	rsc = get_tree().get_root().get_node("stage1").get_node("resourceHandler")
+	rsc = get_parent().get_parent()
 	
 	ALLY_MAX_HEALTH = rsc.allyBaseHealth
 	ENEMY_MAX_HEALTH = rsc.enemyBaseHealth

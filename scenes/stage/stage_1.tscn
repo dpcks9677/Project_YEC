@@ -8,24 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://c7m578amgnxic" path="res://units/enemy/rhino.tscn" id="6_krl3s"]
 [ext_resource type="PackedScene" uid="uid://fbdbf7roi2eh" path="res://units/ally/spearman.tscn" id="7_ies5v"]
 
-[sub_resource type="Gradient" id="Gradient_vnvry"]
-colors = PackedColorArray(0.658824, 0.380392, 0.25098, 1, 0.307909, 0.160637, 0.0915456, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_r8qrj"]
-gradient = SubResource("Gradient_vnvry")
-fill_from = Vector2(0.509174, 0)
-fill_to = Vector2(0.5, 1)
-
-[sub_resource type="Gradient" id="Gradient_xwco7"]
-colors = PackedColorArray(0.424007, 0.519573, 0.870754, 1, 0.229448, 0.145847, 0.306612, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hpwid"]
-gradient = SubResource("Gradient_xwco7")
-width = 128
-height = 128
-fill_from = Vector2(0, 0.490826)
-fill_to = Vector2(1, 0.486239)
-
 [sub_resource type="Curve2D" id="Curve2D_6u51i"]
 _data = {
 "points": PackedVector2Array(-217.789, -0.0768551, 0, 0, -892.026, 73.6852, 0, 0, 0, 0, -867.026, 73.694, -56.7372, 18.334, 56.7372, -18.334, -685.027, 77.7583, -41.381, 2.65508, 41.381, -2.65508, -548.014, 40.8066, -69.3012, 13.4106, 69.3012, -13.4106, -330.01, 28.8835, -144.251, 2.07042, 144.251, -2.07042, 9.99929, 2.00353, -96.1615, -14.1761, 96.1615, 14.1761, 372.983, 48.1316, -90.5054, -12.0528, 90.5054, 12.0528, 556.985, 41.1966, -114.548, -8.5257, 114.548, 8.5257, 906.978, 63.3201)
@@ -44,11 +26,85 @@ _data = {
 }
 point_count = 11
 
+[sub_resource type="Gradient" id="Gradient_vnvry"]
+colors = PackedColorArray(0.658824, 0.380392, 0.25098, 1, 0.307909, 0.160637, 0.0915456, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r8qrj"]
+gradient = SubResource("Gradient_vnvry")
+fill_from = Vector2(0.509174, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_xwco7"]
+colors = PackedColorArray(0.424007, 0.519573, 0.870754, 1, 0.229448, 0.145847, 0.306612, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hpwid"]
+gradient = SubResource("Gradient_xwco7")
+width = 128
+height = 128
+fill_from = Vector2(0, 0.490826)
+fill_to = Vector2(1, 0.486239)
+
 [node name="stage1" type="Node2D"]
 
 [node name="resourceHandler" parent="." instance=ExtResource("2_67fy2")]
 
-[node name="HUD" parent="." instance=ExtResource("1_tghqr")]
+[node name="HUD" parent="resourceHandler" instance=ExtResource("1_tghqr")]
+
+[node name="laneSetter" type="Node2D" parent="resourceHandler"]
+
+[node name="topLane" type="Path2D" parent="resourceHandler/laneSetter"]
+position = Vector2(0, 60.3165)
+rotation = -0.000352888
+curve = SubResource("Curve2D_6u51i")
+
+[node name="allyBase" type="Area2D" parent="resourceHandler/laneSetter/topLane"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_43ct3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="resourceHandler/laneSetter/topLane/allyBase"]
+position = Vector2(-909.026, 73.6792)
+shape = SubResource("RectangleShape2D_r5bsn")
+
+[node name="enemyBase" type="Area2D" parent="resourceHandler/laneSetter/topLane"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_43ct3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="resourceHandler/laneSetter/topLane/enemyBase"]
+position = Vector2(912.98, 56.3222)
+shape = SubResource("RectangleShape2D_nq36a")
+
+[node name="rhino" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("6_krl3s")]
+position = Vector2(906.978, 63.3201)
+rotation = 0.0742921
+progress = 1813.34
+
+[node name="spearman" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("7_ies5v")]
+position = Vector2(-892.026, 73.6852)
+rotation = 0.000351868
+
+[node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]
+position = Vector2(251, -44.6835)
+curve = SubResource("Curve2D_cwoqo")
+
+[node name="allyBase" type="Area2D" parent="resourceHandler/laneSetter/bottomLane"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("4_43ct3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="resourceHandler/laneSetter/bottomLane/allyBase"]
+position = Vector2(-1201, 261)
+shape = SubResource("RectangleShape2D_r5bsn")
+
+[node name="enemyBase" type="Area2D" parent="resourceHandler/laneSetter/bottomLane"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("4_43ct3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="resourceHandler/laneSetter/bottomLane/enemyBase"]
+position = Vector2(703, 270)
+shape = SubResource("RectangleShape2D_nq36a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_b0td4")
@@ -67,59 +123,3 @@ texture = SubResource("GradientTexture2D_hpwid")
 position = Vector2(0, 59.0003)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("3_22536")
-
-[node name="laneSetter" type="Node2D" parent="."]
-
-[node name="topLane" type="Path2D" parent="laneSetter"]
-position = Vector2(0, 60.3165)
-rotation = -0.000352888
-curve = SubResource("Curve2D_6u51i")
-
-[node name="allyBase" type="Area2D" parent="laneSetter/topLane"]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("4_43ct3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="laneSetter/topLane/allyBase"]
-position = Vector2(-909.026, 73.6792)
-shape = SubResource("RectangleShape2D_r5bsn")
-
-[node name="enemyBase" type="Area2D" parent="laneSetter/topLane"]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("4_43ct3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="laneSetter/topLane/enemyBase"]
-position = Vector2(912.98, 56.3222)
-shape = SubResource("RectangleShape2D_nq36a")
-
-[node name="rhino" parent="laneSetter/topLane" instance=ExtResource("6_krl3s")]
-position = Vector2(906.978, 63.3201)
-rotation = 0.0742921
-progress = 1813.34
-
-[node name="spearman" parent="laneSetter/topLane" instance=ExtResource("7_ies5v")]
-position = Vector2(-892.026, 73.6852)
-rotation = 0.000351868
-
-[node name="bottomLane" type="Path2D" parent="laneSetter"]
-position = Vector2(251, -44.6835)
-curve = SubResource("Curve2D_cwoqo")
-
-[node name="allyBase" type="Area2D" parent="laneSetter/bottomLane"]
-collision_layer = 4
-collision_mask = 4
-script = ExtResource("4_43ct3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="laneSetter/bottomLane/allyBase"]
-position = Vector2(-1201, 261)
-shape = SubResource("RectangleShape2D_r5bsn")
-
-[node name="enemyBase" type="Area2D" parent="laneSetter/bottomLane"]
-collision_layer = 4
-collision_mask = 4
-script = ExtResource("4_43ct3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="laneSetter/bottomLane/enemyBase"]
-position = Vector2(703, 270)
-shape = SubResource("RectangleShape2D_nq36a")

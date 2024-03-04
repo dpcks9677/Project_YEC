@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://lrwtd3g6eche"]
 
 [ext_resource type="Script" path="res://scripts/manaUI.gd" id="1_sh2li"]
-[ext_resource type="FontFile" uid="uid://dc7t4klf4ftuh" path="res://sprites/UI/font/GravityBold8.ttf" id="2_uv3us"]
+[ext_resource type="FontFile" uid="uid://dntp26o3qfwr0" path="res://sprites/UI/font/GravityBold8.ttf" id="2_uv3us"]
 
 [sub_resource type="Gradient" id="Gradient_dk8t7"]
 interpolation_mode = 2
@@ -38,7 +38,7 @@ offset_left = 28.0
 offset_top = 67.0
 offset_right = 230.0
 offset_bottom = 89.0
-value = 50.0
+max_value = 50.0
 texture_under = SubResource("GradientTexture2D_dlnee")
 texture_progress = SubResource("GradientTexture2D_16m4b")
 

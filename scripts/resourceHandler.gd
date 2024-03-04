@@ -25,7 +25,7 @@ class_name resourceHandler
 @export var allyBaseHealth : int
 @export var enemyBaseHealth : int
 	
-func _ready():
+func _init():
 	#고정 값 대신 stage 별 기본 정보들을 참조해서 불러올 수 있도록 설계하기 
 	
 	#마나
@@ -51,10 +51,11 @@ func _ready():
 	allyBaseHealth = 4000
 	enemyBaseHealth = 4000
 	
+func _ready():
 	#signal 연결
-	get_parent().get_node("HUD").get_node("upgradeUI").get_node("manaUpgradeButton").connect("manaUpgrade", doManaUpgrade)
-	get_parent().get_node("HUD").get_node("upgradeUI").get_node("popUpgradeButton").connect("popUpgrade", doPopUpgrade)
-	get_parent().get_node("HUD").get_node("upgradeUI").get_node("attackUpgradeButton").connect("attackUpgrade", doAttackUpgrade)
+	get_node("HUD").get_node("upgradeUI").get_node("manaUpgradeButton").connect("manaUpgrade", doManaUpgrade)
+	get_node("HUD").get_node("upgradeUI").get_node("popUpgradeButton").connect("popUpgrade", doPopUpgrade)
+	get_node("HUD").get_node("upgradeUI").get_node("attackUpgradeButton").connect("attackUpgrade", doAttackUpgrade)
 
 func _process(_delta):
 	atkHandler()

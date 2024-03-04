@@ -17,7 +17,7 @@ func _init():
 
 
 func _ready():
-	rsc = get_tree().get_root().get_node("stage1").get_node("resourceHandler")
+	rsc = get_parent().get_parent()
 	
 	#씬 불러 올 때, 직접 경로를 적지 않고, 데이터를 인계받아서 자리에 맞게 유닛을 매치 할 수 있도록 설계 
 	for i in range(8) :
@@ -51,10 +51,10 @@ func spawn(unit):
 			
 			#stage1 씬에 노드 추가 false = top / true = bottom 
 			if get_parent().get_node("laneUI").currentLane == true:
-				get_tree().get_root().get_node("stage1").get_node("laneSetter").get_node("bottomLane").add_child(target)
+				get_parent().get_parent().get_node("laneSetter").get_node("bottomLane").add_child(target)
 				print("bottom spawned")
 			else:
-				get_tree().get_root().get_node("stage1").get_node("laneSetter").get_node("topLane").add_child(target)
+				get_parent().get_parent().get_node("laneSetter").get_node("topLane").add_child(target)
 				print("top spawned")
 			
 			#인구수 1 증가 
