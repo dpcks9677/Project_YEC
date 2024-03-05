@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckibj4cs45exg"]
+[gd_scene load_steps=9 format=3 uid="uid://ckibj4cs45exg"]
 
 [ext_resource type="Script" path="res://scripts/upgradeButton.gd" id="1_cldcf"]
 [ext_resource type="Texture2D" uid="uid://d2rt8x3r5ud8r" path="res://sprites/UI/pop.png" id="2_f0qt4"]
@@ -24,6 +24,14 @@ gradient = SubResource("Gradient_aijon")
 width = 13
 height = 45
 fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_g3nis"]
+colors = PackedColorArray(0, 0, 0, 0.588235, 0, 0, 0, 0.588235)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j5i5r"]
+gradient = SubResource("Gradient_g3nis")
+width = 80
+height = 45
 
 [node name="upgrade_button" type="Control"]
 layout_mode = 3
@@ -54,6 +62,17 @@ value = 3.0
 fill_mode = 3
 texture_under = SubResource("GradientTexture2D_6ci1o")
 texture_progress = SubResource("GradientTexture2D_w1nos")
+
+[node name="UpgradeProgress" type="TextureProgressBar" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 45.0
+max_value = 45.0
+step = 0.01
+value = 45.0
+fill_mode = 3
+texture_progress = SubResource("GradientTexture2D_j5i5r")
 
 [connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -81,7 +81,9 @@ func _on_mana_generator_timeout():
 func doManaUpgrade() -> void:
 	isManaUpgrade = true
 	await get_tree().create_timer(20).timeout #upgrade time = 20
+	print("upgraded")
 	isManaUpgrade = false
+	mana_lv += 1
 
 #공격력에 관한 기능들을 처리 
 func atkHandler():
