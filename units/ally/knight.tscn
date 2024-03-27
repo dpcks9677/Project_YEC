@@ -124,8 +124,8 @@ size = Vector2(93, 99.5)
 size = Vector2(26, 99.5)
 
 [node name="knight" type="PathFollow2D"]
+position = Vector2(0, -24)
 scale = Vector2(0.8, 0.8)
-rotates = false
 
 [node name="shadow" type="Polygon2D" parent="."]
 position = Vector2(-1.25, -1.25)

@@ -126,7 +126,6 @@ size = Vector2(20, 54)
 
 [node name="wolf" type="PathFollow2D"]
 position = Vector2(0, -19)
-rotates = false
 
 [node name="shadow" type="Polygon2D" parent="."]
 position = Vector2(5, -9)

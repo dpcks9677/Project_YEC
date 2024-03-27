@@ -126,7 +126,6 @@ size = Vector2(252, 222)
 size = Vector2(138.75, 221.5)
 
 [node name="rhino" type="PathFollow2D"]
-rotates = false
 
 [node name="shadow" type="Polygon2D" parent="."]
 position = Vector2(15.641, -56.6816)
