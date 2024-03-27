@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://lrwtd3g6eche"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/manaUI.gd" id="1_sh2li"]
+[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/Sprites/UI/font/GravityBold8.ttf" id="2_uv3us"]
+
+[sub_resource type="Gradient" id="Gradient_dk8t7"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.302817, 0.992958)
+colors = PackedColorArray(0.13423, 0.1147, 0.31, 1, 0.108, 0.24, 0.2114, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dlnee"]
+gradient = SubResource("Gradient_dk8t7")
+width = 202
+height = 20
+
+[sub_resource type="Gradient" id="Gradient_0it2a"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.274648, 0.359155, 0.598592, 0.732394, 0.823944)
+colors = PackedColorArray(0.0705882, 0.537255, 0.764706, 1, 0.66, 0.861667, 0.88, 1, 0.1806, 0.803383, 0.86, 1, 0.1, 0.7, 1, 1, 0.162, 0.4449, 0.9, 1, 0.2088, 0.27696, 0.72, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_16m4b"]
+gradient = SubResource("Gradient_0it2a")
+width = 202
+height = 20
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 0.901709)
+
+[node name="manaUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sh2li")
+
+[node name="manaBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 67.0
+offset_right = 230.0
+offset_bottom = 89.0
+max_value = 50.0
+texture_under = SubResource("GradientTexture2D_dlnee")
+texture_progress = SubResource("GradientTexture2D_16m4b")
+
+[node name="manaLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 73.0
+offset_right = 223.0
+offset_bottom = 92.0
+theme_override_fonts/font = ExtResource("2_uv3us")
+theme_override_font_sizes/font_size = 10
+text = "this is mana"
+horizontal_alignment = 2

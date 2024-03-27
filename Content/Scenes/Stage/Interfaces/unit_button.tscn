@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqhjv2biwvh6a"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/unitButton.gd" id="1_po7nm"]
+[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/Sprites/UI/font/GravityBold8.ttf" id="2_tktqs"]
+[ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="3_lp3bx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms08w"]
+bg_color = Color(0.109804, 0.490196, 0.964706, 0.611765)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypga7"]
+bg_color = Color(0.580392, 0.74902, 0.976471, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[node name="unitButton" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1039.0
+offset_bottom = -573.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_po7nm")
+
+[node name="background" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 113.0
+offset_bottom = 75.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ms08w")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -14.0
+offset_right = 124.0
+offset_bottom = 114.0
+scale = Vector2(0.9, 0.9)
+action_mode = 0
+
+[node name="manaTag" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="Panel" parent="manaTag"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 56.0
+offset_right = 111.0
+offset_bottom = 74.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ypga7")
+
+[node name="mana" type="Label" parent="manaTag"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 59.0
+offset_right = 110.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("2_tktqs")
+theme_override_font_sizes/font_size = 13
+text = "00"
+
+[node name="crystal" type="Sprite2D" parent="manaTag"]
+position = Vector2(77, 65)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("3_lp3bx")
+
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
