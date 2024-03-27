@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://fbdbf7roi2eh"]
 
-[ext_resource type="Texture2D" uid="uid://bj73sh24qrx53" path="res://sprites/spearman.png" id="1_pddrv"]
+[ext_resource type="Texture2D" uid="uid://dgsby62le6odc" path="res://sprites/spearman.png" id="1_pddrv"]
 [ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://system/components/engage_component.tscn" id="2_fqbp8"]
 [ext_resource type="PackedScene" uid="uid://cmsj0fjsp6eoh" path="res://system/components/attack_range_component.tscn" id="2_ohoib"]
 [ext_resource type="Resource" uid="uid://fxiqb5xyif71" path="res://scripts/resources/spearman.tres" id="3_si0jx"]
@@ -114,8 +114,8 @@ size = Vector2(100, 103)
 size = Vector2(30, 103.5)
 
 [node name="spearman" type="PathFollow2D"]
-position = Vector2(0, -41)
 scale = Vector2(0.8, 0.8)
+rotates = false
 
 [node name="shadow" type="Polygon2D" parent="."]
 position = Vector2(1.25, 5)

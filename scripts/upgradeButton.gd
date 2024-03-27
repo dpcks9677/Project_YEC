@@ -21,7 +21,7 @@ func _physics_process(_delta):
 	#업그레이드 진행 시 버튼 비활성화 
 	if state == "mana" and get_parent().get_parent().get_parent().isManaUpgrade == true:
 		get_node("TextureButton").set_disabled(true)
-		modulateDown()
+		upgradeProgressTexture()
 	elif state == "pop" and get_parent().get_parent().get_parent().isPopUpgrade == true:
 		get_node("TextureButton").set_disabled(true)
 		modulateDown()
@@ -34,6 +34,12 @@ func modulateDown():
 
 func modulateUp():
 	modulate = Color(1, 1, 1, 1) #색조 변경 (원래대로) 
+	
+func upgradeProgressTexture():
+	$UpgradeProgress.set_visible(true) #sprite on
+	for i in range(20):
+		await get_tree().create_timer(1.0).timeout
+		$UpgradeProgress.set_value($UpgradeProgress.get_value()-2.25)
 
 func _on_texture_button_pressed():
 	modulateDown()
