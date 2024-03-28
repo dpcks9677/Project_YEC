@@ -9,7 +9,7 @@ func _process(delta):
 func spawnMarker(target): #unit_tag 식별, 마커 스폰 라인 설정, progress 구하기 
 	var unit_tag : String
 	var location : bool # false = top, true = bottom
-	var marker = load("res://scenes/marker.tscn")
+	var marker = load("res://Content/Scenes/Stage/Interfaces/marker.tscn")
 	var markerInstant = marker.instantiate()
 	
 	#unit_tag 식별 

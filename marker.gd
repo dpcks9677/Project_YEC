@@ -5,7 +5,7 @@ var unitInfo
 func _ready():
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_instance_valid(unitInfo):
 		setProgression(unitInfo)
 

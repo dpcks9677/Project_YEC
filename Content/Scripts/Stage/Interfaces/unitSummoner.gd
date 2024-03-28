@@ -21,8 +21,9 @@ func _ready():
 	
 	#씬 불러 올 때, 직접 경로를 적지 않고, 데이터를 인계받아서 자리에 맞게 유닛을 매치 할 수 있도록 설계 
 	for i in range(8) :
-		if unitScene != null:
-			unitScene[i] = load("res://units/ally/" + str(unitName[i]) + ".tscn")
+		var unitData = load("res://Content/Scenes/Units/ally/" + str(unitName[i]) + ".tscn")
+		if unitData != null:
+			unitScene[i] = unitData
 		
 func _process(_delta):
 	pass
