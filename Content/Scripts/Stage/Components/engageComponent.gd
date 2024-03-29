@@ -43,7 +43,7 @@ func _ready():
 	get_parent().cubic_interp = false
 	get_parent().loop = false
 	
-	#시작 좌표 설정 / topLane, bottomLane에 배치하는 로직도 짜야 함 
+	#위치 초기화
 	if unit_tag == "ally":
 		get_parent().progress_ratio = 0.0
 	if unit_tag == "enemy":
@@ -116,9 +116,9 @@ func engage(target):
 		deal_damage(target)
 		combat_state = "cooldown"
 
-func get_target_state(target):
+func get_target_state(target): #target의 state 반환하는 함수 
 	if (is_instance_valid(target) and (target.get_name() != "allyBase" and target.get_name() != "enemyBase")): 
-		return target.get_parent().get_node("engageComponent").state #베이스 공격시 오류 출력 
+		return target.get_parent().get_node("engageComponent").state
 	else:
 		return null
 
@@ -127,7 +127,7 @@ func waiting_animation(): #await 키워드와 함께 사용
 
 func deal_damage(target): #데미지 주기 
 	if isAttack == false:
-		if is_instance_valid(target):
+		if is_instance_valid(target): #hitbox 안에 있는지도 검사해야 함 (넉백되었을 때 등)
 			if target.get_name() == "hitbox": #유닛 공격 
 				target.get_parent().get_node("engageComponent").take_damage(attack_damage)
 				print(target.get_parent().get_node("engageComponent").health)
@@ -137,7 +137,7 @@ func deal_damage(target): #데미지 주기
 				get_tree().get_root().get_node("stage1").get_node("resourceHandler").enemyBaseDamage(attack_damage)
 	isAttack = true
 
-func take_damage(damage):
+func take_damage(damage): #데미지 받기 
 	health -= damage
 
 #attackRangeComponent에서 시그널을 받아서 동작

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=16 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="PackedScene" uid="uid://cgqrwgbhcpkd3" path="res://Content/Scenes/Stage/Interfaces/hud.tscn" id="1_tghqr"]
 [ext_resource type="PackedScene" uid="uid://bipawj12cbpmb" path="res://Content/Scenes/Stage/Handler/resourceHandler.tscn" id="2_67fy2"]
@@ -6,8 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cp7bvp80hcopu" path="res://Content/Graphics/Background/stage1.png" id="3_22536"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/base.gd" id="4_43ct3"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/Camera.gd" id="4_b0td4"]
-[ext_resource type="PackedScene" uid="uid://c7m578amgnxic" path="res://Content/Scenes/Units/enemy/rhino.tscn" id="6_krl3s"]
-[ext_resource type="PackedScene" uid="uid://fbdbf7roi2eh" path="res://Content/Scenes/Units/ally/spearman.tscn" id="7_ies5v"]
+[ext_resource type="PackedScene" uid="uid://oms4xo8wpeo7" path="res://Content/Scenes/Units/ally/knight.tscn" id="5_joer2"]
 
 [sub_resource type="Curve2D" id="Curve2D_6u51i"]
 _data = {
@@ -78,13 +77,9 @@ script = ExtResource("4_43ct3")
 position = Vector2(912.98, 56.3222)
 shape = SubResource("RectangleShape2D_nq36a")
 
-[node name="spearman" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("7_ies5v")]
-position = Vector2(-892.026, 73.6852)
-rotation = 0.000351868
-
-[node name="rhino" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("6_krl3s")]
-position = Vector2(906.978, 63.3201)
-progress = 1823.91
+[node name="knight" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("5_joer2")]
+position = Vector2(362.112, 46.4653)
+progress = 1276.74
 
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]
 position = Vector2(251, -44.6835)
