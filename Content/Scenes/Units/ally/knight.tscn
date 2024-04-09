@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://oms4xo8wpeo7"]
+[gd_scene load_steps=15 format=3 uid="uid://oms4xo8wpeo7"]
 
 [ext_resource type="Texture2D" uid="uid://clxxw55m461lq" path="res://Content/Graphics/Sprites/ally/knight.png" id="1_2vx0n"]
 [ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://Content/Scenes/Stage/Components/engage_component.tscn" id="2_67gpm"]
@@ -108,10 +108,29 @@ tracks/0/keys = {
 "values": [8, 9, 10, 11]
 }
 
+[sub_resource type="Animation" id="Animation_a8jwi"]
+resource_name = "attack_B"
+length = 0.9
+loop_mode = 1
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.175, 0.425, 0.575, 0.725),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dluui"]
 _data = {
 "RESET": SubResource("Animation_lklbb"),
 "attack": SubResource("Animation_0sfav"),
+"attack_B": SubResource("Animation_a8jwi"),
 "dead": SubResource("Animation_0y1lo"),
 "idle": SubResource("Animation_8kk1h"),
 "walk": SubResource("Animation_7kep2")
@@ -137,7 +156,7 @@ position = Vector2(-1.25, -21.25)
 texture = ExtResource("1_2vx0n")
 flip_h = true
 hframes = 8
-vframes = 3
+vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -149,6 +168,7 @@ position = Vector2(0, -23)
 _status = ExtResource("3_1txna")
 
 [node name="hitbox" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
@@ -156,6 +176,7 @@ position = Vector2(3.5, 3.75)
 shape = SubResource("RectangleShape2D_xsekv")
 
 [node name="attackRangeComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("3_0hk0e")]
+visible = false
 position = Vector2(0, -23)
 engage_Component = NodePath("../engageComponent")
 
