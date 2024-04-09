@@ -11,10 +11,14 @@ var MOVEMENT_VALUE = 0.0008 # 1/(20*delta) delta = 프레임 수라고 생각하
 @export var unit_tag : String
 @export var health : int
 @export var speed : float
-@export var attack_damage : int
-@export var attack_type: bool
-@export var ads : float
 @export var mana : int
+
+@export var a_attack_damage : int
+@export var a_attack_type: bool
+@export var a_ads : float
+@export var b_attack_damage : int
+@export var b_attack_type: bool
+@export var b_ads : float
 
 #combat state
 @export var state : String
@@ -23,6 +27,10 @@ var isAttack = false
 var target = null
 var target_queue = Queue.new()
 
+#skill queue
+var skill_list = ['B', 'B', 'A'] #null 다음에 다시 처음으로 돌아감
+var current_skill = 0
+
 func _ready():
 	rsc = get_tree().get_root().get_node("stage1").get_node("resourceHandler")
 	
@@ -30,10 +38,17 @@ func _ready():
 	unit_tag = _status.unit_tag
 	health = _status.health
 	speed = _status.speed
-	attack_damage = _status.a_attack_damage
-	attack_type = _status.a_attack_type
-	ads = _status.a_ads
 	mana = _status.mana
+	
+	#A skill 
+	a_attack_damage = _status.a_attack_damage
+	a_attack_type = _status.a_attack_type
+	a_ads = _status.a_ads
+	
+	#B skill
+	b_attack_damage = _status.b_attack_damage
+	b_attack_type = _status.b_attack_type
+	b_ads = _status.b_ads
 	
 	#set state
 	state = "move"
@@ -111,9 +126,15 @@ func engage(target):
 		await waiting_animation()
 		combat_state = "attack"
 	elif combat_state == "attack":
-		get_parent().get_node("AnimationPlayer").play("attack")
+		var cast_data = skill_list[current_skill % skill_list.size()]
+		print(cast_data)
+		if  cast_data == "A":
+			get_parent().get_node("AnimationPlayer").play("attack_A")
+		elif cast_data == "B":
+			get_parent().get_node("AnimationPlayer").play("attack_B")
 		await waiting_animation()
 		deal_damage(target)
+		current_skill += 1
 		combat_state = "cooldown"
 
 func get_target_state(target): #target의 state 반환하는 함수
@@ -129,12 +150,12 @@ func deal_damage(target): #데미지 주기
 	if isAttack == false:
 		if is_instance_valid(target): #hitbox 안에 있는지도 검사해야 함 (넉백되었을 때 등)
 			if target.get_name() == "hitbox": #유닛 공격 
-				target.get_parent().get_node("engageComponent").take_damage(attack_damage)
+				target.get_parent().get_node("engageComponent").take_damage(a_attack_damage)
 				print(target.get_parent().get_node("engageComponent").health)
 			elif target.get_name() == "allyBase": #아군 베이스 공격 
-				get_tree().get_root().get_node("stage1").get_node("resourceHandler").allyBaseDamage(attack_damage)
+				get_tree().get_root().get_node("stage1").get_node("resourceHandler").allyBaseDamage(a_attack_damage)
 			elif target.get_name() == "enemyBase": #적군 베이스 공격
-				get_tree().get_root().get_node("stage1").get_node("resourceHandler").enemyBaseDamage(attack_damage)
+				get_tree().get_root().get_node("stage1").get_node("resourceHandler").enemyBaseDamage(a_attack_damage)
 	isAttack = true
 
 func take_damage(damage): #데미지 받기 

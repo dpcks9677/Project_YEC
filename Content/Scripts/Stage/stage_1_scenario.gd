@@ -6,11 +6,11 @@ func _ready():
 	pass
 
 func _process(delta):
-	setNormalWave(delta) #delta로 초딩 스폰 제어 
+	#setNormalWave(delta) #delta로 초딩 스폰 제어 
+	pass
 
 func setNormalWave(delta):
 	timer += delta
-	if timer >= 1.0:
+	if timer >= 5.0:
 		timer = 0
 		spawnTop("wolf")
-

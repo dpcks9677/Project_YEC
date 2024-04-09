@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dfqtob326lbqu"]
 
-[ext_resource type="Texture2D" uid="uid://pfhy07t5wnqb" path="res://Content/Graphics/Sprites/enemy/wolf.png" id="1_1l170"]
+[ext_resource type="Texture2D" uid="uid://dio1s4xwrxww8" path="res://Content/Graphics/Sprites/enemy/wolf.png" id="1_1l170"]
 [ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://Content/Scenes/Stage/Components/engage_component.tscn" id="2_1ev0n"]
 [ext_resource type="PackedScene" uid="uid://cmsj0fjsp6eoh" path="res://Content/Scenes/Stage/Components/attack_range_component.tscn" id="3_ckhxp"]
 [ext_resource type="Resource" uid="uid://dag2a3lvnif3i" path="res://Content/Scripts/Resources/wolf.tres" id="3_utmsr"]

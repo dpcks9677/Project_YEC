@@ -6,11 +6,11 @@
 script = ExtResource("1_kgvtx")
 unit_tag = "ally"
 health = 2000
-speed = 0.5
+speed = 10.0
 mana = 20
 a_attack_damage = 100
 a_attack_type = false
 a_ads = 1.5
 b_attack_damage = 50
 b_attack_type = false
-b_ads = 3.0
+b_ads = 2.5

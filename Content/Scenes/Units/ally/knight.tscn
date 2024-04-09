@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://oms4xo8wpeo7"]
 
-[ext_resource type="Texture2D" uid="uid://clxxw55m461lq" path="res://Content/Graphics/Sprites/ally/knight.png" id="1_2vx0n"]
+[ext_resource type="Texture2D" uid="uid://desh5w0ghu1ws" path="res://Content/Graphics/Sprites/ally/knight.png" id="1_2vx0n"]
 [ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://Content/Scenes/Stage/Components/engage_component.tscn" id="2_67gpm"]
 [ext_resource type="PackedScene" uid="uid://cmsj0fjsp6eoh" path="res://Content/Scenes/Stage/Components/attack_range_component.tscn" id="3_0hk0e"]
 [ext_resource type="Resource" uid="uid://dmej1s0qks1mo" path="res://Content/Scripts/Resources/knight.tres" id="3_1txna"]
@@ -33,9 +33,10 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_0sfav"]
-resource_name = "attack"
-length = 0.8
+[sub_resource type="Animation" id="Animation_a8jwi"]
+resource_name = "attack_B"
+length = 0.9
+step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -43,10 +44,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.125, 0.375, 0.525, 0.675),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [16, 17, 18, 19, 20, 21, 22, 23]
+"values": [24, 25, 26, 27, 28]
 }
 
 [sub_resource type="Animation" id="Animation_0y1lo"]
@@ -108,11 +109,9 @@ tracks/0/keys = {
 "values": [8, 9, 10, 11]
 }
 
-[sub_resource type="Animation" id="Animation_a8jwi"]
-resource_name = "attack_B"
-length = 0.9
-loop_mode = 1
-step = 0.025
+[sub_resource type="Animation" id="Animation_0sfav"]
+resource_name = "attack_A"
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -120,16 +119,16 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.175, 0.425, 0.575, 0.725),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [24, 25, 26, 27, 28]
+"values": [16, 17, 18, 19, 20, 21, 22, 23]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dluui"]
 _data = {
 "RESET": SubResource("Animation_lklbb"),
-"attack": SubResource("Animation_0sfav"),
+"attack_A": SubResource("Animation_0sfav"),
 "attack_B": SubResource("Animation_a8jwi"),
 "dead": SubResource("Animation_0y1lo"),
 "idle": SubResource("Animation_8kk1h"),
@@ -168,7 +167,6 @@ position = Vector2(0, -23)
 _status = ExtResource("3_1txna")
 
 [node name="hitbox" type="Area2D" parent="."]
-visible = false
 position = Vector2(0, -23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
@@ -176,7 +174,6 @@ position = Vector2(3.5, 3.75)
 shape = SubResource("RectangleShape2D_xsekv")
 
 [node name="attackRangeComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("3_0hk0e")]
-visible = false
 position = Vector2(0, -23)
 engage_Component = NodePath("../engageComponent")
 
