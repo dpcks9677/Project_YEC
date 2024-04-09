@@ -30,9 +30,9 @@ func _ready():
 	unit_tag = _status.unit_tag
 	health = _status.health
 	speed = _status.speed
-	attack_damage = _status.attack_damage
-	attack_type = _status.attack_type
-	ads = _status.ads
+	attack_damage = _status.a_attack_damage
+	attack_type = _status.a_attack_type
+	ads = _status.a_ads
 	mana = _status.mana
 	
 	#set state
@@ -116,7 +116,7 @@ func engage(target):
 		deal_damage(target)
 		combat_state = "cooldown"
 
-func get_target_state(target): #target의 state 반환하는 함수 
+func get_target_state(target): #target의 state 반환하는 함수
 	if (is_instance_valid(target) and (target.get_name() != "allyBase" and target.get_name() != "enemyBase")): 
 		return target.get_parent().get_node("engageComponent").state
 	else:
