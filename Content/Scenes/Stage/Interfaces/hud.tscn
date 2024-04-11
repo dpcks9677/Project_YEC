@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bl6fqlkphcdqm" path="res://Content/Scenes/Stage/Interfaces/lane_ui.tscn" id="2_xk6q3"]
 [ext_resource type="PackedScene" uid="uid://lrwtd3g6eche" path="res://Content/Scenes/Stage/Interfaces/mana_ui.tscn" id="3_p1jyn"]
 [ext_resource type="PackedScene" uid="uid://cd2oi5x35nqsi" path="res://Content/Scenes/Stage/Interfaces/health_ui.tscn" id="4_krx5n"]
-[ext_resource type="Texture2D" uid="uid://cw2clweh6qd5h" path="res://Content/Graphics/Sprites/UI/UI.png" id="6_23gcs"]
+[ext_resource type="Texture2D" uid="uid://cw2clweh6qd5h" path="res://Content/Graphics/UI/UI.png" id="6_23gcs"]
 [ext_resource type="PackedScene" uid="uid://wmog657ymq7" path="res://Content/Scenes/Stage/Interfaces/resource_ui.tscn" id="7_2ebg7"]
-[ext_resource type="Texture2D" uid="uid://u7oq6qprstaa" path="res://Content/Graphics/Sprites/UI/UIset.png" id="7_ffenq"]
+[ext_resource type="Texture2D" uid="uid://u7oq6qprstaa" path="res://Content/Graphics/UI/UIset.png" id="7_ffenq"]
 [ext_resource type="PackedScene" uid="uid://ckibj4cs45exg" path="res://Content/Scenes/Stage/Interfaces/upgrade_button.tscn" id="9_xeaar"]
 [ext_resource type="PackedScene" uid="uid://b300txn8xe4of" path="res://Content/Scenes/Stage/Interfaces/minimap_ui.tscn" id="11_x64b2"]
 

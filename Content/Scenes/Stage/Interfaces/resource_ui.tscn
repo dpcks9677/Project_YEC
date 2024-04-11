@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://wmog657ymq7"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/populationUI.gd" id="1_a8yjc"]
-[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/Sprites/UI/font/GravityBold8.ttf" id="2_jkylx"]
+[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="2_jkylx"]
 
 [node name="resourceUI" type="Control"]
 layout_mode = 3

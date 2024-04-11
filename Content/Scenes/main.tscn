@@ -1,12 +1,136 @@
-[gd_scene load_steps=2 format=3 uid="uid://b71htxf0hoi7c"]
+[gd_scene load_steps=9 format=3 uid="uid://b71htxf0hoi7c"]
 
-[ext_resource type="Texture2D" uid="uid://u66diljy752s" path="res://sprites/background/main/1.png" id="1_luiw2"]
+[ext_resource type="Script" path="res://Content/Scenes/mainMenu.gd" id="1_lq5bk"]
+[ext_resource type="Texture2D" uid="uid://4ro30hohkak4" path="res://Content/Graphics/Background/main/1.png" id="1_ueak1"]
+[ext_resource type="Texture2D" uid="uid://dubbd5e83vj8u" path="res://Content/Graphics/Background/main/2.png" id="2_qtngf"]
+[ext_resource type="Texture2D" uid="uid://c7k5rdgbs7ube" path="res://Content/Graphics/Background/main/3.png" id="3_1ckel"]
+[ext_resource type="Texture2D" uid="uid://bgmdebx0o3td4" path="res://Content/Graphics/Background/main/4.png" id="4_7h33n"]
+[ext_resource type="Texture2D" uid="uid://d2xucu6flctgv" path="res://Content/Graphics/UI/load.png" id="6_w4lv5"]
 
-[node name="main" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_r7n0t"]
+font_size = 120
+outline_size = 22
+outline_color = Color(0, 0, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[sub_resource type="CanvasTexture" id="CanvasTexture_m0lyl"]
+
+[node name="mainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lq5bk")
+
+[node name="background" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
-texture = ExtResource("1_luiw2")
+texture = ExtResource("1_ueak1")
 centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="cloud" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_qtngf")
+centered = false
+
+[node name="hill" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("3_1ckel")
+centered = false
+
+[node name="land" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("4_7h33n")
+centered = false
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 172.0
+offset_right = 589.0
+offset_bottom = 505.0
+text = "Project
+YEC"
+label_settings = SubResource("LabelSettings_r7n0t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 666.0
+offset_top = 212.0
+offset_right = 980.0
+offset_bottom = 551.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="newGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "New Game"
+
+[node name="continueButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Load Games"
+
+[node name="optionButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Option"
+
+[node name="quitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+
+[node name="LoadScene" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1154.0
+offset_bottom = 648.0
+
+[node name="focusBox" type="Sprite2D" parent="LoadScene"]
+modulate = Color(0, 0, 0, 0.470588)
+position = Vector2(575.75, 323.75)
+scale = Vector2(1152, 648)
+texture = SubResource("CanvasTexture_m0lyl")
+
+[node name="screen" type="Sprite2D" parent="LoadScene"]
+position = Vector2(576, 324)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("6_w4lv5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LoadScene"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 168.0
+offset_right = 898.0
+offset_bottom = 369.0
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Button" type="Button" parent="LoadScene/HBoxContainer"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "save 1"
+
+[node name="Button2" type="Button" parent="LoadScene/HBoxContainer"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "save 2"
+
+[node name="Button3" type="Button" parent="LoadScene/HBoxContainer"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "save 3"
+
+[node name="backButton" type="Button" parent="LoadScene"]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 551.0
+offset_right = 639.0
+offset_bottom = 614.0
+theme_override_font_sizes/font_size = 40
+text = "back
+"
+
+[connection signal="pressed" from="VBoxContainer/continueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/quitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="LoadScene/backButton" to="." method="_on_back_button_pressed"]

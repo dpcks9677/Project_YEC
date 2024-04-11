@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://ckibj4cs45exg"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/upgradeButton.gd" id="1_cldcf"]
-[ext_resource type="Texture2D" uid="uid://ll6heg42m50h" path="res://Content/Graphics/Sprites/UI/pop.png" id="2_v0jgu"]
+[ext_resource type="Texture2D" uid="uid://ll6heg42m50h" path="res://Content/Graphics/UI/pop.png" id="2_v0jgu"]
 
 [sub_resource type="Gradient" id="Gradient_er4y5"]
 colors = PackedColorArray(0, 0, 0, 0.509804, 0, 0, 0, 0.509804)
