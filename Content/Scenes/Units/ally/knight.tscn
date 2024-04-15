@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://oms4xo8wpeo7"]
 
-[ext_resource type="Texture2D" uid="uid://desh5w0ghu1ws" path="res://Content/Graphics/Sprites/ally/knight.png" id="1_2vx0n"]
+[ext_resource type="Texture2D" uid="uid://clxxw55m461lq" path="res://Content/Graphics/Sprites/ally/knight.png" id="1_2vx0n"]
 [ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://Content/Scenes/Stage/Components/engage_component.tscn" id="2_67gpm"]
 [ext_resource type="PackedScene" uid="uid://cmsj0fjsp6eoh" path="res://Content/Scenes/Stage/Components/attack_range_component.tscn" id="3_0hk0e"]
 [ext_resource type="Resource" uid="uid://dmej1s0qks1mo" path="res://Content/Scripts/Resources/knight.tres" id="3_1txna"]
