@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://dppjey0wno2wc"]
+
+[ext_resource type="Texture2D" uid="uid://c4gdbkevk8o1p" path="res://Content/Graphics/Background/map.png" id="1_ockod"]
+
+[node name="map" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("1_ockod")
+centered = false
+
+[node name="button1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 294.0
+offset_right = 331.0
+offset_bottom = 357.0
+theme_override_font_sizes/font_size = 40
+text = "stage 1"
+
+[node name="button2" type="Button" parent="."]
+offset_left = 469.0
+offset_top = 294.0
+offset_right = 613.0
+offset_bottom = 357.0
+theme_override_font_sizes/font_size = 40
+text = "stage 2"
+
+[node name="button3" type="Button" parent="."]
+offset_left = 754.0
+offset_top = 294.0
+offset_right = 898.0
+offset_bottom = 357.0
+theme_override_font_sizes/font_size = 40
+text = "stage 3"

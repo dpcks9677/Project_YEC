@@ -2,9 +2,8 @@ extends Control
 
 const savePath = "user://Saves/"
 const saveFile = "save1.json"
-const SECURITY_KEY = "intheafterglow"
 
-var savedata = saveData.new()
+var savedata = saveData.new() #불러온 데이터가 저장되는 변수. 이 변수를 호출해서 데이터를 불러오면 됨.
 
 func _ready():
 	verify_save_directory(savePath)
@@ -12,7 +11,7 @@ func _ready():
 func verify_save_directory(path : String):
 	DirAccess.make_dir_absolute(path)
 	
-func save_data(path : String):
+func save_data(path : String): #메인메뉴에서 사용하지 않는 기능. 씬 작업 후 옮기기 바람.
 	var file = FileAccess.open(path, FileAccess.WRITE)
 	if file == null:
 		print(FileAccess.get_open_error())
@@ -66,7 +65,7 @@ func _on_back_button_pressed():
 
 func _on_button_1_pressed():
 	load_data(savePath+saveFile)
-	get_node("LoadScene").get_node("saveInfo").text = str(savedata.gold)
+	get_node("LoadScene").get_node("saveInfo").text = str("gold : " , savedata.gold, " / ", "stage : ", savedata.currentStage)
 
 func _on_new_game_button_pressed():
 	save_data(savePath+saveFile)

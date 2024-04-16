@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://lrwtd3g6eche"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/manaUI.gd" id="1_sh2li"]
-[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="2_uv3us"]
+[ext_resource type="FontFile" uid="uid://dd4ci4vhjs8ty" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="2_uv3us"]
 
 [sub_resource type="Gradient" id="Gradient_dk8t7"]
 interpolation_mode = 2

@@ -131,12 +131,21 @@ theme_override_font_sizes/font_size = 40
 text = "back
 "
 
+[node name="nextButton" type="Button" parent="LoadScene"]
+layout_mode = 0
+offset_left = 820.0
+offset_top = 452.0
+offset_right = 856.0
+offset_bottom = 483.0
+theme_override_font_sizes/font_size = 30
+text = ">>>"
+
 [node name="saveInfo" type="Label" parent="LoadScene"]
 layout_mode = 0
-offset_left = 486.0
-offset_top = 440.0
-offset_right = 672.0
-offset_bottom = 509.0
+offset_left = 275.0
+offset_top = 435.0
+offset_right = 461.0
+offset_bottom = 504.0
 theme_override_font_sizes/font_size = 50
 text = "dummy"
 horizontal_alignment = 1

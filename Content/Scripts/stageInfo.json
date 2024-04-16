@@ -1,0 +1,11 @@
+{
+    "stage1" : {
+        "stageName" : "첫번째 임무",
+        "enemyUnits" : [
+            "wolf",
+            "wolf",
+        ],
+        "synopsis" : "당신의 첫번째 수습 임무가 시작됩니다. 준비되셨나요?",
+        "scenePath" : "res://Content/Scenes/Stage/stage_1.tscn"  
+    }
+}
