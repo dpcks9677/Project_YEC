@@ -3,9 +3,16 @@ extends Control
 const savePath = "user://Saves/"
 const saveFile = "save1.json"
 
+#Scene preload
+const map = preload("res://Content/Scenes/map.tscn")
+
+var currentSave = null
+
 var savedata = saveData.new() #불러온 데이터가 저장되는 변수. 이 변수를 호출해서 데이터를 불러오면 됨.
 
 func _ready():
+	get_node("transition/ColorRect").visible = false
+	get_node("LoadScene").visible = false
 	verify_save_directory(savePath)
 
 func verify_save_directory(path : String):
@@ -64,8 +71,18 @@ func _on_back_button_pressed():
 	get_node("LoadScene").visible = false
 
 func _on_button_1_pressed():
+	currentSave = 1
 	load_data(savePath+saveFile)
 	get_node("LoadScene").get_node("saveInfo").text = str("gold : " , savedata.gold, " / ", "stage : ", savedata.currentStage)
 
 func _on_new_game_button_pressed():
 	save_data(savePath+saveFile)
+
+
+func _on_next_button_pressed():
+	if currentSave != 0:
+		get_node("transition").play("fade_out")
+
+
+func _on_transition_animation_finished(anim_name):
+	get_tree().change_scene_to_packed(map)
