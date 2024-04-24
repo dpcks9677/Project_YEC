@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=20 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="PackedScene" uid="uid://cgqrwgbhcpkd3" path="res://Content/Scenes/Stage/Interfaces/hud.tscn" id="1_tghqr"]
 [ext_resource type="PackedScene" uid="uid://bipawj12cbpmb" path="res://Content/Scenes/Stage/Handler/resourceHandler.tscn" id="2_67fy2"]
@@ -6,7 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://cp7bvp80hcopu" path="res://Content/Graphics/Background/stage1.png" id="3_22536"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/base.gd" id="4_43ct3"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/Camera.gd" id="4_b0td4"]
-[ext_resource type="PackedScene" uid="uid://oms4xo8wpeo7" path="res://Content/Scenes/Units/ally/knight.tscn" id="5_joer2"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="4_fcn83"]
+[ext_resource type="Resource" uid="uid://dak7qnv3rx26r" path="res://Content/Scripts/Resources/allyBase.tres" id="5_67dra"]
+[ext_resource type="PackedScene" uid="uid://oms4xo8wpeo7" path="res://Content/Scenes/Units/ally/knight.tscn" id="5_a6b1a"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/idle.gd" id="6_1or2k"]
+[ext_resource type="Resource" uid="uid://bs8061ffaprvh" path="res://Content/Scripts/Resources/enemyBase.tres" id="6_qu5pd"]
 
 [sub_resource type="Curve2D" id="Curve2D_6u51i"]
 _data = {
@@ -59,27 +63,53 @@ position = Vector2(1, 52.432)
 rotation = -0.000352888
 curve = SubResource("Curve2D_6u51i")
 
-[node name="allyBase" type="Area2D" parent="resourceHandler/laneSetter/topLane"]
+[node name="allyBase" type="PathFollow2D" parent="resourceHandler/laneSetter/topLane"]
+position = Vector2(-892.026, 73.6852)
+rotation = 0.000351868
+
+[node name="Area2D" type="Area2D" parent="resourceHandler/laneSetter/topLane/allyBase"]
+position = Vector2(892, -73.9991)
+rotation = -0.000351868
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("4_43ct3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="resourceHandler/laneSetter/topLane/allyBase"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="resourceHandler/laneSetter/topLane/allyBase/Area2D"]
 position = Vector2(-909.026, 73.6792)
 shape = SubResource("RectangleShape2D_r5bsn")
 
-[node name="enemyBase" type="Area2D" parent="resourceHandler/laneSetter/topLane"]
+[node name="stateComponent" type="Node" parent="resourceHandler/laneSetter/topLane/allyBase" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_fcn83")
+initial_state = NodePath("Idle")
+_status = ExtResource("5_67dra")
+
+[node name="Idle" type="Node" parent="resourceHandler/laneSetter/topLane/allyBase/stateComponent"]
+script = ExtResource("6_1or2k")
+
+[node name="enemyBase" type="PathFollow2D" parent="resourceHandler/laneSetter/topLane"]
+position = Vector2(-892.026, 73.6852)
+rotation = 0.000351868
+
+[node name="Area2D" type="Area2D" parent="resourceHandler/laneSetter/topLane/enemyBase"]
+position = Vector2(892, -73.9991)
+rotation = -0.000351868
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("4_43ct3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="resourceHandler/laneSetter/topLane/enemyBase"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="resourceHandler/laneSetter/topLane/enemyBase/Area2D"]
 position = Vector2(912.98, 56.3222)
 shape = SubResource("RectangleShape2D_nq36a")
 
-[node name="knight" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("5_joer2")]
-position = Vector2(362.115, 46.4657)
-progress = 1276.74
+[node name="stateComponent" type="Node" parent="resourceHandler/laneSetter/topLane/enemyBase" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_fcn83")
+initial_state = NodePath("Idle")
+_status = ExtResource("6_qu5pd")
+
+[node name="Idle" type="Node" parent="resourceHandler/laneSetter/topLane/enemyBase/stateComponent"]
+script = ExtResource("6_1or2k")
+
+[node name="knight" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("5_a6b1a")]
+position = Vector2(-509.271, 38.862)
+progress = 389.405
 
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]
 position = Vector2(251, -44.6835)

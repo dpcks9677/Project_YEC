@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://oms4xo8wpeo7"]
+[gd_scene load_steps=16 format=3 uid="uid://oms4xo8wpeo7"]
 
 [ext_resource type="Texture2D" uid="uid://desh5w0ghu1ws" path="res://Content/Graphics/Sprites/ally/knight.png" id="1_2vx0n"]
-[ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://Content/Scenes/Stage/Components/engage_component.tscn" id="2_67gpm"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_u0rxm"]
 [ext_resource type="PackedScene" uid="uid://cmsj0fjsp6eoh" path="res://Content/Scenes/Stage/Components/attack_range_component.tscn" id="3_0hk0e"]
 [ext_resource type="Resource" uid="uid://dmej1s0qks1mo" path="res://Content/Scripts/Resources/knight.tres" id="3_1txna"]
-[ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="5_3ich1"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/move.gd" id="3_b2rvq"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attack.gd" id="5_s4o7i"]
 
 [sub_resource type="Animation" id="Animation_lklbb"]
 length = 0.001
@@ -135,10 +136,10 @@ _data = {
 "walk": SubResource("Animation_7kep2")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsekv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jatmx"]
 size = Vector2(93, 99.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fltbt"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmtcf"]
 size = Vector2(26, 99.5)
 
 [node name="knight" type="PathFollow2D"]
@@ -162,30 +163,30 @@ libraries = {
 "": SubResource("AnimationLibrary_dluui")
 }
 
-[node name="engageComponent" parent="." instance=ExtResource("2_67gpm")]
-position = Vector2(0, -23)
+[node name="stateComponent" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_u0rxm")
+initial_state = NodePath("Move")
 _status = ExtResource("3_1txna")
+
+[node name="Move" type="Node" parent="stateComponent"]
+script = ExtResource("3_b2rvq")
+
+[node name="Attack" type="Node" parent="stateComponent"]
+script = ExtResource("5_s4o7i")
+
+[node name="Idle" type="Node" parent="stateComponent"]
 
 [node name="hitbox" type="Area2D" parent="."]
 position = Vector2(0, -23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(3.5, 3.75)
-shape = SubResource("RectangleShape2D_xsekv")
+shape = SubResource("RectangleShape2D_jatmx")
 
-[node name="attackRangeComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("3_0hk0e")]
+[node name="attackRangeComponent" parent="." instance=ExtResource("3_0hk0e")]
 position = Vector2(0, -23)
-engage_Component = NodePath("../engageComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
 position = Vector2(37, 3.75)
-shape = SubResource("RectangleShape2D_fltbt")
+shape = SubResource("RectangleShape2D_gmtcf")
 debug_color = Color(0.862745, 0.360784, 0, 0.419608)
-
-[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("5_3ich1")]
-offset_left = -33.0
-offset_top = -81.0
-offset_right = -33.0
-offset_bottom = -81.0
-engage_Component = NodePath("../engageComponent")
-metadata/_edit_use_anchors_ = true

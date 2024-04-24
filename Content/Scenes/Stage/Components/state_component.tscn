@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://vsnpybqva88a"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="1_68ir7"]
+[ext_resource type="Resource" uid="uid://dmej1s0qks1mo" path="res://Content/Scripts/Resources/knight.tres" id="2_ay53c"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/move.gd" id="3_q8g7c"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attack.gd" id="4_3ijg7"]
+
+[node name="stateComponent" type="Node" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_68ir7")
+initial_state = NodePath("Move")
+_status = ExtResource("2_ay53c")
+
+[node name="Move" type="Node" parent="."]
+script = ExtResource("3_q8g7c")
+
+[node name="Attack" type="Node" parent="."]
+script = ExtResource("4_3ijg7")
+
+[node name="Idle" type="Node" parent="."]

@@ -4,6 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://d3blumgkggh7u" path="res://Content/Graphics/Background/map.png" id="1_ockod"]
 [ext_resource type="Texture2D" uid="uid://d2xucu6flctgv" path="res://Content/Graphics/UI/load.png" id="3_ewfwv"]
 
+[sub_resource type="Animation" id="Animation_g6mng"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_8ae17"]
 resource_name = "fade_in"
 tracks/0/type = "value"
@@ -25,25 +40,10 @@ tracks/1/path = NodePath("transition/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_g6mng"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("transition/ColorRect:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_w8egr"]
@@ -93,6 +93,18 @@ script = ExtResource("1_nt3rt")
 texture = ExtResource("1_ockod")
 centered = false
 
+[node name="transition" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x7rl3")
+}
+
+[node name="ColorRect" type="ColorRect" parent="transition"]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
 [node name="stage1" type="Button" parent="."]
 layout_mode = 0
 offset_left = 187.0
@@ -120,21 +132,9 @@ offset_bottom = 357.0
 theme_override_font_sizes/font_size = 40
 text = "stage 3"
 
-[node name="transition" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_x7rl3")
-}
-
-[node name="ColorRect" type="ColorRect" parent="transition"]
-visible = false
-self_modulate = Color(0, 0, 0, 1)
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0, 0, 0, 1)
-
 [node name="screen" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-scale = Vector2(2.7, 2.7)
+position = Vector2(576, -349)
+scale = Vector2(2, 2)
 texture = ExtResource("3_ewfwv")
 
 [connection signal="pressed" from="stage1" to="." method="_on_stage_1_pressed"]

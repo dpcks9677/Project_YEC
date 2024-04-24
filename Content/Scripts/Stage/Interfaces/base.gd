@@ -15,3 +15,5 @@ func _ready():
 	else:
 		unit_tag = "enemy"
 		
+func get_Unit_tag():
+	return unit_tag
