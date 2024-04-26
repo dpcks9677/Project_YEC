@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_u1rrs")
-unit_tag = ""
-health = 0
+unit_tag = "enemy"
+health = 4000
 speed = 0.0
 mana = 0
 a_attack_damage = 0

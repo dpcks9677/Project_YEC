@@ -31,40 +31,41 @@ func _ready():
 
 	if get_parent().get_parent().get_name() == "topLane":
 		#콜리전 마스크 설정 
-		if $hitbox:
-			$hitbox.set_collision_mask_value(1, false)
-			$hitbox.set_collision_mask_value(2, true)
-		if $attackRangeComponent:
-			$attackRangeComponent.set_collision_mask_value(1, false)
-			$attackRangeComponent.set_collision_mask_value(2, true)
+		if get_parent().get_node("hitbox"):
+			get_parent().get_node("hitbox").set_collision_mask_value(1, false)
+			get_parent().get_node("hitbox").set_collision_mask_value(2, true)
+		if get_parent().get_node("attackRangeComponent"):
+			get_parent().get_node("attackRangeComponent").set_collision_mask_value(1, false)
+			get_parent().get_node("attackRangeComponent").set_collision_mask_value(2, true)
 		#콜리전 레이어 설정 
-		if $hitbox:
-			$hitbox.set_collision_layer_value(1, false)
-			$hitbox.set_collision_layer_value(2, true)
-		if $attackRangeComponent:
-			$attackRangeComponent.set_collision_layer_value(1, false)
-			$attackRangeComponent.set_collision_layer_value(2, true)
-			
+		if get_parent().get_node("hitbox"):
+			get_parent().get_node("hitbox").set_collision_layer_value(1, false)
+			get_parent().get_node("hitbox").set_collision_layer_value(2, true)
+		if get_parent().get_node("attackRangeComponent"):
+			get_parent().get_node("attackRangeComponent").set_collision_layer_value(1, false)
+			get_parent().get_node("attackRangeComponent").set_collision_layer_value(2, true)
 	if get_parent().get_parent().get_name() == "bottomLane":
 		#콜리전 마스크 설정 
-		if $hitbox:
-			$hitbox.set_collision_mask_value(1, false)
-			$hitbox.set_collision_mask_value(3, true)
-		if $attackRangeComponent:
-			$attackRangeComponent.set_collision_mask_value(1, false)
-			$attackRangeComponent.set_collision_mask_value(3, true)
+		if get_parent().get_node("hitbox"):
+			get_parent().get_node("hitbox").set_collision_mask_value(1, false)
+			get_parent().get_node("hitbox").set_collision_mask_value(3, true)
+		if get_parent().get_node("attackRangeComponent"):
+			get_parent().get_node("attackRangeComponent").set_collision_mask_value(1, false)
+			get_parent().get_node("attackRangeComponent").set_collision_mask_value(3, true)
 		#콜리전 레이어 설정 
-		if $hitbox:
-			$hitbox.set_collision_layer_value(1, false)
-			$hitbox.set_collision_layer_value(3, true)
-		if $attackRangeComponent:
-			$attackRangeComponent.set_collision_layer_value(1, false)
-			$attackRangeComponent.set_collision_layer_value(3, true)
+		if get_parent().get_node("hitbox"):
+			get_parent().get_node("hitbox").set_collision_layer_value(1, false)
+			get_parent().get_node("hitbox").set_collision_layer_value(3, true)
+		if get_parent().get_node("attackRangeComponent"):
+			get_parent().get_node("attackRangeComponent").set_collision_layer_value(1, false)
+			get_parent().get_node("attackRangeComponent").set_collision_layer_value(3, true)
 
 			
 func _process(delta):
 	if current_state:
 		current_state.Update(delta)
+		
+
 
 #상태 변경 함수 
 func change_state(state : State, new_state_name : String):

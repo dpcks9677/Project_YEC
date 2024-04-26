@@ -14,9 +14,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_6u51i"]
 _data = {
-"points": PackedVector2Array(-217.789, -0.0768551, 0, 0, -892.026, 73.6852, 0, 0, 0, 0, -867.026, 73.694, -56.7372, 18.334, 56.7372, -18.334, -685.027, 77.7583, -41.381, 2.65508, 41.381, -2.65508, -548.014, 40.8066, 0, 0, 0, 0, -372.348, 33.8435, -69.3012, 13.4106, 69.3012, -13.4106, -330.01, 28.8835, -144.251, 2.07042, 144.251, -2.07042, 9.99929, 2.00353, -96.1615, -14.1761, 96.1615, 14.1761, 372.983, 48.1316, -90.5054, -12.0528, 90.5054, 12.0528, 556.985, 41.1966, -114.548, -8.5257, 114.548, 8.5257, 906.978, 63.3201)
+"points": PackedVector2Array(-217.789, -0.0768551, 0, 0, -892.026, 73.6852, 0, 0, 0, 0, -867.026, 73.694, -56.7372, 18.334, 56.7372, -18.334, -685.027, 77.7583, -41.381, 2.65508, 41.381, -2.65508, -548.014, 40.8066, 0, 0, 0, 0, -372.348, 33.8435, -69.3012, 13.4106, 69.3012, -13.4106, -330.01, 28.8835, -144.251, 2.07042, 144.251, -2.07042, 9.99929, 2.00353, -96.1615, -14.1761, 96.1615, 14.1761, 372.983, 48.1316, -90.5054, -12.0528, 90.5054, 12.0528, 556.985, 41.1966, -114.548, -8.5257, 114.548, 8.5257, 832.978, 61.862, 0, 0, 0, 0, 996.976, 68.9198)
 }
-point_count = 10
+point_count = 11
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5bsn"]
 size = Vector2(37.9831, 67.7549)
@@ -59,7 +59,7 @@ fill_to = Vector2(1, 0.486239)
 [node name="laneSetter" type="Node2D" parent="resourceHandler"]
 
 [node name="topLane" type="Path2D" parent="resourceHandler/laneSetter"]
-position = Vector2(1, 52.432)
+position = Vector2(-49, 52.432)
 rotation = -0.000352888
 curve = SubResource("Curve2D_6u51i")
 
@@ -86,17 +86,17 @@ _status = ExtResource("5_67dra")
 script = ExtResource("6_1or2k")
 
 [node name="enemyBase" type="PathFollow2D" parent="resourceHandler/laneSetter/topLane"]
-position = Vector2(-892.026, 73.6852)
-rotation = 0.000351868
+position = Vector2(996.976, 68.9198)
+rotation = 0.04301
+progress = 1914.17
 
 [node name="Area2D" type="Area2D" parent="resourceHandler/laneSetter/topLane/enemyBase"]
-position = Vector2(892, -73.9991)
 rotation = -0.000351868
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="resourceHandler/laneSetter/topLane/enemyBase/Area2D"]
-position = Vector2(912.98, 56.3222)
+rotation = -0.0483336
 shape = SubResource("RectangleShape2D_nq36a")
 
 [node name="stateComponent" type="Node" parent="resourceHandler/laneSetter/topLane/enemyBase" node_paths=PackedStringArray("initial_state")]
@@ -108,7 +108,7 @@ _status = ExtResource("6_qu5pd")
 script = ExtResource("6_1or2k")
 
 [node name="knight" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("5_a6b1a")]
-position = Vector2(-509.271, 38.862)
+position = Vector2(-509.27, 38.862)
 progress = 389.405
 
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]

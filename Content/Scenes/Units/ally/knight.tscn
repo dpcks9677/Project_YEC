@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://desh5w0ghu1ws" path="res://Content/Graphics/Sprites/ally/knight.png" id="1_2vx0n"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_u0rxm"]
-[ext_resource type="PackedScene" uid="uid://cmsj0fjsp6eoh" path="res://Content/Scenes/Stage/Components/attack_range_component.tscn" id="3_0hk0e"]
 [ext_resource type="Resource" uid="uid://dmej1s0qks1mo" path="res://Content/Scripts/Resources/knight.tres" id="3_1txna"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/move.gd" id="3_b2rvq"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attack.gd" id="5_s4o7i"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="6_4mdj0"]
 
 [sub_resource type="Animation" id="Animation_lklbb"]
 length = 0.001
@@ -137,10 +137,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jatmx"]
-size = Vector2(93, 99.5)
+size = Vector2(93, 110)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmtcf"]
-size = Vector2(26, 99.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xijr6"]
+size = Vector2(20, 110)
 
 [node name="knight" type="PathFollow2D"]
 scale = Vector2(0.8, 0.8)
@@ -180,13 +180,18 @@ script = ExtResource("5_s4o7i")
 position = Vector2(0, -23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(3.5, 3.75)
+position = Vector2(3.5, 7.99999)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jatmx")
 
-[node name="attackRangeComponent" parent="." instance=ExtResource("3_0hk0e")]
-position = Vector2(0, -23)
+[node name="attackRangeComponent" type="Area2D" parent="."]
+script = ExtResource("6_4mdj0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
-position = Vector2(37, 3.75)
-shape = SubResource("RectangleShape2D_gmtcf")
-debug_color = Color(0.862745, 0.360784, 0, 0.419608)
+position = Vector2(40, -15)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_xijr6")
+debug_color = Color(0.803922, 0.415686, 0.0941176, 0.419608)
+
+[connection signal="area_entered" from="attackRangeComponent" to="attackRangeComponent" method="_on_area_entered"]
+[connection signal="enqueue_target" from="attackRangeComponent" to="stateComponent/Attack" method="_on_attack_range_component_enqueue_target"]

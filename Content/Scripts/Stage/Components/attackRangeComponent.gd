@@ -7,6 +7,7 @@ func _on_area_entered(area):
 	if get_parent().get_node("stateComponent").get_Unit_tag() == "ally":
 		if area.get_parent().get_node("stateComponent").get_Unit_tag() == "enemy":
 			emit_signal("target_in")
+			print("executed")
 			emit_signal("enqueue_target", area)
 	
 	if get_parent().get_node("stateComponent").get_Unit_tag() == "enemy":
