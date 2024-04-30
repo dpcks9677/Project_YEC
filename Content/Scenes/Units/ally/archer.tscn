@@ -120,10 +120,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmhj5"]
-size = Vector2(94, 101.75)
+size = Vector2(90, 100.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rxks"]
-size = Vector2(367, 181.188)
+size = Vector2(367, 179.938)
 
 [node name="archer" type="PathFollow2D"]
 scale = Vector2(0.8, 0.8)
@@ -151,14 +151,15 @@ _status = ExtResource("3_xidl8")
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(-2.5, 0.374998)
+position = Vector2(-5, -0.250002)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qmhj5")
 
-[node name="attackRangeComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("3_c6xjk")]
-engage_Component = NodePath("../engageComponent")
+[node name="attackRangeComponent" parent="." instance=ExtResource("3_c6xjk")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
-position = Vector2(183.5, -39.3437)
+position = Vector2(183.5, -39.9688)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6rxks")
 debug_color = Color(0.862745, 0.360784, 0, 0.419608)
 

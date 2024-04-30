@@ -144,8 +144,7 @@ _status = ExtResource("3_si0jx")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ny7yn")
 
-[node name="attackRangeComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("2_ohoib")]
-engage_Component = NodePath("../engageComponent")
+[node name="attackRangeComponent" parent="." instance=ExtResource("2_ohoib")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
 position = Vector2(36, 1)

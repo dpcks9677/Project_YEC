@@ -9,13 +9,13 @@ signal attackUpgrade
 func _enter_tree():
 	if get_name() == str("manaUpgradeButton"):
 		state = "mana"
-		get_node("TextureButton").texture_normal = load("res://Content/Graphics/Sprites/UI/mana.png")
+		get_node("TextureButton").texture_normal = load("res://Content/Graphics/UI/mana.png")
 	if get_name() == str("popUpgradeButton"):
 		state = "pop"
-		get_node("TextureButton").texture_normal = load("res://Content/Graphics/Sprites/UI/pop.png")
+		get_node("TextureButton").texture_normal = load("res://Content/Graphics/UI/pop.png")
 	if get_name() == str("attackUpgradeButton"):
 		state = "attack"
-		get_node("TextureButton").texture_normal = load("res://Content/Graphics/Sprites/UI/att.png")
+		get_node("TextureButton").texture_normal = load("res://Content/Graphics/UI/att.png")
 
 func _physics_process(_delta):
 	#업그레이드 진행 시 버튼 비활성화 
