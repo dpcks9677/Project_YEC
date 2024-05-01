@@ -18,7 +18,7 @@ func spawnMarker(target): #unit_tag 식별, 마커 스폰 라인 설정, progres
 	markerInstant.setTarget(target)
 	
 	#unit_tag 식별 
-	unit_tag = target.get_node("engageComponent").unit_tag
+	unit_tag = target.get_node("stateComponent").unit_tag
 	
 	#라인에 따라 객체 생성하기 
 	if target.get_parent().get_name() == "topLane":

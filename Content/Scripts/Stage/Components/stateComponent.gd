@@ -43,9 +43,6 @@ func _ready():
 		if get_parent().has_node("attackRangeComponent"):
 			get_parent().get_node("attackRangeComponent").set_collision_mask_value(1, false)
 			get_parent().get_node("attackRangeComponent").set_collision_mask_value(2, true)
-		if get_parent().has_node("damageBox"):
-			get_parent().get_node("damageBox").set_collision_mask_value(1, false)
-			get_parent().get_node("damageBox").set_collision_mask_value(2, true)
 		#콜리전 레이어 설정 
 		if get_parent().has_node("hitbox"):
 			get_parent().get_node("hitbox").set_collision_layer_value(1, false)
@@ -53,10 +50,7 @@ func _ready():
 		if get_parent().has_node("attackRangeComponent"):
 			get_parent().get_node("attackRangeComponent").set_collision_layer_value(1, false)
 			get_parent().get_node("attackRangeComponent").set_collision_layer_value(2, true)
-		if get_parent().has_node("damageBox"):
-			get_parent().get_node("damageBox").set_collision_mask_value(1, false)
-			get_parent().get_node("damageBox").set_collision_mask_value(2, true)
-	if get_parent().get_parent().get_name() == "bottomLane":
+	elif get_parent().get_parent().get_name() == "bottomLane":
 		#콜리전 마스크 설정 
 		if get_parent().has_node("hitbox"):
 			get_parent().get_node("hitbox").set_collision_mask_value(1, false)
@@ -64,9 +58,6 @@ func _ready():
 		if get_parent().has_node("attackRangeComponent"):
 			get_parent().get_node("attackRangeComponent").set_collision_mask_value(1, false)
 			get_parent().get_node("attackRangeComponent").set_collision_mask_value(3, true)
-		if get_parent().has_node("damageBox"):
-			get_parent().get_node("damageBox").set_collision_mask_value(1, false)
-			get_parent().get_node("damageBox").set_collision_mask_value(3, true)
 		#콜리전 레이어 설정 
 		if get_parent().has_node("hitbox"):
 			get_parent().get_node("hitbox").set_collision_layer_value(1, false)
@@ -74,12 +65,10 @@ func _ready():
 		if get_parent().has_node("attackRangeComponent"):
 			get_parent().get_node("attackRangeComponent").set_collision_layer_value(1, false)
 			get_parent().get_node("attackRangeComponent").set_collision_layer_value(3, true)
-		if get_parent().has_node("damageBox"):
-			get_parent().get_node("damageBox").set_collision_mask_value(1, false)
-			get_parent().get_node("damageBox").set_collision_mask_value(3, true)
-
 			
 func _process(delta):
+	if health <= 0:
+		force_change_state("Dead")
 	if current_state:
 		current_state.Update(delta)
 		
@@ -94,6 +83,26 @@ func change_state(state : State, new_state_name : String):
 		
 	if current_state:
 		current_state.Exit()
+		
+	new_state.Enter()
+	
+	current_state = new_state
+
+#강제 상태 변경 함수 
+func force_change_state(new_state_name : String):
+	var new_state = states.get(new_state_name.to_lower())
+	
+	if !new_state:
+		print(new_state + " does not exist in the dictionary of states.")
+		return
+		
+	if current_state == new_state:
+		#print("State is same.")
+		return 
+		
+	if current_state:
+		var exit_callable = Callable(current_state, "Exit")
+		exit_callable.call_deferred()
 		
 	new_state.Enter()
 	

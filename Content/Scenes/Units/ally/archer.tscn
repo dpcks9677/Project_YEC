@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cv1h8mnftsm3h"]
+[gd_scene load_steps=15 format=3 uid="uid://cv1h8mnftsm3h"]
 
 [ext_resource type="Texture2D" uid="uid://bqbxxbusi3ngs" path="res://Content/Graphics/Sprites/ally/archer.png" id="1_bdxdh"]
-[ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://Content/Scenes/Stage/Components/engage_component.tscn" id="2_0vocf"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_85ohq"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="3_1csq0"]
-[ext_resource type="PackedScene" uid="uid://cmsj0fjsp6eoh" path="res://Content/Scenes/Stage/Components/attack_range_component.tscn" id="3_c6xjk"]
-[ext_resource type="Resource" uid="uid://dotpntd2n5gg2" path="res://Content/Scripts/Resources/archer.tres" id="3_xidl8"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/move.gd" id="3_vt62x"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/cast.gd" id="4_m0r8j"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/dead.gd" id="5_chd66"]
 
 [sub_resource type="Animation" id="Animation_qke1n"]
 length = 0.001
@@ -145,28 +146,36 @@ libraries = {
 "": SubResource("AnimationLibrary_rolya")
 }
 
-[node name="engageComponent" parent="." instance=ExtResource("2_0vocf")]
-_status = ExtResource("3_xidl8")
+[node name="stateComponent" type="Node" parent="."]
+script = ExtResource("2_85ohq")
+
+[node name="Move" type="Node" parent="stateComponent"]
+script = ExtResource("3_vt62x")
+
+[node name="Cast" type="Node" parent="stateComponent"]
+script = ExtResource("4_m0r8j")
+
+[node name="Dead" type="Node" parent="stateComponent"]
+script = ExtResource("5_chd66")
 
 [node name="hitbox" type="Area2D" parent="."]
+scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(-5, -0.250002)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qmhj5")
 
-[node name="attackRangeComponent" parent="." instance=ExtResource("3_c6xjk")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
-position = Vector2(183.5, -39.9688)
+[node name="attackRangeComponent" type="Area2D" parent="."]
 scale = Vector2(1, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="attackRangeComponent"]
+position = Vector2(183.5, -39.9688)
 shape = SubResource("RectangleShape2D_6rxks")
 debug_color = Color(0.862745, 0.360784, 0, 0.419608)
 
-[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("3_1csq0")]
+[node name="HealthBarComponent" parent="." instance=ExtResource("3_1csq0")]
 offset_left = -42.5
 offset_top = -60.0
 offset_right = -42.5
 offset_bottom = -60.0
-engage_Component = NodePath("../engageComponent")
 metadata/_edit_use_anchors_ = true

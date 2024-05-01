@@ -43,12 +43,12 @@ func spawn(unit):
 	if rsc.isPopulationFull == true: #인구 수 확인 
 		print("no space")
 	else: #마나 여부 확인 / 이유를 모르겠으나 mana를 조회하면 계속 0으로 나와서 _status.mana로 접근해야 원하는 대로 동작함.
-		if target.get_node("engageComponent")._status.mana > rsc.current_mana: 
+		if target.get_node("stateComponent")._status.mana > rsc.current_mana: 
 			print("no mana")
 		else:
-			print(target.get_node("engageComponent").mana)
+			print(target.get_node("stateComponent").mana)
 			#마나 지불 
-			rsc.current_mana -= target.get_node("engageComponent")._status.mana
+			rsc.current_mana -= target.get_node("stateComponent")._status.mana
 			
 			#stage1 씬에 노드 추가 false = top / true = bottom 
 			if get_parent().get_node("laneUI").currentLane == true:

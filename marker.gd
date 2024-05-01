@@ -5,7 +5,7 @@ var unit_tag
 
 func _ready():
 	#유닛 태그 설정 
-	unit_tag = unitInfo.get_node("engageComponent").unit_tag
+	unit_tag = unitInfo.get_node("stateComponent").unit_tag
 	
 	#마커 색상 부여 후 위치 초기화 
 	if unit_tag == "ally":

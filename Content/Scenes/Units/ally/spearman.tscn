@@ -151,10 +151,9 @@ position = Vector2(36, 1)
 shape = SubResource("RectangleShape2D_gvtpl")
 debug_color = Color(0.862745, 0.360784, 0, 0.419608)
 
-[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("5_l1yw4")]
+[node name="HealthBarComponent" parent="." instance=ExtResource("5_l1yw4")]
 offset_left = -46.0
 offset_top = -62.0
 offset_right = -46.0
 offset_bottom = -62.0
-engage_Component = NodePath("../engageComponent")
 metadata/_edit_use_anchors_ = true

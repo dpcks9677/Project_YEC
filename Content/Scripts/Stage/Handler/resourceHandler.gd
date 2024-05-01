@@ -32,7 +32,7 @@ func _init():
 	mana_lv = 1
 	max_mana = 25 #최대 마나량 공식 만들기 
 	regen_mana = 2 #리젠 마나량 공식 만들기 
-	current_mana = 0
+	current_mana = 20
 	isManaUpgrade = false
 	
 	#공격력 
