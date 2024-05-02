@@ -1,13 +1,13 @@
 [gd_scene load_steps=19 format=3 uid="uid://c7m578amgnxic"]
 
 [ext_resource type="Texture2D" uid="uid://r1ijsyxnodei" path="res://Content/Graphics/Sprites/enemy/Rhino.png" id="1_ne1t5"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/move.gd" id="2_vfwk1"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="2_vfwk1"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_ycouc"]
 [ext_resource type="Resource" uid="uid://cpgjhto6xs3a8" path="res://Content/Scripts/Resources/rhino.tres" id="3_cacf4"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/cast.gd" id="3_ce8as"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="3_ce8as"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="4_mdvnh"]
-[ext_resource type="Script" path="res://Content/Scenes/Units/ally/meleeSingleAttack.gd" id="6_esgs5"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/dead.gd" id="6_qpt1o"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/meleeSingleAttack.gd" id="6_02jil"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="6_qpt1o"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="6_s41pc"]
 
 [sub_resource type="Animation" id="Animation_5lkdh"]
@@ -150,8 +150,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g85ds"]
 size = Vector2(173.5, 57)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecny3"]
-size = Vector2(244, 176)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mtlp8"]
+radius = 77.0
+height = 192.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7fg2"]
 size = Vector2(72, 176)
@@ -188,7 +189,7 @@ script = ExtResource("2_vfwk1")
 script = ExtResource("3_ce8as")
 
 [node name="meleeSingleAttack" type="Node2D" parent="stateComponent/Cast"]
-script = ExtResource("6_esgs5")
+script = ExtResource("6_02jil")
 
 [node name="damageBox" type="Area2D" parent="stateComponent/Cast/meleeSingleAttack"]
 
@@ -203,8 +204,9 @@ script = ExtResource("6_qpt1o")
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(3, -72)
-shape = SubResource("RectangleShape2D_ecny3")
+position = Vector2(-8, -64)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mtlp8")
 
 [node name="attackRangeComponent" type="Area2D" parent="."]
 script = ExtResource("6_s41pc")

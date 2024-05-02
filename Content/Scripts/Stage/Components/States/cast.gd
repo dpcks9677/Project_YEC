@@ -15,7 +15,7 @@ func Update(delta):
 	elif target_queue._head == null and target == null: #타겟X, 타겟큐X => Move로 전이 
 		get_parent().change_state(self, "Move")
 	else: #타겟O
-		get_node("meleeSingleAttack").Update(delta)
+		get_child(0).Update(delta) #현재는 하드코딩
 
 func Exit():
 	pass

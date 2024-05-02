@@ -118,3 +118,6 @@ func get_Unit_tag():
 	
 func get_speed():
 	return speed
+	
+func get_position():
+	return get_parent().progress

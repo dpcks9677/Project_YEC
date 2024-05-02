@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=22 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="PackedScene" uid="uid://cgqrwgbhcpkd3" path="res://Content/Scenes/Stage/Interfaces/hud.tscn" id="1_tghqr"]
 [ext_resource type="PackedScene" uid="uid://bipawj12cbpmb" path="res://Content/Scenes/Stage/Handler/resourceHandler.tscn" id="2_67fy2"]
@@ -8,10 +8,11 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/Camera.gd" id="4_b0td4"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="4_fcn83"]
 [ext_resource type="Resource" uid="uid://dak7qnv3rx26r" path="res://Content/Scripts/Resources/allyBase.tres" id="5_67dra"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/idle.gd" id="6_1or2k"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/idle.gd" id="6_1or2k"]
 [ext_resource type="Resource" uid="uid://bs8061ffaprvh" path="res://Content/Scripts/Resources/enemyBase.tres" id="6_qu5pd"]
 [ext_resource type="PackedScene" uid="uid://oms4xo8wpeo7" path="res://Content/Scenes/Units/ally/knight.tscn" id="8_ee72c"]
 [ext_resource type="PackedScene" uid="uid://c7m578amgnxic" path="res://Content/Scenes/Units/enemy/rhino.tscn" id="9_gqtg1"]
+[ext_resource type="PackedScene" uid="uid://cv1h8mnftsm3h" path="res://Content/Scenes/Units/ally/archer.tscn" id="10_qbyvh"]
 
 [sub_resource type="Curve2D" id="Curve2D_6u51i"]
 _data = {
@@ -108,12 +109,15 @@ _status = ExtResource("6_qu5pd")
 [node name="Idle" type="Node" parent="resourceHandler/laneSetter/topLane/enemyBase/stateComponent"]
 script = ExtResource("6_1or2k")
 
-[node name="knight" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("8_ee72c")]
+[node name="rhino" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("9_gqtg1")]
+position = Vector2(846.49, 62.8433)
+progress = 1763.52
+
+[node name="archer" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("10_qbyvh")]
 position = Vector2(-892.026, 73.6852)
 
-[node name="rhino" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("9_gqtg1")]
-position = Vector2(782.899, 58.4472)
-progress = 1699.78
+[node name="knight" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("8_ee72c")]
+position = Vector2(-892.026, 73.6852)
 
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]
 position = Vector2(251, -44.6835)

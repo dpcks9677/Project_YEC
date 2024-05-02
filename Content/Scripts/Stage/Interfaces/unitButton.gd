@@ -35,7 +35,6 @@ func _on_texture_button_pressed():
 	position.x -= 3
 	position.y += 3
 	
-
 func _on_texture_button_button_up():
 	print("pressed")
 	get_parent().spawn(unitName)
