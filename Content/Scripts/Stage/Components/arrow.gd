@@ -26,6 +26,7 @@ func _process(delta):
 			visible = true
 		else:
 			visible = false
+			get_node("CollisionShape2D").disabled = true
 			
 		if elapsed_time < duration:
 			elapsed_time += delta
@@ -41,6 +42,7 @@ func _process(delta):
 		else:
 			position = Vector2(0,0) # Ensure the sprite ends at the exact end point
 			visible = false
+			get_node("CollisionShape2D").disabled = true
 			isHitted = false
 			isFire = false
 			set_rotation(0)

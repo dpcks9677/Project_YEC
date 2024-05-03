@@ -110,7 +110,7 @@ _status = ExtResource("6_qu5pd")
 script = ExtResource("6_1or2k")
 
 [node name="rhino" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("9_gqtg1")]
-position = Vector2(45.9067, 2.2131)
+position = Vector2(45.9072, 2.21311)
 progress = 957.085
 
 [node name="archer" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("10_qbyvh")]

@@ -111,18 +111,19 @@ func force_change_state(new_state_name : String):
 
 #내부 값 변경 함수
 func damaged(amount):
-	hitshader()
+	hitShader()
 	health -= amount
 
 #히트시 쉐이더 작동
-func hitshader():
-	var material =  get_parent().get_node("Sprite2D").material
-	if material is ShaderMaterial:
-		material.set_shader_parameter("hit_modifier", 1)
-		await get_tree().create_timer(0.1).timeout
-		material.set_shader_parameter("hit_modifier", 0.3)
-		await get_tree().create_timer(0.1).timeout
-		material.set_shader_parameter("hit_modifier", 0)
+func hitShader():
+	if get_parent().has_node("Sprite2D") == true: #건물 스프라이트 추가시 코드 다시 짜야 함.
+		var material = get_parent().get_node("Sprite2D").material
+		if material is ShaderMaterial:
+			material.set_shader_parameter("hit_modifier", 1)
+			await get_tree().create_timer(0.1).timeout
+			material.set_shader_parameter("hit_modifier", 0.3)
+			await get_tree().create_timer(0.1).timeout
+			material.set_shader_parameter("hit_modifier", 0)
 
 #getter function
 func get_Unit_tag():
@@ -133,3 +134,11 @@ func get_speed():
 	
 func get_position():
 	return get_parent().progress
+	
+#etc function
+func property_exists(obj, property_name):
+	var properties = obj.get_property_list()
+	for property in properties:
+		if property.name == property_name:
+			return true
+	return false
