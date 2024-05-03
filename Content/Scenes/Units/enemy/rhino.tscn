@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://c7m578amgnxic"]
 
 [ext_resource type="Material" uid="uid://dfakg6naa0c8x" path="res://Content/Scripts/Shader/hit.tres" id="1_lml8u"]
-[ext_resource type="Texture2D" uid="uid://djnlkwctxw4t1" path="res://Content/Graphics/Sprites/enemy/Rhino.png" id="1_ne1t5"]
+[ext_resource type="Texture2D" uid="uid://r1ijsyxnodei" path="res://Content/Graphics/Sprites/enemy/Rhino.png" id="1_ne1t5"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="2_vfwk1"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_ycouc"]
 [ext_resource type="Resource" uid="uid://cpgjhto6xs3a8" path="res://Content/Scripts/Resources/rhino.tres" id="3_cacf4"]
@@ -153,7 +153,7 @@ size = Vector2(173.5, 57)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mtlp8"]
 radius = 77.0
-height = 192.0
+height = 240.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7fg2"]
 size = Vector2(72, 176)

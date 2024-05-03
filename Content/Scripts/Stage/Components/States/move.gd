@@ -8,7 +8,8 @@ func _enter_tree():
 	if get_parent().get_Unit_tag() == "ally":
 		pass
 	else:
-		get_parent().get_parent().progress_ratio = 0.5
+		#get_parent().get_parent().progress_ratio = 0.5
+		pass
 
 func _ready():
 	speed = get_parent().get_speed()
