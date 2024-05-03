@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://fbdbf7roi2eh"]
 
-[ext_resource type="Texture2D" uid="uid://d2mtclvuwcmb6" path="res://Content/Graphics/Sprites/ally/spearman.png" id="1_pddrv"]
+[ext_resource type="Texture2D" uid="uid://tpgk2d57slqi" path="res://Content/Graphics/Sprites/ally/spearman.png" id="1_pddrv"]
 [ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://Content/Scenes/Stage/Components/engage_component.tscn" id="2_fqbp8"]
 [ext_resource type="PackedScene" uid="uid://cmsj0fjsp6eoh" path="res://Content/Scenes/Stage/Components/attack_range_component.tscn" id="2_ohoib"]
 [ext_resource type="Resource" uid="uid://fxiqb5xyif71" path="res://Content/Scripts/Resources/spearman.tres" id="3_si0jx"]

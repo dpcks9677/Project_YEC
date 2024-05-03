@@ -107,10 +107,22 @@ func force_change_state(new_state_name : String):
 	new_state.Enter()
 	
 	current_state = new_state
+	
 
 #내부 값 변경 함수
 func damaged(amount):
+	hitshader()
 	health -= amount
+
+#히트시 쉐이더 작동
+func hitshader():
+	var material =  get_parent().get_node("Sprite2D").material
+	if material is ShaderMaterial:
+		material.set_shader_parameter("hit_modifier", 1)
+		await get_tree().create_timer(0.1).timeout
+		material.set_shader_parameter("hit_modifier", 0.3)
+		await get_tree().create_timer(0.1).timeout
+		material.set_shader_parameter("hit_modifier", 0)
 
 #getter function
 func get_Unit_tag():

@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://cv1h8mnftsm3h"]
+[gd_scene load_steps=23 format=3 uid="uid://cv1h8mnftsm3h"]
 
-[ext_resource type="Texture2D" uid="uid://bqbxxbusi3ngs" path="res://Content/Graphics/Sprites/ally/archer.png" id="1_bdxdh"]
+[ext_resource type="Texture2D" uid="uid://ckq0o2eds4by1" path="res://Content/Graphics/Sprites/ally/archer.png" id="1_bdxdh"]
+[ext_resource type="Material" uid="uid://dfakg6naa0c8x" path="res://Content/Scripts/Shader/hit.tres" id="1_iy1se"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_85ohq"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="3_1csq0"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_vt62x"]
@@ -10,7 +11,7 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="6_ljd7l"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/rangeSingleAttack.gd" id="6_wke1r"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/arrow.gd" id="7_n2jlc"]
-[ext_resource type="Texture2D" uid="uid://c4g7ixcrpqtxh" path="res://Content/Graphics/Sprites/etc/weapon.png" id="8_ykkvl"]
+[ext_resource type="Texture2D" uid="uid://b1kakhxp1ov62" path="res://Content/Graphics/Sprites/etc/weapon.png" id="8_ykkvl"]
 
 [sub_resource type="Animation" id="Animation_qke1n"]
 length = 0.001
@@ -271,6 +272,7 @@ color = Color(0.121569, 0.121569, 0.121569, 0.592157)
 polygon = PackedVector2Array(-37.5, 18.75, -45, 22.5, -50, 28.75, -43.75, 36.25, -32.5, 38.75, 28.75, 38.75, 41.25, 36.25, 47.5, 30, 42.5, 22.5, 33.75, 18.75)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("1_iy1se")
 texture = ExtResource("1_bdxdh")
 flip_h = true
 hframes = 10
@@ -304,7 +306,6 @@ texture = SubResource("AtlasTexture_wub4f")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/rangeSingleAttack/arrow"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_dbp1k")
 debug_color = Color(0.788171, 0.0987749, 1, 0.42)
 
