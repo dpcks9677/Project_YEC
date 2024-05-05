@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://cv1h8mnftsm3h"]
 
-[ext_resource type="Texture2D" uid="uid://ckq0o2eds4by1" path="res://Content/Graphics/Sprites/ally/archer.png" id="1_bdxdh"]
+[ext_resource type="Texture2D" uid="uid://bqbxxbusi3ngs" path="res://Content/Graphics/Sprites/ally/archer.png" id="1_bdxdh"]
 [ext_resource type="Material" uid="uid://dfakg6naa0c8x" path="res://Content/Scripts/Shader/hit.tres" id="1_iy1se"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_85ohq"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="3_1csq0"]
@@ -10,8 +10,8 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="5_chd66"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="6_ljd7l"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/rangeSingleAttack.gd" id="6_wke1r"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/arrow.gd" id="7_n2jlc"]
-[ext_resource type="Texture2D" uid="uid://b1kakhxp1ov62" path="res://Content/Graphics/Sprites/etc/weapon.png" id="8_ykkvl"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/projectile.gd" id="8_66n73"]
+[ext_resource type="Texture2D" uid="uid://c4g7ixcrpqtxh" path="res://Content/Graphics/Sprites/etc/weapon.png" id="8_ykkvl"]
 
 [sub_resource type="Animation" id="Animation_qke1n"]
 length = 0.001
@@ -259,7 +259,7 @@ size = Vector2(60, 20)
 size = Vector2(90, 100.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rxks"]
-size = Vector2(430, 179.938)
+size = Vector2(430, 210)
 
 [node name="archer" type="PathFollow2D"]
 position = Vector2(3.8147e-06, 7.62939e-06)
@@ -299,7 +299,7 @@ script = ExtResource("6_wke1r")
 
 [node name="arrow" type="Area2D" parent="stateComponent/Cast/rangeSingleAttack"]
 visible = false
-script = ExtResource("7_n2jlc")
+script = ExtResource("8_66n73")
 
 [node name="Sprite2D" type="Sprite2D" parent="stateComponent/Cast/rangeSingleAttack/arrow"]
 texture = SubResource("AtlasTexture_wub4f")
@@ -321,8 +321,9 @@ shape = SubResource("RectangleShape2D_qmhj5")
 [node name="attackRangeComponent" type="Area2D" parent="."]
 script = ExtResource("6_ljd7l")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="attackRangeComponent"]
-position = Vector2(215, -39.9688)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
+position = Vector2(215, -54.9999)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6rxks")
 debug_color = Color(0.862745, 0.360784, 0, 0.419608)
 
