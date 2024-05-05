@@ -65,7 +65,12 @@ func _ready():
 		if get_parent().has_node("attackRangeComponent"):
 			get_parent().get_node("attackRangeComponent").set_collision_layer_value(1, false)
 			get_parent().get_node("attackRangeComponent").set_collision_layer_value(3, true)
-			
+	
+	#스프라이트 보정치 추가
+	if get_parent().has_node("Sprite2D"):
+		$"../Sprite2D".offset.x += randi_range(-3,3)
+		$"../Sprite2D".offset.y += randi_range(0,-20)
+	
 func _process(delta):
 	if health <= 0:
 		force_change_state("Dead")

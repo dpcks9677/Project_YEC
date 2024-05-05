@@ -255,8 +255,9 @@ region = Rect2(4.5477, 43.2286, 49.4018, 14.1459)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbp1k"]
 size = Vector2(60, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmhj5"]
-size = Vector2(90, 100.5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_flsgr"]
+radius = 35.0
+height = 100.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rxks"]
 size = Vector2(430, 210)
@@ -265,11 +266,6 @@ size = Vector2(430, 210)
 position = Vector2(3.8147e-06, 7.62939e-06)
 scale = Vector2(0.8, 0.8)
 rotates = false
-
-[node name="shadow" type="Polygon2D" parent="."]
-position = Vector2(-7.5, 16.25)
-color = Color(0.121569, 0.121569, 0.121569, 0.592157)
-polygon = PackedVector2Array(-37.5, 18.75, -45, 22.5, -50, 28.75, -43.75, 36.25, -32.5, 38.75, 28.75, 38.75, 41.25, 36.25, 47.5, 30, 42.5, 22.5, 33.75, 18.75)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = ExtResource("1_iy1se")
@@ -315,8 +311,8 @@ script = ExtResource("5_chd66")
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(-5, -0.250002)
-shape = SubResource("RectangleShape2D_qmhj5")
+position = Vector2(-10, -9.56655e-06)
+shape = SubResource("CapsuleShape2D_flsgr")
 
 [node name="attackRangeComponent" type="Area2D" parent="."]
 script = ExtResource("6_ljd7l")

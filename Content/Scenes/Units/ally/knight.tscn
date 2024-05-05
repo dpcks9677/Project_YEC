@@ -178,11 +178,6 @@ size = Vector2(20, 110)
 scale = Vector2(0.8, 0.8)
 rotates = false
 
-[node name="shadow" type="Polygon2D" parent="."]
-position = Vector2(-1.25, -1.25)
-color = Color(0.121569, 0.121569, 0.121569, 0.592157)
-polygon = PackedVector2Array(-37.5, 18.75, -45, 22.5, -50, 28.75, -43.75, 36.25, -32.5, 38.75, 28.75, 38.75, 41.25, 36.25, 47.5, 30, 42.5, 22.5, 33.75, 18.75)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = ExtResource("1_4qypu")
 position = Vector2(-1.25, -21.25)

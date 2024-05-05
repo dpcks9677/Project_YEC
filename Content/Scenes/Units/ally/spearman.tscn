@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://fbdbf7roi2eh"]
+[gd_scene load_steps=13 format=3 uid="uid://fbdbf7roi2eh"]
 
 [ext_resource type="Texture2D" uid="uid://d2mtclvuwcmb6" path="res://Content/Graphics/Sprites/ally/spearman.png" id="1_pddrv"]
-[ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://Content/Scenes/Stage/Components/engage_component.tscn" id="2_fqbp8"]
 [ext_resource type="PackedScene" uid="uid://cmsj0fjsp6eoh" path="res://Content/Scenes/Stage/Components/attack_range_component.tscn" id="2_ohoib"]
-[ext_resource type="Resource" uid="uid://fxiqb5xyif71" path="res://Content/Scripts/Resources/spearman.tres" id="3_si0jx"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="2_r4tel"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="5_l1yw4"]
 
 [sub_resource type="Animation" id="Animation_ph72j"]
@@ -108,8 +107,9 @@ _data = {
 "walk": SubResource("Animation_hw1qf")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny7yn"]
-size = Vector2(100, 103)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xo7w1"]
+radius = 30.0
+height = 119.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvtpl"]
 size = Vector2(30, 103.5)
@@ -117,12 +117,6 @@ size = Vector2(30, 103.5)
 [node name="spearman" type="PathFollow2D"]
 scale = Vector2(0.8, 0.8)
 rotates = false
-
-[node name="shadow" type="Polygon2D" parent="."]
-position = Vector2(1.25, 5)
-scale = Vector2(1.25, 1.25)
-color = Color(0.121569, 0.121569, 0.121569, 0.592157)
-polygon = PackedVector2Array(-37.5, 18.75, -45, 22.5, -50, 28.75, -43.75, 36.25, -32.5, 38.75, 28.75, 38.75, 41.25, 36.25, 47.5, 30, 42.5, 22.5, 33.75, 18.75)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_pddrv")
@@ -135,14 +129,18 @@ libraries = {
 "": SubResource("AnimationLibrary_omb1q")
 }
 
-[node name="engageComponent" parent="." instance=ExtResource("2_fqbp8")]
-_status = ExtResource("3_si0jx")
+[node name="stateComponent" type="Node" parent="."]
+
+[node name="Move" type="Node" parent="stateComponent"]
+script = ExtResource("2_r4tel")
+
+[node name="Attack" type="Node" parent="stateComponent"]
 
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_ny7yn")
+position = Vector2(-10, 2.98023e-08)
+shape = SubResource("CapsuleShape2D_xo7w1")
 
 [node name="attackRangeComponent" parent="." instance=ExtResource("2_ohoib")]
 

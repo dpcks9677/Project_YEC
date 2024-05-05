@@ -3,16 +3,17 @@ extends Area2D
 # Points and movement parameters
 var start_point = position
 var end_point = Vector2(0,0)
-var height = 90.0
+var height = 150.0
 var duration = 0.5  # Duration of the movement in seconds
 var elapsed_time = 0.0 # = x
+
+var FIXED_VALUE = 100.0
 
 var isFire : bool
 var isHitted : bool
 
 func _ready():
 	position = start_point  # Start at the first point
-	end_point = $"../../../../attackRangeComponent/CollisionShape2D".shape.size.x
 	
 	isFire = false
 	isHitted = false
@@ -22,6 +23,7 @@ func _process(delta):
 	if get_parent().castTarget != null:
 		get_start_point()
 		end_point = get_parent().castTarget.get_parent().global_position
+		end_point.x += FIXED_VALUE
 	
 	if isFire == true:
 		if isHitted == false:
@@ -44,6 +46,7 @@ func _process(delta):
 		else:
 			#투사체 노드 위치 초기화 및 변수 초기화 
 			position = Vector2(0,0) # Ensure the sprite ends at the exact end point
+			height = randf_range(120, 160)
 			
 			elapsed_time = 0.0 
 			position = start_point
