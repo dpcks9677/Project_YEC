@@ -203,10 +203,7 @@ shape = SubResource("RectangleShape2D_826j0")
 debug_color = Color(1, 0.490196, 0, 0.419608)
 
 [node name="HealthBarComponent" parent="." instance=ExtResource("5_l1yw4")]
-offset_left = -46.0
-offset_top = -62.0
-offset_right = -46.0
-offset_bottom = -62.0
+position = Vector2(-40, -70)
 metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="stateComponent/Cast/meleeAreaAttack/damageBox" to="stateComponent/Cast/meleeAreaAttack" method="_on_damage_box_area_entered"]

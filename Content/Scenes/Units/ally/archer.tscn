@@ -323,10 +323,7 @@ shape = SubResource("RectangleShape2D_6rxks")
 debug_color = Color(1, 0.490196, 0, 0.419608)
 
 [node name="HealthBarComponent" parent="." instance=ExtResource("3_1csq0")]
-offset_left = -42.5
-offset_top = -60.0
-offset_right = -42.5
-offset_bottom = -60.0
+position = Vector2(-40, -60)
 metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="stateComponent/Cast/rangeSingleAttack/arrow" to="stateComponent/Cast/rangeSingleAttack" method="_on_arrow_area_entered"]

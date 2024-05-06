@@ -68,8 +68,12 @@ func _ready():
 	
 	#스프라이트 보정치 추가
 	if get_parent().has_node("Sprite2D"):
-		$"../Sprite2D".offset.x += randi_range(-3,3)
-		$"../Sprite2D".offset.y += randi_range(0,-20)
+		var xRand = randi_range(-3,3)
+		var yRand = randi_range(0,-20)
+		$"../Sprite2D".offset.x += xRand
+		$"../Sprite2D".offset.y += yRand
+		$"../HealthBarComponent".position.x += xRand
+		$"../HealthBarComponent".position.y += yRand
 	
 func _process(delta):
 	if health <= 0:

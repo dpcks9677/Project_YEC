@@ -210,7 +210,6 @@ shape = SubResource("CapsuleShape2D_mtlp8")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(-8, -27)
 shape = SubResource("RectangleShape2D_kqcdg")
-disabled = true
 
 [node name="attackRangeComponent" type="Area2D" parent="."]
 script = ExtResource("6_s41pc")
@@ -221,10 +220,7 @@ shape = SubResource("RectangleShape2D_m7fg2")
 debug_color = Color(0.862745, 0.360784, 0, 0.419608)
 
 [node name="HealthBarComponent" parent="." instance=ExtResource("4_mdvnh")]
-offset_left = -74.0
-offset_top = -160.0
-offset_right = -74.0
-offset_bottom = -160.0
+position = Vector2(-72, -160)
 
 [connection signal="area_entered" from="stateComponent/Cast/meleeSingleAttack/damageBox" to="stateComponent/Cast/meleeSingleAttack" method="_on_damage_box_area_entered"]
 [connection signal="area_entered" from="attackRangeComponent" to="attackRangeComponent" method="_on_area_entered"]
