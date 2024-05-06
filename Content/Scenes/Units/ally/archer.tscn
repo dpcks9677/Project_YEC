@@ -319,9 +319,8 @@ script = ExtResource("6_ljd7l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
 position = Vector2(215, -54.9999)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6rxks")
-debug_color = Color(0.862745, 0.360784, 0, 0.419608)
+debug_color = Color(1, 0.490196, 0, 0.419608)
 
 [node name="HealthBarComponent" parent="." instance=ExtResource("3_1csq0")]
 offset_left = -42.5

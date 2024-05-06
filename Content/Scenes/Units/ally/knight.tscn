@@ -235,7 +235,7 @@ script = ExtResource("6_4mdj0")
 position = Vector2(40, -15)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_xijr6")
-debug_color = Color(0.803922, 0.415686, 0.0941176, 0.419608)
+debug_color = Color(1, 0.490196, 0, 0.419608)
 
 [node name="HealthBarComponent" parent="." instance=ExtResource("7_3obrv")]
 offset_left = -30.0

@@ -210,6 +210,7 @@ shape = SubResource("CapsuleShape2D_mtlp8")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(-8, -27)
 shape = SubResource("RectangleShape2D_kqcdg")
+disabled = true
 
 [node name="attackRangeComponent" type="Area2D" parent="."]
 script = ExtResource("6_s41pc")
