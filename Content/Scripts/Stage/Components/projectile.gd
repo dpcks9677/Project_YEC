@@ -38,7 +38,7 @@ func _process(delta):
 			var length = abs(start_point.x - end_point.x)
 			var t = elapsed_time / duration  # Normalized time from 0 to 1
 			var x = elapsed_time * length / duration
-			var y = -height * sin(elapsed_time * 2 * PI)
+			var y = -height * sin(elapsed_time * 2 * PI) #parabola 코드 참조해서 수정 필요 
 			var angle = -cos(elapsed_time * 2 * PI)
 			set_rotation(angle)
 

@@ -1,0 +1,191 @@
+[gd_scene load_steps=20 format=3 uid="uid://brhy872g4qvjq"]
+
+[ext_resource type="Texture2D" uid="uid://ommhhhgvfnb5" path="res://Content/Graphics/Sprites/enemy/toad.png" id="1_p4lca"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_4f6wm"]
+[ext_resource type="Resource" uid="uid://durdht0t7gsde" path="res://Content/Scripts/Resources/toad.tres" id="3_74wxm"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_nuvhy"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="4_5ob4w"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="5_t6rxa"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/rangeAreaAttack.gd" id="6_k4rlg"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/parabola.gd" id="7_w06xh"]
+[ext_resource type="Texture2D" uid="uid://cqcsq70jyk0eo" path="res://icon.svg" id="8_tx4ut"]
+[ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="10_ikvem"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="10_qdp80"]
+
+[sub_resource type="Animation" id="Animation_ohoj8"]
+resource_name = "walk"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 2]
+}
+
+[sub_resource type="Animation" id="Animation_unevw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("stateComponent/Cast/rangeAreaAttack/splash/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gvjcu"]
+resource_name = "attack"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5, 0.6, 0.7, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("stateComponent/Cast/rangeAreaAttack/splash")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"switchFire"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("stateComponent/Cast/rangeAreaAttack/splash/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_txi3n"]
+_data = {
+"RESET": SubResource("Animation_unevw"),
+"attack": SubResource("Animation_gvjcu"),
+"walk": SubResource("Animation_ohoj8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgslc"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lh4hm"]
+radius = 64.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_061lf"]
+radius = 48.0
+height = 144.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsfxf"]
+size = Vector2(640, 152)
+
+[node name="toad" type="PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-16, -72)
+texture = ExtResource("1_p4lca")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_txi3n")
+}
+
+[node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_4f6wm")
+initial_state = NodePath("Move")
+_status = ExtResource("3_74wxm")
+
+[node name="Move" type="Node2D" parent="stateComponent"]
+script = ExtResource("3_nuvhy")
+
+[node name="Cast" type="Node2D" parent="stateComponent"]
+script = ExtResource("4_5ob4w")
+
+[node name="rangeAreaAttack" type="Node2D" parent="stateComponent/Cast"]
+script = ExtResource("6_k4rlg")
+
+[node name="splash" type="Area2D" parent="stateComponent/Cast/rangeAreaAttack"]
+position = Vector2(48, 32)
+script = ExtResource("7_w06xh")
+
+[node name="Sprite2D" type="Sprite2D" parent="stateComponent/Cast/rangeAreaAttack/splash"]
+modulate = Color(0, 1, 0.368627, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_tx4ut")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/rangeAreaAttack/splash"]
+shape = SubResource("RectangleShape2D_vgslc")
+debug_color = Color(0.752941, 0.192157, 1, 0.419608)
+
+[node name="splashArea" type="Area2D" parent="stateComponent/Cast/rangeAreaAttack/splash"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/rangeAreaAttack/splash/splashArea"]
+shape = SubResource("CircleShape2D_lh4hm")
+disabled = true
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Dead" type="Node2D" parent="stateComponent"]
+script = ExtResource("5_t6rxa")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_061lf")
+
+[node name="attackRangeComponent" type="Area2D" parent="."]
+script = ExtResource("10_qdp80")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
+position = Vector2(-320, -28)
+shape = SubResource("RectangleShape2D_qsfxf")
+debug_color = Color(1, 0.490196, 0, 0.419608)
+
+[node name="HealthBarComponent" parent="." instance=ExtResource("10_ikvem")]
+position = Vector2(-56, -56)
+
+[connection signal="area_entered" from="stateComponent/Cast/rangeAreaAttack/splash" to="stateComponent/Cast/rangeAreaAttack/splash" method="_on_area_entered"]
+[connection signal="area_entered" from="stateComponent/Cast/rangeAreaAttack/splash/splashArea" to="stateComponent/Cast/rangeAreaAttack/splash" method="_on_splash_area_area_entered"]
+[connection signal="area_entered" from="attackRangeComponent" to="attackRangeComponent" method="_on_area_entered"]
+[connection signal="enqueue_target" from="attackRangeComponent" to="stateComponent/Cast" method="_on_attack_range_component_enqueue_target"]

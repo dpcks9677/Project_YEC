@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="statusResource" load_steps=2 format=3 uid="uid://durdht0t7gsde"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Resources/statusResource.gd" id="1_2r5v4"]
+
+[resource]
+script = ExtResource("1_2r5v4")
+unit_tag = "enemy"
+health = 2000
+speed = 2.0
+mana = 40
+a_attack_damage = 200
+a_attack_type = false
+a_ads = 1.5
+b_attack_damage = 0
+b_attack_type = false
+b_ads = 0.0
