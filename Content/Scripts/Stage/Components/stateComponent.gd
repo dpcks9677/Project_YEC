@@ -102,7 +102,7 @@ func force_change_state(new_state_name : String):
 	var new_state = states.get(new_state_name.to_lower())
 	
 	if !new_state:
-		print(new_state + " does not exist in the dictionary of states.")
+		print(new_state, " does not exist in the dictionary of states.")
 		return
 		
 	if current_state == new_state:

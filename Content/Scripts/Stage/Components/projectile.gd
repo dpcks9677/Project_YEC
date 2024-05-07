@@ -9,6 +9,8 @@ var elapsed_time = 0.0 # = x
 
 var FIXED_VALUE = 100.0
 
+var directionValue : int #투사체 방향 
+
 var isFire : bool
 var isHitted : bool
 
@@ -18,6 +20,12 @@ func _ready():
 	isFire = false
 	isHitted = false
 	visible = true
+	
+	#투사체 방향 결정 (ally면 left to right, enemy면 right to left)
+	if get_parent().get_parent().get_parent().get_Unit_tag() == "ally":
+		directionValue = 1
+	else:
+		directionValue = -1
 
 func _process(delta):
 	if get_parent().castTarget != null:
@@ -38,11 +46,11 @@ func _process(delta):
 			var length = abs(start_point.x - end_point.x)
 			var t = elapsed_time / duration  # Normalized time from 0 to 1
 			var x = elapsed_time * length / duration
-			var y = -height * sin(elapsed_time * 2 * PI) #parabola 코드 참조해서 수정 필요 
-			var angle = -cos(elapsed_time * 2 * PI)
+			var y = -height * sin(t * PI)
+			var angle = -cos(elapsed_time * PI)
 			set_rotation(angle)
 
-			position = Vector2(x, y)  # Update position
+			position = Vector2(directionValue * x, y)  # Update position
 		else:
 			#투사체 노드 위치 초기화 및 변수 초기화 
 			position = Vector2(0,0) # Ensure the sprite ends at the exact end point
