@@ -38,10 +38,7 @@ func waiting_animation(): #await 키워드와 함께 사용
 func get_damage():
 	return get_parent().get_parent().attack_damage
 
-func _on_arrow_area_entered(area):
-	if area == castTarget and is_instance_valid(area):
-		castTarget.get_parent().get_node("stateComponent").damaged(get_damage())
-		print(castTarget.get_parent().get_node("stateComponent").health)
-	else:
-		#print(castTarget)
-		pass
+func _on_splash_area_entered(area):
+	if area.get_name() == "hitbox":
+		area.get_parent().get_node("stateComponent").damaged(get_damage())
+		print("splash damaged: ",area.get_parent().get_node("stateComponent").health)

@@ -49,13 +49,16 @@ func _process(delta):
 
 			position = Vector2(directionValue * x, y)  # Update position
 		else:
-			visible = false
-			get_node("CollisionShape2D").disabled = true
+			visible = false #collision을 보고 싶으면 true로 바꿀 것 
 			isHitted = false
 			isFire = false
+			get_node("CollisionShape2D").disabled = false
 			set_rotation(0)
+			
 			elapsed_time = 0.0 
-			position = start_point
+			
+			await get_tree().create_timer(0.5).timeout #n초 기다리기 
+			get_node("CollisionShape2D").disabled = true
 			
 func switchFire():
 	isFire = true
@@ -66,11 +69,3 @@ func get_start_point():
 func get_end_point():
 	if get_parent().castTarget != null:
 		end_point = get_parent().castTarget.get_parent().global_position
-
-#signal
-func _on_area_entered(area):
-	if area == get_parent().castTarget:
-		isHitted = true
-
-func _on_splash_area_area_entered(area):
-	print("boom") #여기 실행 안 됨 
