@@ -65,6 +65,20 @@ func _ready():
 			get_parent().get_node("attackRangeComponent").set_collision_layer_value(1, false)
 			get_parent().get_node("attackRangeComponent").set_collision_layer_value(3, true)
 	
+	#Shader 불러오기 
+	var base_shader = preload("res://Content/Scripts/Shader/hit.gdshader")
+	
+	var material = ShaderMaterial.new()
+	material.shader = base_shader.duplicate()
+	
+	var R : float = 0.6509
+	var G : float = 0.1333
+	var B : float = 0.2549
+	var A : float = 1.0
+	
+	material.set_shader_parameter("hit_color", Vector4(R, G, B, A))
+	get_parent().get_node("Sprite2D").material = material
+	
 	#스프라이트 보정치 추가
 	if get_parent().has_node("Sprite2D"):
 		var xRand = randi_range(-3,3)
@@ -124,14 +138,13 @@ func damaged(amount):
 
 #히트시 쉐이더 작동
 func hitShader():
-	if get_parent().has_node("Sprite2D") == true: #건물 스프라이트 추가시 코드 다시 짜야 함.
-		var material = get_parent().get_node("Sprite2D").material
-		if material is ShaderMaterial:
-			material.set_shader_parameter("hit_modifier", 1)
-			await get_tree().create_timer(0.1).timeout
-			material.set_shader_parameter("hit_modifier", 0.3)
-			await get_tree().create_timer(0.1).timeout
-			material.set_shader_parameter("hit_modifier", 0)
+	var material = get_parent().get_node("Sprite2D").material
+	if material is ShaderMaterial:
+		material.set_shader_parameter("hit_modifier", 1)
+		await get_tree().create_timer(0.1).timeout
+		material.set_shader_parameter("hit_modifier", 0.3)
+		await get_tree().create_timer(0.1).timeout
+		material.set_shader_parameter("hit_modifier", 0)
 
 #getter function
 func get_faction():

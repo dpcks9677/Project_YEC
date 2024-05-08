@@ -13,8 +13,19 @@ func _enter_tree():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	#Shader 불러오기 
+	var base_shader = preload("res://Content/Scripts/Shader/hit.gdshader")
+	
+	var material = ShaderMaterial.new()
+	material.shader = base_shader.duplicate()
+	
+	var R : float = 0.6509
+	var G : float = 0.1333
+	var B : float = 0.2549
+	var A : float = 1.0
+	
+	material.set_shader_parameter("hit_color", Vector4(R, G, B, A))
+	self.material = material
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

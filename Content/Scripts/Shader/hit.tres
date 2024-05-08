@@ -3,7 +3,6 @@
 [ext_resource type="Shader" path="res://Content/Scripts/Shader/hit.gdshader" id="1_mhhmg"]
 
 [resource]
-resource_local_to_scene = true
 shader = ExtResource("1_mhhmg")
 shader_parameter/hit_color = Color(0.652449, 0.131886, 0.255368, 1)
 shader_parameter/hit_modifier = 0.0

@@ -7,7 +7,7 @@ var height = 150.0
 var duration = 0.5  # Duration of the movement in seconds
 var elapsed_time = 0.0 # = x
 
-var FIXED_VALUE = 100.0
+var FIXED_VALUE = 200.0
 
 var directionValue : int #투사체 방향 
 

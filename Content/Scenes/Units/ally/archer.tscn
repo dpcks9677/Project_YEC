@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://cv1h8mnftsm3h"]
+[gd_scene load_steps=23 format=3 uid="uid://cv1h8mnftsm3h"]
 
 [ext_resource type="Texture2D" uid="uid://bqbxxbusi3ngs" path="res://Content/Graphics/Sprites/ally/archer.png" id="1_bdxdh"]
-[ext_resource type="Material" uid="uid://dfakg6naa0c8x" path="res://Content/Scripts/Shader/hit.tres" id="1_iy1se"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_85ohq"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="3_1csq0"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_vt62x"]
@@ -269,7 +268,6 @@ scale = Vector2(0.8, 0.8)
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = ExtResource("1_iy1se")
 texture = ExtResource("1_bdxdh")
 flip_h = true
 hframes = 10
@@ -321,6 +319,7 @@ script = ExtResource("6_ljd7l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
 position = Vector2(215, -54.9999)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6rxks")
 debug_color = Color(1, 0.490196, 0, 0.419608)
 

@@ -1,6 +1,5 @@
-[gd_scene load_steps=22 format=3 uid="uid://c7m578amgnxic"]
+[gd_scene load_steps=21 format=3 uid="uid://c7m578amgnxic"]
 
-[ext_resource type="Material" uid="uid://dfakg6naa0c8x" path="res://Content/Scripts/Shader/hit.tres" id="1_lml8u"]
 [ext_resource type="Texture2D" uid="uid://r1ijsyxnodei" path="res://Content/Graphics/Sprites/enemy/rhino.png" id="2_pi8pa"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="2_vfwk1"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_ycouc"]
@@ -166,7 +165,6 @@ size = Vector2(72, 176)
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = ExtResource("1_lml8u")
 position = Vector2(0, -108)
 texture = ExtResource("2_pi8pa")
 hframes = 10
