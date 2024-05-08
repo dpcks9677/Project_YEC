@@ -1,15 +1,16 @@
-[gd_scene load_steps=21 format=3 uid="uid://oms4xo8wpeo7"]
+[gd_scene load_steps=22 format=3 uid="uid://oms4xo8wpeo7"]
 
 [ext_resource type="Texture2D" uid="uid://desh5w0ghu1ws" path="res://Content/Graphics/Sprites/ally/knight.png" id="1_2vx0n"]
 [ext_resource type="Material" uid="uid://dfakg6naa0c8x" path="res://Content/Scripts/Shader/hit.tres" id="1_4qypu"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_u0rxm"]
-[ext_resource type="Resource" uid="uid://dmej1s0qks1mo" path="res://Content/Scripts/Resources/knight.tres" id="3_1txna"]
+[ext_resource type="Resource" uid="uid://dmej1s0qks1mo" path="res://Content/Scripts/Resources/unitData/knight.tres" id="3_1txna"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_b2rvq"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="5_dd4ty"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="6_4mdj0"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="6_576so"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/meleeSingleAttack.gd" id="6_liye3"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="7_3obrv"]
+[ext_resource type="Resource" uid="uid://notqdv8mptrw" path="res://Content/Scripts/Resources/castData/knight_normal.tres" id="8_k24i5"]
 
 [sub_resource type="Animation" id="Animation_lklbb"]
 length = 0.001
@@ -207,6 +208,7 @@ script = ExtResource("5_dd4ty")
 
 [node name="meleeSingleAttack" type="Node2D" parent="stateComponent/Cast"]
 script = ExtResource("6_liye3")
+castData = ExtResource("8_k24i5")
 
 [node name="damageBox" type="Area2D" parent="stateComponent/Cast/meleeSingleAttack"]
 scale = Vector2(0.8, 0.8)

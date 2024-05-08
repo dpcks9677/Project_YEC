@@ -1,16 +1,17 @@
-[gd_scene load_steps=23 format=3 uid="uid://cv1h8mnftsm3h"]
+[gd_scene load_steps=24 format=3 uid="uid://cv1h8mnftsm3h"]
 
 [ext_resource type="Texture2D" uid="uid://bqbxxbusi3ngs" path="res://Content/Graphics/Sprites/ally/archer.png" id="1_bdxdh"]
 [ext_resource type="Material" uid="uid://dfakg6naa0c8x" path="res://Content/Scripts/Shader/hit.tres" id="1_iy1se"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_85ohq"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="3_1csq0"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_vt62x"]
-[ext_resource type="Resource" uid="uid://dotpntd2n5gg2" path="res://Content/Scripts/Resources/archer.tres" id="3_xidl8"]
+[ext_resource type="Resource" uid="uid://dotpntd2n5gg2" path="res://Content/Scripts/Resources/unitData/archer.tres" id="3_xidl8"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="4_m0r8j"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="5_chd66"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="6_ljd7l"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/rangeSingleAttack.gd" id="6_wke1r"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/projectile.gd" id="8_66n73"]
+[ext_resource type="Resource" uid="uid://bdjucmvu5jw0d" path="res://Content/Scripts/Resources/castData/archer_normal.tres" id="8_i46jk"]
 [ext_resource type="Texture2D" uid="uid://c4g7ixcrpqtxh" path="res://Content/Graphics/Sprites/etc/weapon.png" id="8_ykkvl"]
 
 [sub_resource type="Animation" id="Animation_qke1n"]
@@ -292,6 +293,7 @@ script = ExtResource("4_m0r8j")
 
 [node name="rangeSingleAttack" type="Node2D" parent="stateComponent/Cast"]
 script = ExtResource("6_wke1r")
+castData = ExtResource("8_i46jk")
 
 [node name="arrow" type="Area2D" parent="stateComponent/Cast/rangeSingleAttack"]
 visible = false

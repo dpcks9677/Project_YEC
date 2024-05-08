@@ -10,7 +10,7 @@ var states : Dictionary = {}
 #Unit info
 @export var _status: statusResource
 
-@export var unit_tag : String
+@export var faction : String
 @export var health : int
 @export var speed : float
 @export var mana : int
@@ -18,11 +18,10 @@ var states : Dictionary = {}
 
 func _enter_tree():
 	#유닛 데이터 입력 
-	unit_tag = _status.unit_tag
+	faction = _status.faction
 	health = _status.health
 	speed = _status.speed
 	mana = _status.mana
-	attack_damage = _status.a_attack_damage
 
 func _ready():
 	#설정한 상태로 초기화 (노드 이용) 
@@ -135,8 +134,8 @@ func hitShader():
 			material.set_shader_parameter("hit_modifier", 0)
 
 #getter function
-func get_Unit_tag():
-	return unit_tag
+func get_faction():
+	return faction
 	
 func get_speed():
 	return speed

@@ -16,7 +16,7 @@ func _enter_tree():
 		unitName = get_parent().unitName[3]
 		
 	if unitName != "":
-		unitRes = load("res://Content/Scripts/Resources/" + str(unitName) + ".tres")
+		unitRes = load("res://Content/Scripts/Resources/unitData/" + str(unitName) + ".tres")
 
 func _ready():
 	#버튼에 아무것도 없으면 빈버튼 스프라이트를 출력하도록 설계할 것. (리소스 만들어야 함)

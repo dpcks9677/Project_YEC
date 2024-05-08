@@ -9,16 +9,16 @@ func _ready():
 func _process(delta):
 	pass
 
-func spawnMarker(target): #unit_tag 식별, 마커 스폰 라인 설정, progress 구하기 
-	var unit_tag : String
+func spawnMarker(target): #faction 식별, 마커 스폰 라인 설정, progress 구하기 
+	var faction : String
 	var location : bool # false = top, true = bottom
 	
 	var markerInstant = marker.instantiate()
 	
 	markerInstant.setTarget(target)
 	
-	#unit_tag 식별 
-	unit_tag = target.get_node("stateComponent").unit_tag
+	#faction 식별 
+	faction = target.get_node("stateComponent").faction
 	
 	#라인에 따라 객체 생성하기 
 	if target.get_parent().get_name() == "topLane":

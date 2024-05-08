@@ -1,13 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://fbdbf7roi2eh"]
+[gd_scene load_steps=20 format=3 uid="uid://fbdbf7roi2eh"]
 
 [ext_resource type="Texture2D" uid="uid://d2mtclvuwcmb6" path="res://Content/Graphics/Sprites/ally/spearman.png" id="1_pddrv"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_0u7fr"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="2_r4tel"]
-[ext_resource type="Resource" uid="uid://fxiqb5xyif71" path="res://Content/Scripts/Resources/spearman.tres" id="3_2w02y"]
+[ext_resource type="Resource" uid="uid://fxiqb5xyif71" path="res://Content/Scripts/Resources/unitData/spearman.tres" id="3_2w02y"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="5_5o35o"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="5_l1yw4"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/meleeAreaAttack.gd" id="6_cr6sc"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="6_fnpvl"]
+[ext_resource type="Resource" uid="uid://clj2a2fvwantk" path="res://Content/Scripts/Resources/castData/spearman_normal.tres" id="7_62gm1"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="8_8l8si"]
 
 [sub_resource type="Animation" id="Animation_ph72j"]
@@ -174,6 +175,7 @@ script = ExtResource("5_5o35o")
 
 [node name="meleeAreaAttack" type="Node2D" parent="stateComponent/Cast"]
 script = ExtResource("6_cr6sc")
+castData = ExtResource("7_62gm1")
 
 [node name="damageBox" type="Area2D" parent="stateComponent/Cast/meleeAreaAttack"]
 
@@ -205,6 +207,5 @@ position = Vector2(-40, -70)
 metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="stateComponent/Cast/meleeAreaAttack/damageBox" to="stateComponent/Cast/meleeAreaAttack" method="_on_damage_box_area_entered"]
-[connection signal="area_exited" from="stateComponent/Cast/meleeAreaAttack/damageBox" to="stateComponent/Cast/meleeAreaAttack" method="_on_damage_box_area_exited"]
 [connection signal="area_entered" from="attackRangeComponent" to="attackRangeComponent" method="_on_area_entered"]
 [connection signal="enqueue_target" from="attackRangeComponent" to="stateComponent/Cast" method="_on_attack_range_component_enqueue_target"]

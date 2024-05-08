@@ -1,9 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfqtob326lbqu"]
+[gd_scene load_steps=12 format=3 uid="uid://dfqtob326lbqu"]
 
-[ext_resource type="Texture2D" uid="uid://pfhy07t5wnqb" path="res://Content/Graphics/Sprites/enemy/wolf.png" id="1_1l170"]
-[ext_resource type="PackedScene" uid="uid://dogk36a235tnw" path="res://Content/Scenes/Stage/Components/engage_component.tscn" id="2_1ev0n"]
+[ext_resource type="Texture2D" uid="uid://dio1s4xwrxww8" path="res://Content/Graphics/Sprites/enemy/wolf.png" id="1_1l170"]
 [ext_resource type="PackedScene" uid="uid://cmsj0fjsp6eoh" path="res://Content/Scenes/Stage/Components/attack_range_component.tscn" id="3_ckhxp"]
-[ext_resource type="Resource" uid="uid://dag2a3lvnif3i" path="res://Content/Scripts/Resources/wolf.tres" id="3_utmsr"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="5_3yi0b"]
 
 [sub_resource type="Animation" id="Animation_1uoqj"]
@@ -144,28 +142,18 @@ libraries = {
 "": SubResource("AnimationLibrary_cm7nm")
 }
 
-[node name="engageComponent" parent="." instance=ExtResource("2_1ev0n")]
-_status = ExtResource("3_utmsr")
-unit_tag = "enemy"
-
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(3, 10)
 shape = SubResource("RectangleShape2D_otpsa")
 
-[node name="attackRangeComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("3_ckhxp")]
-engage_Component = NodePath("../engageComponent")
+[node name="attackRangeComponent" parent="." instance=ExtResource("3_ckhxp")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
 position = Vector2(-35, 10)
 shape = SubResource("RectangleShape2D_iy5f1")
 debug_color = Color(0.866667, 0.352941, 0.0588235, 0.419608)
 
-[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("engage_Component") instance=ExtResource("5_3yi0b")]
-offset_left = -33.0
-offset_top = -28.0
-offset_right = -33.0
-offset_bottom = -28.0
-engage_Component = NodePath("../engageComponent")
+[node name="HealthBarComponent" parent="." instance=ExtResource("5_3yi0b")]
 metadata/_edit_use_anchors_ = true

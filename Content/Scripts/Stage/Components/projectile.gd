@@ -22,7 +22,7 @@ func _ready():
 	visible = true
 	
 	#투사체 방향 결정 (ally면 left to right, enemy면 right to left)
-	if get_parent().get_parent().get_parent().get_Unit_tag() == "ally":
+	if get_parent().get_parent().get_parent().get_faction() == "ally":
 		directionValue = 1
 	else:
 		directionValue = -1
@@ -47,7 +47,7 @@ func _process(delta):
 			var t = elapsed_time / duration  # Normalized time from 0 to 1
 			var x = elapsed_time * length / duration
 			var y = -height * sin(t * PI)
-			var angle = -cos(elapsed_time * PI)
+			var angle = -cos(t * PI)
 			set_rotation(angle)
 
 			position = Vector2(directionValue * x, y)  # Update position

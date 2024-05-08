@@ -3,7 +3,16 @@ extends CastState
 var castTarget : Area2D
 @onready var anim = $"../../../AnimationPlayer" #경로가 확정된 노드에 한해 onready 사용 할 것.
 
-var arrow = preload("res://Content/Scenes/Units/ally/arrow.tscn")
+@export var castData : attackTypeResource
+
+@export var damage : int
+@export var damageType : String
+@export var cooltime : float
+
+func _enter_tree():
+	damage = castData.damage
+	damageType = castData.damageType
+	cooltime = castData.cooltime
 
 func _ready():
 	if get_parent().get_parent().get_parent().get_parent().get_name() == "topLane":
@@ -40,8 +49,9 @@ func get_damage():
 
 func _on_arrow_area_entered(area):
 	if area == castTarget and is_instance_valid(area):
-		castTarget.get_parent().get_node("stateComponent").damaged(get_damage())
-		print(castTarget.get_parent().get_node("stateComponent").health)
+		castTarget.get_parent().get_node("stateComponent").damaged(damage)
+		if area.get_parent().get_node("stateComponent").property_exists(area.get_parent().get_node("stateComponent"), "health"):
+			print(area.get_parent().get_node("stateComponent").health)
 	else:
 		#print(castTarget)
 		pass

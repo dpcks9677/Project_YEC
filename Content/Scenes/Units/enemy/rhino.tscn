@@ -1,15 +1,16 @@
-[gd_scene load_steps=21 format=3 uid="uid://c7m578amgnxic"]
+[gd_scene load_steps=22 format=3 uid="uid://c7m578amgnxic"]
 
 [ext_resource type="Material" uid="uid://dfakg6naa0c8x" path="res://Content/Scripts/Shader/hit.tres" id="1_lml8u"]
 [ext_resource type="Texture2D" uid="uid://r1ijsyxnodei" path="res://Content/Graphics/Sprites/enemy/rhino.png" id="2_pi8pa"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="2_vfwk1"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_ycouc"]
-[ext_resource type="Resource" uid="uid://cpgjhto6xs3a8" path="res://Content/Scripts/Resources/rhino.tres" id="3_cacf4"]
+[ext_resource type="Resource" uid="uid://cpgjhto6xs3a8" path="res://Content/Scripts/Resources/unitData/rhino.tres" id="3_cacf4"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="3_ce8as"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="4_mdvnh"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/meleeSingleAttack.gd" id="6_02jil"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="6_qpt1o"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="6_s41pc"]
+[ext_resource type="Resource" uid="uid://cfgbyctma0i46" path="res://Content/Scripts/Resources/castData/rhino_normal.tres" id="8_28w2u"]
 
 [sub_resource type="Animation" id="Animation_5lkdh"]
 length = 0.001
@@ -189,6 +190,7 @@ script = ExtResource("3_ce8as")
 
 [node name="meleeSingleAttack" type="Node2D" parent="stateComponent/Cast"]
 script = ExtResource("6_02jil")
+castData = ExtResource("8_28w2u")
 
 [node name="damageBox" type="Area2D" parent="stateComponent/Cast/meleeSingleAttack"]
 

@@ -3,7 +3,16 @@ extends CastState
 var castTarget : Area2D
 @onready var anim = $"../../../AnimationPlayer" #경로가 확정된 노드에 한해 onready 사용 할 것.
 
-var arrow = preload("res://Content/Scenes/Units/ally/arrow.tscn")
+@export var castData : attackTypeResource
+
+@export var damage : int
+@export var damageType : String
+@export var cooltime : float
+
+func _enter_tree():
+	damage = castData.damage
+	damageType = castData.damageType
+	cooltime = castData.cooltime
 
 func _ready():
 	if get_parent().get_parent().get_parent().get_parent().get_name() == "topLane":
@@ -35,10 +44,10 @@ func Physics_Update(_delta: float):
 func waiting_animation(): #await 키워드와 함께 사용 
 	return anim.animation_finished
 
-func get_damage():
-	return get_parent().get_parent().attack_damage
 
 func _on_splash_area_entered(area):
 	if area.get_name() == "hitbox":
-		area.get_parent().get_node("stateComponent").damaged(get_damage())
-		print("splash damaged: ",area.get_parent().get_node("stateComponent").health)
+		area.get_parent().get_node("stateComponent").damaged(damage)
+		#베이스 공격시 error방지용 코드 (base의 stateComponent에는 health 인자가 없음 
+		if area.get_parent().get_node("stateComponent").property_exists(area.get_parent().get_node("stateComponent"), "health"):
+			print("splash damaged: ", area.get_parent().get_node("stateComponent").health)

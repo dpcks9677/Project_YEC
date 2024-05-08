@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dogk36a235tnw"]
-
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/engageComponent.gd" id="1_m3jo8"]
-
-[node name="engageComponent" type="Node2D"]
-script = ExtResource("1_m3jo8")

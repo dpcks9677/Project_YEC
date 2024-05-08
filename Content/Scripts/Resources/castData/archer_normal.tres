@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="attackTypeResource" load_steps=2 format=3 uid="uid://bdjucmvu5jw0d"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Resources/castData/attackTypeResource.gd" id="1_swrgw"]
+
+[resource]
+script = ExtResource("1_swrgw")
+damage = 100
+damageType = "physics"
+cooltime = 1.5

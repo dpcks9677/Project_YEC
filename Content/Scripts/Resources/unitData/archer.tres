@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="statusResource" load_steps=2 format=3 uid="uid://dotpntd2n5gg2"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Resources/unitData/statusResource.gd" id="1_ud61k"]
+
+[resource]
+script = ExtResource("1_ud61k")
+type = "unit"
+faction = "ally"
+health = 800
+speed = 1.0
+mana = 0
