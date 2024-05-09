@@ -42,7 +42,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("stateComponent/Cast/rangeSingleAttack/arrow/CollisionShape2D:disabled")
+tracks/2/path = NodePath("stateComponent/Cast/rangeSingleAttack/projectile/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -54,7 +54,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("stateComponent/Cast/rangeSingleAttack/arrow:visible")
+tracks/3/path = NodePath("stateComponent/Cast/rangeSingleAttack/projectile:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -83,7 +83,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("stateComponent/Cast/rangeSingleAttack/arrow")
+tracks/1/path = NodePath("stateComponent/Cast/rangeSingleAttack/projectile")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -97,7 +97,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("stateComponent/Cast/rangeSingleAttack/arrow/CollisionShape2D:disabled")
+tracks/2/path = NodePath("stateComponent/Cast/rangeSingleAttack/projectile/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -136,7 +136,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("stateComponent/Cast/rangeSingleAttack/arrow/CollisionShape2D:disabled")
+tracks/2/path = NodePath("stateComponent/Cast/rangeSingleAttack/projectile/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -148,7 +148,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("stateComponent/Cast/rangeSingleAttack/arrow:visible")
+tracks/3/path = NodePath("stateComponent/Cast/rangeSingleAttack/projectile:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -176,7 +176,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("stateComponent/Cast/rangeSingleAttack/arrow/CollisionShape2D:disabled")
+tracks/1/path = NodePath("stateComponent/Cast/rangeSingleAttack/projectile/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -188,7 +188,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("stateComponent/Cast/rangeSingleAttack/arrow:visible")
+tracks/2/path = NodePath("stateComponent/Cast/rangeSingleAttack/projectile:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -217,7 +217,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("stateComponent/Cast/rangeSingleAttack/arrow/CollisionShape2D:disabled")
+tracks/1/path = NodePath("stateComponent/Cast/rangeSingleAttack/projectile/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -229,7 +229,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("stateComponent/Cast/rangeSingleAttack/arrow:visible")
+tracks/2/path = NodePath("stateComponent/Cast/rangeSingleAttack/projectile:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -257,7 +257,7 @@ size = Vector2(60, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_flsgr"]
 radius = 35.0
-height = 100.5
+height = 100.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rxks"]
 size = Vector2(430, 210)
@@ -293,15 +293,15 @@ script = ExtResource("4_m0r8j")
 script = ExtResource("6_wke1r")
 castData = ExtResource("8_i46jk")
 
-[node name="arrow" type="Area2D" parent="stateComponent/Cast/rangeSingleAttack"]
+[node name="projectile" type="Area2D" parent="stateComponent/Cast/rangeSingleAttack"]
 visible = false
 script = ExtResource("8_66n73")
 
-[node name="Sprite2D" type="Sprite2D" parent="stateComponent/Cast/rangeSingleAttack/arrow"]
+[node name="Sprite2D" type="Sprite2D" parent="stateComponent/Cast/rangeSingleAttack/projectile"]
 texture = SubResource("AtlasTexture_wub4f")
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/rangeSingleAttack/arrow"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/rangeSingleAttack/projectile"]
 shape = SubResource("RectangleShape2D_dbp1k")
 debug_color = Color(0.788171, 0.0987749, 1, 0.42)
 
@@ -311,7 +311,6 @@ script = ExtResource("5_chd66")
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(-10, -9.56655e-06)
 shape = SubResource("CapsuleShape2D_flsgr")
 
 [node name="attackRangeComponent" type="Area2D" parent="."]
@@ -319,7 +318,6 @@ script = ExtResource("6_ljd7l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
 position = Vector2(215, -54.9999)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6rxks")
 debug_color = Color(1, 0.490196, 0, 0.419608)
 
@@ -327,7 +325,6 @@ debug_color = Color(1, 0.490196, 0, 0.419608)
 position = Vector2(-40, -60)
 metadata/_edit_use_anchors_ = true
 
-[connection signal="area_entered" from="stateComponent/Cast/rangeSingleAttack/arrow" to="stateComponent/Cast/rangeSingleAttack" method="_on_arrow_area_entered"]
-[connection signal="area_entered" from="stateComponent/Cast/rangeSingleAttack/arrow" to="stateComponent/Cast/rangeSingleAttack/arrow" method="_on_area_entered"]
+[connection signal="area_entered" from="stateComponent/Cast/rangeSingleAttack/projectile" to="stateComponent/Cast/rangeSingleAttack/projectile" method="_on_area_entered"]
 [connection signal="area_entered" from="attackRangeComponent" to="attackRangeComponent" method="_on_area_entered"]
 [connection signal="enqueue_target" from="attackRangeComponent" to="stateComponent/Cast" method="_on_attack_range_component_enqueue_target"]

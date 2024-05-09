@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="statusResource" load_steps=2 format=3 uid="uid://c3umxm71r5r5t"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Resources/unitData/statusResource.gd" id="1_has28"]
+
+[resource]
+script = ExtResource("1_has28")
+type = "unit"
+faction = "enemy"
+health = 1200
+speed = 1.2
+mana = 30

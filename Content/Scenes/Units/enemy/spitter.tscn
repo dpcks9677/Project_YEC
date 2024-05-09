@@ -1,0 +1,253 @@
+[gd_scene load_steps=24 format=3 uid="uid://df442pebjo11j"]
+
+[ext_resource type="Texture2D" uid="uid://cy2sdmbbne34a" path="res://Content/Graphics/Sprites/enemy/acid_spiter.png" id="1_oyxrd"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_pboyr"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_mgbje"]
+[ext_resource type="Resource" uid="uid://c3umxm71r5r5t" path="res://Content/Scripts/Resources/unitData/spitter.tres" id="3_rylcw"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="4_jvvik"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="5_gbf48"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/rangeSingleAttack.gd" id="6_pr034"]
+[ext_resource type="Resource" uid="uid://b2nwyetgmjaus" path="res://Content/Scripts/Resources/castData/spitter_normal.tres" id="7_28dty"]
+[ext_resource type="Texture2D" uid="uid://mwvv6uadrix4" path="res://Content/Graphics/Sprites/effect/acid.png" id="8_6asr2"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/projectile.gd" id="8_eou46"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="9_uv33c"]
+[ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="10_o8485"]
+
+[sub_resource type="Animation" id="Animation_jk54e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("stateComponent/Cast/rangeSingleAttack/projectile/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2w6mu"]
+resource_name = "attack"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17, 15, 14]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("stateComponent/Cast/rangeSingleAttack/projectile")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"switchFire"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("stateComponent/Cast/rangeSingleAttack/projectile/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_nawft"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_r8yek"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("stateComponent/Cast/rangeSingleAttack/projectile/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dx6sb"]
+_data = {
+"RESET": SubResource("Animation_jk54e"),
+"attack": SubResource("Animation_2w6mu"),
+"idle": SubResource("Animation_nawft"),
+"walk": SubResource("Animation_r8yek")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42y8p"]
+
+[sub_resource type="Animation" id="Animation_lqh12"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_cpxr4"]
+resource_name = "hit_anim"
+length = 0.5
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2, 0.225),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0acy7"]
+_data = {
+"RESET": SubResource("Animation_lqh12"),
+"hit_anim": SubResource("Animation_cpxr4")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vinkw"]
+radius = 56.0
+height = 112.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mci61"]
+size = Vector2(384, 192)
+
+[node name="spitter" type="PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -33)
+texture = ExtResource("1_oyxrd")
+hframes = 6
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dx6sb")
+}
+
+[node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_pboyr")
+initial_state = NodePath("Move")
+_status = ExtResource("3_rylcw")
+
+[node name="Move" type="Node2D" parent="stateComponent"]
+script = ExtResource("3_mgbje")
+
+[node name="Cast" type="Node2D" parent="stateComponent"]
+script = ExtResource("4_jvvik")
+
+[node name="rangeSingleAttack" type="Node2D" parent="stateComponent/Cast"]
+script = ExtResource("6_pr034")
+castData = ExtResource("7_28dty")
+
+[node name="projectile" type="Area2D" parent="stateComponent/Cast/rangeSingleAttack"]
+script = ExtResource("8_eou46")
+
+[node name="Sprite2D" type="Sprite2D" parent="stateComponent/Cast/rangeSingleAttack/projectile"]
+position = Vector2(-8, -8)
+texture = ExtResource("8_6asr2")
+hframes = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/rangeSingleAttack/projectile"]
+shape = SubResource("RectangleShape2D_42y8p")
+disabled = true
+debug_color = Color(0.788235, 0.0980392, 1, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stateComponent/Cast/rangeSingleAttack/projectile"]
+libraries = {
+"": SubResource("AnimationLibrary_0acy7")
+}
+
+[node name="Dead" type="Node2D" parent="stateComponent"]
+script = ExtResource("5_gbf48")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CapsuleShape2D_vinkw")
+
+[node name="attackRangeComponent" type="Area2D" parent="."]
+script = ExtResource("9_uv33c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
+position = Vector2(-192, -32)
+shape = SubResource("RectangleShape2D_mci61")
+debug_color = Color(1, 0.490196, 0, 0.419608)
+
+[node name="HealthBarComponent" parent="." instance=ExtResource("10_o8485")]
+position = Vector2(-32, -64)
+
+[connection signal="area_entered" from="stateComponent/Cast/rangeSingleAttack/projectile" to="stateComponent/Cast/rangeSingleAttack/projectile" method="_on_area_entered"]
+[connection signal="area_entered" from="attackRangeComponent" to="attackRangeComponent" method="_on_area_entered"]
+[connection signal="enqueue_target" from="attackRangeComponent" to="stateComponent/Cast" method="_on_attack_range_component_enqueue_target"]

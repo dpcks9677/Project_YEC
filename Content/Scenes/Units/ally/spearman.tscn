@@ -141,7 +141,7 @@ size = Vector2(70, 70)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xo7w1"]
 radius = 30.0
-height = 119.0
+height = 160.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_826j0"]
 size = Vector2(60, 120)
@@ -198,7 +198,8 @@ shape = SubResource("CapsuleShape2D_xo7w1")
 script = ExtResource("8_8l8si")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
-position = Vector2(20, 2.38419e-06)
+position = Vector2(30, 2.38419e-06)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_826j0")
 debug_color = Color(1, 0.490196, 0, 0.419608)
 

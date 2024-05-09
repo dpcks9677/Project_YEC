@@ -152,11 +152,11 @@ _data = {
 size = Vector2(173.5, 57)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mtlp8"]
-radius = 77.0
+radius = 96.0
 height = 192.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqcdg"]
-size = Vector2(192, 74)
+size = Vector2(192, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7fg2"]
 size = Vector2(72, 176)
@@ -208,7 +208,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_mtlp8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(-8, -27)
+position = Vector2(-8, -16)
 shape = SubResource("RectangleShape2D_kqcdg")
 
 [node name="attackRangeComponent" type="Area2D" parent="."]
