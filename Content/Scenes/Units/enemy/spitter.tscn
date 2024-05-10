@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://df442pebjo11j"]
+[gd_scene load_steps=25 format=3 uid="uid://df442pebjo11j"]
 
 [ext_resource type="Texture2D" uid="uid://cy2sdmbbne34a" path="res://Content/Graphics/Sprites/enemy/acid_spiter.png" id="1_oyxrd"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_pboyr"]
@@ -38,6 +38,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_2w6mu"]
@@ -128,10 +140,38 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_bw0t8"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.87451), Color(1, 1, 1, 0.74902), Color(1, 1, 1, 0.498039), Color(1, 1, 1, 0.247059), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dx6sb"]
 _data = {
 "RESET": SubResource("Animation_jk54e"),
 "attack": SubResource("Animation_2w6mu"),
+"dead": SubResource("Animation_bw0t8"),
 "idle": SubResource("Animation_nawft"),
 "walk": SubResource("Animation_r8yek")
 }
@@ -177,7 +217,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vinkw"]
-radius = 56.0
+radius = 40.0
 height = 112.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mci61"]
@@ -235,6 +275,8 @@ script = ExtResource("5_gbf48")
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(8, -16)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_vinkw")
 
 [node name="attackRangeComponent" type="Area2D" parent="."]
@@ -248,6 +290,7 @@ debug_color = Color(1, 0.490196, 0, 0.419608)
 [node name="HealthBarComponent" parent="." instance=ExtResource("10_o8485")]
 position = Vector2(-32, -64)
 
+[connection signal="area_entered" from="stateComponent/Cast/rangeSingleAttack/projectile" to="stateComponent/Cast/rangeSingleAttack" method="_on_projectile_area_entered"]
 [connection signal="area_entered" from="stateComponent/Cast/rangeSingleAttack/projectile" to="stateComponent/Cast/rangeSingleAttack/projectile" method="_on_area_entered"]
 [connection signal="area_entered" from="attackRangeComponent" to="attackRangeComponent" method="_on_area_entered"]
 [connection signal="enqueue_target" from="attackRangeComponent" to="stateComponent/Cast" method="_on_attack_range_component_enqueue_target"]

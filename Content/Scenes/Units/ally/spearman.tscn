@@ -199,7 +199,6 @@ script = ExtResource("8_8l8si")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
 position = Vector2(30, 2.38419e-06)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_826j0")
 debug_color = Color(1, 0.490196, 0, 0.419608)
 

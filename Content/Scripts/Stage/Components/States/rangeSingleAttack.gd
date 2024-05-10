@@ -37,12 +37,12 @@ func Update(_delta: float):
 	anim.play("attack")
 	waiting_animation()
 	
-func Physics_Update(_delta: float):
-	pass
-
 #function
 func waiting_animation(): #await 키워드와 함께 사용 
 	return anim.animation_finished
 
-func get_damage():
-	return get_parent().get_parent().attack_damage
+func _on_projectile_area_entered(area):
+	if area == castTarget and is_instance_valid(area):
+		area.get_parent().get_node("stateComponent").damaged(damage)
+		if area.get_parent().get_node("stateComponent").property_exists(area.get_parent().get_node("stateComponent"), "health"):
+			print(area.get_parent().get_node("stateComponent").health)
