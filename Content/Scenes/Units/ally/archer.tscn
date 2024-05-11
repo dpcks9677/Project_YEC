@@ -256,7 +256,7 @@ region = Rect2(4.5477, 43.2286, 49.4018, 14.1459)
 size = Vector2(60, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_flsgr"]
-radius = 35.0
+radius = 24.0
 height = 100.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rxks"]
@@ -310,6 +310,7 @@ script = ExtResource("5_chd66")
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-16, -7.62939e-06)
 shape = SubResource("CapsuleShape2D_flsgr")
 
 [node name="attackRangeComponent" type="Area2D" parent="."]

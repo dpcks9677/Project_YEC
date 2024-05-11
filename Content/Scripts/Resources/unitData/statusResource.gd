@@ -8,4 +8,3 @@ class_name statusResource
 @export var health : int
 @export var speed : float
 @export var mana : int
-

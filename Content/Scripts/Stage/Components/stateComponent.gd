@@ -14,7 +14,6 @@ var states : Dictionary = {}
 @export var health : int
 @export var speed : float
 @export var mana : int
-@export var attack_damage : int
 
 func _enter_tree():
 	#유닛 데이터 입력 

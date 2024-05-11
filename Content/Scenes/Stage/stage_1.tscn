@@ -10,8 +10,8 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/idle.gd" id="6_1or2k"]
 [ext_resource type="Resource" uid="uid://bs8061ffaprvh" path="res://Content/Scripts/Resources/unitData/enemyBase.tres" id="6_qu5pd"]
 [ext_resource type="PackedScene" uid="uid://df442pebjo11j" path="res://Content/Scenes/Units/enemy/spitter.tscn" id="7_n36hi"]
-[ext_resource type="PackedScene" uid="uid://cv1h8mnftsm3h" path="res://Content/Scenes/Units/ally/archer.tscn" id="8_i4y15"]
 [ext_resource type="Texture2D" uid="uid://blxslptm71fvn" path="res://Content/Graphics/Sprites/object/base.png" id="10_foypc"]
+[ext_resource type="PackedScene" uid="uid://fbdbf7roi2eh" path="res://Content/Scenes/Units/ally/spearman.tscn" id="12_xr7g3"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/base.gd" id="13_p2anb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rnbpd"]
@@ -118,7 +118,7 @@ initial_state = NodePath("Idle")
 script = ExtResource("6_1or2k")
 
 [node name="enemyBase" type="PathFollow2D" parent="resourceHandler/laneSetter/topLane"]
-position = Vector2(931.977, 65.3289)
+position = Vector2(931.977, 65.329)
 progress = 1850.76
 rotates = false
 cubic_interp = false
@@ -147,9 +147,8 @@ rotates = false
 cubic_interp = false
 loop = false
 
-[node name="archer" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("8_i4y15")]
-position = Vector2(-410.322, 35.1147)
-progress = 488.416
+[node name="spearman" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("12_xr7g3")]
+position = Vector2(-892.026, 73.6852)
 
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]
 position = Vector2(251, -40.218)

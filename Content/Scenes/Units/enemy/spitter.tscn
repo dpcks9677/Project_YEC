@@ -95,6 +95,33 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_bw0t8"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.87451), Color(1, 1, 1, 0.74902), Color(1, 1, 1, 0.498039), Color(1, 1, 1, 0.247059), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_nawft"]
 resource_name = "idle"
 tracks/0/type = "value"
@@ -138,33 +165,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_bw0t8"]
-resource_name = "dead"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.87451), Color(1, 1, 1, 0.74902), Color(1, 1, 1, 0.498039), Color(1, 1, 1, 0.247059), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dx6sb"]
@@ -252,6 +252,7 @@ script = ExtResource("6_pr034")
 castData = ExtResource("7_28dty")
 
 [node name="projectile" type="Area2D" parent="stateComponent/Cast/rangeSingleAttack"]
+visible = false
 script = ExtResource("8_eou46")
 
 [node name="Sprite2D" type="Sprite2D" parent="stateComponent/Cast/rangeSingleAttack/projectile"]

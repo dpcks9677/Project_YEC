@@ -17,7 +17,7 @@ func _ready():
 	#position = start_point  # Start at the first point
 	isFire = false
 	isHitted = false
-	visible = true
+	visible = false
 
 func _process(delta):
 	if is_instance_valid(get_parent().castTarget):
@@ -42,7 +42,7 @@ func _process(delta):
 				set_rotation(angle)
 			else:
 				position = Vector2(0,0) # Ensure the sprite ends at the exact end point
-				visible = true
+				visible = false
 				isFire = false
 				isHitted = false
 				set_rotation(0)
