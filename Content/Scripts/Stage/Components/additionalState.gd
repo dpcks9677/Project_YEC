@@ -10,7 +10,7 @@ extends Node
 func setKnockBack(distanceRatio : float):
 	isKnockBack = true
 	
-	var duration = 0.1
+	var duration = 0.2
 	var elapse_time = 0.0
 	
 	get_parent().force_change_state("Idle") #State를 Idle로 강제 변환 
@@ -35,12 +35,12 @@ func setKnockBack(distanceRatio : float):
 				pathfollow.progress_ratio += distanceRatio * t #ratio에 마이너스 연산, ratio가 0보다 작아지면 0으로 만들기
 			else:
 				pathfollow.progress_ratio = 1.0
-
-	#attackRangeComponent 활성화 
-	get_parent().on_attackRangeComponent()
 	
 	#Move로 상태 전이
 	get_parent().force_change_state("Move")
+	
+	#attackRangeComponent 활성화 
+	get_parent().on_attackRangeComponent()
 	
 	#넉백 종료 
 	isKnockBack = false
