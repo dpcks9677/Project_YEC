@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://c8uahecrvhvuj"]
 
-[ext_resource type="Texture2D" uid="uid://du1lf6mfiu26s" path="res://Content/Graphics/Sprites/ally/hero.png" id="1_4yyx4"]
+[ext_resource type="Texture2D" uid="uid://nibpyfa34p2h" path="res://Content/Graphics/Sprites/ally/hero.png" id="1_4yyx4"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/meleeAreaAttack.gd" id="2_op0nv"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_va5l1"]
 [ext_resource type="Resource" uid="uid://ca63bygxqr4xr" path="res://Content/Scripts/Resources/unitData/hero.tres" id="3_5ha8m"]
@@ -107,14 +107,14 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpmel"]
-size = Vector2(256, 176)
+size = Vector2(183, 176)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q1rwd"]
 radius = 24.0
 height = 112.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pomqy"]
-size = Vector2(256, 176)
+size = Vector2(183, 176)
 
 [node name="hero" type="PathFollow2D"]
 rotates = false
@@ -151,7 +151,7 @@ castData = ExtResource("7_p8q3b")
 [node name="damageBox" type="Area2D" parent="stateComponent/Cast/meleeAreaAttack"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/meleeAreaAttack/damageBox"]
-position = Vector2(128, -40)
+position = Vector2(91.5, -40)
 shape = SubResource("RectangleShape2D_tpmel")
 disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
@@ -169,7 +169,7 @@ shape = SubResource("CapsuleShape2D_q1rwd")
 script = ExtResource("3_ffnlw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
-position = Vector2(128, -40)
+position = Vector2(91.5, -40)
 shape = SubResource("RectangleShape2D_pomqy")
 debug_color = Color(1, 0.490196, 0, 0.419608)
 

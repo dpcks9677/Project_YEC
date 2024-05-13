@@ -3,15 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://cgqrwgbhcpkd3" path="res://Content/Scenes/Stage/Interfaces/hud.tscn" id="1_tghqr"]
 [ext_resource type="PackedScene" uid="uid://bipawj12cbpmb" path="res://Content/Scenes/Stage/Handler/resourceHandler.tscn" id="2_67fy2"]
 [ext_resource type="PackedScene" uid="uid://c201rvxgq5e35" path="res://Content/Scenes/Stage/stage_1_scenario.tscn" id="2_n5lwx"]
-[ext_resource type="Texture2D" uid="uid://cp7bvp80hcopu" path="res://Content/Graphics/Background/stage1.png" id="3_22536"]
+[ext_resource type="Texture2D" uid="uid://ba87jwjdotbrl" path="res://Content/Graphics/Background/stage1.png" id="3_22536"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/Camera.gd" id="4_b0td4"]
 [ext_resource type="Resource" uid="uid://dak7qnv3rx26r" path="res://Content/Scripts/Resources/unitData/allyBase.tres" id="5_67dra"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/baseStateComponent.gd" id="5_d50ui"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/idle.gd" id="6_1or2k"]
 [ext_resource type="Resource" uid="uid://bs8061ffaprvh" path="res://Content/Scripts/Resources/unitData/enemyBase.tres" id="6_qu5pd"]
 [ext_resource type="PackedScene" uid="uid://df442pebjo11j" path="res://Content/Scenes/Units/enemy/spitter.tscn" id="7_n36hi"]
-[ext_resource type="Texture2D" uid="uid://blxslptm71fvn" path="res://Content/Graphics/Sprites/object/base.png" id="10_foypc"]
-[ext_resource type="PackedScene" uid="uid://fbdbf7roi2eh" path="res://Content/Scenes/Units/ally/spearman.tscn" id="12_xr7g3"]
+[ext_resource type="Texture2D" uid="uid://bx21vkanph10n" path="res://Content/Graphics/Sprites/object/base.png" id="10_foypc"]
+[ext_resource type="PackedScene" uid="uid://oms4xo8wpeo7" path="res://Content/Scenes/Units/ally/knight.tscn" id="12_aec61"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/base.gd" id="13_p2anb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rnbpd"]
@@ -139,16 +139,14 @@ initial_state = NodePath("Idle")
 [node name="Idle" type="Node2D" parent="resourceHandler/laneSetter/topLane/enemyBase/stateComponent"]
 script = ExtResource("6_1or2k")
 
-[node name="spitter" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("7_n36hi")]
-position = Vector2(142.343, 9.35125)
-rotation = 0.000351868
-progress = 1053.82
-rotates = false
-cubic_interp = false
-loop = false
-
-[node name="spearman" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("12_xr7g3")]
+[node name="knight" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("12_aec61")]
 position = Vector2(-892.026, 73.6852)
+
+[node name="spitter" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("7_n36hi")]
+position = Vector2(14.205, 1.95328)
+rotation = 0.000351868
+progress = 925.38
+rotates = false
 
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]
 position = Vector2(251, -40.218)

@@ -1,6 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://df442pebjo11j"]
+[gd_scene load_steps=26 format=3 uid="uid://df442pebjo11j"]
 
-[ext_resource type="Texture2D" uid="uid://cy2sdmbbne34a" path="res://Content/Graphics/Sprites/enemy/acid_spiter.png" id="1_oyxrd"]
+[ext_resource type="Texture2D" uid="uid://doedk8505pxlw" path="res://Content/Graphics/Sprites/enemy/acid_spiter.png" id="1_oyxrd"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_pboyr"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_mgbje"]
 [ext_resource type="Resource" uid="uid://c3umxm71r5r5t" path="res://Content/Scripts/Resources/unitData/spitter.tres" id="3_rylcw"]
@@ -8,10 +8,11 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="5_gbf48"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/rangeSingleAttack.gd" id="6_pr034"]
 [ext_resource type="Resource" uid="uid://b2nwyetgmjaus" path="res://Content/Scripts/Resources/castData/spitter_normal.tres" id="7_28dty"]
-[ext_resource type="Texture2D" uid="uid://mwvv6uadrix4" path="res://Content/Graphics/Sprites/effect/acid.png" id="8_6asr2"]
+[ext_resource type="Texture2D" uid="uid://dn0ivrjrwgmxu" path="res://Content/Graphics/Sprites/effect/acid.png" id="8_6asr2"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/projectile.gd" id="8_eou46"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="9_uv33c"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="10_o8485"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/additionalState.gd" id="11_onhn3"]
 
 [sub_resource type="Animation" id="Animation_jk54e"]
 length = 0.001
@@ -272,6 +273,9 @@ libraries = {
 
 [node name="Dead" type="Node2D" parent="stateComponent"]
 script = ExtResource("5_gbf48")
+
+[node name="additionalState" type="Node" parent="stateComponent"]
+script = ExtResource("11_onhn3")
 
 [node name="hitbox" type="Area2D" parent="."]
 

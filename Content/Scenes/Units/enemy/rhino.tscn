@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://c7m578amgnxic"]
+[gd_scene load_steps=22 format=3 uid="uid://c7m578amgnxic"]
 
-[ext_resource type="Texture2D" uid="uid://r1ijsyxnodei" path="res://Content/Graphics/Sprites/enemy/rhino.png" id="2_pi8pa"]
+[ext_resource type="Texture2D" uid="uid://hjiparf8o7fq" path="res://Content/Graphics/Sprites/enemy/Rhino.png" id="2_pi8pa"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="2_vfwk1"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_ycouc"]
 [ext_resource type="Resource" uid="uid://cpgjhto6xs3a8" path="res://Content/Scripts/Resources/unitData/rhino.tres" id="3_cacf4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="6_qpt1o"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="6_s41pc"]
 [ext_resource type="Resource" uid="uid://cfgbyctma0i46" path="res://Content/Scripts/Resources/castData/rhino_normal.tres" id="8_28w2u"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/additionalState.gd" id="9_ck6js"]
 
 [sub_resource type="Animation" id="Animation_5lkdh"]
 length = 0.001
@@ -199,6 +200,9 @@ debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Dead" type="Node2D" parent="stateComponent"]
 script = ExtResource("6_qpt1o")
+
+[node name="additionalState" type="Node" parent="stateComponent"]
+script = ExtResource("9_ck6js")
 
 [node name="hitbox" type="Area2D" parent="."]
 

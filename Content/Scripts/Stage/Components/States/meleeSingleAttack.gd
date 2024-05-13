@@ -28,6 +28,7 @@ func _ready():
 
 func Update(_delta: float):
 	castTarget = get_parent().target
+	# castTarget의 state가 Dead면 Idle 모션 출력하기 / 다른 모든 타입에도 적용 
 	anim.play("attack")
 	waiting_animation()
 
@@ -39,6 +40,7 @@ func waiting_animation(): #await 키워드와 함께 사용
 func _on_damage_box_area_entered(area): #데미지 계산시에 활성화 됨. #area = 충돌된 콜리전, target = 공격대상 
 	if area == castTarget and is_instance_valid(area):
 		castTarget.get_parent().get_node("stateComponent").damaged(damage)
+		castTarget.get_parent().get_node("stateComponent").get_node("additionalState").setKnockBack(0.025) #넉백효과 테스트 중 
 		if area.get_parent().get_node("stateComponent").property_exists(area.get_parent().get_node("stateComponent"), "health"):
 			print(area.get_parent().get_node("stateComponent").health)
 	else:

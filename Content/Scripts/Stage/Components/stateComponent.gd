@@ -152,8 +152,15 @@ func get_faction():
 func get_speed():
 	return speed
 	
-func get_position():
-	return get_parent().progress
+func on_attackRangeComponent():
+	var collision = $"../attackRangeComponent/CollisionShape2D"
+	collision.set_deferred("disabled", false)
+	print("on")
+	
+func off_attackRangeComponent():
+	var collision = $"../attackRangeComponent/CollisionShape2D"
+	collision.set_deferred("disabled", true)
+	print("off")
 	
 #etc function
 func property_exists(obj, property_name):
