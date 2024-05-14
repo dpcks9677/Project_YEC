@@ -1,6 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://oms4xo8wpeo7"]
+[gd_scene load_steps=22 format=3 uid="uid://oms4xo8wpeo7"]
 
-[ext_resource type="Texture2D" uid="uid://clxxw55m461lq" path="res://Content/Graphics/Sprites/ally/knight.png" id="1_2vx0n"]
+[ext_resource type="Texture2D" uid="uid://desh5w0ghu1ws" path="res://Content/Graphics/Sprites/ally/knight.png" id="1_2vx0n"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_u0rxm"]
 [ext_resource type="Resource" uid="uid://dmej1s0qks1mo" path="res://Content/Scripts/Resources/unitData/knight.tres" id="3_1txna"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_b2rvq"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/meleeSingleAttack.gd" id="6_liye3"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="7_3obrv"]
 [ext_resource type="Resource" uid="uid://notqdv8mptrw" path="res://Content/Scripts/Resources/castData/knight_normal.tres" id="8_k24i5"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/idle.gd" id="8_ni7c2"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/additionalState.gd" id="9_quaik"]
 
 [sub_resource type="Animation" id="Animation_lklbb"]
@@ -219,9 +218,6 @@ position = Vector2(63.75, -10)
 shape = SubResource("RectangleShape2D_gptre")
 disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="Idle" type="Node2D" parent="stateComponent"]
-script = ExtResource("8_ni7c2")
 
 [node name="Dead" type="Node2D" parent="stateComponent"]
 scale = Vector2(0.8, 0.8)

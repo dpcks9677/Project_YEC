@@ -155,7 +155,6 @@ func get_speed():
 func on_attackRangeComponent():
 	var collision = $"../attackRangeComponent/CollisionShape2D"
 	collision.set_deferred("disabled", false)
-	print("on")
 	
 func off_attackRangeComponent():
 	var collision = $"../attackRangeComponent/CollisionShape2D"
