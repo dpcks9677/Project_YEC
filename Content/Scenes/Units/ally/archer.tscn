@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cv1h8mnftsm3h"]
+[gd_scene load_steps=24 format=3 uid="uid://cv1h8mnftsm3h"]
 
 [ext_resource type="Texture2D" uid="uid://bqbxxbusi3ngs" path="res://Content/Graphics/Sprites/ally/archer.png" id="1_bdxdh"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_85ohq"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/projectile.gd" id="8_66n73"]
 [ext_resource type="Resource" uid="uid://bdjucmvu5jw0d" path="res://Content/Scripts/Resources/castData/archer_normal.tres" id="8_i46jk"]
 [ext_resource type="Texture2D" uid="uid://c4g7ixcrpqtxh" path="res://Content/Graphics/Sprites/etc/weapon.png" id="8_ykkvl"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/knockBack.gd" id="10_bscpu"]
 
 [sub_resource type="Animation" id="Animation_qke1n"]
 length = 0.001
@@ -303,6 +304,9 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/rangeSingleAttack/projectile"]
 shape = SubResource("RectangleShape2D_dbp1k")
 debug_color = Color(0.788171, 0.0987749, 1, 0.42)
+
+[node name="KnockBack" type="Node2D" parent="stateComponent"]
+script = ExtResource("10_bscpu")
 
 [node name="Dead" type="Node2D" parent="stateComponent"]
 script = ExtResource("5_chd66")

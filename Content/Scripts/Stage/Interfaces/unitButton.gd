@@ -8,6 +8,7 @@ class_name unitButton
 func _enter_tree():
 	if get_name() == str("unitButton1") and get_parent().unitName[0] != null:
 		unitName = get_parent().unitName[0]
+		print(unitName)
 	if get_name() == str("unitButton2") and get_parent().unitName[1] != null:
 		unitName = get_parent().unitName[1]
 	if get_name() == str("unitButton3") and get_parent().unitName[2] != null:
@@ -19,7 +20,7 @@ func _enter_tree():
 		unitRes = load("res://Content/Scripts/Resources/unitData/" + str(unitName) + ".tres")
 
 func _ready():
-	#버튼에 아무것도 없으면 빈버튼 스프라이트를 출력하도록 설계할 것. (리소스 만들어야 함)
+	#버튼에 아무것도 없으면 빈 버튼 스프라이트를 출력하도록 설계할 것. (리소스 만들어야 함)
 	img = load("res://Content/Graphics/Sprites/portrait/" + str(unitName) + ".png")
 	if img != null: #유닛 정보가 있을 때 
 		get_node("TextureButton").texture_normal = img

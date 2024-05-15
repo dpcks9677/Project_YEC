@@ -1,14 +1,84 @@
-[gd_scene load_steps=14 format=3 uid="uid://cgqrwgbhcpkd3"]
+[gd_scene load_steps=33 format=3 uid="uid://cgqrwgbhcpkd3"]
 
-[ext_resource type="PackedScene" uid="uid://cw2o3o55caxgh" path="res://Content/Scenes/Stage/Interfaces/unit_summoner.tscn" id="1_iid0a"]
-[ext_resource type="PackedScene" uid="uid://bl6fqlkphcdqm" path="res://Content/Scenes/Stage/Interfaces/lane_ui.tscn" id="2_xk6q3"]
-[ext_resource type="PackedScene" uid="uid://lrwtd3g6eche" path="res://Content/Scenes/Stage/Interfaces/mana_ui.tscn" id="3_p1jyn"]
-[ext_resource type="PackedScene" uid="uid://cd2oi5x35nqsi" path="res://Content/Scenes/Stage/Interfaces/health_ui.tscn" id="4_krx5n"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/unitSummoner.gd" id="1_88aar"]
+[ext_resource type="PackedScene" uid="uid://dqhjv2biwvh6a" path="res://Content/Scenes/Stage/Interfaces/unit_button.tscn" id="2_xq7b5"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/laneUI.gd" id="3_272rm"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/manaUI.gd" id="4_vuj5r"]
+[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="5_jv62g"]
 [ext_resource type="Texture2D" uid="uid://cw2clweh6qd5h" path="res://Content/Graphics/UI/UI.png" id="6_23gcs"]
-[ext_resource type="PackedScene" uid="uid://wmog657ymq7" path="res://Content/Scenes/Stage/Interfaces/resource_ui.tscn" id="7_2ebg7"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/baseHealthBar.gd" id="6_u1057"]
+[ext_resource type="FontFile" uid="uid://i8yrjuivbwjv" path="res://Content/Graphics/UI/font/Pixel Gosub.otf" id="7_81p33"]
 [ext_resource type="Texture2D" uid="uid://u7oq6qprstaa" path="res://Content/Graphics/UI/UIset.png" id="7_ffenq"]
 [ext_resource type="PackedScene" uid="uid://ckibj4cs45exg" path="res://Content/Scenes/Stage/Interfaces/upgrade_button.tscn" id="9_xeaar"]
-[ext_resource type="PackedScene" uid="uid://b300txn8xe4of" path="res://Content/Scenes/Stage/Interfaces/minimap_ui.tscn" id="11_x64b2"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/populationUI.gd" id="10_ufqlt"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/minimapUI.gd" id="11_ak6rg"]
+
+[sub_resource type="Gradient" id="Gradient_dbjki"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.302817, 0.992958)
+colors = PackedColorArray(0.13423, 0.1147, 0.31, 1, 0.108, 0.24, 0.2114, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2dpol"]
+gradient = SubResource("Gradient_dbjki")
+width = 202
+height = 20
+
+[sub_resource type="Gradient" id="Gradient_h1otp"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.274648, 0.359155, 0.598592, 0.732394, 0.823944)
+colors = PackedColorArray(0.0705882, 0.537255, 0.764706, 1, 0.66, 0.861667, 0.88, 1, 0.1806, 0.803383, 0.86, 1, 0.1, 0.7, 1, 1, 0.162, 0.4449, 0.9, 1, 0.2088, 0.27696, 0.72, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kgvgd"]
+gradient = SubResource("Gradient_h1otp")
+width = 202
+height = 20
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 0.901709)
+
+[sub_resource type="Gradient" id="Gradient_t5x7r"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.3, 0.045, 0, 1, 0.23483, 0.0371243, 0.0092476, 1, 0.3, 0.045, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_awyyu"]
+gradient = SubResource("Gradient_t5x7r")
+width = 202
+height = 17
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_b6eca"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.15493, 0.316901, 0.612676, 0.880282)
+colors = PackedColorArray(0.61, 0.101667, 0, 1, 1, 0.33, 0.33, 1, 0.83, 0.159083, 0.0249, 1, 0.56, 0.1078, 0.084, 1, 0.323167, 0.028, 0.35, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vamy8"]
+gradient = SubResource("Gradient_b6eca")
+width = 202
+height = 17
+fill_from = Vector2(0, 0.110182)
+fill_to = Vector2(0, 0.808)
+
+[sub_resource type="Gradient" id="Gradient_khg17"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.267606)
+colors = PackedColorArray(0.206407, 0.0476, 0.28, 1, 0.147433, 0.034, 0.2, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eisnb"]
+gradient = SubResource("Gradient_khg17")
+width = 202
+height = 17
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_u10hw"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.161972, 0.28169, 0.556338, 0.880282)
+colors = PackedColorArray(0.589667, 0, 0.61, 1, 0.766, 0.46, 1, 1, 0.593333, 0.178, 0.89, 1, 0.441, 0.084, 0.56, 1, 0.185333, 0.032, 0.4, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dk5m8"]
+gradient = SubResource("Gradient_u10hw")
+width = 202
+height = 17
+fill_to = Vector2(0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qgen0"]
 atlas = ExtResource("7_ffenq")
@@ -21,6 +91,26 @@ region = Rect2(264, 48, 96, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_babsw"]
 atlas = ExtResource("7_ffenq")
 region = Rect2(368, 48, 96, 32)
+
+[sub_resource type="Curve2D" id="Curve2D_r10gl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 40, 30, 0, 0, 0, 0, 196, 30)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_pyjt4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 41, 61, 0, 0, 0, 0, 195, 61)
+}
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_graw6"]
+atlas = ExtResource("7_ffenq")
+region = Rect2(185, 124, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsume"]
+atlas = ExtResource("7_ffenq")
+region = Rect2(202, 124, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i8or0"]
 atlas = ExtResource("7_ffenq")
@@ -36,13 +126,132 @@ offset_top = 92.0
 offset_right = 40.0
 offset_bottom = 132.0
 
-[node name="unitSummoner" parent="." instance=ExtResource("1_iid0a")]
+[node name="unitSummoner" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 92.0
+offset_right = 380.0
+offset_bottom = 463.0
+script = ExtResource("1_88aar")
 
-[node name="laneUI" parent="." instance=ExtResource("2_xk6q3")]
+[node name="unitButton1" parent="unitSummoner" instance=ExtResource("2_xq7b5")]
+clip_contents = false
+layout_mode = 1
+offset_top = 8.0
+offset_right = -380.0
+offset_bottom = -363.0
 
-[node name="manaUI" parent="." instance=ExtResource("3_p1jyn")]
+[node name="unitButton2" parent="unitSummoner" instance=ExtResource("2_xq7b5")]
+clip_contents = false
+layout_mode = 1
+offset_top = 78.0
+offset_right = -380.0
+offset_bottom = -293.0
 
-[node name="healthUI" parent="." instance=ExtResource("4_krx5n")]
+[node name="unitButton3" parent="unitSummoner" instance=ExtResource("2_xq7b5")]
+clip_contents = false
+layout_mode = 1
+offset_top = 148.0
+offset_right = -380.0
+offset_bottom = -223.0
+
+[node name="unitButton4" parent="unitSummoner" instance=ExtResource("2_xq7b5")]
+clip_contents = false
+layout_mode = 1
+offset_top = 218.0
+offset_right = -380.0
+offset_bottom = -153.0
+
+[node name="laneUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_272rm")
+
+[node name="laneSelector" type="CheckButton" parent="laneUI"]
+layout_mode = 0
+offset_top = 450.0
+offset_right = 147.0
+offset_bottom = 520.0
+theme_override_font_sizes/font_size = 30
+text = "button"
+alignment = 1
+
+[node name="manaUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_vuj5r")
+
+[node name="manaBar" type="TextureProgressBar" parent="manaUI"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 67.0
+offset_right = 230.0
+offset_bottom = 89.0
+max_value = 50.0
+texture_under = SubResource("GradientTexture2D_2dpol")
+texture_progress = SubResource("GradientTexture2D_kgvgd")
+
+[node name="manaLabel" type="Label" parent="manaUI"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 73.0
+offset_right = 223.0
+offset_bottom = 92.0
+theme_override_fonts/font = ExtResource("5_jv62g")
+theme_override_font_sizes/font_size = 10
+text = "this is mana"
+horizontal_alignment = 2
+
+[node name="healthUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_u1057")
+
+[node name="allyHealthBar" type="TextureProgressBar" parent="healthUI"]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 14.0
+offset_right = 534.0
+offset_bottom = 31.0
+value = 50.0
+texture_under = SubResource("GradientTexture2D_awyyu")
+texture_progress = SubResource("GradientTexture2D_vamy8")
+
+[node name="enemyHealthBar" type="TextureProgressBar" parent="healthUI"]
+layout_mode = 0
+offset_left = 614.0
+offset_top = 15.0
+offset_right = 816.0
+offset_bottom = 32.0
+value = 50.0
+fill_mode = 1
+texture_under = SubResource("GradientTexture2D_eisnb")
+texture_progress = SubResource("GradientTexture2D_dk5m8")
+
+[node name="allyHealthLabel" type="Label" parent="healthUI"]
+layout_mode = 0
+offset_left = 482.0
+offset_top = 9.0
+offset_right = 525.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("7_81p33")
+text = "4000"
+horizontal_alignment = 2
+
+[node name="enemyHealthLabel" type="Label" parent="healthUI"]
+layout_mode = 0
+offset_left = 623.0
+offset_top = 9.0
+offset_right = 666.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("7_81p33")
+text = "4000"
 
 [node name="UIFrame" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
@@ -54,7 +263,32 @@ position = Vector2(170, 47)
 scale = Vector2(3.03125, 3.03125)
 texture = SubResource("AtlasTexture_qgen0")
 
-[node name="resourceUI" parent="." instance=ExtResource("7_2ebg7")]
+[node name="resourceUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_ufqlt")
+
+[node name="populationLabel" type="Label" parent="resourceUI"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 36.0
+offset_right = 232.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("5_jv62g")
+theme_override_font_sizes/font_size = 13
+text = "00/00"
+
+[node name="attackLabel" type="Label" parent="resourceUI"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 36.0
+offset_right = 99.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("5_jv62g")
+theme_override_font_sizes/font_size = 13
+text = "0/0"
 
 [node name="allyHealthBorder" type="Sprite2D" parent="."]
 position = Vector2(431, 24)
@@ -66,12 +300,47 @@ position = Vector2(719, 39)
 scale = Vector2(2.4, 2.4)
 texture = SubResource("AtlasTexture_babsw")
 
-[node name="minimapUI" parent="." instance=ExtResource("11_x64b2")]
+[node name="minimapUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 458.0
 offset_top = 539.0
-offset_right = -458.0
-offset_bottom = -18.0
-metadata/_edit_vertical_guides_ = [10.0, 226.0]
+offset_right = 498.0
+offset_bottom = 579.0
+script = ExtResource("11_ak6rg")
+
+[node name="background" type="Polygon2D" parent="minimapUI"]
+scale = Vector2(0.547564, 0.36255)
+color = Color(0.137255, 0.137255, 0.137255, 0.952941)
+polygon = PackedVector2Array(0, 251, 431, 251, 431, 0, 0, 0)
+
+[node name="topLaneGuide" type="Polygon2D" parent="minimapUI"]
+position = Vector2(32.7778, -0.999971)
+scale = Vector2(0.722222, 0.999999)
+color = Color(0.423529, 0.423529, 0.423529, 0.784314)
+polygon = PackedVector2Array(10, 30, 226, 30, 226, 32, 10, 32)
+
+[node name="bottomLaneGuide" type="Polygon2D" parent="minimapUI"]
+position = Vector2(6.45161, 30)
+scale = Vector2(0.83871, 1)
+color = Color(0.423529, 0.423529, 0.423529, 0.784314)
+polygon = PackedVector2Array(40, 30, 226, 30, 226, 32, 40, 32)
+
+[node name="topLane" type="Path2D" parent="minimapUI"]
+curve = SubResource("Curve2D_r10gl")
+
+[node name="bottomLane" type="Path2D" parent="minimapUI"]
+curve = SubResource("Curve2D_pyjt4")
+
+[node name="enemyMarker" type="Sprite2D" parent="minimapUI"]
+position = Vector2(216, 45)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_graw6")
+
+[node name="Sprite2D" type="Sprite2D" parent="minimapUI"]
+position = Vector2(20, 45)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_gsume")
 
 [node name="upgradeUI" type="Control" parent="."]
 layout_mode = 3
@@ -111,3 +380,5 @@ texture = SubResource("AtlasTexture_i8or0")
 [node name="border3" type="Sprite2D" parent="upgradeUI"]
 position = Vector2(233, 584.5)
 texture = SubResource("AtlasTexture_i8or0")
+
+[connection signal="toggled" from="laneUI/laneSelector" to="laneUI" method="_on_lane_selector_toggled"]

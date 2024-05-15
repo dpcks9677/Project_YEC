@@ -56,7 +56,7 @@ func _ready():
 	get_node("HUD").get_node("upgradeUI").get_node("manaUpgradeButton").connect("manaUpgrade", doManaUpgrade)
 	get_node("HUD").get_node("upgradeUI").get_node("popUpgradeButton").connect("popUpgrade", doPopUpgrade)
 	get_node("HUD").get_node("upgradeUI").get_node("attackUpgradeButton").connect("attackUpgrade", doAttackUpgrade)
-
+	
 func _process(_delta):
 	atkHandler()
 	populationHandler()
@@ -110,11 +110,11 @@ func doPopUpgrade() -> void:
 	isPopUpgrade = false
 
 #베이스 체력 관련 처리 
-func allyBaseDamage(damage):
-	allyBaseHealth -= damage
+func get_allyBaseHealth():
+	$laneSetter/allyBase.get_health()
 	
-func enemyBaseDamage(damage):
-	enemyBaseHealth -= damage
+func get_enemyBaseHealth():
+	$laneSetter/enemyBase.get_health()
 		
 func checkBaseHealth():
 	pass

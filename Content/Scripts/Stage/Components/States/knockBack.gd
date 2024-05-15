@@ -22,12 +22,11 @@ func Enter():
 
 func Exit():
 	get_parent().on_attackRangeComponent() #attackRangeComponent 활성화 
-
 	
 func Update(_delta: float):
 	if get_parent().get_faction() == "ally":
-		pass
-	else:
+		get_parent().get_parent().progress_ratio -= MOVEMENT_VALUE
+	elif get_parent().get_faction() == "enemy":
 		get_parent().get_parent().progress_ratio += MOVEMENT_VALUE
 		
 func _on_Timer_timeout():

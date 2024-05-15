@@ -4,7 +4,7 @@ extends Node
 
 var type : String
 var faction : String
-var health : int
+@onready var health : int
 
 func _enter_tree():
 	type = status.type
@@ -37,7 +37,11 @@ func _process(delta):
 		else:
 			print("you win")
 			get_tree().paused = true
-			
+
+#getter
+func get_health():
+	return health
+	
 #히트시 쉐이더 작동
 func hitShader():
 	var material = self.material
@@ -48,7 +52,7 @@ func hitShader():
 		await get_tree().create_timer(0.1).timeout
 		material.set_shader_parameter("hit_modifier", 0)
 
-
+#signal
 func _on_state_component_ally_base_hitted(damage):
 	hitShader()
 	health -= damage

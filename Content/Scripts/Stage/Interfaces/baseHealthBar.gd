@@ -7,23 +7,24 @@ extends Control
 @export var allyHealth : int
 @export var enemyHealth : int
 
+@onready var allyBase = $"../../laneSetter/allyBase"
+@onready var enemyBase = $"../../laneSetter/enemyBase"
+
 
 func _ready():
-	rsc = get_parent().get_parent()
-	
-	ALLY_MAX_HEALTH = rsc.allyBaseHealth
-	ENEMY_MAX_HEALTH = rsc.enemyBaseHealth
+	ALLY_MAX_HEALTH = allyBase.get_health()
+	ENEMY_MAX_HEALTH = enemyBase.get_health()
 		
 	$allyHealthBar.max_value = ALLY_MAX_HEALTH
 	$enemyHealthBar.max_value = ENEMY_MAX_HEALTH
-	$allyHealthBar.value = rsc.allyBaseHealth
-	$enemyHealthBar.value = rsc.enemyBaseHealth
+	$allyHealthBar.value = ALLY_MAX_HEALTH
+	$enemyHealthBar.value = ENEMY_MAX_HEALTH
 
 func _physics_process(_delta):
 	healthSetter()
 
 func healthSetter():
-	$allyHealthBar.value = rsc.allyBaseHealth
-	$allyHealthLabel.text = str(rsc.allyBaseHealth)
-	$enemyHealthBar.value = rsc.enemyBaseHealth
-	$enemyHealthLabel.text = str(rsc.enemyBaseHealth)
+	$allyHealthBar.value = allyBase.get_health()
+	$allyHealthLabel.text = str(allyBase.get_health())
+	$enemyHealthBar.value = enemyBase.get_health()
+	$enemyHealthLabel.text = str(enemyBase.get_health())

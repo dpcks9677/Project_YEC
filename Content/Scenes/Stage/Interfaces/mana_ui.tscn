@@ -1,25 +1,25 @@
 [gd_scene load_steps=7 format=3 uid="uid://lrwtd3g6eche"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/manaUI.gd" id="1_sh2li"]
-[ext_resource type="FontFile" uid="uid://dd4ci4vhjs8ty" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="2_uv3us"]
+[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="2_uv3us"]
 
-[sub_resource type="Gradient" id="Gradient_dk8t7"]
+[sub_resource type="Gradient" id="Gradient_74g3v"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0.302817, 0.992958)
 colors = PackedColorArray(0.13423, 0.1147, 0.31, 1, 0.108, 0.24, 0.2114, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_dlnee"]
-gradient = SubResource("Gradient_dk8t7")
+gradient = SubResource("Gradient_74g3v")
 width = 202
 height = 20
 
-[sub_resource type="Gradient" id="Gradient_0it2a"]
+[sub_resource type="Gradient" id="Gradient_2jskl"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.274648, 0.359155, 0.598592, 0.732394, 0.823944)
 colors = PackedColorArray(0.0705882, 0.537255, 0.764706, 1, 0.66, 0.861667, 0.88, 1, 0.1806, 0.803383, 0.86, 1, 0.1, 0.7, 1, 1, 0.162, 0.4449, 0.9, 1, 0.2088, 0.27696, 0.72, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_16m4b"]
-gradient = SubResource("Gradient_0it2a")
+gradient = SubResource("Gradient_2jskl")
 width = 202
 height = 20
 fill_from = Vector2(1, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://6aiiqqk4vwat"]
+[gd_scene load_steps=20 format=3 uid="uid://6aiiqqk4vwat"]
 
 [ext_resource type="Texture2D" uid="uid://yvdpqpr55nkb" path="res://Content/Graphics/Sprites/enemy/raptor.png" id="1_8yf45"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_hup7k"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="5_py4w4"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="6_movtv"]
 [ext_resource type="Resource" uid="uid://xilfx60jci2q" path="res://Content/Scripts/Resources/castData/raptor_normal.tres" id="7_1vh3y"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/knockBack.gd" id="8_fxcqp"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="10_sljdy"]
 
 [sub_resource type="Animation" id="Animation_udgof"]
@@ -162,6 +163,9 @@ position = Vector2(-40, 0)
 shape = SubResource("RectangleShape2D_e30ng")
 disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="KnockBack" type="Node2D" parent="stateComponent"]
+script = ExtResource("8_fxcqp")
 
 [node name="Dead" type="Node2D" parent="stateComponent"]
 script = ExtResource("5_py4w4")
