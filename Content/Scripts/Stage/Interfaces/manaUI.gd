@@ -9,7 +9,8 @@ func _ready():
 	$manaBar.set_max(rsc.max_mana)
 	$manaBar.set_value(0)
 
-func _physics_process(_delta):
+func _process(_delta):
+	$manaBar.set_max(rsc.max_mana)
 	displayMana()
 
 #manaUI 관련 스크립트 
