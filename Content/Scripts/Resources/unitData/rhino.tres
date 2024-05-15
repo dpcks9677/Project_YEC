@@ -6,6 +6,7 @@
 script = ExtResource("1_sy4hs")
 type = "unit"
 faction = "enemy"
+size = "large"
 health = 2000
 speed = 0.5
 mana = 50

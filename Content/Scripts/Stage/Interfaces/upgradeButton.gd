@@ -39,7 +39,8 @@ func upgradeProgressTexture():
 	$UpgradeProgress.set_visible(true) #sprite on
 	for i in range(20):
 		await get_tree().create_timer(1.0).timeout
-		$UpgradeProgress.set_value($UpgradeProgress.get_value()-2.25)
+		print(i)
+		#$UpgradeProgress.set_value($UpgradeProgress.get_value()-2.25)
 
 func _on_texture_button_pressed():
 	modulateDown()

@@ -11,6 +11,9 @@ var states : Dictionary = {}
 @export var _status: statusResource
 
 @export var faction : String
+@export var type : String
+
+@export var max_health : int
 @export var health : int
 @export var speed : float
 @export var mana : int
@@ -18,6 +21,9 @@ var states : Dictionary = {}
 func _enter_tree():
 	#유닛 데이터 입력 
 	faction = _status.faction
+	type = _status.type
+	
+	max_health = _status.health
 	health = _status.health
 	speed = _status.speed
 	mana = _status.mana
@@ -134,7 +140,13 @@ func force_change_state(new_state_name : String):
 func damaged(amount):
 	hitShader()
 	health -= amount
-
+	
+func healed(amount):
+	if health + amount > max_health: #최대체력 초과시 
+		health = max_health
+	else:
+		health += amount
+	
 #히트시 쉐이더 작동
 func hitShader():
 	var material = get_parent().get_node("Sprite2D").material
@@ -146,6 +158,9 @@ func hitShader():
 		material.set_shader_parameter("hit_modifier", 0)
 
 #getter function
+func get_type():
+	return type
+
 func get_faction():
 	return faction
 	

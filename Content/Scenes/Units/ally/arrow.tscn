@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg3we1m0j87sb"]
+
+[ext_resource type="Texture2D" uid="uid://c4g7ixcrpqtxh" path="res://Content/Graphics/Sprites/etc/weapon.png" id="1_4iiaw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvcms"]
+atlas = ExtResource("1_4iiaw")
+region = Rect2(4.5477, 43.2286, 49.4018, 14.1459)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hfbh"]
+size = Vector2(48, 16)
+
+[node name="arrow" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_vvcms")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1hfbh")
+debug_color = Color(0.754109, 0.192646, 1, 0.42)

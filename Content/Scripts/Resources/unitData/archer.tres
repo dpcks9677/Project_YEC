@@ -6,6 +6,7 @@
 script = ExtResource("1_ud61k")
 type = "unit"
 faction = "ally"
+size = "small"
 health = 800
 speed = 5.0
 mana = 0

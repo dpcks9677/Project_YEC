@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://brhy872g4qvjq"]
+[gd_scene load_steps=22 format=3 uid="uid://brhy872g4qvjq"]
 
 [ext_resource type="Texture2D" uid="uid://ommhhhgvfnb5" path="res://Content/Graphics/Sprites/enemy/toad.png" id="1_p4lca"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_4f6wm"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cqcsq70jyk0eo" path="res://icon.svg" id="8_tx4ut"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="10_ikvem"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="10_qdp80"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/additionalState.gd" id="11_ixuq7"]
 
 [sub_resource type="Animation" id="Animation_unevw"]
 length = 0.001
@@ -164,6 +165,9 @@ debug_color = Color(1, 1, 0, 0.419608)
 
 [node name="Dead" type="Node2D" parent="stateComponent"]
 script = ExtResource("5_t6rxa")
+
+[node name="additionalState" type="Node" parent="stateComponent"]
+script = ExtResource("11_ixuq7")
 
 [node name="hitbox" type="Area2D" parent="."]
 

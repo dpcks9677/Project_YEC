@@ -10,7 +10,6 @@ extends Control
 @onready var allyBase = $"../../laneSetter/allyBase"
 @onready var enemyBase = $"../../laneSetter/enemyBase"
 
-
 func _ready():
 	ALLY_MAX_HEALTH = allyBase.get_health()
 	ENEMY_MAX_HEALTH = enemyBase.get_health()

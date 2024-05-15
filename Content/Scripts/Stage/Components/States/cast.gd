@@ -38,4 +38,3 @@ func initQueue():
 func _on_attack_range_component_enqueue_target(object):
 	target_queue.enqueue(object)
 	get_parent().change_state(get_parent().get_node("Move"), "Cast")
-

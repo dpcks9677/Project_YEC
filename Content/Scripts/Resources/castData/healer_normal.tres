@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="healTypeResource" load_steps=2 format=3 uid="uid://cq04oigowoyen"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Resources/castData/healTypeResource.gd" id="1_j0sve"]
+
+[resource]
+script = ExtResource("1_j0sve")
+heal = 100
+isHealArea = false
+cooltime = 2.5

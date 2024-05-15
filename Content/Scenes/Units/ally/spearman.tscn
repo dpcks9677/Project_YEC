@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://fbdbf7roi2eh"]
+[gd_scene load_steps=22 format=3 uid="uid://fbdbf7roi2eh"]
 
 [ext_resource type="Texture2D" uid="uid://d2mtclvuwcmb6" path="res://Content/Graphics/Sprites/ally/spearman.png" id="1_pddrv"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_0u7fr"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://clj2a2fvwantk" path="res://Content/Scripts/Resources/castData/spearman_normal.tres" id="7_62gm1"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="8_8l8si"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/knockBack.gd" id="9_ume2e"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/additionalState.gd" id="10_pxsae"]
 
 [sub_resource type="Animation" id="Animation_shg38"]
 resource_name = "RESET"
@@ -190,6 +191,9 @@ script = ExtResource("9_ume2e")
 
 [node name="Dead" type="Node2D" parent="stateComponent"]
 script = ExtResource("6_fnpvl")
+
+[node name="additionalState" type="Node" parent="stateComponent"]
+script = ExtResource("10_pxsae")
 
 [node name="hitbox" type="Area2D" parent="."]
 

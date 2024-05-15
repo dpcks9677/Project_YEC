@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=58 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="PackedScene" uid="uid://bipawj12cbpmb" path="res://Content/Scenes/Stage/Handler/resourceHandler.tscn" id="2_67fy2"]
 [ext_resource type="PackedScene" uid="uid://c201rvxgq5e35" path="res://Content/Scenes/Stage/stage_1_scenario.tscn" id="2_n5lwx"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/minimapUI.gd" id="13_ecmny"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/base.gd" id="13_p2anb"]
 [ext_resource type="PackedScene" uid="uid://ckibj4cs45exg" path="res://Content/Scenes/Stage/Interfaces/upgrade_button.tscn" id="14_yqdft"]
+[ext_resource type="PackedScene" uid="uid://25330bywv47t" path="res://Content/Scenes/Units/ally/healer.tscn" id="24_w3v8t"]
 
 [sub_resource type="Gradient" id="Gradient_dk8t7"]
 interpolation_mode = 2
@@ -516,6 +517,11 @@ rotates = false
 
 [node name="knight" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("12_aec61")]
 position = Vector2(-892.026, 73.6852)
+
+[node name="healer" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("24_w3v8t")]
+position = Vector2(-892.026, 73.6852)
+rotation = 0.000351868
+rotates = false
 
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]
 position = Vector2(251, -40.218)

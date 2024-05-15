@@ -1,0 +1,191 @@
+[gd_scene load_steps=21 format=3 uid="uid://25330bywv47t"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="1_662x8"]
+[ext_resource type="Texture2D" uid="uid://b3wvmj26t4gsh" path="res://Content/Graphics/Sprites/ally/healer.png" id="1_hwnxa"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="2_520ck"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_d10nn"]
+[ext_resource type="Resource" uid="uid://crsygux1sk7a4" path="res://Content/Scripts/Resources/unitData/healer.tres" id="3_djdto"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/rangeAreaHeal.gd" id="4_4iowu"]
+[ext_resource type="Resource" uid="uid://cq04oigowoyen" path="res://Content/Scripts/Resources/castData/healer_normal.tres" id="5_ko3i7"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="5_l0f7o"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/knockBack.gd" id="6_b2whe"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/additionalState.gd" id="7_elbhu"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="8_8oheg"]
+[ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="12_jo3fd"]
+
+[sub_resource type="Animation" id="Animation_t14xs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("stateComponent/Cast/rangeAreaHeal/healBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6sseh"]
+resource_name = "cast"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.5, 1.6, 1.8, 2, 2.1, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 0, 1, 2, 3, 12, 13, 14, 15, 16, 13, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("stateComponent/Cast/rangeAreaHeal/healBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_h0ro5"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_iifta"]
+resource_name = "walk"
+length = 0.9
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c4vbs"]
+_data = {
+"RESET": SubResource("Animation_t14xs"),
+"cast": SubResource("Animation_6sseh"),
+"idle": SubResource("Animation_h0ro5"),
+"walk": SubResource("Animation_iifta")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e76wx"]
+size = Vector2(512, 192)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ksd5"]
+radius = 24.0
+height = 80.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbqi7"]
+size = Vector2(252, 192)
+
+[node name="healer" type="PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, -40)
+texture = ExtResource("1_hwnxa")
+flip_h = true
+hframes = 6
+vframes = 3
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c4vbs")
+}
+
+[node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_d10nn")
+initial_state = NodePath("Move")
+_status = ExtResource("3_djdto")
+
+[node name="Move" type="Node2D" parent="stateComponent"]
+script = ExtResource("2_520ck")
+
+[node name="Cast" type="Node2D" parent="stateComponent"]
+script = ExtResource("1_662x8")
+
+[node name="rangeAreaHeal" type="Node2D" parent="stateComponent/Cast"]
+script = ExtResource("4_4iowu")
+castData = ExtResource("5_ko3i7")
+
+[node name="healBox" type="Area2D" parent="stateComponent/Cast/rangeAreaHeal"]
+position = Vector2(-160, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/rangeAreaHeal/healBox"]
+position = Vector2(160, -32)
+shape = SubResource("RectangleShape2D_e76wx")
+disabled = true
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Dead" type="Node2D" parent="stateComponent"]
+script = ExtResource("5_l0f7o")
+
+[node name="KnockBack" type="Node2D" parent="stateComponent"]
+script = ExtResource("6_b2whe")
+
+[node name="additionalState" type="Node" parent="stateComponent"]
+script = ExtResource("7_elbhu")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -16)
+shape = SubResource("CapsuleShape2D_8ksd5")
+
+[node name="attackRangeComponent" type="Area2D" parent="."]
+script = ExtResource("8_8oheg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
+position = Vector2(130, -32)
+shape = SubResource("RectangleShape2D_mbqi7")
+debug_color = Color(1, 0.490196, 0, 0.419608)
+
+[node name="HealthBarComponent" parent="." instance=ExtResource("12_jo3fd")]
+position = Vector2(-32, -56)
+
+[connection signal="area_entered" from="stateComponent/Cast/rangeAreaHeal/healBox" to="stateComponent/Cast/rangeAreaHeal" method="_on_heal_box_area_entered"]
+[connection signal="area_entered" from="attackRangeComponent" to="attackRangeComponent" method="_on_area_entered"]
+[connection signal="enqueue_target" from="attackRangeComponent" to="stateComponent/Cast" method="_on_attack_range_component_enqueue_target"]

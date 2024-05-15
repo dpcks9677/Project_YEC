@@ -6,6 +6,7 @@
 script = ExtResource("1_kgvtx")
 type = "unit"
 faction = "ally"
+size = "medium"
 health = 2000
 speed = 5.0
 mana = 20
