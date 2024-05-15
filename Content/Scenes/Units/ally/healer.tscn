@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://25330bywv47t"]
+[gd_scene load_steps=29 format=3 uid="uid://25330bywv47t"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="1_662x8"]
-[ext_resource type="Texture2D" uid="uid://b3wvmj26t4gsh" path="res://Content/Graphics/Sprites/ally/healer.png" id="1_hwnxa"]
+[ext_resource type="Texture2D" uid="uid://dd4myfg0dh342" path="res://Content/Graphics/Sprites/ally/healer.png" id="1_hwnxa"]
+[ext_resource type="Texture2D" uid="uid://htt6qubys087" path="res://Content/Graphics/effects/sparkly.png" id="2_3k50b"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="2_520ck"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_d10nn"]
 [ext_resource type="Resource" uid="uid://crsygux1sk7a4" path="res://Content/Scripts/Resources/unitData/healer.tres" id="3_djdto"]
@@ -111,6 +112,41 @@ _data = {
 "walk": SubResource("Animation_iifta")
 }
 
+[sub_resource type="Curve" id="Curve_2vupp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.461538), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mak3h"]
+curve = SubResource("Curve_2vupp")
+
+[sub_resource type="Gradient" id="Gradient_q4jn5"]
+offsets = PackedFloat32Array(0, 0.188525, 0.590164)
+colors = PackedColorArray(0.1224, 0.20604, 0.68, 1, 1, 0.9, 0, 1, 0.429667, 1, 0.42, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e6vpi"]
+gradient = SubResource("Gradient_q4jn5")
+
+[sub_resource type="Curve" id="Curve_x6ssi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_npb6c"]
+curve = SubResource("Curve_x6ssi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y7nsb"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(32, 32, 1)
+angle_min = -15.0
+angle_max = 15.0
+gravity = Vector3(0, 1, 0)
+linear_accel_max = 300.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_npb6c")
+color_ramp = SubResource("GradientTexture1D_e6vpi")
+alpha_curve = SubResource("CurveTexture_mak3h")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e76wx"]
 size = Vector2(512, 192)
 
@@ -136,6 +172,13 @@ libraries = {
 "": SubResource("AnimationLibrary_c4vbs")
 }
 
+[node name="statusEffects" type="Node2D" parent="."]
+
+[node name="Healing" type="GPUParticles2D" parent="statusEffects"]
+position = Vector2(-3, -58)
+process_material = SubResource("ParticleProcessMaterial_y7nsb")
+texture = ExtResource("2_3k50b")
+
 [node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_d10nn")
 initial_state = NodePath("Move")
@@ -152,6 +195,7 @@ script = ExtResource("4_4iowu")
 castData = ExtResource("5_ko3i7")
 
 [node name="healBox" type="Area2D" parent="stateComponent/Cast/rangeAreaHeal"]
+visible = false
 position = Vector2(-160, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/rangeAreaHeal/healBox"]
@@ -176,9 +220,11 @@ position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_8ksd5")
 
 [node name="attackRangeComponent" type="Area2D" parent="."]
+visible = false
 script = ExtResource("8_8oheg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
+visible = false
 position = Vector2(130, -32)
 shape = SubResource("RectangleShape2D_mbqi7")
 debug_color = Color(1, 0.490196, 0, 0.419608)
