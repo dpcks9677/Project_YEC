@@ -1,0 +1,187 @@
+[gd_scene load_steps=20 format=3 uid="uid://4vaswcuj74qy"]
+
+[ext_resource type="Texture2D" uid="uid://dvs35qesddqif" path="res://Content/Graphics/Sprites/ally/femalePeasant.png" id="1_fromu"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_lac77"]
+[ext_resource type="Resource" uid="uid://dcfn6fx8eqjbq" path="res://Content/Scripts/Resources/unitData/femalePeasant.tres" id="3_en1of"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_s2e54"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="4_ha022"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/meleeSingleAttack.gd" id="5_2kksc"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="5_l64f8"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/knockBack.gd" id="6_kx7m3"]
+[ext_resource type="Resource" uid="uid://da0ns0ehranb8" path="res://Content/Scripts/Resources/castData/femalePeasant_normal.tres" id="7_yai7p"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="8_nrx06"]
+[ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="11_b1wet"]
+
+[sub_resource type="Animation" id="Animation_0fhfl"]
+resource_name = "idle"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_7227r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("stateComponent/Cast/meleeSingleAttack/damageBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bcxm5"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_firtp"]
+resource_name = "attack"
+length = 1.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.55, 0.65, 0.75, 0.85, 0.95, 1.05, 1.15, 1.25, 1.35, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 10, 11, 12, 13, 14, 12, 11, 10, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("stateComponent/Cast/meleeSingleAttack/damageBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.85, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hpmqc"]
+_data = {
+"RESET": SubResource("Animation_7227r"),
+"attack": SubResource("Animation_firtp"),
+"idle": SubResource("Animation_0fhfl"),
+"walk": SubResource("Animation_bcxm5")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scx3o"]
+size = Vector2(48, 48)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s1usr"]
+radius = 24.0
+height = 64.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swrt3"]
+size = Vector2(24, 80)
+
+[node name="femalePeasant" type="PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(24, -48)
+texture = ExtResource("1_fromu")
+hframes = 5
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hpmqc")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -15.0
+max_distance = 1000.0
+
+[node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_lac77")
+initial_state = NodePath("Move")
+_status = ExtResource("3_en1of")
+
+[node name="Move" type="Node2D" parent="stateComponent"]
+script = ExtResource("3_s2e54")
+
+[node name="Cast" type="Node2D" parent="stateComponent"]
+script = ExtResource("4_ha022")
+
+[node name="meleeSingleAttack" type="Node2D" parent="stateComponent/Cast"]
+script = ExtResource("5_2kksc")
+castData = ExtResource("7_yai7p")
+
+[node name="damageBox" type="Area2D" parent="stateComponent/Cast/meleeSingleAttack"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/meleeSingleAttack/damageBox"]
+position = Vector2(40, -8)
+shape = SubResource("RectangleShape2D_scx3o")
+disabled = true
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="Dead" type="Node2D" parent="stateComponent"]
+script = ExtResource("5_l64f8")
+
+[node name="KnockBack" type="Node2D" parent="stateComponent"]
+script = ExtResource("6_kx7m3")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -16)
+shape = SubResource("CapsuleShape2D_s1usr")
+
+[node name="attackRangeComponent" type="Area2D" parent="."]
+script = ExtResource("8_nrx06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
+position = Vector2(28, -24)
+shape = SubResource("RectangleShape2D_swrt3")
+debug_color = Color(1, 0.490196, 0, 0.419608)
+
+[node name="HealthBarComponent" parent="." instance=ExtResource("11_b1wet")]
+position = Vector2(-32, -64)
+
+[connection signal="area_entered" from="stateComponent/Cast/meleeSingleAttack/damageBox" to="stateComponent/Cast/meleeSingleAttack" method="_on_damage_box_area_entered"]
+[connection signal="area_entered" from="attackRangeComponent" to="attackRangeComponent" method="_on_area_entered"]
+[connection signal="enqueue_target" from="attackRangeComponent" to="stateComponent/Cast" method="_on_attack_range_component_enqueue_target"]

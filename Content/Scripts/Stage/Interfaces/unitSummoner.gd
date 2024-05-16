@@ -16,15 +16,17 @@ func _init():
 	unitName[2] = "archer"
 	unitName[3] = "healer"
 
-
 func _ready():
 	rsc = get_parent().get_parent()
 	
 	#씬 불러 올 때, 직접 경로를 적지 않고, 데이터를 인계받아서 자리에 맞게 유닛을 매치 할 수 있도록 설계 
 	for i in range(8):
 		if unitName[i] != null:
-			var unitData = load("res://Content/Scenes/Units/ally/" + str(unitName[i]) + ".tscn")
-			unitScene[i] = unitData
+			if typeof(unitName[i]) == TYPE_STRING:
+				var unitData = load("res://Content/Scenes/Units/ally/" + str(unitName[i]) + ".tscn")
+				unitScene[i] = unitData
+			else:
+				pass # 배열 선언 -> array 파싱 후 배열에 Scene 로드 -> add_child() 
 		
 func _process(_delta):
 	pass
@@ -58,11 +60,3 @@ func spawn(unit):
 			else:
 				get_parent().get_parent().get_node("laneSetter").get_node("topLane").add_child(target)
 				print("top spawned")
-			
-			#인구수 1 증가 
-			rsc.increasePopulation()
-			
-			#minimapUI에 객체 추적 노드 추가
-			#get_parent().get_node("minimapUI").spawnMarker(target)
-			
-	

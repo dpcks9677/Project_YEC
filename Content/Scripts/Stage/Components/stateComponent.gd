@@ -9,6 +9,7 @@ var states : Dictionary = {}
 
 #Unit info
 @export var _status: statusResource
+@export var rsc : resourceHandler
 
 @export var faction : String
 @export var type : String
@@ -19,6 +20,8 @@ var states : Dictionary = {}
 @export var mana : int
 
 func _enter_tree():
+	rsc = get_parent().get_parent().get_parent().get_parent()
+	
 	#유닛 데이터 입력 
 	faction = _status.faction
 	type = _status.type
@@ -95,6 +98,9 @@ func _ready():
 		
 	#미니맵 마커 추가 
 	get_parent().get_parent().get_parent().get_parent().get_node("HUD").get_node("minimapUI").spawnMarker(self)
+	
+	#인구수 1 증가 
+	rsc.increasePopulation()
 	
 func _process(delta):
 	if health <= 0:

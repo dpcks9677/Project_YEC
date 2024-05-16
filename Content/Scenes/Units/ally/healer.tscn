@@ -40,10 +40,22 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("statusEffects/Healing:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_6sseh"]
 resource_name = "cast"
-length = 2.5
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -51,7 +63,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.5, 1.6, 1.8, 2, 2.1, 2.2),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.5, 1.6, 1.8, 2.1, 2.3, 2.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [1, 2, 3, 0, 1, 2, 3, 12, 13, 14, 15, 16, 13, 12]
@@ -67,6 +79,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("statusEffects/Healing:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.3, 1.7, 2.5, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_h0ro5"]
@@ -86,6 +110,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("statusEffects/Healing:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_iifta"]
 resource_name = "walk"
@@ -102,6 +138,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [6, 7, 8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("statusEffects/Healing:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c4vbs"]
@@ -138,8 +186,6 @@ lifetime_randomness = 1.0
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(32, 32, 1)
-angle_min = -15.0
-angle_max = 15.0
 gravity = Vector3(0, 1, 0)
 linear_accel_max = 300.0
 scale_max = 2.0
@@ -179,7 +225,7 @@ max_distance = 1000.0
 [node name="statusEffects" type="Node2D" parent="."]
 
 [node name="Healing" type="GPUParticles2D" parent="statusEffects"]
-visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-3, -58)
 process_material = SubResource("ParticleProcessMaterial_y7nsb")
 texture = ExtResource("2_3k50b")
@@ -200,7 +246,6 @@ script = ExtResource("4_4iowu")
 castData = ExtResource("5_ko3i7")
 
 [node name="healBox" type="Area2D" parent="stateComponent/Cast/rangeAreaHeal"]
-visible = false
 position = Vector2(-160, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/rangeAreaHeal/healBox"]
@@ -225,11 +270,9 @@ position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_8ksd5")
 
 [node name="attackRangeComponent" type="Area2D" parent="."]
-visible = false
 script = ExtResource("8_8oheg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
-visible = false
 position = Vector2(130, -32)
 shape = SubResource("RectangleShape2D_mbqi7")
 debug_color = Color(1, 0.490196, 0, 0.419608)
