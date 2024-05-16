@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://c8uahecrvhvuj"]
 
-[ext_resource type="Texture2D" uid="uid://du1lf6mfiu26s" path="res://Content/Graphics/Sprites/ally/hero.png" id="1_4yyx4"]
+[ext_resource type="Texture2D" uid="uid://nibpyfa34p2h" path="res://Content/Graphics/Sprites/ally/hero.png" id="1_4yyx4"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/meleeAreaAttack.gd" id="2_op0nv"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_va5l1"]
 [ext_resource type="Resource" uid="uid://ca63bygxqr4xr" path="res://Content/Scripts/Resources/unitData/hero.tres" id="3_5ha8m"]

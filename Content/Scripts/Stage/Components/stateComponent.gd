@@ -92,6 +92,9 @@ func _ready():
 		$"../Sprite2D".offset.y += yRand
 		$"../HealthBarComponent".position.x += xRand
 		$"../HealthBarComponent".position.y += yRand
+		
+	#미니맵 마커 추가 
+	get_parent().get_parent().get_parent().get_parent().get_node("HUD").get_node("minimapUI").spawnMarker(self)
 	
 func _process(delta):
 	if health <= 0:

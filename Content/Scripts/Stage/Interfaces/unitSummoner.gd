@@ -14,6 +14,7 @@ func _init():
 	unitName[0] = "spearman" 
 	unitName[1] = "knight"
 	unitName[2] = "archer"
+	unitName[3] = "healer"
 
 
 func _ready():
@@ -41,7 +42,7 @@ func spawn(unit):
 	target = unitScene[idx].instantiate()
 	
 	if rsc.isPopulationFull == true: #인구 수 확인 
-		print("no space")
+		print("Population limit exceeded.")
 	else: #마나 여부 확인 / 이유를 모르겠으나 mana를 조회하면 계속 0으로 나와서 _status.mana로 접근해야 원하는 대로 동작함.
 		if target.get_node("stateComponent")._status.mana > rsc.current_mana: 
 			print("no mana")
@@ -59,9 +60,9 @@ func spawn(unit):
 				print("top spawned")
 			
 			#인구수 1 증가 
-			rsc.population += 1
+			rsc.increasePopulation()
 			
 			#minimapUI에 객체 추적 노드 추가
-			get_parent().get_node("minimapUI").spawnMarker(target)
+			#get_parent().get_node("minimapUI").spawnMarker(target)
 			
 	
