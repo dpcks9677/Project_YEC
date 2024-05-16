@@ -173,7 +173,8 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-volume_db = -10.0
+volume_db = -15.0
+max_distance = 1000.0
 
 [node name="statusEffects" type="Node2D" parent="."]
 

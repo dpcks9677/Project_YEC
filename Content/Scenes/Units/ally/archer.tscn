@@ -280,7 +280,8 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-volume_db = -10.0
+volume_db = -15.0
+max_distance = 1000.0
 
 [node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_85ohq")
