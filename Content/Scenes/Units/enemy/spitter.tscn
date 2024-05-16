@@ -238,6 +238,10 @@ libraries = {
 "": SubResource("AnimationLibrary_dx6sb")
 }
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+volume_db = -10.0
+
 [node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_pboyr")
 initial_state = NodePath("Move")

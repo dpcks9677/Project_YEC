@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://c8uahecrvhvuj"]
+[gd_scene load_steps=22 format=3 uid="uid://c8uahecrvhvuj"]
 
 [ext_resource type="Texture2D" uid="uid://nibpyfa34p2h" path="res://Content/Graphics/Sprites/ally/hero.png" id="1_4yyx4"]
+[ext_resource type="AudioStream" uid="uid://bbm6x3mk74w3o" path="res://Content/Sound/sfx/sword-hit_1.mp3" id="2_022wl"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/meleeAreaAttack.gd" id="2_op0nv"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_va5l1"]
 [ext_resource type="Resource" uid="uid://ca63bygxqr4xr" path="res://Content/Scripts/Resources/unitData/hero.tres" id="3_5ha8m"]
@@ -134,6 +135,11 @@ vframes = 2
 libraries = {
 "": SubResource("AnimationLibrary_mokra")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+stream = ExtResource("2_022wl")
+volume_db = -10.0
 
 [node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_va5l1")

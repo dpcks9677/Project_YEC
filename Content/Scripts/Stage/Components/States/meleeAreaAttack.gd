@@ -40,5 +40,6 @@ func _on_damage_box_area_entered(area): #데미지 계산시에 활성화 됨. #
 	if area.get_name() == "hitbox":
 		if self.get_parent().get_parent().get_faction() != area.get_parent().get_node("stateComponent").get_faction(): #아군 유닛 오사 방지
 			area.get_parent().get_node("stateComponent").damaged(damage)
+			$"../../../AudioStreamPlayer2D".play()
 			if area.get_parent().get_node("stateComponent").property_exists(area.get_parent().get_node("stateComponent"), "health"):
 				print(area.get_parent().get_node("stateComponent").health)

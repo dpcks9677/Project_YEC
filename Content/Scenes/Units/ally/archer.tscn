@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://cv1h8mnftsm3h"]
 
-[ext_resource type="Texture2D" uid="uid://bqbxxbusi3ngs" path="res://Content/Graphics/Sprites/ally/archer.png" id="1_bdxdh"]
+[ext_resource type="Texture2D" uid="uid://fthosu83e8b2" path="res://Content/Graphics/Sprites/ally/archer.png" id="1_bdxdh"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_85ohq"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="3_1csq0"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_vt62x"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/rangeSingleAttack.gd" id="6_wke1r"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/projectile.gd" id="8_66n73"]
 [ext_resource type="Resource" uid="uid://bdjucmvu5jw0d" path="res://Content/Scripts/Resources/castData/archer_normal.tres" id="8_i46jk"]
-[ext_resource type="Texture2D" uid="uid://c4g7ixcrpqtxh" path="res://Content/Graphics/Sprites/etc/weapon.png" id="8_ykkvl"]
+[ext_resource type="Texture2D" uid="uid://dcp6bqcs2qsxl" path="res://Content/Graphics/Sprites/etc/weapon.png" id="8_ykkvl"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/knockBack.gd" id="10_bscpu"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/additionalState.gd" id="12_7yf77"]
 
@@ -278,6 +278,10 @@ vframes = 3
 libraries = {
 "": SubResource("AnimationLibrary_rolya")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+volume_db = -10.0
 
 [node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_85ohq")

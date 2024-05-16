@@ -40,6 +40,7 @@ func waiting_animation(): #await 키워드와 함께 사용
 func _on_damage_box_area_entered(area): #데미지 계산시에 활성화 됨. #area = 충돌된 콜리전, target = 공격대상 
 	if area == castTarget and is_instance_valid(area):
 		castTarget.get_parent().get_node("stateComponent").damaged(damage)
+		$"../../../AudioStreamPlayer2D".play()
 		#castTarget.get_parent().get_node("stateComponent").force_change_state("KnockBack") #거리값 추가 필요
 		if area.get_parent().get_node("stateComponent").property_exists(area.get_parent().get_node("stateComponent"), "health"):
 			print(area.get_parent().get_node("stateComponent").health)

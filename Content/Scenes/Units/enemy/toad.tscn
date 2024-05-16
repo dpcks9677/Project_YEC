@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://brhy872g4qvjq"]
 
-[ext_resource type="Texture2D" uid="uid://ommhhhgvfnb5" path="res://Content/Graphics/Sprites/enemy/toad.png" id="1_p4lca"]
+[ext_resource type="Texture2D" uid="uid://cowfo54v16b5x" path="res://Content/Graphics/Sprites/enemy/toad.png" id="1_p4lca"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_4f6wm"]
 [ext_resource type="Resource" uid="uid://durdht0t7gsde" path="res://Content/Scripts/Resources/unitData/toad.tres" id="3_74wxm"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_nuvhy"]
@@ -133,6 +133,10 @@ hframes = 8
 libraries = {
 "": SubResource("AnimationLibrary_txi3n")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+volume_db = -10.0
 
 [node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_4f6wm")

@@ -103,9 +103,7 @@ func atkHandler():
 	pass
 	
 func doAttackUpgrade():
-	isAttackUpgrade = true
-	await get_tree().create_timer(20).timeout #upgrade time = 20
-	isAttackUpgrade = false
+	pass
 
 #베이스 체력 관련 처리 
 func get_allyBaseHealth():

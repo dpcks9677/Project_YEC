@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://oms4xo8wpeo7"]
+[gd_scene load_steps=24 format=3 uid="uid://oms4xo8wpeo7"]
 
 [ext_resource type="Texture2D" uid="uid://clxxw55m461lq" path="res://Content/Graphics/Sprites/ally/knight.png" id="1_2vx0n"]
+[ext_resource type="AudioStream" uid="uid://bbm6x3mk74w3o" path="res://Content/Sound/sfx/sword-hit_1.mp3" id="2_clo4l"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_u0rxm"]
 [ext_resource type="Resource" uid="uid://dmej1s0qks1mo" path="res://Content/Scripts/Resources/unitData/knight.tres" id="3_1txna"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_b2rvq"]
@@ -192,6 +193,11 @@ frame = 1
 libraries = {
 "": SubResource("AnimationLibrary_dluui")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+stream = ExtResource("2_clo4l")
+volume_db = -10.0
 
 [node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 scale = Vector2(1.25, 1.25)
