@@ -1,9 +1,9 @@
 [gd_scene load_steps=23 format=3 uid="uid://fbdbf7roi2eh"]
 
-[ext_resource type="Texture2D" uid="uid://dm3oqftukneu6" path="res://Content/Graphics/Sprites/ally/spearman.png" id="1_pddrv"]
+[ext_resource type="Texture2D" uid="uid://d2mtclvuwcmb6" path="res://Content/Graphics/Sprites/ally/spearman.png" id="1_pddrv"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_0u7fr"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="2_r4tel"]
-[ext_resource type="AudioStream" uid="uid://bbm6x3mk74w3o" path="res://Content/Sound/sfx/sword-hit_1.mp3" id="2_yphfe"]
+[ext_resource type="AudioStream" uid="uid://b58d44sjwrkni" path="res://Content/Sound/sfx/sword-hit_1.mp3" id="2_yphfe"]
 [ext_resource type="Resource" uid="uid://fxiqb5xyif71" path="res://Content/Scripts/Resources/unitData/spearman.tres" id="3_2w02y"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="5_5o35o"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="5_l1yw4"]
@@ -165,7 +165,6 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("2_yphfe")
 volume_db = -10.0
 

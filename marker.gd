@@ -18,6 +18,8 @@ func _ready():
 func _physics_process(_delta):
 	if is_instance_valid(unitInfo):
 		setProgression(unitInfo)
+	else:
+		queue_free()
 
 func setTarget(target): #target = stateComponent 
 	unitInfo = target.get_parent() # => pathfollow2D

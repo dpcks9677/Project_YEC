@@ -114,3 +114,40 @@ func get_enemyBaseHealth():
 		
 func checkBaseHealth():
 	pass
+	
+#getter 함수 모음
+#mana관련 
+func get_mana_lv():
+	return mana_lv
+	
+func get_max_mana():
+	return max_mana
+	
+func get_regen_mana():
+	return regen_mana
+	
+func get_current_mana():
+	return current_mana
+	
+func get_isManaUpgrade():
+	return isManaUpgrade
+	
+#pop관련
+func get_population_lv():
+	return population_lv
+	
+func get_max_population():
+	return max_population
+	
+func get_population():
+	return population
+	
+func get_isPopulationFull():
+	return isPopulationFull
+	
+func get_isPopUpgrade():
+	return isPopUpgrade
+	
+#att 관련
+func get_atk_lv():
+	return atk_lv

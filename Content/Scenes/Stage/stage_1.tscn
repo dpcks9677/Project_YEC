@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Handler/resourceHandler.gd" id="1_jgakt"]
 [ext_resource type="PackedScene" uid="uid://c201rvxgq5e35" path="res://Content/Scenes/Stage/stage_1_scenario.tscn" id="2_n5lwx"]
-[ext_resource type="Texture2D" uid="uid://ba87jwjdotbrl" path="res://Content/Graphics/Background/stage1.png" id="3_22536"]
+[ext_resource type="Texture2D" uid="uid://cp7bvp80hcopu" path="res://Content/Graphics/Background/stage1.png" id="3_22536"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/unitSummoner.gd" id="3_jveqw"]
 [ext_resource type="PackedScene" uid="uid://dqhjv2biwvh6a" path="res://Content/Scenes/Stage/Interfaces/unit_button.tscn" id="4_6klob"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/Camera.gd" id="4_b0td4"]
@@ -13,20 +13,20 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/manaUI.gd" id="6_l1odv"]
 [ext_resource type="Resource" uid="uid://bs8061ffaprvh" path="res://Content/Scripts/Resources/unitData/enemyBase.tres" id="6_qu5pd"]
 [ext_resource type="PackedScene" uid="uid://df442pebjo11j" path="res://Content/Scenes/Units/enemy/spitter.tscn" id="7_n36hi"]
-[ext_resource type="FontFile" uid="uid://dd4ci4vhjs8ty" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="7_q3e13"]
+[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="7_q3e13"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/baseHealthBar.gd" id="8_kb7w1"]
-[ext_resource type="FontFile" uid="uid://7otcf7hvkgg1" path="res://Content/Graphics/UI/font/Pixel Gosub.otf" id="9_juunw"]
-[ext_resource type="Texture2D" uid="uid://bsi7j5f842loc" path="res://Content/Graphics/UI/UI.png" id="10_57egk"]
-[ext_resource type="Texture2D" uid="uid://bx21vkanph10n" path="res://Content/Graphics/Sprites/object/base.png" id="10_foypc"]
-[ext_resource type="Texture2D" uid="uid://cildyfhqk48ri" path="res://Content/Graphics/UI/UIset.png" id="11_22pvb"]
+[ext_resource type="FontFile" uid="uid://i8yrjuivbwjv" path="res://Content/Graphics/UI/font/Pixel Gosub.otf" id="9_juunw"]
+[ext_resource type="Texture2D" uid="uid://cw2clweh6qd5h" path="res://Content/Graphics/UI/UI.png" id="10_57egk"]
+[ext_resource type="Texture2D" uid="uid://blxslptm71fvn" path="res://Content/Graphics/Sprites/object/base.png" id="10_foypc"]
+[ext_resource type="Texture2D" uid="uid://u7oq6qprstaa" path="res://Content/Graphics/UI/UIset.png" id="11_22pvb"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/populationUI.gd" id="12_2y76e"]
 [ext_resource type="PackedScene" uid="uid://oms4xo8wpeo7" path="res://Content/Scenes/Units/ally/knight.tscn" id="12_aec61"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/minimapUI.gd" id="13_ecmny"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/base.gd" id="13_p2anb"]
-[ext_resource type="Texture2D" uid="uid://dw2gvfwdnb8f3" path="res://Content/Graphics/UI/pop.png" id="14_cf7r0"]
+[ext_resource type="Texture2D" uid="uid://ll6heg42m50h" path="res://Content/Graphics/UI/pop.png" id="14_cf7r0"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/upgradeUI.gd" id="14_et0ei"]
-[ext_resource type="Texture2D" uid="uid://bqhcajn3x87xe" path="res://Content/Graphics/UI/mana.png" id="15_rhukf"]
-[ext_resource type="Texture2D" uid="uid://bj2vyofn16fs1" path="res://Content/Graphics/UI/att.png" id="17_okgo7"]
+[ext_resource type="Texture2D" uid="uid://dpd05uv4svud6" path="res://Content/Graphics/UI/mana.png" id="15_rhukf"]
+[ext_resource type="Texture2D" uid="uid://cpxdp0psf36ck" path="res://Content/Graphics/UI/att.png" id="17_okgo7"]
 [ext_resource type="PackedScene" uid="uid://25330bywv47t" path="res://Content/Scenes/Units/ally/healer.tscn" id="24_w3v8t"]
 
 [sub_resource type="Gradient" id="Gradient_dk8t7"]
@@ -499,7 +499,7 @@ layout_mode = 0
 offset_right = 26.0
 offset_bottom = 90.0
 max_value = 5.0
-value = 3.0
+value = 1.0
 fill_mode = 3
 texture_under = SubResource("GradientTexture2D_38fqj")
 texture_progress = SubResource("GradientTexture2D_guwjr")
@@ -532,7 +532,7 @@ layout_mode = 0
 offset_right = 26.0
 offset_bottom = 90.0
 max_value = 5.0
-value = 3.0
+value = 1.0
 fill_mode = 3
 texture_under = SubResource("GradientTexture2D_ha6u1")
 texture_progress = SubResource("GradientTexture2D_tuobf")
@@ -542,9 +542,9 @@ visible = false
 layout_mode = 0
 offset_right = 160.0
 offset_bottom = 90.0
-max_value = 45.0
+max_value = 30.0
 step = 0.01
-value = 45.0
+value = 30.0
 fill_mode = 3
 texture_progress = SubResource("GradientTexture2D_6fs36")
 
@@ -564,7 +564,7 @@ layout_mode = 0
 offset_right = 26.0
 offset_bottom = 90.0
 max_value = 5.0
-value = 3.0
+value = 1.0
 fill_mode = 3
 texture_under = SubResource("GradientTexture2D_ha6u1")
 texture_progress = SubResource("GradientTexture2D_tuobf")
@@ -574,9 +574,9 @@ visible = false
 layout_mode = 0
 offset_right = 160.0
 offset_bottom = 90.0
-max_value = 45.0
+max_value = 30.0
 step = 0.01
-value = 45.0
+value = 30.0
 fill_mode = 3
 texture_progress = SubResource("GradientTexture2D_6fs36")
 
