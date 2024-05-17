@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://3xia3mjw5l8g"]
+
+[ext_resource type="PackedScene" uid="uid://8425mxmhiw1h" path="res://Content/Scenes/Units/ally/malePeasant.tscn" id="1_capnn"]
+[ext_resource type="PackedScene" uid="uid://4vaswcuj74qy" path="res://Content/Scenes/Units/ally/femalePeasant.tscn" id="2_c44yw"]
+
+[node name="militia" type="Node2D"]
+
+[node name="malePeasant" parent="." instance=ExtResource("1_capnn")]
+
+[node name="malePeasant2" parent="." instance=ExtResource("1_capnn")]
+
+[node name="femalePeasant" parent="." instance=ExtResource("2_c44yw")]

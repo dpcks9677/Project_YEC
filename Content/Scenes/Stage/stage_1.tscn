@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=76 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Handler/resourceHandler.gd" id="1_jgakt"]
 [ext_resource type="PackedScene" uid="uid://c201rvxgq5e35" path="res://Content/Scenes/Stage/stage_1_scenario.tscn" id="2_n5lwx"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://25330bywv47t" path="res://Content/Scenes/Units/ally/healer.tscn" id="24_w3v8t"]
 [ext_resource type="PackedScene" uid="uid://b6b55fdeongkh" path="res://Content/Scenes/Units/enemy/blop.tscn" id="29_3hdh4"]
 [ext_resource type="PackedScene" uid="uid://4vaswcuj74qy" path="res://Content/Scenes/Units/ally/femalePeasant.tscn" id="29_75y52"]
+[ext_resource type="PackedScene" uid="uid://brhy872g4qvjq" path="res://Content/Scenes/Units/enemy/toad.tscn" id="30_gymp6"]
 
 [sub_resource type="Gradient" id="Gradient_dk8t7"]
 interpolation_mode = 2
@@ -681,9 +682,15 @@ rotation = 0.000351868
 rotates = false
 
 [node name="blop" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("29_3hdh4")]
-position = Vector2(359.651, 46.0717)
+position = Vector2(359.653, 46.072)
 rotation = 0.000351868
 progress = 1274.25
+rotates = false
+
+[node name="toad" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("30_gymp6")]
+position = Vector2(543.232, 39.6364)
+rotation = 0.000351868
+progress = 1459.32
 rotates = false
 
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]

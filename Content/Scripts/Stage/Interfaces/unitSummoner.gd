@@ -22,11 +22,8 @@ func _ready():
 	#씬 불러 올 때, 직접 경로를 적지 않고, 데이터를 인계받아서 자리에 맞게 유닛을 매치 할 수 있도록 설계 
 	for i in range(8):
 		if unitName[i] != null:
-			if typeof(unitName[i]) == TYPE_STRING:
-				var unitData = load("res://Content/Scenes/Units/ally/" + str(unitName[i]) + ".tscn")
-				unitScene[i] = unitData
-			else:
-				pass # 배열 선언 -> array 파싱 후 배열에 Scene 로드 -> add_child() 
+			var unitData = load("res://Content/Scenes/Units/ally/" + str(unitName[i]) + ".tscn")
+			unitScene[i] = unitData
 		
 func _process(_delta):
 	pass
@@ -34,7 +31,6 @@ func _process(_delta):
 func spawn(unit):
 	#인스턴스화 먼저 (정보 얻어와야 함) 
 	var target
-	var targetUnitTag : String
 	var idx : int
 	
 	for i in range(8):
@@ -43,20 +39,25 @@ func spawn(unit):
 
 	target = unitScene[idx].instantiate()
 	
-	if rsc.isPopulationFull == true: #인구 수 확인 
-		print("Population limit exceeded.")
-	else: #마나 여부 확인 / 이유를 모르겠으나 mana를 조회하면 계속 0으로 나와서 _status.mana로 접근해야 원하는 대로 동작함.
-		if target.get_node("stateComponent")._status.mana > rsc.current_mana: 
-			print("no mana")
-		else:
-			print(target.get_node("stateComponent").mana)
-			#마나 지불 
-			rsc.current_mana -= target.get_node("stateComponent")._status.mana
-			
-			#stage1 씬에 노드 추가 false = top / true = bottom 
-			if get_parent().get_node("laneUI").currentLane == true:
-				get_parent().get_parent().get_node("laneSetter").get_node("bottomLane").add_child(target)
-				print("bottom spawned")
+	if target.get_class() == "Node2D":
+		for i in range(target.get_child_count()):
+			var spawnNode = target.get_child(i).instantiate()
+			#이후 else문에 있는 내용을 변경할 것. 인구수 확인 부분 체크 필수 (나오는 유닛이 3개면 ispopulationFull로 체크 불가)
+	else:
+		if rsc.isPopulationFull == true: #인구 수 확인 
+			print("Population limit exceeded.")
+		else: #마나 여부 확인 / 이유를 모르겠으나 mana를 조회하면 계속 0으로 나와서 _status.mana로 접근해야 원하는 대로 동작함.
+			if target.get_node("stateComponent")._status.mana > rsc.current_mana: 
+				print("no mana")
 			else:
-				get_parent().get_parent().get_node("laneSetter").get_node("topLane").add_child(target)
-				print("top spawned")
+				print(target.get_node("stateComponent").mana)
+				#마나 지불 
+				rsc.current_mana -= target.get_node("stateComponent")._status.mana
+				
+				#stage1 씬에 노드 추가 false = top / true = bottom 
+				if get_parent().get_node("laneUI").currentLane == true:
+					get_parent().get_parent().get_node("laneSetter").get_node("bottomLane").add_child(target)
+					print("bottom spawned")
+				else:
+					get_parent().get_parent().get_node("laneSetter").get_node("topLane").add_child(target)
+					print("top spawned")

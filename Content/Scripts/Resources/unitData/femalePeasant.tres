@@ -8,5 +8,5 @@ type = "unit"
 faction = "ally"
 size = "small"
 health = 1000
-speed = 0.6
+speed = 0.7
 mana = 8
