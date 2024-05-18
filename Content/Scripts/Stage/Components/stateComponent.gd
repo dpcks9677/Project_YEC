@@ -13,6 +13,7 @@ var states : Dictionary = {}
 
 @export var faction : String
 @export var type : String
+@export var includedUnit : Array
 
 @export var max_health : int
 @export var health : int
@@ -25,6 +26,7 @@ func _enter_tree():
 	#유닛 데이터 입력 
 	faction = _status.faction
 	type = _status.type
+	includedUnit = _status.includedUnit
 	
 	max_health = _status.health
 	health = _status.health
@@ -39,7 +41,7 @@ func _ready():
 			child.state_transition.connect(change_state)
 			
 	if initial_state:
-		initial_state.Enter()
+		initial_state.Enter() 
 		current_state = initial_state
 
 	if get_parent().get_parent().get_name() == "topLane":
@@ -168,13 +170,27 @@ func hitShader():
 
 #getter function
 func get_type():
-	return type
+	return _status.type
 
 func get_faction():
-	return faction
+	return _status.faction
+	
+func get_includedUnit():
+	return _status.includedUnit
+
+
+func get_max_health():
+	return _status.max_health
+
+func get_health():
+	return _status.health
 	
 func get_speed():
-	return speed
+	return _status.speed
+	
+func get_mana():
+	return _status.mana
+	
 	
 func on_attackRangeComponent():
 	var collision = $"../attackRangeComponent/CollisionShape2D"

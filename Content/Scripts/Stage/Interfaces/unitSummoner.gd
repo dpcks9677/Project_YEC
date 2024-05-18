@@ -14,7 +14,7 @@ func _init():
 	unitName[0] = "spearman" 
 	unitName[1] = "knight"
 	unitName[2] = "archer"
-	unitName[3] = "healer"
+	unitName[3] = "militia"
 
 func _ready():
 	rsc = get_parent().get_parent()
@@ -39,20 +39,35 @@ func spawn(unit):
 
 	target = unitScene[idx].instantiate()
 	
-	if target.get_class() == "Node2D":
-		for i in range(target.get_child_count()):
-			var spawnNode = target.get_child(i).instantiate()
-			#이후 else문에 있는 내용을 변경할 것. 인구수 확인 부분 체크 필수 (나오는 유닛이 3개면 ispopulationFull로 체크 불가)
-	else:
-		if rsc.isPopulationFull == true: #인구 수 확인 
+	if target.get_class() == "Node2D": #여러 유닛을 소환하는 코드 
+		if rsc.get_population() + len(target.get_node("stateComponent").get_includedUnit()) > rsc.get_max_population(): #인구 수 확인 
 			print("Population limit exceeded.")
 		else: #마나 여부 확인 / 이유를 모르겠으나 mana를 조회하면 계속 0으로 나와서 _status.mana로 접근해야 원하는 대로 동작함.
-			if target.get_node("stateComponent")._status.mana > rsc.current_mana: 
+			if target.get_node("stateComponent").get_mana() > rsc.get_current_mana(): 
 				print("no mana")
 			else:
-				print(target.get_node("stateComponent").mana)
+				print(target.get_node("stateComponent").get_mana())
 				#마나 지불 
-				rsc.current_mana -= target.get_node("stateComponent")._status.mana
+				rsc.set_current_mana(rsc.get_current_mana() - target.get_node("stateComponent").get_mana())
+				
+				#stage1 씬에 노드 추가 false = top / true = bottom 
+				if get_parent().get_node("laneUI").currentLane == true:
+					for i in len(target.get_node("stateComponent").get_includedUnit()):
+						var spawnUnit = load("res://Content/Scenes/Units/ally/" + str(target.get_node("stateComponent").get_includedUnit()[i]) + ".tscn").instantiate()
+						get_parent().get_parent().get_node("laneSetter").get_node("bottomLane").add_child(spawnUnit)
+				else:
+					for i in len(target.get_node("stateComponent").get_includedUnit()):
+						var spawnUnit = load("res://Content/Scenes/Units/ally/" + str(target.get_node("stateComponent").get_includedUnit()[i]) + ".tscn").instantiate()
+						get_parent().get_parent().get_node("laneSetter").get_node("topLane").add_child(spawnUnit)
+	else: #단일 유닛을 소환하는 코드 
+		if rsc.get_population() >= rsc.get_max_population(): #인구 수 확인 
+			print("Population limit exceeded.")
+		else: #마나 여부 확인 / 이유를 모르겠으나 mana를 조회하면 계속 0으로 나와서 _status.mana로 접근해야 원하는 대로 동작함.
+			if target.get_node("stateComponent").get_mana() > rsc.get_current_mana(): 
+				print("no mana")
+			else:
+				#마나 지불 
+				rsc.current_mana -= target.get_node("stateComponent").get_mana()
 				
 				#stage1 씬에 노드 추가 false = top / true = bottom 
 				if get_parent().get_node("laneUI").currentLane == true:

@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://3xia3mjw5l8g"]
+[gd_scene load_steps=6 format=3 uid="uid://3xia3mjw5l8g"]
 
 [ext_resource type="PackedScene" uid="uid://8425mxmhiw1h" path="res://Content/Scenes/Units/ally/malePeasant.tscn" id="1_capnn"]
 [ext_resource type="PackedScene" uid="uid://4vaswcuj74qy" path="res://Content/Scenes/Units/ally/femalePeasant.tscn" id="2_c44yw"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="3_65eec"]
+[ext_resource type="Resource" uid="uid://c833f4fbht4pf" path="res://Content/Scripts/Resources/unitData/militia.tres" id="4_w4jmi"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/idle.gd" id="5_derdi"]
 
 [node name="militia" type="Node2D"]
 
@@ -10,3 +13,11 @@
 [node name="malePeasant2" parent="." instance=ExtResource("1_capnn")]
 
 [node name="femalePeasant" parent="." instance=ExtResource("2_c44yw")]
+
+[node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_65eec")
+initial_state = NodePath("Idle")
+_status = ExtResource("4_w4jmi")
+
+[node name="Idle" type="Node2D" parent="stateComponent"]
+script = ExtResource("5_derdi")

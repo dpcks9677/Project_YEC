@@ -151,3 +151,8 @@ func get_isPopUpgrade():
 #att 관련
 func get_atk_lv():
 	return atk_lv
+
+#setter
+#mana관련
+func set_current_mana(value):
+	current_mana = value

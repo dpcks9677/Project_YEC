@@ -69,6 +69,9 @@ tracks/1/keys = {
 "values": [true, false, true]
 }
 
+[sub_resource type="Animation" id="Animation_th3vi"]
+resource_name = "dead"
+
 [sub_resource type="Animation" id="Animation_trvap"]
 resource_name = "idle"
 length = 0.8
@@ -103,9 +106,6 @@ tracks/0/keys = {
 "values": [5, 6, 7, 8]
 }
 
-[sub_resource type="Animation" id="Animation_th3vi"]
-resource_name = "dead"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d4a5f"]
 _data = {
 "RESET": SubResource("Animation_1asg4"),
@@ -126,6 +126,7 @@ height = 64.0
 size = Vector2(24, 80)
 
 [node name="malePeasant" type="PathFollow2D"]
+rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(24, -48)

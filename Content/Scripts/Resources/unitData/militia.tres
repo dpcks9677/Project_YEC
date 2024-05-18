@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="statusResource" load_steps=2 format=3 uid="uid://c833f4fbht4pf"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Resources/unitData/statusResource.gd" id="1_g4rrm"]
+
+[resource]
+script = ExtResource("1_g4rrm")
+type = "unit"
+faction = "ally"
+size = "small"
+includedUnit = ["malePeasant", "malePeasant", "femalePeasant"]
+health = 0
+speed = 0.0
+mana = 25

@@ -68,6 +68,9 @@ tracks/1/keys = {
 "values": [true, false, true]
 }
 
+[sub_resource type="Animation" id="Animation_t1h10"]
+resource_name = "dead"
+
 [sub_resource type="Animation" id="Animation_0fhfl"]
 resource_name = "idle"
 length = 0.8
@@ -101,9 +104,6 @@ tracks/0/keys = {
 "values": [5, 6, 7, 8]
 }
 
-[sub_resource type="Animation" id="Animation_t1h10"]
-resource_name = "dead"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hpmqc"]
 _data = {
 "RESET": SubResource("Animation_7227r"),
@@ -124,6 +124,7 @@ height = 64.0
 size = Vector2(24, 80)
 
 [node name="femalePeasant" type="PathFollow2D"]
+rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(24, -48)

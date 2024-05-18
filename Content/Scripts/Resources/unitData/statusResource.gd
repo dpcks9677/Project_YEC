@@ -6,6 +6,8 @@ class_name statusResource
 @export var faction : String #enemy, ally
 @export var size : String
 
+@export var includedUnit : Array
+
 @export var health : int
 @export var speed : float
 @export var mana : int
