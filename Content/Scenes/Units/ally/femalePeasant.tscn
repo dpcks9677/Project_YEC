@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://4vaswcuj74qy"]
+[gd_scene load_steps=21 format=3 uid="uid://4vaswcuj74qy"]
 
 [ext_resource type="Texture2D" uid="uid://dvs35qesddqif" path="res://Content/Graphics/Sprites/ally/femalePeasant.png" id="1_fromu"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_lac77"]
@@ -101,10 +101,14 @@ tracks/0/keys = {
 "values": [5, 6, 7, 8]
 }
 
+[sub_resource type="Animation" id="Animation_t1h10"]
+resource_name = "dead"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hpmqc"]
 _data = {
 "RESET": SubResource("Animation_7227r"),
 "attack": SubResource("Animation_firtp"),
+"dead": SubResource("Animation_t1h10"),
 "idle": SubResource("Animation_0fhfl"),
 "walk": SubResource("Animation_bcxm5")
 }

@@ -259,39 +259,34 @@ script = ExtResource("1_jgakt")
 [node name="unitSummoner" type="Control" parent="resourceHandler/HUD"]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 92.0
+offset_top = 110.0
 offset_right = 380.0
-offset_bottom = 463.0
+offset_bottom = 481.0
 script = ExtResource("3_jveqw")
 metadata/_edit_use_anchors_ = true
 
 [node name="unitButton1" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
-clip_contents = false
 layout_mode = 1
-offset_top = 8.0
-offset_right = -380.0
-offset_bottom = -363.0
+offset_right = -267.0
+offset_bottom = -296.0
 
 [node name="unitButton2" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
-clip_contents = false
 layout_mode = 1
-offset_top = 78.0
-offset_right = -380.0
-offset_bottom = -293.0
+offset_top = 75.0
+offset_right = -267.0
+offset_bottom = -221.0
 
 [node name="unitButton3" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
-clip_contents = false
 layout_mode = 1
-offset_top = 148.0
-offset_right = -380.0
-offset_bottom = -223.0
+offset_top = 150.0
+offset_right = -267.0
+offset_bottom = -146.0
 
 [node name="unitButton4" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
-clip_contents = false
 layout_mode = 1
-offset_top = 218.0
-offset_right = -380.0
-offset_bottom = -153.0
+offset_top = 225.0
+offset_right = -267.0
+offset_bottom = -71.0
 
 [node name="laneUI" type="Control" parent="resourceHandler/HUD"]
 layout_mode = 3

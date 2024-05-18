@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://8425mxmhiw1h"]
+[gd_scene load_steps=22 format=3 uid="uid://8425mxmhiw1h"]
 
 [ext_resource type="Texture2D" uid="uid://cbdl7p2q38r0v" path="res://Content/Graphics/Sprites/ally/malePeasant.png" id="1_74htb"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="1_y1m70"]
@@ -103,10 +103,14 @@ tracks/0/keys = {
 "values": [5, 6, 7, 8]
 }
 
+[sub_resource type="Animation" id="Animation_th3vi"]
+resource_name = "dead"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d4a5f"]
 _data = {
 "RESET": SubResource("Animation_1asg4"),
 "attack": SubResource("Animation_0muys"),
+"dead": SubResource("Animation_th3vi"),
 "idle": SubResource("Animation_trvap"),
 "walk": SubResource("Animation_kvg6q")
 }
