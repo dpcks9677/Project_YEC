@@ -14,6 +14,10 @@ func _ready():
 	manaButton = get_child(0)
 	popButton = get_child(1)
 	attButton = get_child(2)
+	
+func _process(delta):
+	get_node("manaUpgradeButton/manaTag/mana").text = str(rsc.get_mana_lv_cost())
+	get_node("popUpgradeButton/manaTag/mana").text = str(rsc.get_population_lv_cost())
 
 #function
 func upgradeProgressTexture():
@@ -36,7 +40,8 @@ func _on_mana_upgrade_button_button_down():
 
 func _on_mana_upgrade_button_button_up():
 	undo_modulate(manaButton)
-	if rsc.get_mana_lv() <= 5:
+	if rsc.get_mana_lv() <= 5 and rsc.get_current_mana() >= rsc.get_mana_lv_cost():
+		rsc.set_current_mana(rsc.get_current_mana() - rsc.get_mana_lv_cost()) #마나지불
 		manaButton.disabled = true
 		$manaUpgradeButton/UpgradeProgress.visible = true
 		
@@ -70,7 +75,8 @@ func _on_pop_upgrade_button_button_down():
 func _on_pop_upgrade_button_button_up():
 	undo_modulate(popButton)
 	
-	if rsc.get_mana_lv() <= 5:
+	if rsc.get_mana_lv() <= 5 and rsc.get_current_mana() >= rsc.get_population_lv_cost():
+		rsc.set_current_mana(rsc.get_current_mana() - rsc.get_mana_lv_cost()) #마나지불
 		popButton.disabled = true
 		$popUpgradeButton/UpgradeProgress.visible = true
 		

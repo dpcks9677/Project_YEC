@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=78 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Handler/resourceHandler.gd" id="1_jgakt"]
 [ext_resource type="PackedScene" uid="uid://c201rvxgq5e35" path="res://Content/Scenes/Stage/stage_1_scenario.tscn" id="2_n5lwx"]
@@ -132,21 +132,23 @@ colors = PackedColorArray(0, 0, 0, 0.509804, 0, 0, 0, 0.509804)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_38fqj"]
 gradient = SubResource("Gradient_er4y5")
-width = 26
-height = 90
+width = 165
+height = 25
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh5ga"]
+
 [sub_resource type="Gradient" id="Gradient_aijon"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8)
-colors = PackedColorArray(0.3506, 0.6, 0.252, 1, 0.5787, 0.6, 0.174, 1, 0.9, 0.4998, 0.072, 1, 0.9, 0.27225, 0.063, 1, 0.9, 0.045, 0.045, 1)
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.709804, 0, 1)
 metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_guwjr"]
 gradient = SubResource("Gradient_aijon")
-width = 26
-height = 90
+width = 165
+height = 25
 fill_from = Vector2(1, 1)
 
 [sub_resource type="Gradient" id="Gradient_g3nis"]
@@ -157,26 +159,34 @@ gradient = SubResource("Gradient_g3nis")
 width = 160
 height = 90
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8hig"]
+bg_color = Color(0.580392, 0.74902, 0.976471, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
 [sub_resource type="Gradient" id="Gradient_07gf8"]
 colors = PackedColorArray(0, 0, 0, 0.509804, 0, 0, 0, 0.509804)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ha6u1"]
 gradient = SubResource("Gradient_07gf8")
-width = 26
-height = 90
+width = 165
+height = 25
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
 [sub_resource type="Gradient" id="Gradient_tlw07"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8)
-colors = PackedColorArray(0.3506, 0.6, 0.252, 1, 0.5787, 0.6, 0.174, 1, 0.9, 0.4998, 0.072, 1, 0.9, 0.27225, 0.063, 1, 0.9, 0.045, 0.045, 1)
+offsets = PackedFloat32Array(0.4)
+colors = PackedColorArray(1, 0.694118, 0, 1)
 metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tuobf"]
 gradient = SubResource("Gradient_tlw07")
-width = 26
-height = 90
+width = 165
+height = 25
 fill_from = Vector2(1, 1)
 
 [sub_resource type="Gradient" id="Gradient_0uiqi"]
@@ -187,17 +197,27 @@ gradient = SubResource("Gradient_0uiqi")
 width = 160
 height = 90
 
+[sub_resource type="Gradient" id="Gradient_b6yxw"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.509804)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hcg85"]
+gradient = SubResource("Gradient_b6yxw")
+width = 165
+height = 25
+
+[sub_resource type="Gradient" id="Gradient_srywu"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.694118, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3u7t4"]
+gradient = SubResource("Gradient_srywu")
+width = 165
+height = 25
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7c4e5"]
 atlas = ExtResource("11_22pvb")
-region = Rect2(16, 86, 88, 53)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8hig"]
-bg_color = Color(0.580392, 0.74902, 0.976471, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-anti_aliasing = false
+region = Rect2(16, 151, 90, 74)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rnbpd"]
 atlas = ExtResource("10_foypc")
@@ -489,9 +509,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -2.25
-anchor_top = -0.15
+anchor_top = -0.1
 anchor_right = -2.25
-anchor_bottom = -0.15
+anchor_bottom = -0.1
 offset_left = 193.0
 offset_top = 562.0
 offset_right = 353.0
@@ -502,13 +522,18 @@ texture_normal = ExtResource("15_rhukf")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="resourceHandler/HUD/upgradeUI/manaUpgradeButton"]
-layout_mode = 0
-offset_right = 26.0
-offset_bottom = 90.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0192308
+anchor_top = -0.42735
+anchor_right = -0.0192307
+anchor_bottom = -0.42735
+offset_right = 165.0
+offset_bottom = 25.0
 max_value = 5.0
 value = 1.0
-fill_mode = 3
 texture_under = SubResource("GradientTexture2D_38fqj")
+texture_over = SubResource("AtlasTexture_wh5ga")
 texture_progress = SubResource("GradientTexture2D_guwjr")
 metadata/_edit_use_anchors_ = true
 
@@ -520,16 +545,48 @@ offset_bottom = 90.0
 max_value = 30.0
 step = 0.01
 value = 30.0
-fill_mode = 3
+fill_mode = 5
 texture_progress = SubResource("GradientTexture2D_gehkg")
+
+[node name="manaTag" type="Control" parent="resourceHandler/HUD/upgradeUI/manaUpgradeButton"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 107.0
+offset_bottom = 61.0
+scale = Vector2(1.5, 1.5)
+mouse_filter = 2
+
+[node name="ColorRect" type="Panel" parent="resourceHandler/HUD/upgradeUI/manaUpgradeButton/manaTag"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 4.07693
+offset_top = 37.9487
+offset_right = 47.0769
+offset_bottom = 55.9487
+theme_override_styles/panel = SubResource("StyleBoxFlat_y8hig")
+
+[node name="mana" type="Label" parent="resourceHandler/HUD/upgradeUI/manaUpgradeButton/manaTag"]
+layout_mode = 0
+offset_left = 22.3269
+offset_top = 41.1987
+offset_right = 45.3269
+offset_bottom = 55.1987
+theme_override_fonts/font = ExtResource("7_q3e13")
+theme_override_font_sizes/font_size = 13
+text = "00"
+
+[node name="crystal" type="Sprite2D" parent="resourceHandler/HUD/upgradeUI/manaUpgradeButton/manaTag"]
+position = Vector2(12.3269, 47.1987)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("16_ij1sc")
 
 [node name="popUpgradeButton" type="TextureButton" parent="resourceHandler/HUD/upgradeUI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -1.6
-anchor_top = -0.15
+anchor_top = -0.0999985
 anchor_right = -1.6
-anchor_bottom = -0.15
+anchor_bottom = -0.0999985
 offset_left = 281.0
 offset_top = 562.0
 offset_right = 441.0
@@ -540,12 +597,16 @@ texture_normal = ExtResource("14_cf7r0")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="resourceHandler/HUD/upgradeUI/popUpgradeButton"]
-layout_mode = 0
-offset_right = 26.0
-offset_bottom = 90.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0192309
+anchor_top = -0.427352
+anchor_right = -0.0192309
+anchor_bottom = -0.427352
+offset_right = 165.0
+offset_bottom = 25.0
 max_value = 5.0
 value = 1.0
-fill_mode = 3
 texture_under = SubResource("GradientTexture2D_ha6u1")
 texture_progress = SubResource("GradientTexture2D_tuobf")
 metadata/_edit_use_anchors_ = true
@@ -561,13 +622,45 @@ value = 30.0
 fill_mode = 3
 texture_progress = SubResource("GradientTexture2D_6fs36")
 
+[node name="manaTag" type="Control" parent="resourceHandler/HUD/upgradeUI/popUpgradeButton"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 107.0
+offset_bottom = 61.0
+scale = Vector2(1.5, 1.5)
+mouse_filter = 2
+
+[node name="ColorRect" type="Panel" parent="resourceHandler/HUD/upgradeUI/popUpgradeButton/manaTag"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 4.07693
+offset_top = 37.9487
+offset_right = 47.0769
+offset_bottom = 55.9487
+theme_override_styles/panel = SubResource("StyleBoxFlat_y8hig")
+
+[node name="mana" type="Label" parent="resourceHandler/HUD/upgradeUI/popUpgradeButton/manaTag"]
+layout_mode = 0
+offset_left = 22.3269
+offset_top = 41.1987
+offset_right = 45.3269
+offset_bottom = 55.1987
+theme_override_fonts/font = ExtResource("7_q3e13")
+theme_override_font_sizes/font_size = 13
+text = "00"
+
+[node name="crystal" type="Sprite2D" parent="resourceHandler/HUD/upgradeUI/popUpgradeButton/manaTag"]
+position = Vector2(12.3269, 47.1987)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("16_ij1sc")
+
 [node name="attackUpgradeButton" type="TextureButton" parent="resourceHandler/HUD/upgradeUI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.899999
-anchor_top = -0.15
+anchor_top = -0.0999985
 anchor_right = -0.899999
-anchor_bottom = -0.15
+anchor_bottom = -0.0999985
 offset_left = 367.0
 offset_top = 562.0
 offset_right = 527.0
@@ -579,14 +672,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="resourceHandler/HUD/upgradeUI/attackUpgradeButton"]
 layout_mode = 0
-offset_right = 26.0
-offset_bottom = 90.0
+offset_left = -3.077
+offset_top = -38.462
+offset_right = 161.923
+offset_bottom = -13.462
 max_value = 5.0
 value = 1.0
-fill_mode = 3
-texture_under = SubResource("GradientTexture2D_ha6u1")
-texture_progress = SubResource("GradientTexture2D_tuobf")
-metadata/_edit_use_anchors_ = true
+texture_under = SubResource("GradientTexture2D_hcg85")
+texture_progress = SubResource("GradientTexture2D_3u7t4")
 
 [node name="UpgradeProgress" type="TextureProgressBar" parent="resourceHandler/HUD/upgradeUI/attackUpgradeButton"]
 visible = false
@@ -599,53 +692,52 @@ value = 30.0
 fill_mode = 3
 texture_progress = SubResource("GradientTexture2D_6fs36")
 
-[node name="border" type="Sprite2D" parent="resourceHandler/HUD/upgradeUI"]
-position = Vector2(383.2, 585.45)
-scale = Vector2(1.3, 1.3)
-texture = SubResource("AtlasTexture_7c4e5")
-
-[node name="border2" type="Sprite2D" parent="resourceHandler/HUD/upgradeUI"]
-position = Vector2(269.2, 585.45)
-scale = Vector2(1.3, 1.3)
-texture = SubResource("AtlasTexture_7c4e5")
-
-[node name="border3" type="Sprite2D" parent="resourceHandler/HUD/upgradeUI"]
-position = Vector2(155.2, 585.45)
-scale = Vector2(1.3, 1.3)
-texture = SubResource("AtlasTexture_7c4e5")
-
-[node name="manaTag" type="Control" parent="resourceHandler/HUD/upgradeUI"]
+[node name="manaTag" type="Control" parent="resourceHandler/HUD/upgradeUI/attackUpgradeButton"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 103.0
-offset_top = 556.0
-offset_right = 210.0
-offset_bottom = 617.0
+offset_right = 107.0
+offset_bottom = 61.0
+scale = Vector2(1.5, 1.5)
 mouse_filter = 2
 
-[node name="ColorRect" type="Panel" parent="resourceHandler/HUD/upgradeUI/manaTag"]
+[node name="ColorRect" type="Panel" parent="resourceHandler/HUD/upgradeUI/attackUpgradeButton/manaTag"]
 modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
-offset_left = 58.0
-offset_top = 37.0
-offset_right = 101.0
-offset_bottom = 55.0
+offset_left = 4.07693
+offset_top = 37.9487
+offset_right = 47.0769
+offset_bottom = 55.9487
 theme_override_styles/panel = SubResource("StyleBoxFlat_y8hig")
 
-[node name="mana" type="Label" parent="resourceHandler/HUD/upgradeUI/manaTag"]
+[node name="mana" type="Label" parent="resourceHandler/HUD/upgradeUI/attackUpgradeButton/manaTag"]
 layout_mode = 0
-offset_left = 76.25
-offset_top = 40.25
-offset_right = 99.25
-offset_bottom = 54.25
+offset_left = 22.3269
+offset_top = 41.1987
+offset_right = 45.3269
+offset_bottom = 55.1987
 theme_override_fonts/font = ExtResource("7_q3e13")
 theme_override_font_sizes/font_size = 13
 text = "00"
 
-[node name="crystal" type="Sprite2D" parent="resourceHandler/HUD/upgradeUI/manaTag"]
-position = Vector2(66.25, 46.25)
+[node name="crystal" type="Sprite2D" parent="resourceHandler/HUD/upgradeUI/attackUpgradeButton/manaTag"]
+position = Vector2(12.3269, 47.1987)
 scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("16_ij1sc")
+
+[node name="border" type="Sprite2D" parent="resourceHandler/HUD/upgradeUI"]
+position = Vector2(382.5, 574.1)
+scale = Vector2(1.3, 1.3)
+texture = SubResource("AtlasTexture_7c4e5")
+
+[node name="border2" type="Sprite2D" parent="resourceHandler/HUD/upgradeUI"]
+position = Vector2(268.5, 574.1)
+scale = Vector2(1.3, 1.3)
+texture = SubResource("AtlasTexture_7c4e5")
+
+[node name="border3" type="Sprite2D" parent="resourceHandler/HUD/upgradeUI"]
+position = Vector2(154.5, 574.1)
+scale = Vector2(1.3, 1.3)
+texture = SubResource("AtlasTexture_7c4e5")
 
 [node name="Camera2D" type="Camera2D" parent="resourceHandler"]
 script = ExtResource("4_b0td4")
@@ -715,7 +807,7 @@ initial_state = NodePath("Idle")
 script = ExtResource("6_1or2k")
 
 [node name="rapter" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("25_tlcow")]
-position = Vector2(702.668, 53.8252)
+position = Vector2(702.672, 53.8255)
 rotation = 0.000351868
 progress = 1619.42
 rotates = false

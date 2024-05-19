@@ -67,7 +67,7 @@ func spawn(unit):
 				print("no mana")
 			else:
 				#마나 지불 
-				rsc.current_mana -= target.get_node("stateComponent").get_mana()
+				rsc.set_current_mana(rsc.get_current_mana() - target.get_node("stateComponent").get_mana())
 				
 				#stage1 씬에 노드 추가 false = top / true = bottom 
 				if get_parent().get_node("laneUI").currentLane == true:

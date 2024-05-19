@@ -3,6 +3,7 @@ class_name resourceHandler
 
 #마나 
 @export var mana_lv : int
+@export var mana_lv_cost : int
 @export var max_mana : int 
 @export var regen_mana : int 
 @export var current_mana : int
@@ -11,6 +12,7 @@ class_name resourceHandler
 
 #인구 수 
 @export var population_lv : int
+@export var population_lv_cost : int
 @export var max_population : int
 @export var population : int 
 @export var isPopulationFull : bool
@@ -18,6 +20,7 @@ class_name resourceHandler
 
 #공격력 계수 
 @export var atk_lv : int
+@export var atk_lv_cost : int
 @export var atk_max_lv : int
 @export var atk_multiplier : float
 @export var isAttackUpgrade : bool
@@ -31,13 +34,15 @@ func _init():
 	
 	#마나
 	mana_lv = 1
-	max_mana = 25 #최대 마나량 공식은 manaHandler 참조 
+	mana_lv_cost = 25 #마나 업그레이드 비용 공식 20 + 15 * (mana_lv - 1)
+	max_mana = 30 #최대 마나량 공식: 30 + 15 * (mana_lv - 1)
 	regen_mana = 2 #리젠 마나량 공식 만들기 
 	current_mana = 20
 	isManaUpgrade = false
 	
 	#인구 수 
 	population_lv = 1
+	population_lv_cost = 20 #인구 업그레이드 비용 공식 20 + 25 * (population_lv - 1)
 	max_population = 10
 	population = 0
 	isPopulationFull = false
@@ -61,7 +66,9 @@ func _process(_delta):
 	
 #마나에 관한 기능들을 처리 
 func manaHandler():
-	max_mana = 25 + 20 * (mana_lv - 1) #최대 마나량 공식, 최대량 갱신 
+	max_mana = 30 + 20 * (mana_lv - 1) #최대 마나량 공식, 최대량 갱신 
+	mana_lv_cost = 20 + 15 * (mana_lv - 1)
+	
 	regen_mana = 2 + floor(mana_lv / 2)
 	
 	if isManaCooldown == false:
@@ -82,7 +89,8 @@ func manaLevelUp():
 
 #인구수에 관한 기능들을 처리 
 func populationHandler():
-	max_population = population_lv * 10
+	max_population = population_lv * 10 #인구수 공식 
+	population_lv_cost = 20 + 25 * (population_lv - 1)
 	
 	if population >= population_lv * 10:
 		isPopulationFull = true
@@ -120,6 +128,9 @@ func checkBaseHealth():
 func get_mana_lv():
 	return mana_lv
 	
+func get_mana_lv_cost():
+	return mana_lv_cost
+	
 func get_max_mana():
 	return max_mana
 	
@@ -136,6 +147,9 @@ func get_isManaUpgrade():
 func get_population_lv():
 	return population_lv
 	
+func get_population_lv_cost():
+	return population_lv_cost
+	
 func get_max_population():
 	return max_population
 	
@@ -151,6 +165,9 @@ func get_isPopUpgrade():
 #att 관련
 func get_atk_lv():
 	return atk_lv
+	
+func get_atk_lv_cost():
+	return atk_lv_cost
 
 #setter
 #mana관련
