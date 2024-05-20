@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dppjey0wno2wc"]
+[gd_scene load_steps=9 format=3 uid="uid://dppjey0wno2wc"]
 
 [ext_resource type="Script" path="res://Content/Scripts/map.gd" id="1_nt3rt"]
-[ext_resource type="Texture2D" uid="uid://d3blumgkggh7u" path="res://Content/Graphics/Background/map.png" id="1_ockod"]
+[ext_resource type="Texture2D" uid="uid://dd0ak4rmh5t8p" path="res://Content/Graphics/Background/map2.png" id="2_k8b43"]
+[ext_resource type="Texture2D" uid="uid://d3blumgkggh7u" path="res://Content/Graphics/Background/map.png" id="2_w22pa"]
 [ext_resource type="Texture2D" uid="uid://d2xucu6flctgv" path="res://Content/Graphics/UI/load.png" id="3_ewfwv"]
 
 [sub_resource type="Animation" id="Animation_g6mng"]
@@ -85,13 +86,23 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nt3rt")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="background2" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_w22pa")
+
 [node name="background" type="Sprite2D" parent="."]
-texture = ExtResource("1_ockod")
-centered = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_k8b43")
 
 [node name="transition" type="AnimationPlayer" parent="."]
 libraries = {
@@ -101,40 +112,45 @@ libraries = {
 [node name="ColorRect" type="ColorRect" parent="transition"]
 visible = false
 self_modulate = Color(0, 0, 0, 1)
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -1154.0
+offset_top = -646.0
+offset_right = 1142.0
+offset_bottom = 642.0
 color = Color(0, 0, 0, 1)
 
 [node name="stage1" type="Button" parent="."]
 layout_mode = 0
-offset_left = 187.0
-offset_top = 294.0
-offset_right = 331.0
-offset_bottom = 357.0
+offset_left = -198.0
+offset_top = 34.0
+offset_right = -54.0
+offset_bottom = 97.0
 theme_override_font_sizes/font_size = 40
 text = "stage 1"
 
 [node name="stage2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 469.0
-offset_top = 294.0
-offset_right = 613.0
-offset_bottom = 357.0
+offset_left = 22.0
+offset_top = -98.0
+offset_right = 166.0
+offset_bottom = -35.0
 theme_override_font_sizes/font_size = 40
 text = "stage 2"
 
 [node name="stage3" type="Button" parent="."]
 layout_mode = 0
-offset_left = 754.0
-offset_top = 294.0
-offset_right = 898.0
-offset_bottom = 357.0
+offset_left = 230.0
+offset_top = 52.0
+offset_right = 374.0
+offset_bottom = 115.0
 theme_override_font_sizes/font_size = 40
 text = "stage 3"
 
 [node name="screen" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(576, -349)
 scale = Vector2(2, 2)
 texture = ExtResource("3_ewfwv")
 
 [connection signal="pressed" from="stage1" to="." method="_on_stage_1_pressed"]
+[connection signal="pressed" from="stage2" to="." method="_on_stage_2_pressed"]
+[connection signal="pressed" from="stage3" to="." method="_on_stage_3_pressed"]

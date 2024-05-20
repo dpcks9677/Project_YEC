@@ -8,13 +8,20 @@ class_name unitButton
 func _enter_tree():
 	if get_name() == str("unitButton1") and get_parent().unitName[0] != null:
 		unitName = get_parent().unitName[0]
-		print(unitName)
 	if get_name() == str("unitButton2") and get_parent().unitName[1] != null:
 		unitName = get_parent().unitName[1]
 	if get_name() == str("unitButton3") and get_parent().unitName[2] != null:
 		unitName = get_parent().unitName[2]
 	if get_name() == str("unitButton4") and get_parent().unitName[3] != null:
 		unitName = get_parent().unitName[3]
+	if get_name() == str("unitButton5") and get_parent().unitName[4] != null:
+		unitName = get_parent().unitName[4]
+	if get_name() == str("unitButton6") and get_parent().unitName[5] != null:
+		unitName = get_parent().unitName[5]
+	if get_name() == str("unitButton7") and get_parent().unitName[6] != null:
+		unitName = get_parent().unitName[6]
+	if get_name() == str("unitButton8") and get_parent().unitName[7] != null:
+		unitName = get_parent().unitName[7]
 		
 	if unitName != "":
 		unitRes = load("res://Content/Scripts/Resources/unitData/" + str(unitName) + ".tres")

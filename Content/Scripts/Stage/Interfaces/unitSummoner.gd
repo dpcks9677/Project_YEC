@@ -6,15 +6,23 @@ signal unitSpawn
 @export var unitName := [null, null, null, null, null, null, null, null]
 @export var unitScene := [null, null, null, null, null, null, null, null]
 
+var slotSide : bool
+
 #resourceHandler 형식 선언
 @export var rsc : resourceHandler
 
 func _init():
 	#스테이지 진입 전 준비 씬에서 정보를 넘겨받아서 작성해야 함.
+	slotSide = false
+	
 	unitName[0] = "spearman" 
 	unitName[1] = "knight"
 	unitName[2] = "archer"
 	unitName[3] = "militia"
+	unitName[4] = "archer"
+	unitName[5] = "archer"
+	unitName[6] = "archer"
+	unitName[7] = "archer"
 
 func _ready():
 	rsc = get_parent().get_parent()
@@ -76,3 +84,29 @@ func spawn(unit):
 				else:
 					get_parent().get_parent().get_node("laneSetter").get_node("topLane").add_child(target)
 					print("top spawned")
+
+func _on_slot_changer_toggled(toggled_on):
+	if slotSide == false:
+		get_node("unitButton1").visible = false
+		get_node("unitButton2").visible = false
+		get_node("unitButton3").visible = false
+		get_node("unitButton4").visible = false
+		
+		get_node("unitButton5").visible = true
+		get_node("unitButton6").visible = true
+		get_node("unitButton7").visible = true
+		get_node("unitButton8").visible = true
+		
+		slotSide = true
+	else:
+		get_node("unitButton1").visible = true
+		get_node("unitButton2").visible = true
+		get_node("unitButton3").visible = true
+		get_node("unitButton4").visible = true
+		
+		get_node("unitButton5").visible = false
+		get_node("unitButton6").visible = false
+		get_node("unitButton7").visible = false
+		get_node("unitButton8").visible = false
+		
+		slotSide = false

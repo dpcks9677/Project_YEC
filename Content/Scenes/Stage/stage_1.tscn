@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=79 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Handler/resourceHandler.gd" id="1_jgakt"]
 [ext_resource type="PackedScene" uid="uid://c201rvxgq5e35" path="res://Content/Scenes/Stage/stage_1_scenario.tscn" id="2_n5lwx"]
@@ -27,6 +27,10 @@
 [ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="16_ij1sc"]
 [ext_resource type="Texture2D" uid="uid://cpxdp0psf36ck" path="res://Content/Graphics/UI/att.png" id="17_okgo7"]
 [ext_resource type="PackedScene" uid="uid://brhy872g4qvjq" path="res://Content/Scenes/Units/enemy/toad.tscn" id="26_f0sj1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30u2j"]
+atlas = ExtResource("11_22pvb")
+region = Rect2(218, 81, 14, 14)
 
 [sub_resource type="Gradient" id="Gradient_dk8t7"]
 interpolation_mode = 2
@@ -307,6 +311,43 @@ offset_right = -267.0
 offset_bottom = -146.0
 
 [node name="unitButton4" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
+layout_mode = 1
+offset_top = 225.0
+offset_right = -267.0
+offset_bottom = -71.0
+
+[node name="slotChanger" type="TextureButton" parent="resourceHandler/HUD/unitSummoner"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 305.0
+offset_right = 85.0
+offset_bottom = 319.0
+scale = Vector2(3, 3)
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_30u2j")
+
+[node name="unitButton5" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
+visible = false
+layout_mode = 1
+offset_right = -267.0
+offset_bottom = -296.0
+
+[node name="unitButton6" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
+visible = false
+layout_mode = 1
+offset_top = 75.0
+offset_right = -267.0
+offset_bottom = -221.0
+
+[node name="unitButton7" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
+visible = false
+layout_mode = 1
+offset_top = 150.0
+offset_right = -267.0
+offset_bottom = -146.0
+
+[node name="unitButton8" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
+visible = false
 layout_mode = 1
 offset_top = 225.0
 offset_right = -267.0
@@ -740,6 +781,8 @@ scale = Vector2(1.3, 1.3)
 texture = SubResource("AtlasTexture_7c4e5")
 
 [node name="Camera2D" type="Camera2D" parent="resourceHandler"]
+limit_left = -1304
+limit_right = 1304
 script = ExtResource("4_b0td4")
 
 [node name="laneSetter" type="Node2D" parent="resourceHandler"]
@@ -870,6 +913,7 @@ scale = Vector2(1.7, 1.7)
 texture = ExtResource("3_22536")
 
 [connection signal="timeout" from="resourceHandler/manaGenerator" to="resourceHandler" method="_on_mana_generator_timeout"]
+[connection signal="toggled" from="resourceHandler/HUD/unitSummoner/slotChanger" to="resourceHandler/HUD/unitSummoner" method="_on_slot_changer_toggled"]
 [connection signal="toggled" from="resourceHandler/HUD/laneUI/laneSelector" to="resourceHandler/HUD/laneUI" method="_on_lane_selector_toggled"]
 [connection signal="button_down" from="resourceHandler/HUD/upgradeUI/manaUpgradeButton" to="resourceHandler/HUD/upgradeUI" method="_on_mana_upgrade_button_button_down"]
 [connection signal="button_up" from="resourceHandler/HUD/upgradeUI/manaUpgradeButton" to="resourceHandler/HUD/upgradeUI" method="_on_mana_upgrade_button_button_up"]
