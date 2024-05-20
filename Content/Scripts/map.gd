@@ -33,6 +33,9 @@ func _input(event): #카메라 드래그 관련 함수
 			if event.is_pressed():
 				# Start dragging
 				dragging = true
+				
+				slide_tween_out() # HUD 회수 
+				
 				last_mouse_position = event.position
 			else:
 				# Stop dragging
@@ -46,20 +49,33 @@ func _input(event): #카메라 드래그 관련 함수
 			# Update the last mouse position
 			last_mouse_position = event.position
 
+func slide_tween_in():
+	var tween = create_tween()
+	tween.tween_property($CanvasLayer/Sprite2D, "position", Vector2(15, 0), 0.3)
+
+func slide_tween_out():
+	var tween = create_tween()
+	tween.tween_property($CanvasLayer/Sprite2D, "position", Vector2(-432, 0), 0.1)
+
+#signal
 func _on_stage_1_pressed():
-	#var tween = create_tween()
-	#tween.tween_property($screen, "position", Vector2(576,324), 0.2)
+	slide_tween_in()
+	
 	isButtonMove = true
 	var button_position = get_node("stage1").get_global_position()
 	target_pos = button_position
 
 func _on_stage_2_pressed():
+	slide_tween_in()
+	
 	isButtonMove = true
 	var button_position = get_node("stage2").get_global_position()
 	target_pos = button_position
 
 
 func _on_stage_3_pressed():
+	slide_tween_in()
+	
 	isButtonMove = true
 	var button_position = get_node("stage3").get_global_position()
 	target_pos = button_position

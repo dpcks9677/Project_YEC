@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dppjey0wno2wc"]
+[gd_scene load_steps=11 format=3 uid="uid://dppjey0wno2wc"]
 
 [ext_resource type="Script" path="res://Content/Scripts/map.gd" id="1_nt3rt"]
+[ext_resource type="Texture2D" uid="uid://dtox1n3kpx6a1" path="res://Content/Graphics/UI/scrollsandblocks.png" id="2_a5kwd"]
 [ext_resource type="Texture2D" uid="uid://dd0ak4rmh5t8p" path="res://Content/Graphics/Background/map2.png" id="2_k8b43"]
 [ext_resource type="Texture2D" uid="uid://d3blumgkggh7u" path="res://Content/Graphics/Background/map.png" id="2_w22pa"]
+[ext_resource type="FontFile" uid="uid://cg5spy66unpeq" path="res://Content/Graphics/UI/font/SDMiSaeng.ttf" id="3_cofno"]
 [ext_resource type="Texture2D" uid="uid://d2xucu6flctgv" path="res://Content/Graphics/UI/load.png" id="3_ewfwv"]
 
 [sub_resource type="Animation" id="Animation_g6mng"]
@@ -94,13 +96,54 @@ script = ExtResource("1_nt3rt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(-432, 0)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("2_a5kwd")
+centered = false
+
+[node name="stageName" type="Label" parent="CanvasLayer/Sprite2D"]
+offset_left = 63.6364
+offset_top = 65.9091
+offset_right = 116.636
+offset_bottom = 89.9091
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_cofno")
+theme_override_font_sizes/font_size = 23
+text = "Stage 1"
+
+[node name="Label" type="Label" parent="CanvasLayer/Sprite2D"]
+offset_left = 53.6364
+offset_top = 91.3636
+offset_right = 128.636
+offset_bottom = 118.364
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_cofno")
+theme_override_font_sizes/font_size = 26
+text = "미지의 습격"
+
+[node name="unitInfo" type="ColorRect" parent="CanvasLayer/Sprite2D"]
+offset_left = 22.7273
+offset_top = 120.455
+offset_right = 163.727
+offset_bottom = 178.455
+
+[node name="enter" type="Button" parent="CanvasLayer/Sprite2D"]
+offset_left = 62.2727
+offset_top = 194.545
+offset_right = 122.273
+offset_bottom = 219.545
+theme_override_fonts/font = ExtResource("3_cofno")
+text = "입장
+"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="background2" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("2_w22pa")
 
-[node name="background" type="Sprite2D" parent="."]
+[node name="doodle" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_k8b43")
 
