@@ -47,7 +47,8 @@ func waiting_animation(): #await 키워드와 함께 사용
 
 func _on_splash_area_entered(area):
 	if area.get_name() == "hitbox":
-		area.get_parent().get_node("stateComponent").damaged(damage)
-		#베이스 공격시 error방지용 코드 (base의 stateComponent에는 health 인자가 없음 
-		if area.get_parent().get_node("stateComponent").property_exists(area.get_parent().get_node("stateComponent"), "health"):
-			print("splash damaged: ", area.get_parent().get_node("stateComponent").health)
+		if self.get_parent().get_parent().get_faction() != area.get_parent().get_node("stateComponent").get_faction(): #아군 오사 방지 
+			area.get_parent().get_node("stateComponent").damaged(damage)
+			#베이스 공격시 error방지용 코드 (base의 stateComponent에는 health 인자가 없음 
+			if area.get_parent().get_node("stateComponent").property_exists(area.get_parent().get_node("stateComponent"), "health"):
+				print("splash damaged: ", area.get_parent().get_node("stateComponent").health)

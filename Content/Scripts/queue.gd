@@ -50,3 +50,6 @@ func is_empty() -> bool:
 
 func is_full() -> bool:
 	return _length == _max_length
+	
+func get_head():
+	return _head

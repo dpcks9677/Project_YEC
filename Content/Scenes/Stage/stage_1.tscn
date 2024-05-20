@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dpd05uv4svud6" path="res://Content/Graphics/UI/mana.png" id="15_rhukf"]
 [ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="16_ij1sc"]
 [ext_resource type="Texture2D" uid="uid://cpxdp0psf36ck" path="res://Content/Graphics/UI/att.png" id="17_okgo7"]
-[ext_resource type="PackedScene" uid="uid://6aiiqqk4vwat" path="res://Content/Scenes/Units/enemy/raptor.tscn" id="25_tlcow"]
+[ext_resource type="PackedScene" uid="uid://brhy872g4qvjq" path="res://Content/Scenes/Units/enemy/toad.tscn" id="26_f0sj1"]
 
 [sub_resource type="Gradient" id="Gradient_dk8t7"]
 interpolation_mode = 2
@@ -806,10 +806,10 @@ initial_state = NodePath("Idle")
 [node name="Idle" type="Node2D" parent="resourceHandler/laneSetter/topLane/enemyBase/stateComponent"]
 script = ExtResource("6_1or2k")
 
-[node name="rapter" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("25_tlcow")]
-position = Vector2(702.672, 53.8255)
+[node name="toad" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("26_f0sj1")]
+position = Vector2(812.595, 60.3987)
 rotation = 0.000351868
-progress = 1619.42
+progress = 1729.54
 rotates = false
 
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]

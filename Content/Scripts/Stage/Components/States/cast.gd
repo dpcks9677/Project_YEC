@@ -10,9 +10,9 @@ func Enter():
 
 #Attack일 때 실행되는 함수 
 func Update(delta):
-	if target_queue._head != null and target == null: #타겟X, 타겟큐O
+	if target_queue.get_head() != null and target == null: #타겟X, 타겟큐O
 		target = target_queue.dequeue()
-	elif target_queue._head == null and target == null: #타겟X, 타겟큐X => Move로 전이 
+	elif target_queue.get_head() == null and target == null: #타겟X, 타겟큐X => Move로 전이 
 		if $"../../AnimationPlayer".is_playing():
 			pass
 		else:

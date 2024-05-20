@@ -44,7 +44,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_gvjcu"]
 resource_name = "attack"
 length = 5.0
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
