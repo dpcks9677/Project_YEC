@@ -1,11 +1,34 @@
 {
-    "stage1" : {
-        "stageName" : "첫번째 임무",
-        "enemyUnits" : [
-            "raptor",
-            "spitter",
-        ],
-        "synopsis" : "당신의 첫번째 수습 임무가 시작됩니다. 준비되셨나요?",
-        "scenePath" : "res://Content/Scenes/Stage/stage_1.tscn"  
-    }
+	"stage1" : {
+		"stageName" : "미지의 습격",
+		"enemyUnits" : [
+			"raptor",
+			"raptor"
+		],
+		"synopsis" : "무언가... 다가오고 있습니다...",
+		"scenePath" : "res://Content/Scenes/Stage/stage_1.tscn"  
+	},
+	
+	 "stage2" : {
+		"stageName" : "새내기의 첫 임무",
+		"enemyUnits" : [
+			"raptor",
+			"spitter",
+			"spitter"
+		],
+		"synopsis" : "당신의 첫번째 수습 임무가 시작됩니다. 준비되셨나요?",
+		"scenePath" : "res://Content/Scenes/Stage/stage_2.tscn"  
+	},
+	
+	 "stage3" : {
+		"stageName" : "역겨운 놈들",
+		"enemyUnits" : [
+			"raptor",
+			"raptor",
+			"spitter",
+			"rhino"
+		],
+		"synopsis" : "이 녀석들은 어디서 만들어지는거죠?",
+		"scenePath" : "res://Content/Scenes/Stage/stage_3.tscn"  
+	}
 }

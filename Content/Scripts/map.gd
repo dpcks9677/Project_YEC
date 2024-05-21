@@ -21,6 +21,7 @@ func _ready():
 	set_process_input(true)
 	
 func _process(delta):
+	#카메라 관련 코드 
 	if isButtonMove:
 		camera.position = camera.position.lerp(target_pos, move_speed * delta) #카메라 부드럽게 이동 
 		if camera.position.distance_to(target_pos) < tolerance: #버튼과 카메라 좌표를 비교해서 오차범위 내면 이동 종료 
@@ -51,11 +52,11 @@ func _input(event): #카메라 드래그 관련 함수
 
 func slide_tween_in():
 	var tween = create_tween()
-	tween.tween_property($CanvasLayer/Sprite2D, "position", Vector2(15, 0), 0.3)
+	tween.tween_property($stageInfoHUD/Sprite2D, "position", Vector2(15, 0), 0.3)
 
 func slide_tween_out():
 	var tween = create_tween()
-	tween.tween_property($CanvasLayer/Sprite2D, "position", Vector2(-432, 0), 0.1)
+	tween.tween_property($stageInfoHUD/Sprite2D, "position", Vector2(-432, 0), 0.1)
 
 #signal
 func _on_stage_1_pressed():

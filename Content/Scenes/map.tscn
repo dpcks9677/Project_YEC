@@ -1,11 +1,31 @@
-[gd_scene load_steps=11 format=3 uid="uid://dppjey0wno2wc"]
+[gd_scene load_steps=17 format=3 uid="uid://dppjey0wno2wc"]
 
 [ext_resource type="Script" path="res://Content/Scripts/map.gd" id="1_nt3rt"]
 [ext_resource type="Texture2D" uid="uid://dtox1n3kpx6a1" path="res://Content/Graphics/UI/scrollsandblocks.png" id="2_a5kwd"]
 [ext_resource type="Texture2D" uid="uid://dd0ak4rmh5t8p" path="res://Content/Graphics/Background/map2.png" id="2_k8b43"]
+[ext_resource type="Script" path="res://Content/Scripts/stageInfoHUD.gd" id="2_teyaw"]
 [ext_resource type="Texture2D" uid="uid://d3blumgkggh7u" path="res://Content/Graphics/Background/map.png" id="2_w22pa"]
 [ext_resource type="FontFile" uid="uid://cg5spy66unpeq" path="res://Content/Graphics/UI/font/SDMiSaeng.ttf" id="3_cofno"]
 [ext_resource type="Texture2D" uid="uid://d2xucu6flctgv" path="res://Content/Graphics/UI/load.png" id="3_ewfwv"]
+[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="4_0w7s1"]
+[ext_resource type="Texture2D" uid="uid://dawg3hot0bjvs" path="res://Content/Graphics/Sprites/portrait/raptor.png" id="5_5dovu"]
+[ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="5_lit45"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sicyd"]
+bg_color = Color(0.109804, 0.490196, 0.964706, 0.611765)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvue5"]
+bg_color = Color(0.580392, 0.74902, 0.976471, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
 
 [sub_resource type="Animation" id="Animation_g6mng"]
 length = 0.001
@@ -94,41 +114,407 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nt3rt")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="stageInfoHUD" type="CanvasLayer" parent="."]
+script = ExtResource("2_teyaw")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="stageInfoHUD"]
 position = Vector2(-432, 0)
 scale = Vector2(2.2, 2.2)
 texture = ExtResource("2_a5kwd")
 centered = false
 
-[node name="stageName" type="Label" parent="CanvasLayer/Sprite2D"]
-offset_left = 63.6364
-offset_top = 65.9091
-offset_right = 116.636
-offset_bottom = 89.9091
+[node name="stageNumber" type="Label" parent="stageInfoHUD/Sprite2D"]
+offset_left = 3.0
+offset_top = 66.0
+offset_right = 179.0
+offset_bottom = 90.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_cofno")
 theme_override_font_sizes/font_size = 23
 text = "Stage 1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Sprite2D"]
-offset_left = 53.6364
-offset_top = 91.3636
-offset_right = 128.636
-offset_bottom = 118.364
+[node name="stageName" type="Label" parent="stageInfoHUD/Sprite2D"]
+offset_left = 3.0
+offset_top = 73.0
+offset_right = 179.0
+offset_bottom = 130.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_cofno")
 theme_override_font_sizes/font_size = 26
 text = "미지의 습격"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="unitInfo" type="ColorRect" parent="CanvasLayer/Sprite2D"]
-offset_left = 22.7273
-offset_top = 120.455
-offset_right = 163.727
-offset_bottom = 178.455
+[node name="unitInfo" type="Node2D" parent="stageInfoHUD/Sprite2D"]
+position = Vector2(0, -3.63636)
 
-[node name="enter" type="Button" parent="CanvasLayer/Sprite2D"]
+[node name="unitSlot1" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 18.0
+offset_top = 116.0
+offset_right = 75.0
+offset_bottom = 158.0
+scale = Vector2(0.6, 0.6)
+
+[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot1"]
+clip_contents = true
+offset_top = 10.0
+offset_right = 113.0
+offset_bottom = 75.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+
+[node name="Sprite2D" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot1"]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("5_5dovu")
+centered = false
+
+[node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot1"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 4.09091
+offset_right = 40.0
+offset_bottom = 44.0909
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot1/manaTag"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 56.0
+offset_right = 111.0
+offset_bottom = 74.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tvue5")
+
+[node name="mana" type="Label" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot1/manaTag"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 59.0
+offset_right = 110.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("4_0w7s1")
+theme_override_font_sizes/font_size = 13
+text = "00"
+
+[node name="crystal" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot1/manaTag"]
+position = Vector2(77, 65)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("5_lit45")
+
+[node name="unitSlot2" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 54.5455
+offset_top = 116.364
+offset_right = 54.5455
+offset_bottom = 116.364
+scale = Vector2(0.6, 0.6)
+
+[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot2"]
+clip_contents = true
+offset_top = 10.0
+offset_right = 113.0
+offset_bottom = 75.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+
+[node name="Sprite2D" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot2"]
+scale = Vector2(0.18, 0.18)
+centered = false
+
+[node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot2"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 4.09091
+offset_right = 40.0
+offset_bottom = 44.0909
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot2/manaTag"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 56.0
+offset_right = 111.0
+offset_bottom = 74.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tvue5")
+
+[node name="mana" type="Label" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot2/manaTag"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 59.0
+offset_right = 110.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("4_0w7s1")
+theme_override_font_sizes/font_size = 13
+text = "00"
+
+[node name="crystal" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot2/manaTag"]
+position = Vector2(77, 65)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("5_lit45")
+
+[node name="unitSlot3" type="Node2D" parent="stageInfoHUD/Sprite2D/unitInfo"]
+position = Vector2(90.9091, 116.364)
+scale = Vector2(0.6, 0.6)
+
+[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot3"]
+clip_contents = true
+offset_top = 10.0
+offset_right = 113.0
+offset_bottom = 75.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+
+[node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot3"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 4.09091
+offset_right = 40.0
+offset_bottom = 44.0909
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot3/manaTag"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 56.0
+offset_right = 111.0
+offset_bottom = 74.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tvue5")
+
+[node name="mana" type="Label" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot3/manaTag"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 59.0
+offset_right = 110.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("4_0w7s1")
+theme_override_font_sizes/font_size = 13
+text = "00"
+
+[node name="crystal" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot3/manaTag"]
+position = Vector2(77, 65)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("5_lit45")
+
+[node name="unitSlot4" type="Node2D" parent="stageInfoHUD/Sprite2D/unitInfo"]
+position = Vector2(127.727, 116.364)
+scale = Vector2(0.6, 0.6)
+
+[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot4"]
+clip_contents = true
+offset_top = 10.0
+offset_right = 113.0
+offset_bottom = 75.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+
+[node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot4"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 4.09091
+offset_right = 40.0
+offset_bottom = 44.0909
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot4/manaTag"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 56.0
+offset_right = 111.0
+offset_bottom = 74.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tvue5")
+
+[node name="mana" type="Label" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot4/manaTag"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 59.0
+offset_right = 110.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("4_0w7s1")
+theme_override_font_sizes/font_size = 13
+text = "00"
+
+[node name="crystal" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot4/manaTag"]
+position = Vector2(77, 65)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("5_lit45")
+
+[node name="unitSlot5" type="Node2D" parent="stageInfoHUD/Sprite2D/unitInfo"]
+position = Vector2(18.1818, 138.636)
+scale = Vector2(0.6, 0.6)
+
+[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot5"]
+clip_contents = true
+offset_top = 10.0
+offset_right = 113.0
+offset_bottom = 75.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+
+[node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot5"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 4.09091
+offset_right = 40.0
+offset_bottom = 44.0909
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot5/manaTag"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 56.0
+offset_right = 111.0
+offset_bottom = 74.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tvue5")
+
+[node name="mana" type="Label" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot5/manaTag"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 59.0
+offset_right = 110.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("4_0w7s1")
+theme_override_font_sizes/font_size = 13
+text = "00"
+
+[node name="crystal" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot5/manaTag"]
+position = Vector2(77, 65)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("5_lit45")
+
+[node name="unitSlot6" type="Node2D" parent="stageInfoHUD/Sprite2D/unitInfo"]
+position = Vector2(54.5455, 138.636)
+scale = Vector2(0.6, 0.6)
+
+[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot6"]
+clip_contents = true
+offset_top = 10.0
+offset_right = 113.0
+offset_bottom = 75.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+
+[node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot6"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 4.09091
+offset_right = 40.0
+offset_bottom = 44.0909
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot6/manaTag"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 56.0
+offset_right = 111.0
+offset_bottom = 74.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tvue5")
+
+[node name="mana" type="Label" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot6/manaTag"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 59.0
+offset_right = 110.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("4_0w7s1")
+theme_override_font_sizes/font_size = 13
+text = "00"
+
+[node name="crystal" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot6/manaTag"]
+position = Vector2(77, 65)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("5_lit45")
+
+[node name="unitSlot7" type="Node2D" parent="stageInfoHUD/Sprite2D/unitInfo"]
+position = Vector2(90.9091, 138.636)
+scale = Vector2(0.6, 0.6)
+
+[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot7"]
+clip_contents = true
+offset_top = 10.0
+offset_right = 113.0
+offset_bottom = 75.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+
+[node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot7"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 4.09091
+offset_right = 40.0
+offset_bottom = 44.0909
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot7/manaTag"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 56.0
+offset_right = 111.0
+offset_bottom = 74.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tvue5")
+
+[node name="mana" type="Label" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot7/manaTag"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 59.0
+offset_right = 110.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("4_0w7s1")
+theme_override_font_sizes/font_size = 13
+text = "00"
+
+[node name="crystal" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot7/manaTag"]
+position = Vector2(77, 65)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("5_lit45")
+
+[node name="unitSlot8" type="Node2D" parent="stageInfoHUD/Sprite2D/unitInfo"]
+position = Vector2(127.727, 138.636)
+scale = Vector2(0.6, 0.6)
+
+[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot8"]
+clip_contents = true
+offset_top = 10.0
+offset_right = 113.0
+offset_bottom = 75.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+
+[node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot8"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 4.09091
+offset_right = 40.0
+offset_bottom = 44.0909
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot8/manaTag"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 56.0
+offset_right = 111.0
+offset_bottom = 74.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tvue5")
+
+[node name="mana" type="Label" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot8/manaTag"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 59.0
+offset_right = 110.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("4_0w7s1")
+theme_override_font_sizes/font_size = 13
+text = "00"
+
+[node name="crystal" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot8/manaTag"]
+position = Vector2(77, 65)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("5_lit45")
+
+[node name="enter" type="Button" parent="stageInfoHUD/Sprite2D"]
 offset_left = 62.2727
 offset_top = 194.545
 offset_right = 122.273
@@ -136,6 +522,14 @@ offset_bottom = 219.545
 theme_override_fonts/font = ExtResource("3_cofno")
 text = "입장
 "
+
+[node name="loadoutHUD" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="loadoutHUD"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.588235)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -195,5 +589,8 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_ewfwv")
 
 [connection signal="pressed" from="stage1" to="." method="_on_stage_1_pressed"]
+[connection signal="pressed" from="stage1" to="stageInfoHUD" method="_on_stage_1_pressed"]
 [connection signal="pressed" from="stage2" to="." method="_on_stage_2_pressed"]
+[connection signal="pressed" from="stage2" to="stageInfoHUD" method="_on_stage_2_pressed"]
 [connection signal="pressed" from="stage3" to="." method="_on_stage_3_pressed"]
+[connection signal="pressed" from="stage3" to="stageInfoHUD" method="_on_stage_3_pressed"]
