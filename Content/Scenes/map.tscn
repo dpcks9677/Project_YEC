@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dppjey0wno2wc"]
+[gd_scene load_steps=22 format=3 uid="uid://dppjey0wno2wc"]
 
 [ext_resource type="Script" path="res://Content/Scripts/map.gd" id="1_nt3rt"]
 [ext_resource type="Texture2D" uid="uid://dtox1n3kpx6a1" path="res://Content/Graphics/UI/scrollsandblocks.png" id="2_a5kwd"]
@@ -8,16 +8,13 @@
 [ext_resource type="FontFile" uid="uid://cg5spy66unpeq" path="res://Content/Graphics/UI/font/SDMiSaeng.ttf" id="3_cofno"]
 [ext_resource type="Texture2D" uid="uid://d2xucu6flctgv" path="res://Content/Graphics/UI/load.png" id="3_ewfwv"]
 [ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="4_0w7s1"]
-[ext_resource type="Texture2D" uid="uid://dawg3hot0bjvs" path="res://Content/Graphics/Sprites/portrait/raptor.png" id="5_5dovu"]
+[ext_resource type="Texture2D" uid="uid://cinj6g22wdc3l" path="res://Content/Graphics/UI/unitSlot.png" id="5_c8gt1"]
+[ext_resource type="Texture2D" uid="uid://ddp2tpbccm8nq" path="res://Content/Graphics/Sprites/portrait/rhino.png" id="5_grmiy"]
 [ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="5_lit45"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sicyd"]
-bg_color = Color(0.109804, 0.490196, 0.964706, 0.611765)
-corner_radius_top_left = 7
-corner_radius_top_right = 7
-corner_radius_bottom_right = 7
-corner_radius_bottom_left = 7
-anti_aliasing = false
+[ext_resource type="Texture2D" uid="uid://c0eeghk7w5x4" path="res://Content/Graphics/UI/layout.png" id="9_0ion2"]
+[ext_resource type="Texture2D" uid="uid://ce5buy40gwts0" path="res://Content/Graphics/UI/layout2.png" id="10_dmjrm"]
+[ext_resource type="Texture2D" uid="uid://ckqnohdv15eik" path="res://Content/Graphics/UI/layout3.png" id="11_v0t1f"]
+[ext_resource type="Texture2D" uid="uid://c681224mqibj3" path="res://Content/Graphics/UI/layout4.png" id="12_4p34q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvue5"]
 bg_color = Color(0.580392, 0.74902, 0.976471, 1)
@@ -25,6 +22,14 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sicyd"]
+bg_color = Color(0.109804, 0.490196, 0.964706, 0.611765)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
 anti_aliasing = false
 
 [sub_resource type="Animation" id="Animation_g6mng"]
@@ -113,6 +118,8 @@ offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nt3rt")
+metadata/_edit_vertical_guides_ = [576.0]
+metadata/_edit_horizontal_guides_ = [324.0, 585.0]
 
 [node name="stageInfoHUD" type="CanvasLayer" parent="."]
 script = ExtResource("2_teyaw")
@@ -160,17 +167,14 @@ offset_right = 75.0
 offset_bottom = 158.0
 scale = Vector2(0.6, 0.6)
 
-[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot1"]
-clip_contents = true
-offset_top = 10.0
-offset_right = 113.0
-offset_bottom = 75.0
+[node name="background" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot1"]
+position = Vector2(28.3333, 26.3636)
 scale = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+texture = ExtResource("5_c8gt1")
 
 [node name="Sprite2D" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot1"]
 scale = Vector2(0.18, 0.18)
-texture = ExtResource("5_5dovu")
+texture = ExtResource("5_grmiy")
 centered = false
 
 [node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot1"]
@@ -204,6 +208,11 @@ position = Vector2(77, 65)
 scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("5_lit45")
 
+[node name="Control" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot1"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="unitSlot2" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo"]
 layout_mode = 3
 anchors_preset = 0
@@ -215,6 +224,7 @@ scale = Vector2(0.6, 0.6)
 
 [node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot2"]
 clip_contents = true
+layout_mode = 0
 offset_top = 10.0
 offset_right = 113.0
 offset_bottom = 75.0
@@ -531,6 +541,26 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 0.588235)
 
+[node name="canvas" type="Sprite2D" parent="loadoutHUD"]
+position = Vector2(456, 292)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("9_0ion2")
+
+[node name="canvas2" type="Sprite2D" parent="loadoutHUD"]
+position = Vector2(453, 543)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("10_dmjrm")
+
+[node name="canvas3" type="Sprite2D" parent="loadoutHUD"]
+position = Vector2(91, 329)
+scale = Vector2(4, 4)
+texture = ExtResource("11_v0t1f")
+
+[node name="canvas4" type="Sprite2D" parent="loadoutHUD"]
+position = Vector2(936, 337)
+scale = Vector2(4, 4)
+texture = ExtResource("12_4p34q")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="background" type="Sprite2D" parent="."]
@@ -588,6 +618,7 @@ position = Vector2(576, -349)
 scale = Vector2(2, 2)
 texture = ExtResource("3_ewfwv")
 
+[connection signal="pressed" from="stageInfoHUD/Sprite2D/enter" to="stageInfoHUD" method="_on_enter_pressed"]
 [connection signal="pressed" from="stage1" to="." method="_on_stage_1_pressed"]
 [connection signal="pressed" from="stage1" to="stageInfoHUD" method="_on_stage_1_pressed"]
 [connection signal="pressed" from="stage2" to="." method="_on_stage_2_pressed"]

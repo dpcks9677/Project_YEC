@@ -56,3 +56,8 @@ func _on_stage_3_pressed():
 	
 	$Sprite2D/stageNumber.text = "Stage 3" #스테이지 넘버링 
 	$Sprite2D/stageName.text = data["stageName"] #스테이지 이름 
+
+
+func _on_enter_pressed():
+	visible = false
+	get_parent().get_node("loadoutHUD").visible = true
