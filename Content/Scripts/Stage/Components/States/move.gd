@@ -1,7 +1,7 @@
 extends State
 class_name Move
 
-@export var MOVEMENT_VALUE = 0.0008
+@export var MOVEMENT_VALUE = 0.0004
 @export var speed : float
 
 func _ready():

@@ -178,8 +178,8 @@ height = 110.0
 size = Vector2(20, 110)
 
 [node name="knight" type="PathFollow2D"]
-scale = Vector2(0.8, 0.8)
 rotates = false
+loop = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.25, -21.25)

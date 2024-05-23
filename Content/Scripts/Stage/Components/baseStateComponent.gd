@@ -5,6 +5,7 @@ signal ally_base_hitted(damage : int)
 signal enemy_base_hitted(damage : int)
 
 var faction : String
+var type : String
 
 #state 관련 인자들 
 var current_state : State
@@ -13,6 +14,7 @@ var states : Dictionary = {}
 @export var initial_state : State
 
 func _enter_tree():
+	type = "building" #하드코딩 
 	if get_parent().get_name() == "allyBase":
 		faction = "ally"
 	else:
@@ -111,6 +113,9 @@ func damaged(amount):
 #getter function
 func get_faction():
 	return faction
+	
+func get_type():
+	return type
 
 func get_position():
 	return get_parent().progress

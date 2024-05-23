@@ -37,7 +37,7 @@ func _init():
 	mana_lv_cost = 25 #마나 업그레이드 비용 공식 20 + 15 * (mana_lv - 1)
 	max_mana = 30 #최대 마나량 공식: 30 + 15 * (mana_lv - 1)
 	regen_mana = 2 #리젠 마나량 공식 만들기 
-	current_mana = 20
+	current_mana = 10
 	isManaUpgrade = false
 	
 	#인구 수 

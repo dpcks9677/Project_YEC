@@ -164,6 +164,7 @@ size = Vector2(72, 176)
 
 [node name="rhino" type="PathFollow2D"]
 rotates = false
+loop = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -108)

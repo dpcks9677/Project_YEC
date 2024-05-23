@@ -534,11 +534,13 @@ text = "입장
 "
 
 [node name="loadoutHUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="loadoutHUD"]
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0.588235)
 
 [node name="canvas" type="Sprite2D" parent="loadoutHUD"]
@@ -566,6 +568,7 @@ texture = ExtResource("12_4p34q")
 [node name="background" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("2_w22pa")
+metadata/_edit_lock_ = true
 
 [node name="doodle" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

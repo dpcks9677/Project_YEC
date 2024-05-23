@@ -267,6 +267,7 @@ size = Vector2(430, 210)
 [node name="archer" type="PathFollow2D"]
 position = Vector2(3.8147e-06, 7.62939e-06)
 rotates = false
+loop = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_bdxdh")

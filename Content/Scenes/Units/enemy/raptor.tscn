@@ -130,6 +130,8 @@ height = 96.0
 size = Vector2(16, 80)
 
 [node name="rapter" type="PathFollow2D"]
+rotates = false
+loop = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -24)

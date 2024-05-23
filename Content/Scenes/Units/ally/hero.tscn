@@ -121,7 +121,6 @@ size = Vector2(183, 176)
 
 [node name="hero" type="PathFollow2D"]
 rotates = false
-cubic_interp = false
 loop = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

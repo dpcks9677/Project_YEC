@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_25ksj")
-damage = 150
+damage = 100
 damageType = "physical"
 cooltime = 1.0

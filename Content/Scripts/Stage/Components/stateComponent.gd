@@ -101,9 +101,14 @@ func _ready():
 	#미니맵 마커 추가 
 	get_parent().get_parent().get_parent().get_parent().get_node("HUD").get_node("minimapUI").spawnMarker(self)
 	
-	#인구수 1 증가 
-	rsc.increasePopulation()
-	
+	#위치 초기화 및 인구수 추가 
+	if get_faction() == "enemy":
+		get_parent().progress_ratio = 1.0
+	else:
+		#인구수 1 증가 
+		rsc.increasePopulation()
+		get_parent().progress_ratio = 0.0
+		
 func _process(delta):
 	if health <= 0:
 		force_change_state("Dead")

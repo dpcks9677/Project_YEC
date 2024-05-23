@@ -19,8 +19,8 @@ func _init():
 	unitName[1] = "knight"
 	unitName[2] = "archer"
 	unitName[3] = "militia"
-	unitName[4] = "archer"
-	unitName[5] = "archer"
+	unitName[4] = "healer"
+	unitName[5] = "hero"
 	unitName[6] = "archer"
 	unitName[7] = "archer"
 

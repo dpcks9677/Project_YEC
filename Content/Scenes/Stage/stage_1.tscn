@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=78 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Handler/resourceHandler.gd" id="1_jgakt"]
 [ext_resource type="PackedScene" uid="uid://c201rvxgq5e35" path="res://Content/Scenes/Stage/stage_1_scenario.tscn" id="2_n5lwx"]
@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://dpd05uv4svud6" path="res://Content/Graphics/UI/mana.png" id="15_rhukf"]
 [ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="16_ij1sc"]
 [ext_resource type="Texture2D" uid="uid://cpxdp0psf36ck" path="res://Content/Graphics/UI/att.png" id="17_okgo7"]
-[ext_resource type="PackedScene" uid="uid://brhy872g4qvjq" path="res://Content/Scenes/Units/enemy/toad.tscn" id="26_f0sj1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_30u2j"]
 atlas = ExtResource("11_22pvb")
@@ -849,12 +848,6 @@ initial_state = NodePath("Idle")
 [node name="Idle" type="Node2D" parent="resourceHandler/laneSetter/topLane/enemyBase/stateComponent"]
 script = ExtResource("6_1or2k")
 
-[node name="toad" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("26_f0sj1")]
-position = Vector2(812.595, 60.3987)
-rotation = 0.000351868
-progress = 1729.54
-rotates = false
-
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]
 position = Vector2(251, -40.218)
 curve = SubResource("Curve2D_cwoqo")
@@ -925,3 +918,6 @@ texture = ExtResource("3_22536")
 [connection signal="enemy_base_hitted" from="resourceHandler/laneSetter/topLane/enemyBase/stateComponent" to="resourceHandler/laneSetter/enemyBase" method="_on_state_component_enemy_base_hitted"]
 [connection signal="ally_base_hitted" from="resourceHandler/laneSetter/bottomLane/allyBase/stateComponent" to="resourceHandler/laneSetter/allyBase" method="_on_state_component_ally_base_hitted"]
 [connection signal="enemy_base_hitted" from="resourceHandler/laneSetter/bottomLane/enemyBase/stateComponent" to="resourceHandler/laneSetter/enemyBase" method="_on_state_component_enemy_base_hitted"]
+
+[editable path="resourceHandler/stage_1_scenario"]
+[editable path="resourceHandler/HUD/unitSummoner/unitButton1"]

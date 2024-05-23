@@ -59,6 +59,8 @@ func _process(delta):
 			
 			await get_tree().create_timer(0.5).timeout #n초 기다리기 
 			get_node("CollisionShape2D").disabled = true
+	else:
+		visible = false
 			
 func switchFire():
 	isFire = true

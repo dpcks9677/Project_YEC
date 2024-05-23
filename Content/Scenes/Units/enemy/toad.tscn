@@ -122,6 +122,8 @@ height = 144.0
 size = Vector2(640, 152)
 
 [node name="toad" type="PathFollow2D"]
+rotates = false
+loop = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-16, -72)
@@ -153,6 +155,7 @@ script = ExtResource("6_k4rlg")
 castData = ExtResource("7_n5a7y")
 
 [node name="splash" type="Area2D" parent="stateComponent/Cast/rangeAreaAttack"]
+visible = false
 position = Vector2(48, 32)
 script = ExtResource("7_w06xh")
 

@@ -204,6 +204,8 @@ height = 80.0
 size = Vector2(252, 192)
 
 [node name="healer" type="PathFollow2D"]
+rotates = false
+loop = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(16, -40)
