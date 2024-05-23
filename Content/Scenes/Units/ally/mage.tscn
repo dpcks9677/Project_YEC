@@ -1,18 +1,18 @@
-[gd_scene load_steps=25 format=3 uid="uid://i2skwycpspr7"]
+[gd_scene load_steps=36 format=3 uid="uid://i2skwycpspr7"]
 
-[ext_resource type="Texture2D" uid="uid://clh2jehkmlgh0" path="res://Content/Graphics/Sprites/ally/mage.png" id="1_4iv67"]
+[ext_resource type="Texture2D" uid="uid://21jgeiv0rl72" path="res://Content/Graphics/Sprites/ally/mage.png" id="1_4iv67"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_a58hb"]
 [ext_resource type="Resource" uid="uid://dlvc1kh3m7en5" path="res://Content/Scripts/Resources/unitData/mage.tres" id="3_lqu0u"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_n6qkt"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="4_wvdts"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/rangeAreaAttack.gd" id="5_acvwl"]
-[ext_resource type="Texture2D" uid="uid://ney3q5u3c4y7" path="res://Content/Graphics/effects/sparkly.png" id="6_4csdq"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/linearProjectile.gd" id="6_ttmcc"]
 [ext_resource type="Resource" uid="uid://drxjsch5uh27u" path="res://Content/Scripts/Resources/castData/mage_normal.tres" id="7_3eanv"]
-[ext_resource type="Texture2D" uid="uid://cqcsq70jyk0eo" path="res://icon.svg" id="7_ds4bl"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="8_ngdoq"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/idle.gd" id="9_ytios"]
+[ext_resource type="Texture2D" uid="uid://q3ypmj3g3f08" path="res://Content/Graphics/effects/gadient_circle3.png" id="10_k6tqm"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="10_kj2qo"]
+[ext_resource type="Texture2D" uid="uid://cwts3wsv0bdux" path="res://Content/Graphics/effects/gradient_circle.png" id="10_qn86d"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="13_4usuw"]
 
 [sub_resource type="Animation" id="Animation_dyktv"]
@@ -109,10 +109,60 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_ii5xf"]
 radius = 40.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_excqg"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_215f4"]
+offsets = PackedFloat32Array(0, 0.311475, 0.557377, 1)
+colors = PackedColorArray(0.946474, 0.923288, 0.33537, 1, 0.917298, 0.414993, 0.135724, 1, 0.79, 0.160107, 0.0632, 1, 0.788235, 0.160784, 0.0627451, 0.301961)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bhifj"]
+gradient = SubResource("Gradient_215f4")
+
+[sub_resource type="CurveTexture" id="CurveTexture_kevqs"]
+
+[sub_resource type="Curve" id="Curve_imq24"]
+_data = [Vector2(0, 1), 0.0, -0.117739, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_66lha"]
+curve = SubResource("Curve_imq24")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8sw2c"]
 particle_flag_disable_z = true
 angle_max = 45.0
-gravity = Vector3(-100, 0, 0)
+orbit_velocity_min = -0.1
+gravity = Vector3(0, 0, 0)
+radial_accel_curve = SubResource("CurveTexture_kevqs")
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_66lha")
+color_ramp = SubResource("GradientTexture1D_bhifj")
+turbulence_enabled = true
+turbulence_noise_scale = 1.0
+turbulence_noise_speed = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_awntw"]
+colors = PackedColorArray(0.86, 0.229333, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_r7ywl"]
+gradient = SubResource("Gradient_awntw")
+
+[sub_resource type="Curve" id="Curve_eo1u5"]
+_data = [Vector2(0, 0.472527), 0.0, -1.44231, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jf7v5"]
+curve = SubResource("Curve_eo1u5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2tjg4"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 55.65
+angular_velocity_max = 105.17
+gravity = Vector3(0, -100, 0)
+scale_curve = SubResource("CurveTexture_jf7v5")
+color_ramp = SubResource("GradientTexture1D_r7ywl")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jogxd"]
 radius = 21.0
@@ -158,18 +208,33 @@ position = Vector2(0, -8)
 script = ExtResource("6_ttmcc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/rangeAreaAttack/splash"]
+position = Vector2(38, -29)
 shape = SubResource("CircleShape2D_ii5xf")
 debug_color = Color(0.788235, 0.0980392, 1, 0.419608)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="stateComponent/Cast/rangeAreaAttack/splash"]
-process_material = SubResource("ParticleProcessMaterial_8sw2c")
-texture = ExtResource("6_4csdq")
-lifetime = 0.5
-
 [node name="Sprite2D" type="Sprite2D" parent="stateComponent/Cast/rangeAreaAttack/splash"]
-modulate = Color(1, 0, 0, 1)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_ds4bl")
+modulate = Color(1, 0.583333, 0, 1)
+material = SubResource("CanvasItemMaterial_excqg")
+position = Vector2(19, -8)
+scale = Vector2(6.19141, 4.01758)
+texture = ExtResource("10_qn86d")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="stateComponent/Cast/rangeAreaAttack/splash"]
+position = Vector2(38, -28)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_8sw2c")
+texture = ExtResource("10_k6tqm")
+lifetime = 0.6
+explosiveness = 0.15
+trail_lifetime = 1.12
+trail_sections = 2
+trail_section_subdivisions = 200
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="stateComponent/Cast/rangeAreaAttack/splash"]
+position = Vector2(37, -29)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_2tjg4")
+texture = ExtResource("10_qn86d")
 
 [node name="Dead" type="Node2D" parent="stateComponent"]
 script = ExtResource("8_ngdoq")
@@ -178,12 +243,14 @@ script = ExtResource("8_ngdoq")
 script = ExtResource("9_ytios")
 
 [node name="hitbox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0, -24)
 shape = SubResource("CapsuleShape2D_jogxd")
 
 [node name="attackRangeComponent" type="Area2D" parent="."]
+visible = false
 script = ExtResource("13_4usuw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
