@@ -88,15 +88,6 @@ func _ready():
 	
 	material.set_shader_parameter("hit_color", Vector4(R, G, B, A))
 	get_parent().get_node("Sprite2D").material = material
-	
-	#스프라이트 보정치 추가
-	if get_parent().has_node("Sprite2D"):
-		var xRand = randi_range(-3,3)
-		var yRand = randi_range(0,-20)
-		$"../Sprite2D".offset.x += xRand
-		$"../Sprite2D".offset.y += yRand
-		$"../HealthBarComponent".position.x += xRand
-		$"../HealthBarComponent".position.y += yRand
 		
 	#미니맵 마커 추가 
 	get_parent().get_parent().get_parent().get_parent().get_node("HUD").get_node("minimapUI").spawnMarker(self)
@@ -109,6 +100,15 @@ func _ready():
 		rsc.increasePopulation()
 		get_parent().progress_ratio = 0.0
 		
+	#스프라이트 보정치 추가
+	if get_parent().has_node("Sprite2D"):
+		var xRand = randi_range(-3,3)
+		var yRand = randi_range(0,-10)
+		$"../Sprite2D".offset.x += xRand
+		$"../Sprite2D".offset.y += yRand
+		$"../HealthBarComponent".position.x += xRand
+		$"../HealthBarComponent".position.y += yRand
+	
 func _process(delta):
 	if health <= 0:
 		force_change_state("Dead")

@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dpd05uv4svud6" path="res://Content/Graphics/UI/mana.png" id="15_rhukf"]
 [ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="16_ij1sc"]
 [ext_resource type="Texture2D" uid="uid://cpxdp0psf36ck" path="res://Content/Graphics/UI/att.png" id="17_okgo7"]
-[ext_resource type="PackedScene" uid="uid://i2skwycpspr7" path="res://Content/Scenes/Units/ally/mage.tscn" id="27_raw00"]
+[ext_resource type="PackedScene" uid="uid://c6kqikx6ssxs0" path="res://Content/Scenes/Units/ally/trainee.tscn" id="26_nenff"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_30u2j"]
 atlas = ExtResource("11_22pvb")
@@ -849,11 +849,8 @@ initial_state = NodePath("Idle")
 [node name="Idle" type="Node2D" parent="resourceHandler/laneSetter/topLane/enemyBase/stateComponent"]
 script = ExtResource("6_1or2k")
 
-[node name="mage" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("27_raw00")]
+[node name="trainee" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("26_nenff")]
 position = Vector2(-892.026, 73.6852)
-rotation = 0.000351868
-rotates = false
-loop = false
 
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]
 position = Vector2(251, -40.218)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="statusResource" load_steps=2 format=3 uid="uid://b6mggn6s2mgmv"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Resources/unitData/statusResource.gd" id="1_dfcyp"]
+
+[resource]
+script = ExtResource("1_dfcyp")
+type = "unit"
+faction = "ally"
+size = "small"
+includedUnit = []
+health = 1000
+speed = 0.8
+mana = 15

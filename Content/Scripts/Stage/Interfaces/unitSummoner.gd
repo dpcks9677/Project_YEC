@@ -21,8 +21,8 @@ func _init():
 	unitName[3] = "militia"
 	unitName[4] = "healer"
 	unitName[5] = "hero"
-	unitName[6] = "archer"
-	unitName[7] = "archer"
+	unitName[6] = "mage"
+	unitName[7] = "trainee"
 
 func _ready():
 	rsc = get_parent().get_parent()
@@ -70,7 +70,7 @@ func spawn(unit):
 	else: #단일 유닛을 소환하는 코드 
 		if rsc.get_population() >= rsc.get_max_population(): #인구 수 확인 
 			print("Population limit exceeded.")
-		else: #마나 여부 확인 / 이유를 모르겠으나 mana를 조회하면 계속 0으로 나와서 _status.mana로 접근해야 원하는 대로 동작함.
+		else: #마나 여부 확인 
 			if target.get_node("stateComponent").get_mana() > rsc.get_current_mana(): 
 				print("no mana")
 			else:
