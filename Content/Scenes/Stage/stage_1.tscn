@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=79 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Handler/resourceHandler.gd" id="1_jgakt"]
 [ext_resource type="PackedScene" uid="uid://c201rvxgq5e35" path="res://Content/Scenes/Stage/stage_1_scenario.tscn" id="2_n5lwx"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dpd05uv4svud6" path="res://Content/Graphics/UI/mana.png" id="15_rhukf"]
 [ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="16_ij1sc"]
 [ext_resource type="Texture2D" uid="uid://cpxdp0psf36ck" path="res://Content/Graphics/UI/att.png" id="17_okgo7"]
+[ext_resource type="PackedScene" uid="uid://i2skwycpspr7" path="res://Content/Scenes/Units/ally/mage.tscn" id="27_raw00"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_30u2j"]
 atlas = ExtResource("11_22pvb")
@@ -362,10 +363,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="laneSelector" type="CheckButton" parent="resourceHandler/HUD/laneUI"]
 layout_mode = 0
-offset_top = 450.0
-offset_right = 147.0
-offset_bottom = 520.0
-theme_override_font_sizes/font_size = 30
+offset_top = 464.0
+offset_right = 131.0
+offset_bottom = 507.0
+theme_override_font_sizes/font_size = 25
 text = "button"
 alignment = 1
 
@@ -847,6 +848,12 @@ initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node2D" parent="resourceHandler/laneSetter/topLane/enemyBase/stateComponent"]
 script = ExtResource("6_1or2k")
+
+[node name="mage" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("27_raw00")]
+position = Vector2(-892.026, 73.6852)
+rotation = 0.000351868
+rotates = false
+loop = false
 
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]
 position = Vector2(251, -40.218)

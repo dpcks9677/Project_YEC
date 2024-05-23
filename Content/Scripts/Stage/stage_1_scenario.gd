@@ -6,7 +6,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	setNormalWave(delta) #delta로 초딩 스폰 제어 
+	#setNormalWave(delta) #delta로 초딩 스폰 제어 
 	pass
 
 func setNormalWave(delta):

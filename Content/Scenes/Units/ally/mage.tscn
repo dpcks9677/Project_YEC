@@ -1,0 +1,194 @@
+[gd_scene load_steps=24 format=3 uid="uid://i2skwycpspr7"]
+
+[ext_resource type="Texture2D" uid="uid://clh2jehkmlgh0" path="res://Content/Graphics/Sprites/ally/mage.png" id="1_4iv67"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_a58hb"]
+[ext_resource type="Resource" uid="uid://dlvc1kh3m7en5" path="res://Content/Scripts/Resources/unitData/mage.tres" id="3_lqu0u"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_n6qkt"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="4_wvdts"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/rangeAreaAttack.gd" id="5_acvwl"]
+[ext_resource type="Texture2D" uid="uid://ney3q5u3c4y7" path="res://Content/Graphics/effects/sparkly.png" id="6_4csdq"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/linearProjectile.gd" id="6_ttmcc"]
+[ext_resource type="Resource" uid="uid://drxjsch5uh27u" path="res://Content/Scripts/Resources/castData/mage_normal.tres" id="7_3eanv"]
+[ext_resource type="Texture2D" uid="uid://cqcsq70jyk0eo" path="res://icon.svg" id="7_ds4bl"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="8_ngdoq"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/idle.gd" id="9_ytios"]
+[ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="10_kj2qo"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="13_4usuw"]
+
+[sub_resource type="Animation" id="Animation_x5s50"]
+resource_name = "attack"
+length = 2.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 0.8, 1, 1.2, 1.4, 1.6, 1.7, 1.8, 2, 2.2, 2.4, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [20, 21, 22, 23, 24, 25, 26, 25, 26, 25, 26, 27, 28, 29, 0, 1, 2, 3]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("stateComponent/Cast/rangeAreaAttack/splash")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"switchFire"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_dyktv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+
+[sub_resource type="Animation" id="Animation_n6u2f"]
+resource_name = "idle"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_s1iqh"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u7011"]
+_data = {
+"RESET": SubResource("Animation_dyktv"),
+"attack": SubResource("Animation_x5s50"),
+"idle": SubResource("Animation_n6u2f"),
+"walk": SubResource("Animation_s1iqh")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ii5xf"]
+radius = 40.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8sw2c"]
+particle_flag_disable_z = true
+angle_max = 45.0
+gravity = Vector3(-100, 0, 0)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jogxd"]
+radius = 21.0
+height = 84.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dref"]
+size = Vector2(352, 192)
+
+[node name="mage" type="PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -37)
+texture = ExtResource("1_4iv67")
+hframes = 10
+vframes = 3
+frame = 20
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u7011")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_a58hb")
+initial_state = NodePath("Move")
+_status = ExtResource("3_lqu0u")
+
+[node name="Move" type="Node2D" parent="stateComponent"]
+script = ExtResource("3_n6qkt")
+
+[node name="Cast" type="Node2D" parent="stateComponent"]
+script = ExtResource("4_wvdts")
+
+[node name="rangeAreaAttack" type="Node2D" parent="stateComponent/Cast"]
+script = ExtResource("5_acvwl")
+castData = ExtResource("7_3eanv")
+
+[node name="splash" type="Area2D" parent="stateComponent/Cast/rangeAreaAttack"]
+position = Vector2(0, -8)
+script = ExtResource("6_ttmcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/rangeAreaAttack/splash"]
+shape = SubResource("CircleShape2D_ii5xf")
+debug_color = Color(0.788235, 0.0980392, 1, 0.419608)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="stateComponent/Cast/rangeAreaAttack/splash"]
+process_material = SubResource("ParticleProcessMaterial_8sw2c")
+texture = ExtResource("6_4csdq")
+lifetime = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="stateComponent/Cast/rangeAreaAttack/splash"]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_ds4bl")
+
+[node name="Dead" type="Node2D" parent="stateComponent"]
+script = ExtResource("8_ngdoq")
+
+[node name="Idle" type="Node2D" parent="stateComponent"]
+script = ExtResource("9_ytios")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -16)
+shape = SubResource("CapsuleShape2D_jogxd")
+
+[node name="attackRangeComponent" type="Area2D" parent="."]
+script = ExtResource("13_4usuw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
+position = Vector2(176, -56)
+shape = SubResource("RectangleShape2D_5dref")
+debug_color = Color(1, 0.490196, 0, 0.419608)
+
+[node name="HealthBarComponent" parent="." instance=ExtResource("10_kj2qo")]
+position = Vector2(-34, -76)
+
+[connection signal="area_entered" from="stateComponent/Cast/rangeAreaAttack/splash" to="stateComponent/Cast/rangeAreaAttack" method="_on_splash_area_entered"]
+[connection signal="area_entered" from="attackRangeComponent" to="attackRangeComponent" method="_on_area_entered"]
+[connection signal="enqueue_target" from="attackRangeComponent" to="stateComponent/Cast" method="_on_attack_range_component_enqueue_target"]
