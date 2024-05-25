@@ -1,6 +1,6 @@
-[gd_scene load_steps=36 format=3 uid="uid://i2skwycpspr7"]
+[gd_scene load_steps=37 format=3 uid="uid://i2skwycpspr7"]
 
-[ext_resource type="Texture2D" uid="uid://21jgeiv0rl72" path="res://Content/Graphics/Sprites/ally/mage.png" id="1_4iv67"]
+[ext_resource type="Texture2D" uid="uid://clh2jehkmlgh0" path="res://Content/Graphics/Sprites/ally/mage.png" id="1_4iv67"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_a58hb"]
 [ext_resource type="Resource" uid="uid://dlvc1kh3m7en5" path="res://Content/Scripts/Resources/unitData/mage.tres" id="3_lqu0u"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_n6qkt"]
@@ -10,9 +10,9 @@
 [ext_resource type="Resource" uid="uid://drxjsch5uh27u" path="res://Content/Scripts/Resources/castData/mage_normal.tres" id="7_3eanv"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="8_ngdoq"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/idle.gd" id="9_ytios"]
-[ext_resource type="Texture2D" uid="uid://q3ypmj3g3f08" path="res://Content/Graphics/effects/gadient_circle3.png" id="10_k6tqm"]
+[ext_resource type="Texture2D" uid="uid://5u2xlp1aleb4" path="res://Content/Graphics/effects/gadient_circle3.png" id="10_k6tqm"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="10_kj2qo"]
-[ext_resource type="Texture2D" uid="uid://cwts3wsv0bdux" path="res://Content/Graphics/effects/gradient_circle.png" id="10_qn86d"]
+[ext_resource type="Texture2D" uid="uid://b1pdxweh7gfpp" path="res://Content/Graphics/effects/gradient_circle.png" id="10_qn86d"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="13_4usuw"]
 
 [sub_resource type="Animation" id="Animation_dyktv"]
@@ -33,7 +33,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_x5s50"]
 resource_name = "attack"
 length = 2.8
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -119,7 +118,14 @@ colors = PackedColorArray(0.946474, 0.923288, 0.33537, 1, 0.917298, 0.414993, 0.
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_bhifj"]
 gradient = SubResource("Gradient_215f4")
 
+[sub_resource type="Curve" id="Curve_0sesc"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_kevqs"]
+curve = SubResource("Curve_0sesc")
 
 [sub_resource type="Curve" id="Curve_imq24"]
 _data = [Vector2(0, 1), 0.0, -0.117739, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

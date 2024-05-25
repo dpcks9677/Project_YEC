@@ -1,6 +1,6 @@
 extends Control
 
-const savePath = "user://Saves/"
+const savePath = "res://Saves/"
 const saveFile = "save1.json"
 
 #Scene preload
@@ -47,18 +47,22 @@ func load_data(path : String):
 		file.close()
 		
 		var data = JSON.parse_string(content)
+		print(data)
 		if data == null:
 			printerr("Cannot parse %s as a json string: (%s)!" %[path, content])
 			return
 		
-		savedata = saveData.new()
-		savedata.gold = data.save_data.gold
-		savedata.currentStage = data.save_data.currentStage
-		savedata.playTime = data.save_data.playTime
+		SaveData.gold = data.save_data.gold
+		SaveData.currentStage = data.save_data.currentStage
+		SaveData.playTime = data.save_data.playTime
 		
+		SaveData.ownedUnitList = data.save_data.ownedUnitList
 		
 	else:
 		printerr("Cannot open non-existent file at %s!" %[path])
+
+func transfer_data_between_scenes(old_scene, new_scene):
+	new_scene.savedata = old_scene.savedata #new_scene이 packedScene임 
 
 #Signals
 func _on_quit_button_pressed():
@@ -73,14 +77,14 @@ func _on_back_button_pressed():
 func _on_button_1_pressed():
 	currentSave = 1
 	load_data(savePath+saveFile)
-	get_node("LoadScene").get_node("saveInfo").text = str("gold : " , savedata.gold, " / ", "stage : ", savedata.currentStage)
+	get_node("LoadScene").get_node("saveInfo").text = str("gold : " , SaveData.gold, " / ", "stage : ", SaveData.currentStage)
 
 func _on_new_game_button_pressed():
 	save_data(savePath+saveFile)
 
-
 func _on_next_button_pressed():
 	if currentSave != 0:
+		#transfer_data_between_scenes(self, map)
 		get_node("transition").play("fade_out")
 
 

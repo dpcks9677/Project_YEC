@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cinj6g22wdc3l" path="res://Content/Graphics/UI/unitSlot.png" id="5_c8gt1"]
 [ext_resource type="Texture2D" uid="uid://ddp2tpbccm8nq" path="res://Content/Graphics/Sprites/portrait/rhino.png" id="5_grmiy"]
 [ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="5_lit45"]
-[ext_resource type="Texture2D" uid="uid://c0eeghk7w5x4" path="res://Content/Graphics/UI/layout.png" id="9_0ion2"]
+[ext_resource type="PackedScene" uid="uid://bq3x14mwss3w2" path="res://Content/Scenes/map_unit_slot.tscn" id="9_ostwt"]
 [ext_resource type="Texture2D" uid="uid://ce5buy40gwts0" path="res://Content/Graphics/UI/layout2.png" id="10_dmjrm"]
 [ext_resource type="Texture2D" uid="uid://ckqnohdv15eik" path="res://Content/Graphics/UI/layout3.png" id="11_v0t1f"]
 [ext_resource type="Texture2D" uid="uid://c681224mqibj3" path="res://Content/Graphics/UI/layout4.png" id="12_4p34q"]
@@ -543,10 +543,138 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.588235)
 
-[node name="canvas" type="Sprite2D" parent="loadoutHUD"]
-position = Vector2(456, 292)
-scale = Vector2(4.5, 4.5)
-texture = ExtResource("9_0ion2")
+[node name="canvas" type="NinePatchRect" parent="loadoutHUD"]
+offset_left = 168.0
+offset_top = 148.0
+offset_right = 753.0
+offset_bottom = 448.0
+texture = ExtResource("5_c8gt1")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="unitSlot1" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+
+[node name="unitSlot2" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 117.0
+offset_right = 234.0
+
+[node name="unitSlot3" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 234.0
+offset_right = 351.0
+
+[node name="unitSlot4" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 351.0
+offset_right = 468.0
+
+[node name="unitSlot5" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 468.0
+offset_right = 585.0
+
+[node name="unitSlot6" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_top = 75.0
+offset_bottom = 150.0
+
+[node name="unitSlot7" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 75.0
+offset_right = 234.0
+offset_bottom = 150.0
+
+[node name="unitSlot8" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 75.0
+offset_right = 351.0
+offset_bottom = 150.0
+
+[node name="unitSlot9" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 75.0
+offset_right = 468.0
+offset_bottom = 150.0
+
+[node name="unitSlot10" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 75.0
+offset_right = 585.0
+offset_bottom = 150.0
+
+[node name="unitSlot11" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_top = 150.0
+offset_bottom = 225.0
+
+[node name="unitSlot12" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 150.0
+offset_right = 234.0
+offset_bottom = 225.0
+
+[node name="unitSlot13" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 150.0
+offset_right = 351.0
+offset_bottom = 225.0
+
+[node name="unitSlot14" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 150.0
+offset_right = 468.0
+offset_bottom = 225.0
+
+[node name="unitSlot15" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 150.0
+offset_right = 585.0
+offset_bottom = 225.0
+
+[node name="unitSlot16" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_top = 225.0
+offset_bottom = 300.0
+
+[node name="unitSlot17" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 225.0
+offset_right = 234.0
+offset_bottom = 300.0
+
+[node name="unitSlot18" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 225.0
+offset_right = 351.0
+offset_bottom = 300.0
+
+[node name="unitSlot19" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 225.0
+offset_right = 468.0
+offset_bottom = 300.0
+
+[node name="unitSlot20" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 225.0
+offset_right = 585.0
+offset_bottom = 300.0
 
 [node name="canvas2" type="Sprite2D" parent="loadoutHUD"]
 position = Vector2(453, 543)
@@ -559,8 +687,8 @@ scale = Vector2(4, 4)
 texture = ExtResource("11_v0t1f")
 
 [node name="canvas4" type="Sprite2D" parent="loadoutHUD"]
-position = Vector2(936, 337)
-scale = Vector2(4, 4)
+position = Vector2(945, 337)
+scale = Vector2(3.79545, 4)
 texture = ExtResource("12_4p34q")
 
 [node name="Camera2D" type="Camera2D" parent="."]

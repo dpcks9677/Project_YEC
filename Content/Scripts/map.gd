@@ -2,15 +2,16 @@ extends Control
 
 @onready var camera = $Camera2D
 
+#드래그 관련 변수 
 var isButtonMove : bool = false
 var target_pos : Vector2
 var move_speed = 5.0
 
-# Variables to track dragging
+#드래그 트래킹 
 var dragging = false
 var last_mouse_position = Vector2()
 
-# Tolerance for position comparison
+#드래그 마진 값 
 var tolerance = 20.0
 
 func _ready():
@@ -56,7 +57,7 @@ func slide_tween_in():
 
 func slide_tween_out():
 	var tween = create_tween()
-	tween.tween_property($stageInfoHUD/Sprite2D, "position", Vector2(-432, 0), 0.1)
+	tween.tween_property($stageInfoHUDSprite2D, "position", Vector2(-432, 0), 0.1)
 
 #signal
 func _on_stage_1_pressed():

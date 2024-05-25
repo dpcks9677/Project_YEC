@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq3x14mwss3w2"]
+
+[ext_resource type="Texture2D" uid="uid://ci336xa80soml" path="res://Content/Graphics/UI/unitBackground.png" id="1_w1tr5"]
+[ext_resource type="Script" path="res://Content/Scripts/mapUnitSlot.gd" id="2_aq33f"]
+[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="3_m4d3y"]
+[ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="4_5vcg7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k53gg"]
+bg_color = Color(0.580392, 0.74902, 0.976471, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[node name="unitSlot" type="NinePatchRect"]
+clip_contents = true
+offset_right = 117.0
+offset_bottom = 75.0
+texture = ExtResource("1_w1tr5")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+script = ExtResource("2_aq33f")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 112.0
+offset_bottom = 69.0
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureButton"]
+position = Vector2(48, 26)
+scale = Vector2(0.320312, 0.320312)
+
+[node name="manaTag" type="Control" parent="TextureButton"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 105.0
+offset_bottom = 63.0
+
+[node name="ColorRect" type="Panel" parent="TextureButton/manaTag"]
+layout_mode = 0
+offset_left = 62.25
+offset_top = 45.25
+offset_right = 105.25
+offset_bottom = 63.25
+theme_override_styles/panel = SubResource("StyleBoxFlat_k53gg")
+
+[node name="mana" type="Label" parent="TextureButton/manaTag"]
+layout_mode = 0
+offset_left = 81.25
+offset_top = 48.25
+offset_right = 104.25
+offset_bottom = 62.25
+theme_override_fonts/font = ExtResource("3_m4d3y")
+theme_override_font_sizes/font_size = 13
+text = "00"
+
+[node name="crystal" type="Sprite2D" parent="TextureButton/manaTag"]
+position = Vector2(71.25, 54.25)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("4_5vcg7")
