@@ -7,13 +7,13 @@ extends NinePatchRect
 
 @export var unitRes : Resource
 
-func _enter_tree():
+func _ready():
+	#idx 부여 
 	for i in range(20): #버튼은 1~20, idx는 0~19
 		if get_name() == "unitSlot" + str(i):
 			idx = i - 1
 			unitName = SaveData.ownedUnitList[idx]
-
-func _ready():
+	
 	if unitName != "":
 		unitRes = load("res://Content/Scripts/Resources/unitData/" + unitName + ".tres")
 		
@@ -23,3 +23,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func _on_texture_button_pressed():
+	print("pressed")
