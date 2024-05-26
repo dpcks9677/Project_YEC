@@ -1,20 +1,18 @@
-[gd_scene load_steps=22 format=3 uid="uid://dppjey0wno2wc"]
+[gd_scene load_steps=20 format=3 uid="uid://dppjey0wno2wc"]
 
 [ext_resource type="Script" path="res://Content/Scripts/map.gd" id="1_nt3rt"]
-[ext_resource type="Texture2D" uid="uid://cfqptwjdgy3g2" path="res://Content/Graphics/UI/scrollsandblocks.png" id="2_a5kwd"]
-[ext_resource type="Texture2D" uid="uid://bgxqppt3i78ly" path="res://Content/Graphics/Background/map2.png" id="2_k8b43"]
+[ext_resource type="Texture2D" uid="uid://dtox1n3kpx6a1" path="res://Content/Graphics/UI/scrollsandblocks.png" id="2_a5kwd"]
+[ext_resource type="Texture2D" uid="uid://dd0ak4rmh5t8p" path="res://Content/Graphics/Background/map2.png" id="2_k8b43"]
 [ext_resource type="Script" path="res://Content/Scripts/stageInfoHUD.gd" id="2_teyaw"]
-[ext_resource type="Texture2D" uid="uid://dfct4d6sqvwbg" path="res://Content/Graphics/Background/map.png" id="2_w22pa"]
-[ext_resource type="FontFile" uid="uid://do5aqgufsvrc2" path="res://Content/Graphics/UI/font/SDMiSaeng.ttf" id="3_cofno"]
-[ext_resource type="Texture2D" uid="uid://bvwalbr36h5dh" path="res://Content/Graphics/UI/load.png" id="3_ewfwv"]
-[ext_resource type="FontFile" uid="uid://2voekqgf574h" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="4_0w7s1"]
-[ext_resource type="Texture2D" uid="uid://ddsfrwmm2cyle" path="res://Content/Graphics/UI/unitSlot.png" id="5_c8gt1"]
-[ext_resource type="Texture2D" uid="uid://brb2v50hpj6n4" path="res://Content/Graphics/Sprites/portrait/rhino.png" id="5_grmiy"]
-[ext_resource type="Texture2D" uid="uid://44heku2b83eu" path="res://Content/Graphics/Sprites/object/crystal.png" id="5_lit45"]
-[ext_resource type="PackedScene" uid="uid://bq3x14mwss3w2" path="res://Content/Scenes/map_unit_slot.tscn" id="9_ostwt"]
-[ext_resource type="Texture2D" uid="uid://vyp1ndv3kaol" path="res://Content/Graphics/UI/layout2.png" id="10_dmjrm"]
-[ext_resource type="Texture2D" uid="uid://biuu8ciy1l2fw" path="res://Content/Graphics/UI/layout3.png" id="11_v0t1f"]
-[ext_resource type="Texture2D" uid="uid://bfe45yswlf5x" path="res://Content/Graphics/UI/layout4.png" id="12_4p34q"]
+[ext_resource type="Texture2D" uid="uid://d3blumgkggh7u" path="res://Content/Graphics/Background/map.png" id="2_w22pa"]
+[ext_resource type="FontFile" uid="uid://cg5spy66unpeq" path="res://Content/Graphics/UI/font/SDMiSaeng.ttf" id="3_cofno"]
+[ext_resource type="Texture2D" uid="uid://d2xucu6flctgv" path="res://Content/Graphics/UI/load.png" id="3_ewfwv"]
+[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="4_0w7s1"]
+[ext_resource type="Texture2D" uid="uid://cinj6g22wdc3l" path="res://Content/Graphics/UI/unitSlot.png" id="5_c8gt1"]
+[ext_resource type="Texture2D" uid="uid://ddp2tpbccm8nq" path="res://Content/Graphics/Sprites/portrait/rhino.png" id="5_grmiy"]
+[ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="5_lit45"]
+[ext_resource type="PackedScene" uid="uid://bq3x14mwss3w2" path="res://Content/Scenes/slot.tscn" id="9_s4wna"]
+[ext_resource type="Texture2D" uid="uid://ctvpdgdxd0yhh" path="res://Content/Graphics/UI/unitSlot_select.png" id="10_7qqmw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvue5"]
 bg_color = Color(0.580392, 0.74902, 0.976471, 1)
@@ -543,153 +541,280 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.588235)
 
-[node name="canvas" type="NinePatchRect" parent="loadoutHUD"]
-offset_left = 168.0
+[node name="unitLoadout" type="NinePatchRect" parent="loadoutHUD"]
+offset_left = 196.0
 offset_top = 148.0
-offset_right = 753.0
+offset_right = 781.0
 offset_bottom = 448.0
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("5_c8gt1")
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
-[node name="unitSlot1" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot1" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 
-[node name="unitSlot2" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot2" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 117.0
 offset_right = 234.0
 
-[node name="unitSlot3" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot3" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 234.0
 offset_right = 351.0
 
-[node name="unitSlot4" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot4" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 351.0
 offset_right = 468.0
 
-[node name="unitSlot5" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot5" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 468.0
 offset_right = 585.0
 
-[node name="unitSlot6" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot6" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_top = 75.0
 offset_bottom = 150.0
 
-[node name="unitSlot7" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot7" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 117.0
 offset_top = 75.0
 offset_right = 234.0
 offset_bottom = 150.0
 
-[node name="unitSlot8" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot8" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 234.0
 offset_top = 75.0
 offset_right = 351.0
 offset_bottom = 150.0
 
-[node name="unitSlot9" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot9" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 351.0
 offset_top = 75.0
 offset_right = 468.0
 offset_bottom = 150.0
 
-[node name="unitSlot10" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot10" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 468.0
 offset_top = 75.0
 offset_right = 585.0
 offset_bottom = 150.0
 
-[node name="unitSlot11" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot11" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_top = 150.0
 offset_bottom = 225.0
 
-[node name="unitSlot12" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot12" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 117.0
 offset_top = 150.0
 offset_right = 234.0
 offset_bottom = 225.0
 
-[node name="unitSlot13" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot13" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 234.0
 offset_top = 150.0
 offset_right = 351.0
 offset_bottom = 225.0
 
-[node name="unitSlot14" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot14" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 351.0
 offset_top = 150.0
 offset_right = 468.0
 offset_bottom = 225.0
 
-[node name="unitSlot15" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot15" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 468.0
 offset_top = 150.0
 offset_right = 585.0
 offset_bottom = 225.0
 
-[node name="unitSlot16" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot16" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_top = 225.0
 offset_bottom = 300.0
 
-[node name="unitSlot17" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot17" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 117.0
 offset_top = 225.0
 offset_right = 234.0
 offset_bottom = 300.0
 
-[node name="unitSlot18" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot18" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 234.0
 offset_top = 225.0
 offset_right = 351.0
 offset_bottom = 300.0
 
-[node name="unitSlot19" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot19" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 351.0
 offset_top = 225.0
 offset_right = 468.0
 offset_bottom = 300.0
 
-[node name="unitSlot20" parent="loadoutHUD/canvas" instance=ExtResource("9_ostwt")]
+[node name="Slot20" parent="loadoutHUD/unitLoadout" instance=ExtResource("9_s4wna")]
 layout_mode = 0
 offset_left = 468.0
 offset_top = 225.0
 offset_right = 585.0
 offset_bottom = 300.0
 
-[node name="canvas2" type="Sprite2D" parent="loadoutHUD"]
-position = Vector2(453, 543)
-scale = Vector2(4.5, 4.5)
-texture = ExtResource("10_dmjrm")
+[node name="SlotSelect" type="NinePatchRect" parent="loadoutHUD/unitLoadout"]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 37.0
+scale = Vector2(2, 2)
+texture = ExtResource("10_7qqmw")
+patch_margin_left = 20
+patch_margin_top = 18
+patch_margin_right = 20
+patch_margin_bottom = 18
 
-[node name="canvas3" type="Sprite2D" parent="loadoutHUD"]
-position = Vector2(91, 329)
-scale = Vector2(4, 4)
-texture = ExtResource("11_v0t1f")
+[node name="towerLoadout" type="NinePatchRect" parent="loadoutHUD"]
+offset_left = 196.0
+offset_top = 469.0
+offset_right = 781.0
+offset_bottom = 619.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_c8gt1")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
 
-[node name="canvas4" type="Sprite2D" parent="loadoutHUD"]
-position = Vector2(945, 337)
-scale = Vector2(3.79545, 4)
-texture = ExtResource("12_4p34q")
+[node name="Slot1" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+
+[node name="Slot2" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 117.0
+offset_right = 234.0
+
+[node name="Slot3" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 234.0
+offset_right = 351.0
+
+[node name="Slot4" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 351.0
+offset_right = 468.0
+
+[node name="Slot5" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 468.0
+offset_right = 585.0
+
+[node name="Slot6" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 75.0
+offset_bottom = 150.0
+
+[node name="Slot7" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 75.0
+offset_right = 234.0
+offset_bottom = 150.0
+
+[node name="Slot8" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 75.0
+offset_right = 351.0
+offset_bottom = 150.0
+
+[node name="Slot9" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 75.0
+offset_right = 468.0
+offset_bottom = 150.0
+
+[node name="Slot10" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 75.0
+offset_right = 585.0
+offset_bottom = 150.0
+
+[node name="itemEquipped" type="NinePatchRect" parent="loadoutHUD"]
+offset_left = 52.0
+offset_top = 67.0
+offset_right = 169.0
+offset_bottom = 667.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_c8gt1")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Slot1" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+
+[node name="Slot2" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 75.0
+offset_bottom = 150.0
+
+[node name="Slot3" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 150.0
+offset_bottom = 225.0
+
+[node name="Slot4" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 225.0
+offset_bottom = 300.0
+
+[node name="Slot5" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 300.0
+offset_bottom = 375.0
+
+[node name="Slot6" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 375.0
+offset_bottom = 450.0
+
+[node name="Slot7" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 450.0
+offset_bottom = 525.0
+
+[node name="Slot8" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 525.0
+offset_bottom = 600.0
+
+[node name="itemInfo" type="NinePatchRect" parent="loadoutHUD"]
+offset_left = 758.0
+offset_top = 92.0
+offset_right = 870.0
+offset_bottom = 262.0
+scale = Vector2(3, 3)
+texture = ExtResource("5_c8gt1")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

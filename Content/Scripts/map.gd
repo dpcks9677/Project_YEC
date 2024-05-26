@@ -14,6 +14,8 @@ var last_mouse_position = Vector2()
 #드래그 마진 값 
 var tolerance = 20.0
 
+@export var isLoadoutOn : bool = false
+
 func _ready():
 	print("scene started")
 	get_node("transition/ColorRect").visible = true
@@ -28,9 +30,14 @@ func _process(delta):
 		if camera.position.distance_to(target_pos) < tolerance: #버튼과 카메라 좌표를 비교해서 오차범위 내면 이동 종료 
 			isButtonMove = false
 			print("move end")
+			
+	if $loadoutHUD.visible == true:
+		isLoadoutOn = true
+	else:
+		isLoadoutOn = false
 
 func _input(event): #카메라 드래그 관련 함수 
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and !isLoadoutOn:
 		if event.button_index == 1: #MouseButton.LEFT == 1
 			if event.is_pressed():
 				# Start dragging
@@ -42,7 +49,8 @@ func _input(event): #카메라 드래그 관련 함수
 			else:
 				# Stop dragging
 				dragging = false
-	elif event is InputEventMouseMotion:
+				
+	elif event is InputEventMouseMotion and !isLoadoutOn:
 		if dragging:
 			# Calculate the drag offset
 			var offset = event.position - last_mouse_position

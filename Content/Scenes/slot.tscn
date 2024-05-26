@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bq3x14mwss3w2"]
 
-[ext_resource type="Texture2D" uid="uid://bocndbbsobclu" path="res://Content/Graphics/UI/unitBackground.png" id="1_w1tr5"]
+[ext_resource type="Texture2D" uid="uid://ci336xa80soml" path="res://Content/Graphics/UI/unitBackground.png" id="1_w1tr5"]
 [ext_resource type="Script" path="res://Content/Scripts/mapUnitSlot.gd" id="2_aq33f"]
-[ext_resource type="FontFile" uid="uid://2voekqgf574h" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="3_m4d3y"]
-[ext_resource type="Texture2D" uid="uid://44heku2b83eu" path="res://Content/Graphics/Sprites/object/crystal.png" id="4_5vcg7"]
+[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="3_m4d3y"]
+[ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="4_5vcg7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k53gg"]
 bg_color = Color(0.580392, 0.74902, 0.976471, 1)
@@ -13,7 +13,7 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 anti_aliasing = false
 
-[node name="unitSlot" type="NinePatchRect"]
+[node name="Slot" type="NinePatchRect"]
 clip_contents = true
 offset_right = 117.0
 offset_bottom = 75.0
@@ -39,8 +39,6 @@ scale = Vector2(0.320312, 0.320312)
 [node name="manaTag" type="Control" parent="TextureButton"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 3.0
-offset_bottom = 3.0
 
 [node name="ColorRect" type="Panel" parent="TextureButton/manaTag"]
 layout_mode = 0
@@ -65,4 +63,6 @@ position = Vector2(71.25, 54.25)
 scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("4_5vcg7")
 
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
