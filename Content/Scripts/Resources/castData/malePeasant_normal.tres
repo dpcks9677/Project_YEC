@@ -7,3 +7,7 @@ script = ExtResource("1_ql4y5")
 damage = 25
 damageType = "physics"
 cooltime = 1.6
+triggerCount = 1
+isStun = false
+isSKnockBack = false
+isSlow = false

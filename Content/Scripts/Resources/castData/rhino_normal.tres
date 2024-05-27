@@ -7,3 +7,7 @@ script = ExtResource("1_yetmd")
 damage = 200
 damageType = "physics"
 cooltime = 2.0
+triggerCount = 1
+isStun = false
+isSKnockBack = false
+isSlow = false

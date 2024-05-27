@@ -7,3 +7,7 @@ script = ExtResource("1_q2rji")
 damage = 300
 damageType = "magic"
 cooltime = 2.8
+triggerCount = 1
+isStun = false
+isSKnockBack = false
+isSlow = false

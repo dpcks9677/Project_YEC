@@ -7,3 +7,7 @@ script = ExtResource("1_8obml")
 damage = 250
 damageType = "physics"
 cooltime = 2.1
+triggerCount = 1
+isStun = false
+isSKnockBack = false
+isSlow = false
