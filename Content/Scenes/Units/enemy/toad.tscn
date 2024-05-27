@@ -1,8 +1,8 @@
-[gd_scene load_steps=53 format=3 uid="uid://brhy872g4qvjq"]
+[gd_scene load_steps=38 format=3 uid="uid://brhy872g4qvjq"]
 
-[ext_resource type="Texture2D" uid="uid://0pakbw8d1d8y" path="res://Content/Graphics/Sprites/enemy/toad.png" id="1_p4lca"]
+[ext_resource type="Texture2D" uid="uid://ommhhhgvfnb5" path="res://Content/Graphics/Sprites/enemy/toad.png" id="1_p4lca"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_4f6wm"]
-[ext_resource type="Texture2D" uid="uid://kufleqou0sia" path="res://Content/Graphics/effects/stun (1).png" id="2_aq4aj"]
+[ext_resource type="PackedScene" uid="uid://can6h63aa7cw6" path="res://Content/Scenes/Stage/Components/effectComponent.tscn" id="2_bnrm5"]
 [ext_resource type="Resource" uid="uid://durdht0t7gsde" path="res://Content/Scripts/Resources/unitData/toad.tres" id="3_74wxm"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_nuvhy"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="4_5ob4w"]
@@ -12,10 +12,9 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/parabola.gd" id="7_w06xh"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="10_ikvem"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="10_qdp80"]
-[ext_resource type="Texture2D" uid="uid://drqucjmft7pbr" path="res://Content/Graphics/effects/gradient_circle.png" id="10_r7wn1"]
-[ext_resource type="Texture2D" uid="uid://dw7dklvgi4wag" path="res://Content/Graphics/effects/tod_effect1.png" id="11_3epx2"]
+[ext_resource type="Texture2D" uid="uid://b1pdxweh7gfpp" path="res://Content/Graphics/effects/gradient_circle.png" id="10_r7wn1"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/additionalState.gd" id="11_ixuq7"]
-[ext_resource type="Texture2D" uid="uid://crr1l1taxb2qf" path="res://Content/Graphics/effects/blood.png" id="14_p6jdj"]
+[ext_resource type="Texture2D" uid="uid://cma0grjgaac6i" path="res://Content/Graphics/effects/toad_effect.png" id="11_q0ti4"]
 
 [sub_resource type="Animation" id="Animation_unevw"]
 length = 0.001
@@ -114,86 +113,6 @@ _data = {
 "walk": SubResource("Animation_ohoj8")
 }
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3qsey"]
-particles_animation = true
-particles_anim_h_frames = 6
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="Curve" id="Curve_m0j0q"]
-min_value = -1.0
-_data = [Vector2(0, 0.0769231), 0.0, 0.0, 0, 0, Vector2(0.5, 0.956044), 0.0, 0.0, 0, 0, Vector2(1, 0.0109891), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_hp8oy"]
-curve = SubResource("Curve_m0j0q")
-
-[sub_resource type="Curve" id="Curve_fexc2"]
-_data = [Vector2(0, 0.538462), 0.0, 0.0, 0, 0, Vector2(0.506667, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.494505), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_em0ra"]
-curve = SubResource("Curve_fexc2")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cu3og"]
-particle_flag_disable_z = true
-angle_min = -10.0
-angle_max = 10.0
-gravity = Vector3(0, 0, 0)
-scale_min = 2.0
-scale_max = 2.0
-scale_curve = SubResource("CurveTexture_em0ra")
-color = Color(0.928559, 0.866927, 0.624355, 1)
-hue_variation_max = 0.5
-hue_variation_curve = SubResource("CurveTexture_hp8oy")
-anim_speed_min = 2.3
-anim_speed_max = 2.3
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_orw0e"]
-particles_animation = true
-particles_anim_h_frames = 5
-particles_anim_v_frames = 1
-particles_anim_loop = true
-
-[sub_resource type="Curve" id="Curve_dmjxt"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.461538), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_bqb60"]
-curve = SubResource("Curve_dmjxt")
-
-[sub_resource type="Gradient" id="Gradient_2eoka"]
-offsets = PackedFloat32Array(0, 0.811475)
-colors = PackedColorArray(0.742344, 0.092617, 0.0933026, 1, 0.0504, 0.100147, 0.28, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_tq0su"]
-gradient = SubResource("Gradient_2eoka")
-
-[sub_resource type="Curve" id="Curve_b6qkm"]
-_data = [Vector2(0, 1), 0.0, -1.70152, 0, 0, Vector2(1, 0), -0.358337, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_irxow"]
-curve = SubResource("Curve_b6qkm")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rk3dl"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(10, 30, 1)
-angle_min = -60.0
-angle_max = 20.0
-gravity = Vector3(300, -100, 0)
-scale_min = 2.0
-scale_max = 4.0
-scale_curve = SubResource("CurveTexture_irxow")
-color_ramp = SubResource("GradientTexture1D_tq0su")
-alpha_curve = SubResource("CurveTexture_bqb60")
-anim_speed_min = 1.0
-anim_speed_max = 2.0
-turbulence_noise_scale = 10.0
-turbulence_influence_max = 1.0
-turbulence_initial_displacement_max = 100.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_lh4hm"]
 radius = 64.0
 
@@ -290,23 +209,7 @@ visible = false
 volume_db = -15.0
 max_distance = 1000.0
 
-[node name="statusEffect" type="Node2D" parent="."]
-
-[node name="stun" type="GPUParticles2D" parent="statusEffect"]
-material = SubResource("CanvasItemMaterial_3qsey")
-position = Vector2(-24, -78)
-amount = 1
-process_material = SubResource("ParticleProcessMaterial_cu3og")
-texture = ExtResource("2_aq4aj")
-lifetime = 0.5
-
-[node name="blood" type="GPUParticles2D" parent="statusEffect"]
-visible = false
-material = SubResource("CanvasItemMaterial_orw0e")
-position = Vector2(6, -13)
-amount = 5
-process_material = SubResource("ParticleProcessMaterial_rk3dl")
-texture = ExtResource("14_p6jdj")
+[node name="effectComponent" parent="." instance=ExtResource("2_bnrm5")]
 
 [node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_4f6wm")
@@ -341,7 +244,7 @@ debug_color = Color(1, 1, 0, 0.419608)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="stateComponent/Cast/rangeAreaAttack/splash"]
 material = SubResource("CanvasItemMaterial_3g1jl")
 process_material = SubResource("ParticleProcessMaterial_2h6p4")
-texture = ExtResource("11_3epx2")
+texture = ExtResource("11_q0ti4")
 lifetime = 0.2
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="stateComponent/Cast/rangeAreaAttack/splash"]
@@ -349,7 +252,7 @@ material = SubResource("CanvasItemMaterial_q473x")
 position = Vector2(-2, 4)
 amount = 5
 process_material = SubResource("ParticleProcessMaterial_0pan6")
-texture = ExtResource("11_3epx2")
+texture = ExtResource("11_q0ti4")
 lifetime = 0.2
 
 [node name="Dead" type="Node2D" parent="stateComponent"]
@@ -378,3 +281,5 @@ position = Vector2(-56, -56)
 [connection signal="area_entered" from="stateComponent/Cast/rangeAreaAttack/splash" to="stateComponent/Cast/rangeAreaAttack" method="_on_splash_area_entered"]
 [connection signal="area_entered" from="attackRangeComponent" to="attackRangeComponent" method="_on_area_entered"]
 [connection signal="enqueue_target" from="attackRangeComponent" to="stateComponent/Cast" method="_on_attack_range_component_enqueue_target"]
+
+[editable path="effectComponent"]

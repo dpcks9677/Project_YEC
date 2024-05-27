@@ -1,10 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://25330bywv47t"]
+[gd_scene load_steps=22 format=3 uid="uid://25330bywv47t"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="1_662x8"]
-[ext_resource type="Texture2D" uid="uid://bodlv1q8xbuwm" path="res://Content/Graphics/Sprites/ally/healer.png" id="1_hwnxa"]
-[ext_resource type="Texture2D" uid="uid://o2ph3d53owk7" path="res://Content/Graphics/effects/sparkly.png" id="2_3k50b"]
+[ext_resource type="Texture2D" uid="uid://b3wvmj26t4gsh" path="res://Content/Graphics/Sprites/ally/healer.png" id="1_hwnxa"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="2_520ck"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_d10nn"]
+[ext_resource type="PackedScene" uid="uid://can6h63aa7cw6" path="res://Content/Scenes/Stage/Components/effectComponent.tscn" id="2_lnnl5"]
 [ext_resource type="Resource" uid="uid://crsygux1sk7a4" path="res://Content/Scripts/Resources/unitData/healer.tres" id="3_djdto"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/rangeAreaHeal.gd" id="4_4iowu"]
 [ext_resource type="Resource" uid="uid://cq04oigowoyen" path="res://Content/Scripts/Resources/castData/healer_normal.tres" id="5_ko3i7"]
@@ -43,10 +43,22 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("statusEffects/Healing:modulate")
+tracks/2/path = NodePath("effectComponent/Healing:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("effectComponent/Healing:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -83,14 +95,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("statusEffects/Healing:modulate")
+tracks/2/path = NodePath("effectComponent/Healing:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.3, 1.7, 2.5, 2.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("effectComponent/Healing:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.4, 1.6, 2.2, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_h0ro5"]
@@ -110,18 +134,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("statusEffects/Healing:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_iifta"]
 resource_name = "walk"
@@ -139,18 +151,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [6, 7, 8, 9, 10, 11]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("statusEffects/Healing:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c4vbs"]
 _data = {
@@ -159,39 +159,6 @@ _data = {
 "idle": SubResource("Animation_h0ro5"),
 "walk": SubResource("Animation_iifta")
 }
-
-[sub_resource type="Curve" id="Curve_2vupp"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.461538), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_mak3h"]
-curve = SubResource("Curve_2vupp")
-
-[sub_resource type="Gradient" id="Gradient_q4jn5"]
-offsets = PackedFloat32Array(0, 0.188525, 0.590164)
-colors = PackedColorArray(0.1224, 0.20604, 0.68, 1, 1, 0.9, 0, 1, 0.429667, 1, 0.42, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_e6vpi"]
-gradient = SubResource("Gradient_q4jn5")
-
-[sub_resource type="Curve" id="Curve_x6ssi"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_npb6c"]
-curve = SubResource("Curve_x6ssi")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y7nsb"]
-lifetime_randomness = 1.0
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(32, 32, 1)
-gravity = Vector3(0, 1, 0)
-linear_accel_max = 300.0
-scale_max = 2.0
-scale_curve = SubResource("CurveTexture_npb6c")
-color_ramp = SubResource("GradientTexture1D_e6vpi")
-alpha_curve = SubResource("CurveTexture_mak3h")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e76wx"]
 size = Vector2(512, 192)
@@ -224,13 +191,11 @@ libraries = {
 volume_db = -15.0
 max_distance = 1000.0
 
-[node name="statusEffects" type="Node2D" parent="."]
+[node name="effectComponent" parent="." instance=ExtResource("2_lnnl5")]
 
-[node name="Healing" type="GPUParticles2D" parent="statusEffects"]
+[node name="Healing" parent="effectComponent" index="2"]
+visible = true
 modulate = Color(1, 1, 1, 0)
-position = Vector2(-3, -58)
-process_material = SubResource("ParticleProcessMaterial_y7nsb")
-texture = ExtResource("2_3k50b")
 
 [node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_d10nn")
@@ -285,3 +250,5 @@ position = Vector2(-32, -56)
 [connection signal="area_entered" from="stateComponent/Cast/rangeAreaHeal/healBox" to="stateComponent/Cast/rangeAreaHeal" method="_on_heal_box_area_entered"]
 [connection signal="area_entered" from="attackRangeComponent" to="attackRangeComponent" method="_on_area_entered"]
 [connection signal="enqueue_target" from="attackRangeComponent" to="stateComponent/Cast" method="_on_attack_range_component_enqueue_target"]
+
+[editable path="effectComponent"]

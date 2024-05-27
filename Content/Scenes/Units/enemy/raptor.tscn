@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://6aiiqqk4vwat"]
 
-[ext_resource type="Texture2D" uid="uid://dyucyvlxj81j7" path="res://Content/Graphics/Sprites/enemy/raptor.png" id="1_8yf45"]
+[ext_resource type="Texture2D" uid="uid://yvdpqpr55nkb" path="res://Content/Graphics/Sprites/enemy/raptor.png" id="1_8yf45"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_hup7k"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="2_mlc0k"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="3_11dyu"]

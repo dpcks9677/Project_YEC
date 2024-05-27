@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://c8uahecrvhvuj"]
+[gd_scene load_steps=23 format=3 uid="uid://c8uahecrvhvuj"]
 
-[ext_resource type="Texture2D" uid="uid://dh0kjn2ao6n4o" path="res://Content/Graphics/Sprites/ally/hero.png" id="1_4yyx4"]
-[ext_resource type="AudioStream" uid="uid://chuwuntwib3a" path="res://Content/Sound/sfx/sword-hit_1.mp3" id="2_022wl"]
+[ext_resource type="Texture2D" uid="uid://du1lf6mfiu26s" path="res://Content/Graphics/Sprites/ally/hero.png" id="1_4yyx4"]
+[ext_resource type="AudioStream" uid="uid://b58d44sjwrkni" path="res://Content/Sound/sfx/sword-hit_1.mp3" id="2_022wl"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/meleeAreaAttack.gd" id="2_op0nv"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_va5l1"]
+[ext_resource type="PackedScene" uid="uid://can6h63aa7cw6" path="res://Content/Scenes/Stage/Components/effectComponent.tscn" id="3_02p6g"]
 [ext_resource type="Resource" uid="uid://ca63bygxqr4xr" path="res://Content/Scripts/Resources/unitData/hero.tres" id="3_5ha8m"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="3_ffnlw"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="4_ena1d"]
@@ -140,6 +141,11 @@ stream = ExtResource("2_022wl")
 volume_db = -15.0
 max_distance = 1000.0
 
+[node name="effectComponent" parent="." instance=ExtResource("3_02p6g")]
+
+[node name="Stun" parent="effectComponent" index="0"]
+position = Vector2(0, -72)
+
 [node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_va5l1")
 initial_state = NodePath("Move")
@@ -192,3 +198,5 @@ position = Vector2(-32, -56)
 [connection signal="area_entered" from="stateComponent/Cast/meleeAreaAttack/damageBox" to="stateComponent/Cast/meleeAreaAttack" method="_on_damage_box_area_entered"]
 [connection signal="area_entered" from="attackRangeComponent" to="attackRangeComponent" method="_on_area_entered"]
 [connection signal="enqueue_target" from="attackRangeComponent" to="stateComponent/Cast" method="_on_attack_range_component_enqueue_target"]
+
+[editable path="effectComponent"]
