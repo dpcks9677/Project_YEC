@@ -3,8 +3,8 @@ extends Area2D
 # Points and movement parameters
 var start_point = position
 var end_point = Vector2(400, 0)
-var height = 1000.0
-var duration = 2.0  # Duration of the movement in seconds
+var height = 800.0
+var duration = 3.0  # Duration of the movement in seconds
 var elapsed_time = 0.0 # = x
 
 var directionValue : int #투사체 방향 

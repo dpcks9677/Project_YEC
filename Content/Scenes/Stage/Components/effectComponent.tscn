@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://can6h63aa7cw6"]
 
-[ext_resource type="Texture2D" uid="uid://b48jnrg8m10v6" path="res://Content/Graphics/effects/stun.png" id="1_x86v4"]
+[ext_resource type="Texture2D" uid="uid://b48jnrg8m10v6" path="res://Content/Graphics/effects/stun.png" id="1_h6r5u"]
 [ext_resource type="Texture2D" uid="uid://b7jj0xtwg7dx7" path="res://Content/Graphics/effects/blood.png" id="2_i0ytk"]
 [ext_resource type="Texture2D" uid="uid://ney3q5u3c4y7" path="res://Content/Graphics/effects/sparkly.png" id="3_2fpy5"]
 
@@ -125,7 +125,7 @@ material = SubResource("CanvasItemMaterial_3qsey")
 position = Vector2(-24, -78)
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_cu3og")
-texture = ExtResource("1_x86v4")
+texture = ExtResource("1_h6r5u")
 lifetime = 0.5
 
 [node name="Blood" type="GPUParticles2D" parent="."]

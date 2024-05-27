@@ -35,10 +35,10 @@ tracks/1/path = NodePath("Sprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_y8n25"]
@@ -190,6 +190,7 @@ castData = ExtResource("7_62gm1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/meleeAreaAttack/damageBox"]
 position = Vector2(55, 5)
 shape = SubResource("RectangleShape2D_kcncf")
+disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="KnockBack" type="Node2D" parent="stateComponent"]

@@ -14,8 +14,8 @@ func Update(delta):
 		target = target_queue.dequeue()
 	elif target_queue.get_head() == null and target == null: #타겟X, 타겟큐X => Move로 전이 
 		if $"../../AnimationPlayer".is_playing():
-			pass
-		else:
+			$"../../AnimationPlayer".play("idle") #idle 재생 후 이동 
+			await $"../../AnimationPlayer".animation_finished 
 			get_parent().change_state(self, "Move")
 	else: #타겟O
 		if target not in $"../../attackRangeComponent".get_overlapping_areas(): #target이 공격범위 내 없는 경우 

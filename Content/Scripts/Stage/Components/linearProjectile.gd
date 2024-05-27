@@ -29,6 +29,11 @@ func _process(delta):
 		get_end_point()
 
 	if isFire == true:
+		#파티클 초기화 
+		for child in get_children():
+			if child is GPUParticles2D:
+				child.emitting = true
+		
 		if isHitted == false:
 			visible = true
 		else:
@@ -51,6 +56,11 @@ func _process(delta):
 			position = Vector2(directionValue * x, y)  # Update position
 		else:
 			visible = false #collision을 보고 싶으면 true로 바꿀 것 
+			
+			for child in get_children(): #파티클 삭제 
+				if child is GPUParticles2D:
+					child.emitting = false
+			
 			isHitted = false
 			isFire = false
 			get_node("CollisionShape2D").disabled = false

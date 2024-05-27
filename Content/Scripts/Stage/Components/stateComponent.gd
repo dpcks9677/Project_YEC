@@ -76,18 +76,13 @@ func _ready():
 			get_parent().get_node("attackRangeComponent").set_collision_layer_value(3, true)
 	
 	#Shader 불러오기 
-	var base_shader = preload("res://Content/Scripts/Shader/hit.gdshader")
+	var hit_shader = load("res://Content/Scripts/Shader/hit.tres") as ShaderMaterial
+	var outline_shader = load("res://Content/Scripts/Shader/outline.tres") as ShaderMaterial
 	
-	var material = ShaderMaterial.new()
-	material.shader = base_shader.duplicate()
+	var currentShader = hit_shader.duplicate() as ShaderMaterial #hit_shader가 기본 쉐이더 
 	
-	var R : float = 0.6509
-	var G : float = 0.1333
-	var B : float = 0.2549
-	var A : float = 1.0
-	
-	material.set_shader_parameter("hit_color", Vector4(R, G, B, A))
-	get_parent().get_node("Sprite2D").material = material
+	if currentShader:
+		$"../Sprite2D".material = currentShader
 		
 	#미니맵 마커 추가 
 	get_parent().get_parent().get_parent().get_parent().get_node("HUD").get_node("minimapUI").spawnMarker(self)

@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="10_qdp80"]
 [ext_resource type="Texture2D" uid="uid://b1pdxweh7gfpp" path="res://Content/Graphics/effects/gradient_circle.png" id="10_r7wn1"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/additionalState.gd" id="11_ixuq7"]
-[ext_resource type="Texture2D" uid="uid://cma0grjgaac6i" path="res://Content/Graphics/effects/toad_effect.png" id="11_q0ti4"]
+[ext_resource type="Texture2D" uid="uid://cma0grjgaac6i" path="res://Content/Graphics/effects/toad_effect.png" id="11_qqfkt"]
 
 [sub_resource type="Animation" id="Animation_unevw"]
 length = 0.001
@@ -244,7 +244,7 @@ debug_color = Color(1, 1, 0, 0.419608)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="stateComponent/Cast/rangeAreaAttack/splash"]
 material = SubResource("CanvasItemMaterial_3g1jl")
 process_material = SubResource("ParticleProcessMaterial_2h6p4")
-texture = ExtResource("11_q0ti4")
+texture = ExtResource("11_qqfkt")
 lifetime = 0.2
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="stateComponent/Cast/rangeAreaAttack/splash"]
@@ -252,7 +252,7 @@ material = SubResource("CanvasItemMaterial_q473x")
 position = Vector2(-2, 4)
 amount = 5
 process_material = SubResource("ParticleProcessMaterial_0pan6")
-texture = ExtResource("11_q0ti4")
+texture = ExtResource("11_qqfkt")
 lifetime = 0.2
 
 [node name="Dead" type="Node2D" parent="stateComponent"]

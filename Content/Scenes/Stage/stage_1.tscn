@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=81 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Handler/resourceHandler.gd" id="1_jgakt"]
 [ext_resource type="PackedScene" uid="uid://c201rvxgq5e35" path="res://Content/Scenes/Stage/stage_1_scenario.tscn" id="2_n5lwx"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://cpxdp0psf36ck" path="res://Content/Graphics/UI/att.png" id="17_okgo7"]
 [ext_resource type="PackedScene" uid="uid://d0qy58xe4nqwd" path="res://Content/Scenes/Units/enemy/smasher.tscn" id="26_tukdn"]
 [ext_resource type="PackedScene" uid="uid://brhy872g4qvjq" path="res://Content/Scenes/Units/enemy/toad.tscn" id="27_1mddk"]
+[ext_resource type="PackedScene" uid="uid://i2skwycpspr7" path="res://Content/Scenes/Units/ally/mage.tscn" id="28_5vl1m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_30u2j"]
 atlas = ExtResource("11_22pvb")
@@ -234,7 +235,7 @@ region = Rect2(1.00006, -0.182327, 254.71, 299.182)
 
 [sub_resource type="Curve2D" id="Curve2D_6u51i"]
 _data = {
-"points": PackedVector2Array(-217.789, -0.0768551, 0, 0, -892.026, 73.6852, 0, 0, 0, 0, -867.026, 73.694, -56.7372, 18.334, 56.7372, -18.334, -685.027, 77.7583, -41.381, 2.65508, 41.381, -2.65508, -548.014, 40.8066, 0, 0, 0, 0, -372.348, 33.8435, -69.3012, 13.4106, 69.3012, -13.4106, -330.01, 28.8835, -144.251, 2.07042, 144.251, -2.07042, 9.99929, 2.00353, -96.1615, -14.1761, 96.1615, 14.1761, 372.983, 48.1316, -90.5054, -12.0528, 90.5054, 12.0528, 556.985, 41.1966, -114.548, -8.5257, 114.548, 8.5257, 832.978, 61.862, 0, 0, 0, 0, 931.977, 65.3289)
+"points": PackedVector2Array(-217.789, -0.0768551, 0, 0, -892.026, 73.6852, 0, 0, 0, 0, -867.026, 73.694, -56.7372, 18.334, 56.7372, -18.334, -685.027, 77.7583, -41.381, 2.65508, 41.381, -2.65508, -548.014, 40.8066, 0, 0, 0, 0, -416.014, 39.8532, -69.3012, 13.4106, 69.3012, -13.4106, -330.01, 28.8835, -144.251, 2.07042, 144.251, -2.07042, 9.99929, 2.00353, -96.1615, -14.1761, 96.1615, 14.1761, 372.983, 48.1316, -90.5054, -12.0528, 90.5054, 12.0528, 556.985, 41.1966, -114.548, -8.5257, 114.548, 8.5257, 832.978, 61.862, 0, 0, 0, 0, 931.977, 65.3289)
 }
 point_count = 11
 
@@ -829,7 +830,7 @@ initial_state = NodePath("Idle")
 script = ExtResource("6_1or2k")
 
 [node name="enemyBase" type="PathFollow2D" parent="resourceHandler/laneSetter/topLane"]
-position = Vector2(931.977, 65.329)
+position = Vector2(931.977, 65.3289)
 progress = 1850.76
 rotates = false
 cubic_interp = false
@@ -851,13 +852,16 @@ initial_state = NodePath("Idle")
 script = ExtResource("6_1or2k")
 
 [node name="smasher" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("26_tukdn")]
-position = Vector2(-349.475, 32.5415)
+position = Vector2(-162.286, 9.20989)
 rotation = 0.000351868
-progress = 559.855
+progress = 738.453
 
 [node name="toad" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("27_1mddk")]
-position = Vector2(-368.63, 35.7162)
-progress = 540.54
+position = Vector2(429.162, 51.3592)
+progress = 1333.84
+
+[node name="mage" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("28_5vl1m")]
+position = Vector2(-892.026, 73.6852)
 
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]
 position = Vector2(251, -40.218)
