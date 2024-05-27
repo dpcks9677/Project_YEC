@@ -7,6 +7,7 @@ script = ExtResource("1_eybql")
 type = "unit"
 faction = "ally"
 size = "small"
+includedUnit = []
 health = 1000
 speed = 0.7
 mana = 8

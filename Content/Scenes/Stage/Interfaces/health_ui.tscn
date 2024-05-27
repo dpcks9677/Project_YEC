@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cd2oi5x35nqsi"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/baseHealthBar.gd" id="1_2s47r"]
-[ext_resource type="FontFile" uid="uid://i8yrjuivbwjv" path="res://Content/Graphics/UI/font/Pixel Gosub.otf" id="2_2ydt6"]
+[ext_resource type="FontFile" uid="uid://bx4t1xht5m1k8" path="res://Content/Graphics/UI/font/Pixel Gosub.otf" id="2_2ydt6"]
 
 [sub_resource type="Gradient" id="Gradient_ylr4l"]
 interpolation_mode = 1

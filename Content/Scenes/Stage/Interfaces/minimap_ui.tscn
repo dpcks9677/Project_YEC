@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b300txn8xe4of"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/minimapUI.gd" id="1_1r2l6"]
-[ext_resource type="Texture2D" uid="uid://cildyfhqk48ri" path="res://Content/Graphics/UI/UIset.png" id="1_gtppb"]
+[ext_resource type="Texture2D" uid="uid://dgof8eo7pntgl" path="res://Content/Graphics/UI/UIset.png" id="1_gtppb"]
 
 [sub_resource type="Curve2D" id="Curve2D_8248e"]
 _data = {

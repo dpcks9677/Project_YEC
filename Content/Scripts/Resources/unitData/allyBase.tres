@@ -6,6 +6,8 @@
 script = ExtResource("1_a3yyl")
 type = "building"
 faction = "ally"
+size = ""
+includedUnit = []
 health = 4000
 speed = 0.0
 mana = 0

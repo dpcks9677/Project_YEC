@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://b6b55fdeongkh"]
 
-[ext_resource type="Texture2D" uid="uid://dqbhsdd4bsgti" path="res://Content/Graphics/Sprites/enemy/blop.png" id="1_aqhpc"]
+[ext_resource type="Texture2D" uid="uid://cdey4r4em31j5" path="res://Content/Graphics/Sprites/enemy/blop.png" id="1_aqhpc"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_cjrxx"]
 [ext_resource type="Resource" uid="uid://d4gpu00n2rl23" path="res://Content/Scripts/Resources/unitData/blop.tres" id="3_7cpdn"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_f1cwg"]

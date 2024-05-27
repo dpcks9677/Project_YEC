@@ -6,6 +6,8 @@
 script = ExtResource("1_u1rrs")
 type = "building"
 faction = "enemy"
+size = ""
+includedUnit = []
 health = 4000
 speed = 0.0
 mana = 0

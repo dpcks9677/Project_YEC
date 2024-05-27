@@ -7,6 +7,8 @@ extends NinePatchRect
 
 @export var unitRes : Resource
 
+signal unitLoadoutButtonPressed
+
 func _ready():
 	#idx 부여 
 	for i in range(get_parent().get_child_count()): #버튼은 1~20, idx는 0~19
@@ -47,3 +49,4 @@ func _on_texture_button_button_up():
 	
 func _on_texture_button_pressed():
 	print("pressed")
+	emit_signal("unitLoadoutButtonPressed", position)

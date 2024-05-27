@@ -12,17 +12,11 @@ var slotSide : bool
 @export var rsc : resourceHandler
 
 func _init():
-	#스테이지 진입 전 준비 씬에서 정보를 넘겨받아서 작성해야 함.
-	slotSide = false
+	#SaveData의 equippedList를 참조해서 데이터 삽입 
+	for i in range(8):
+		unitName[i] = SaveData.equippedList[i]
 	
-	unitName[0] = "spearman" 
-	unitName[1] = "knight"
-	unitName[2] = "archer"
-	unitName[3] = "militia"
-	unitName[4] = "healer"
-	unitName[5] = "hero"
-	unitName[6] = "mage"
-	unitName[7] = "trainee"
+	slotSide = false
 
 func _ready():
 	rsc = get_parent().get_parent()
@@ -30,7 +24,7 @@ func _ready():
 	#씬 불러 올 때, 직접 경로를 적지 않고, 데이터를 인계받아서 자리에 맞게 유닛을 매치 할 수 있도록 설계 
 	for i in range(8):
 		if unitName[i] != null:
-			var unitData = load("res://Content/Scenes/Units/ally/" + str(unitName[i]) + ".tscn")
+			var unitData = load("res://Content/Scenes/Units/ally/" + unitName[i] + ".tscn")
 			unitScene[i] = unitData
 		
 func _process(_delta):

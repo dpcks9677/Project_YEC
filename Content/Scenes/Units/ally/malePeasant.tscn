@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://8425mxmhiw1h"]
 
-[ext_resource type="Texture2D" uid="uid://cbdl7p2q38r0v" path="res://Content/Graphics/Sprites/ally/malePeasant.png" id="1_74htb"]
+[ext_resource type="Texture2D" uid="uid://cyl7vns2a83pn" path="res://Content/Graphics/Sprites/ally/malePeasant.png" id="1_74htb"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="1_y1m70"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_q4j0d"]
 [ext_resource type="Resource" uid="uid://bop44jtjqnvus" path="res://Content/Scripts/Resources/unitData/malePeasant.tres" id="3_fwvyo"]
