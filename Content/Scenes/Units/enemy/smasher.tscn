@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://d0qy58xe4nqwd"]
 
-[ext_resource type="Texture2D" uid="uid://cg733jbw700y6" path="res://Content/Graphics/Sprites/enemy/smasher.png" id="1_wyfv3"]
+[ext_resource type="Texture2D" uid="uid://liuq2ab6rmcc" path="res://Content/Graphics/Sprites/enemy/smasher.png" id="1_wyfv3"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_mkhuw"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_8qxn5"]
 [ext_resource type="Resource" uid="uid://lfnblcoe53gh" path="res://Content/Scripts/Resources/unitData/smasher.tres" id="3_v1a53"]
