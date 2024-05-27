@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dppjey0wno2wc"]
+[gd_scene load_steps=22 format=3 uid="uid://dppjey0wno2wc"]
 
 [ext_resource type="Script" path="res://Content/Scripts/map.gd" id="1_nt3rt"]
 [ext_resource type="Texture2D" uid="uid://cfqptwjdgy3g2" path="res://Content/Graphics/UI/scrollsandblocks.png" id="2_a5kwd"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Content/Scripts/unitLoadout.gd" id="9_bicc5"]
 [ext_resource type="PackedScene" uid="uid://bq3x14mwss3w2" path="res://Content/Scenes/slot.tscn" id="9_s4wna"]
 [ext_resource type="Texture2D" uid="uid://qpurbveh8qoc" path="res://Content/Graphics/UI/unitSlot_select.png" id="10_7qqmw"]
+[ext_resource type="Script" path="res://Content/Scripts/itemInfo.gd" id="12_qttvi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvue5"]
 bg_color = Color(0.580392, 0.74902, 0.976471, 1)
@@ -817,6 +818,65 @@ patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
+script = ExtResource("12_qttvi")
+
+[node name="itemName" type="Label" parent="loadoutHUD/itemInfo"]
+layout_mode = 2
+offset_left = 3.99999
+offset_top = 13.0
+offset_right = 108.0
+offset_bottom = 30.0
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_0w7s1")
+theme_override_font_sizes/font_size = 10
+text = " test"
+
+[node name="Slot" parent="loadoutHUD/itemInfo" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 7.66667
+offset_top = 28.3333
+offset_right = 124.667
+offset_bottom = 103.333
+scale = Vector2(0.8, 0.8)
+
+[node name="TextureButton" parent="loadoutHUD/itemInfo/Slot" index="0"]
+offset_left = 8.33332
+offset_top = 6.66667
+offset_right = 114.333
+offset_bottom = 69.6667
+
+[node name="manaTag" parent="loadoutHUD/itemInfo/Slot/TextureButton" index="1"]
+visible = false
+
+[node name="healthLabel" type="Label" parent="loadoutHUD/itemInfo"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 95.0
+offset_right = 108.0
+offset_bottom = 106.0
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_0w7s1")
+theme_override_font_sizes/font_size = 8
+text = " HP"
+
+[node name="healthProgressBar" type="ProgressBar" parent="loadoutHUD/itemInfo"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 96.0
+offset_right = 99.0
+offset_bottom = 103.0
+show_percentage = false
+
+[node name="attackLabel" type="Label" parent="loadoutHUD/itemInfo"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 107.667
+offset_right = 108.0
+offset_bottom = 118.667
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_0w7s1")
+theme_override_font_sizes/font_size = 8
+text = " ATK"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -883,3 +943,5 @@ texture = ExtResource("3_ewfwv")
 [connection signal="pressed" from="stage2" to="stageInfoHUD" method="_on_stage_2_pressed"]
 [connection signal="pressed" from="stage3" to="." method="_on_stage_3_pressed"]
 [connection signal="pressed" from="stage3" to="stageInfoHUD" method="_on_stage_3_pressed"]
+
+[editable path="loadoutHUD/itemInfo/Slot"]

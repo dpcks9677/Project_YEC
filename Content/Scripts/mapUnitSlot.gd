@@ -40,6 +40,10 @@ func undo_modulate(button : TextureButton):
 	button.position.x += 2
 	button.position.y -= 2
 
+#getter
+func get_itemName():
+	return itemName
+
 #signal
 func _on_texture_button_button_down():
 	do_modulate($TextureButton)
@@ -49,4 +53,4 @@ func _on_texture_button_button_up():
 	
 func _on_texture_button_pressed():
 	print("pressed")
-	emit_signal("unitLoadoutButtonPressed", position)
+	emit_signal("unitLoadoutButtonPressed", position, self)

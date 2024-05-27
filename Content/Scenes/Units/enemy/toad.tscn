@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://brhy872g4qvjq"]
 
-[ext_resource type="Texture2D" uid="uid://0pakbw8d1d8y" path="res://Content/Graphics/Sprites/enemy/toad.png" id="1_p4lca"]
+[ext_resource type="Texture2D" uid="uid://bqc73yxer4vhl" path="res://Content/Graphics/Sprites/enemy/toad.png" id="1_p4lca"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_4f6wm"]
 [ext_resource type="Resource" uid="uid://durdht0t7gsde" path="res://Content/Scripts/Resources/unitData/toad.tres" id="3_74wxm"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_nuvhy"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="10_ikvem"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="10_qdp80"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/additionalState.gd" id="11_ixuq7"]
-[ext_resource type="Texture2D" uid="uid://crr1l1taxb2qf" path="res://Content/Graphics/effects/blood.png" id="14_p6jdj"]
+[ext_resource type="Texture2D" uid="uid://cgmv0dfatutsy" path="res://Content/Graphics/effects/blood.png" id="14_p6jdj"]
 
 [sub_resource type="Animation" id="Animation_unevw"]
 length = 0.001
@@ -112,16 +112,6 @@ _data = {
 "walk": SubResource("Animation_ohoj8")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lh4hm"]
-radius = 64.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_061lf"]
-radius = 48.0
-height = 144.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsfxf"]
-size = Vector2(448, 152)
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_orw0e"]
 particles_animation = true
 particles_anim_h_frames = 5
@@ -167,6 +157,16 @@ turbulence_noise_scale = 10.0
 turbulence_influence_max = 1.0
 turbulence_initial_displacement_max = 100.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lh4hm"]
+radius = 64.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_061lf"]
+radius = 48.0
+height = 144.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsfxf"]
+size = Vector2(448, 152)
+
 [node name="toad" type="PathFollow2D"]
 rotates = false
 loop = false
@@ -184,6 +184,16 @@ libraries = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 volume_db = -15.0
 max_distance = 1000.0
+
+[node name="statusEffect" type="Node2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="statusEffect"]
+visible = false
+material = SubResource("CanvasItemMaterial_orw0e")
+position = Vector2(6, -13)
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_rk3dl")
+texture = ExtResource("14_p6jdj")
 
 [node name="stateComponent" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_4f6wm")
@@ -237,13 +247,6 @@ debug_color = Color(1, 0.490196, 0, 0.419608)
 
 [node name="HealthBarComponent" parent="." instance=ExtResource("10_ikvem")]
 position = Vector2(-56, -56)
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_orw0e")
-position = Vector2(6, -13)
-amount = 5
-process_material = SubResource("ParticleProcessMaterial_rk3dl")
-texture = ExtResource("14_p6jdj")
 
 [connection signal="area_entered" from="stateComponent/Cast/rangeAreaAttack/splash" to="stateComponent/Cast/rangeAreaAttack" method="_on_splash_area_entered"]
 [connection signal="area_entered" from="attackRangeComponent" to="attackRangeComponent" method="_on_area_entered"]

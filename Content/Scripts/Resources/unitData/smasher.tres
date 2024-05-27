@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="statusResource" load_steps=2 format=3 uid="uid://lfnblcoe53gh"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Resources/unitData/statusResource.gd" id="1_87oha"]
+
+[resource]
+script = ExtResource("1_87oha")
+type = "unit"
+faction = "enemy"
+size = "medium"
+includedUnit = []
+health = 4000
+speed = 0.7
+mana = 40

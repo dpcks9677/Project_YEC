@@ -17,7 +17,7 @@ class_name saveData
 
 @export var equippedList : Array = [
 	"hero", 
-	"", 
+	"spearman", 
 	"", 
 	"", 
 	"", 
