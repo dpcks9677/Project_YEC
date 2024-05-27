@@ -12,3 +12,8 @@ func _ready():
 func _on_unitLoadoutButtonPressed(position, node):
 	focusImage.position = position #위치 반영 
 	focusNode = node #노드 정보 받아옴
+
+func get_focusNodeNull():
+	if focusNode != null:
+		return 1
+	return focusNode

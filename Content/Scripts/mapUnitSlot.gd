@@ -52,5 +52,4 @@ func _on_texture_button_button_up():
 	undo_modulate($TextureButton)	
 	
 func _on_texture_button_pressed():
-	print("pressed")
 	emit_signal("unitLoadoutButtonPressed", position, self)
