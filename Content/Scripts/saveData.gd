@@ -7,22 +7,52 @@ class_name saveData
 
 #null String, 기본 페이지 수에 따라 확장 
 @export var ownedUnitList : Array = [
-	"spearman", "knight", "", "", "", "", "", "", "", "",
-	"", "", "", "", "", "", "", "", "", ""
+	#name, id
+	["spearman", 0],
+	["knight", 0] ,
+	["hero", 0], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
 ]
 
 @export var ownedTowerList : Array = [
-	"", "", "", "", "", "", "", "", "", ""
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null]
 ]
 
 @export var equippedList : Array = [
-	"hero", 
-	"spearman", 
-	"archer", 
-	"", 
-	"", 
-	"", 
-	"", 
-	""
+	["hero", 0],
+	["spearman", 0],
+	["knight", 0] ,
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null], 
+	["", null]
 ]
 

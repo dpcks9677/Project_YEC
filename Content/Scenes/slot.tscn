@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq3x14mwss3w2"]
+[gd_scene load_steps=8 format=3 uid="uid://bq3x14mwss3w2"]
 
 [ext_resource type="Texture2D" uid="uid://ci336xa80soml" path="res://Content/Graphics/UI/unitBackground.png" id="1_w1tr5"]
 [ext_resource type="Script" path="res://Content/Scripts/mapUnitSlot.gd" id="2_aq33f"]
 [ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="3_m4d3y"]
+[ext_resource type="Script" path="res://Content/Scripts/TextureButtonDrag.gd" id="3_okw4n"]
 [ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="4_5vcg7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k53gg"]
@@ -12,6 +13,9 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 anti_aliasing = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ap512"]
+size = Vector2(105, 63)
 
 [node name="Slot" type="NinePatchRect"]
 clip_contents = true
@@ -31,6 +35,14 @@ offset_left = 6.0
 offset_top = 6.0
 offset_right = 112.0
 offset_bottom = 69.0
+mouse_filter = 1
+script = ExtResource("3_okw4n")
+
+[node name="Panel" type="Panel" parent="TextureButton"]
+visible = false
+layout_mode = 0
+offset_right = 106.0
+offset_bottom = 63.0
 
 [node name="Sprite2D" type="Sprite2D" parent="TextureButton"]
 position = Vector2(48, 26)
@@ -63,6 +75,16 @@ position = Vector2(71.25, 54.25)
 scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("4_5vcg7")
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(6, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(52.5, 31.5)
+shape = SubResource("RectangleShape2D_ap512")
+
 [connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
 [connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="area_entered" from="Area2D" to="TextureButton" method="_on_area_2d_area_entered"]
+[connection signal="mouse_entered" from="Area2D" to="TextureButton" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="TextureButton" method="_on_area_2d_mouse_exited"]

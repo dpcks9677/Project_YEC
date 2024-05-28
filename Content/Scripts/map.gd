@@ -42,9 +42,7 @@ func _input(event): #카메라 드래그 관련 함수
 			if event.is_pressed():
 				# Start dragging
 				dragging = true
-				
 				slide_tween_out() # HUD 회수 
-				
 				last_mouse_position = event.position
 			else:
 				# Stop dragging
