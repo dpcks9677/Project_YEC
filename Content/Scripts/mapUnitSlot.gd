@@ -2,45 +2,45 @@ extends NinePatchRect
 
 @export var idx : int
 
-@export var itemNameArr : Array
 @export var itemName : String
+@export var itemID : int
 
 @export var unitRes : Resource
 
+var dragging : bool
+
+var has_run_once : bool
+
 signal unitLoadoutButtonPressed
+signal itemEquip
 
 func _ready():
-	#idx 부여 
-	for i in range(get_parent().get_child_count()): #버튼은 1~20, idx는 0~19
-		if get_name() == "Slot" + str(i):
-			idx = i - 1
-			if get_parent().get_name() == "unitLoadout":
-				itemName = SaveData.ownedUnitList[idx][0]
-			elif get_parent().get_name() == "ownedTowerList":
-				itemName = SaveData.ownedTowerList[idx][0]
-			elif get_parent().get_name()  == "itemEquipped":
-				itemName = SaveData.equippedList[idx][0]
-	
-	if itemName != "":
-		unitRes = load("res://Content/Scripts/Resources/unitData/" + itemName + ".tres")
-		
-		$TextureButton/Sprite2D.texture = load("res://Content/Graphics/Sprites/portrait/" + itemName + ".png")
-		$TextureButton/manaTag/mana.text = str(unitRes.mana)
-	else:
-		$TextureButton.disabled = true
-		$TextureButton/manaTag.visible = false
-		$Area2D/CollisionShape2D.disabled = true
-		
-	if get_parent().get_name() == "itemEquipped":
-		$Area2D/CollisionShape2D.disabled = false
+	set_process_input(true)
+
+func _input(event): #카메라 드래그 관련 함수 
+	if event is InputEventMouseButton:
+		if event.button_index == 1: #MouseButton.LEFT == 1
+			if event.is_pressed():
+				# Start dragging
+				dragging = true
+			else:
+				# Stop dragging
+				undo_modulate($TextureButton)
+				dragging = false
 
 func _process(delta):
-	if itemName != "": #runtime중 itemName 데이터가 들어왔을 때 
+	if itemName != "" and itemID != 0:
+		has_run_once = true
 		unitRes = load("res://Content/Scripts/Resources/unitData/" + itemName + ".tres")
 		
 		$TextureButton/Sprite2D.texture = load("res://Content/Graphics/Sprites/portrait/" + itemName + ".png")
 		$TextureButton/manaTag/mana.text = str(unitRes.mana)
 		$TextureButton/manaTag.visible = true
+	elif itemName == "" and itemID == 0:
+		has_run_once = true
+		$TextureButton.disabled = true
+		$TextureButton/manaTag.visible = false
+		#$Area2D/CollisionShape2D.disabled = true
 
 func do_modulate(button : TextureButton):
 	button.modulate = Color(0.5, 0.5, 0.5, 1) #색조 변경 
@@ -65,4 +65,7 @@ func _on_texture_button_button_up():
 	
 func _on_texture_button_pressed():
 	emit_signal("unitLoadoutButtonPressed", position, self)
-
+	
+func _on_texture_button_input_data(name, data):
+	print(name, data) 
+	emit_signal("itemEquip", name, data)

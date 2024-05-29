@@ -1,29 +1,28 @@
+#이 스크립트는 드래그해서 노드에게 정보를 전달하는 코드만 구현함. 
 extends TextureButton
+
+signal inputData(String)
 
 #마우스 트래킹 
 var isMouseIn : bool = false
 
 func _get_drag_data(at_position):
-	var prev = Control.new()
-	var button = NinePatchRect.new()
-	button = get_parent().duplicate(15) #Slot node임! 주의! 
-	button.position = Vector2.ZERO
-	var area = button.get_node("Area2D")
-	button.remove_child(area)
-
-	prev.add_child(button)
-	set_drag_preview(prev)
-	
-	var spriteData = button.get_node("TextureButton").get_node("Sprite2D").texture
-	var manaData = button.get_node("TextureButton/manaTag/mana").text
-	var itemData = button.itemName
-	
-	var data = [
-		spriteData,
-		manaData,
-		itemData
-	]
-	
+	var data : Array
+	if self.disabled != true:
+		var prev = Control.new()
+		var button = NinePatchRect.new()
+		button = get_parent().duplicate(4) #Slot node임! 주의! 
+		button.position = Vector2.ZERO
+		var area = button.get_node("Area2D")
+		button.remove_child(area)
+		
+		data = [
+			button.itemName,
+			button.itemID
+		]
+		
+		prev.add_child(button)
+		set_drag_preview(prev)
 	return data
 
 func _can_drop_data(at_position, data):
@@ -37,9 +36,7 @@ func _drop_data(at_position, data):
 	rect.size = Vector2(1, 1)
 	collision.shape = rect
 	
-	#메타데이터 추가 
 	area.set_meta("data", data)
-	print(area.get_meta("data"))
 	
 	add_child(area)
 	area.add_child(collision)
@@ -53,7 +50,6 @@ func _on_area_2d_mouse_exited():
 func _on_area_2d_area_entered(area):
 	if isMouseIn:
 		var data = area.get_meta("data")
-		
-		#$Sprite2D.texture = data[0]
-		get_parent().itemName = data[2]
-		$manaTag/mana.text = data[1]
+		print(data)
+		var name = area.get_parent().get_parent().get_name()
+		emit_signal("inputData",name, data)
