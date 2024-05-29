@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://c7m578amgnxic"]
 
-[ext_resource type="Texture2D" uid="uid://r1ijsyxnodei" path="res://Content/Graphics/Sprites/enemy/rhino.png" id="2_pi8pa"]
+[ext_resource type="Texture2D" uid="uid://ceeellgd60php" path="res://Content/Graphics/Sprites/enemy/Rhino.png" id="2_pi8pa"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="2_vfwk1"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_ycouc"]
 [ext_resource type="Resource" uid="uid://cpgjhto6xs3a8" path="res://Content/Scripts/Resources/unitData/rhino.tres" id="3_cacf4"]

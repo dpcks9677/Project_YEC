@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://b71htxf0hoi7c"]
 
 [ext_resource type="Script" path="res://Content/Scenes/mainMenu.gd" id="1_lq5bk"]
-[ext_resource type="Texture2D" uid="uid://4ro30hohkak4" path="res://Content/Graphics/Background/main/1.png" id="1_ueak1"]
-[ext_resource type="Texture2D" uid="uid://dubbd5e83vj8u" path="res://Content/Graphics/Background/main/2.png" id="2_qtngf"]
-[ext_resource type="Texture2D" uid="uid://c7k5rdgbs7ube" path="res://Content/Graphics/Background/main/3.png" id="3_1ckel"]
-[ext_resource type="Texture2D" uid="uid://bgmdebx0o3td4" path="res://Content/Graphics/Background/main/4.png" id="4_7h33n"]
-[ext_resource type="Texture2D" uid="uid://d2xucu6flctgv" path="res://Content/Graphics/UI/load.png" id="6_w4lv5"]
+[ext_resource type="Texture2D" uid="uid://cuqw37it4jj12" path="res://Content/Graphics/Background/main/1.png" id="1_ueak1"]
+[ext_resource type="Texture2D" uid="uid://cvydrj17twdkx" path="res://Content/Graphics/Background/main/2.png" id="2_qtngf"]
+[ext_resource type="Texture2D" uid="uid://ire1my5p46nm" path="res://Content/Graphics/Background/main/3.png" id="3_1ckel"]
+[ext_resource type="Texture2D" uid="uid://i1sy503n5nc5" path="res://Content/Graphics/Background/main/4.png" id="4_7h33n"]
+[ext_resource type="Texture2D" uid="uid://dbtdr7knai56t" path="res://Content/Graphics/UI/load.png" id="6_w4lv5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r7n0t"]
 font_size = 120

@@ -14,7 +14,7 @@ var slotSide : bool
 func _init():
 	#SaveData의 equippedList를 참조해서 데이터 삽입 
 	for i in range(8):
-		unitName[i] = SaveData.equippedList[i]
+		unitName[i] = SaveData.equippedList[i][0]
 	
 	slotSide = false
 

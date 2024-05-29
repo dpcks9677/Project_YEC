@@ -1,31 +1,7 @@
-
 {
 	"save_data": {
-		"gold" : 1000,
-		"currentStage" : 1,
-		"playTime" : 10,
-
-		"ownedUnitList" : [
-			"spearman",
-			"knight",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			""
-		]
+		"currentStage": 0,
+		"gold": 0,
+		"playTime": 0
 	}
 }
