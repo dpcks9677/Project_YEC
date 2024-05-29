@@ -19,6 +19,9 @@ func _process(delta):
 			if slot.itemName == SaveData.ownedUnitList[i][0] and slot.itemID == SaveData.ownedUnitList[i][1]:
 				slot.do_modulate(slot.get_node("TextureButton"))
 				slot.get_node("TextureButton").disabled = true
+		else:
+			slot.get_node("TextureButton").disabled = false
+			pass
 
 #signal
 func _on_unitLoadoutButtonPressed(position, node):

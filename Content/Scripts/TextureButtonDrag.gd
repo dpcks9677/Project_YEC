@@ -30,6 +30,9 @@ func _can_drop_data(at_position, data):
 	
 func _drop_data(at_position, data):
 	#데이터 전달방식 -> drop시 마우스좌표에 data가 저장된 1px by 1px의 collision 생성. 
+	if isMouseIn == false:
+		print("ayyy")
+		
 	var area = Area2D.new()
 	var collision = CollisionShape2D.new()
 	var rect = RectangleShape2D.new()
@@ -53,3 +56,4 @@ func _on_area_2d_area_entered(area):
 		print(data)
 		var name = area.get_parent().get_parent().get_name()
 		emit_signal("inputData",name, data)
+		area.queue_free()

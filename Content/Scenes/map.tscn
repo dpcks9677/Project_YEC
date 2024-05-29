@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dppjey0wno2wc"]
+[gd_scene load_steps=26 format=3 uid="uid://dppjey0wno2wc"]
 
 [ext_resource type="Script" path="res://Content/Scripts/map.gd" id="1_nt3rt"]
 [ext_resource type="Texture2D" uid="uid://dtox1n3kpx6a1" path="res://Content/Graphics/UI/scrollsandblocks.png" id="2_a5kwd"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ddp2tpbccm8nq" path="res://Content/Graphics/Sprites/portrait/rhino.png" id="5_grmiy"]
 [ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="5_lit45"]
 [ext_resource type="Script" path="res://Content/Scripts/unitLoadout.gd" id="9_bicc5"]
+[ext_resource type="Script" path="res://Content/Scripts/loadoutBackground.gd" id="9_dtd1d"]
 [ext_resource type="PackedScene" uid="uid://bq3x14mwss3w2" path="res://Content/Scenes/slot.tscn" id="9_s4wna"]
 [ext_resource type="Texture2D" uid="uid://ctvpdgdxd0yhh" path="res://Content/Graphics/UI/unitSlot_select.png" id="10_7qqmw"]
 [ext_resource type="Texture2D" uid="uid://crm3orc1ml6jr" path="res://Content/Graphics/UI/unitSlot_select2.png" id="12_ktf23"]
@@ -551,6 +552,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.588235)
+script = ExtResource("9_dtd1d")
 
 [node name="itemInfo" type="NinePatchRect" parent="loadoutHUD"]
 offset_left = 758.0
@@ -573,7 +575,7 @@ offset_right = 108.0
 offset_bottom = 30.0
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("4_0w7s1")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = " test"
 
 [node name="Slot" parent="loadoutHUD/itemInfo" instance=ExtResource("9_s4wna")]
@@ -622,57 +624,6 @@ size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("4_0w7s1")
 theme_override_font_sizes/font_size = 8
 text = " ATK"
-
-[node name="itemEquipped" type="NinePatchRect" parent="loadoutHUD"]
-offset_left = 52.0
-offset_top = 67.0
-offset_right = 169.0
-offset_bottom = 667.0
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("5_c8gt1")
-patch_margin_left = 10
-patch_margin_top = 10
-patch_margin_right = 10
-patch_margin_bottom = 10
-script = ExtResource("13_kxqaj")
-
-[node name="Slot1" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-
-[node name="Slot2" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_top = 75.0
-offset_bottom = 150.0
-
-[node name="Slot3" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_top = 150.0
-offset_bottom = 225.0
-
-[node name="Slot4" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_top = 225.0
-offset_bottom = 300.0
-
-[node name="Slot5" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_top = 300.0
-offset_bottom = 375.0
-
-[node name="Slot6" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_top = 375.0
-offset_bottom = 450.0
-
-[node name="Slot7" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_top = 450.0
-offset_bottom = 525.0
-
-[node name="Slot8" parent="loadoutHUD/itemEquipped" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_top = 525.0
-offset_bottom = 600.0
 
 [node name="unitLoadout" type="NinePatchRect" parent="loadoutHUD"]
 offset_left = 196.0
@@ -808,6 +759,58 @@ offset_left = 468.0
 offset_top = 225.0
 offset_right = 585.0
 offset_bottom = 300.0
+
+[node name="itemEquipped" type="NinePatchRect" parent="loadoutHUD/unitLoadout"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -90.0
+offset_right = -43.0
+offset_bottom = 510.0
+mouse_filter = 1
+texture = ExtResource("5_c8gt1")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+script = ExtResource("13_kxqaj")
+
+[node name="Slot1" parent="loadoutHUD/unitLoadout/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+
+[node name="Slot2" parent="loadoutHUD/unitLoadout/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 75.0
+offset_bottom = 150.0
+
+[node name="Slot3" parent="loadoutHUD/unitLoadout/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 150.0
+offset_bottom = 225.0
+
+[node name="Slot4" parent="loadoutHUD/unitLoadout/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 225.0
+offset_bottom = 300.0
+
+[node name="Slot5" parent="loadoutHUD/unitLoadout/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 300.0
+offset_bottom = 375.0
+
+[node name="Slot6" parent="loadoutHUD/unitLoadout/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 375.0
+offset_bottom = 450.0
+
+[node name="Slot7" parent="loadoutHUD/unitLoadout/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 450.0
+offset_bottom = 525.0
+
+[node name="Slot8" parent="loadoutHUD/unitLoadout/itemEquipped" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 525.0
+offset_bottom = 600.0
 
 [node name="SlotSelect" type="NinePatchRect" parent="loadoutHUD/unitLoadout"]
 layout_mode = 0

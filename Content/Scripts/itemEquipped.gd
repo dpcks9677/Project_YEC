@@ -1,6 +1,6 @@
 extends NinePatchRect
 
-@onready var unitLoadout = $"../unitLoadout"
+@onready var unitLoadout = get_parent()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,4 +25,3 @@ func _on_itemEquip(name, data): #시그널 받았을 시, 슬롯 위치에 따�
 			for j in range(20):
 				if SaveData.ownedUnitList[j][0] == data[0] and SaveData.ownedUnitList[j][1] == data[1]:
 					SaveData.ownedUnitList[j][2] = i
-					print(SaveData.ownedUnitList[j])

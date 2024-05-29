@@ -17,16 +17,26 @@ signal itemEquip
 func _ready():
 	set_process_input(true)
 
-func _input(event): #카메라 드래그 관련 함수 
+func _input(event): 
 	if event is InputEventMouseButton:
-		if event.button_index == 1: #MouseButton.LEFT == 1
+		if event.button_index == 1: #MouseButton.LEFT == 1 / 드래그 했다가 풀었을 때 트리거 
 			if event.is_pressed():
 				# Start dragging
 				dragging = true
 			else:
 				# Stop dragging
 				undo_modulate($TextureButton)
-				dragging = false
+
+func _gui_input(event):
+	if event is InputEventMouseButton: #더블클릭 
+		if event.double_click == true:
+			if get_parent().get_name() == "itemEquipped":
+				for i in range(20):
+					if SaveData.ownedUnitList[i][0] == itemName and SaveData.ownedUnitList[i][1] == itemID: 
+						SaveData.ownedUnitList[i][2] = 0 
+						itemName = ""
+						itemID = 0
+						$TextureButton/Sprite2D.texture = null		
 
 func _process(delta):
 	if itemName != "" and itemID != 0:
