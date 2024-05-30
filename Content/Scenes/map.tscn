@@ -598,15 +598,16 @@ visible = false
 [node name="healthLabel" type="Label" parent="loadoutHUD/itemInfo"]
 layout_mode = 0
 offset_left = 3.0
-offset_top = 95.0
+offset_top = 94.3333
 offset_right = 108.0
-offset_bottom = 106.0
+offset_bottom = 105.333
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("4_0w7s1")
 theme_override_font_sizes/font_size = 8
 text = " HP"
 
 [node name="healthProgressBar" type="ProgressBar" parent="loadoutHUD/itemInfo"]
+visible = false
 layout_mode = 0
 offset_left = 29.0
 offset_top = 96.0
@@ -617,13 +618,33 @@ show_percentage = false
 [node name="attackLabel" type="Label" parent="loadoutHUD/itemInfo"]
 layout_mode = 0
 offset_left = 3.0
-offset_top = 107.667
+offset_top = 107.0
 offset_right = 108.0
-offset_bottom = 118.667
+offset_bottom = 118.0
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("4_0w7s1")
 theme_override_font_sizes/font_size = 8
 text = " ATK"
+
+[node name="speedLabel" type="Label" parent="loadoutHUD/itemInfo"]
+offset_left = 3.0
+offset_top = 120.333
+offset_right = 108.0
+offset_bottom = 131.333
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_0w7s1")
+theme_override_font_sizes/font_size = 8
+text = " SPD"
+
+[node name="manaLabel" type="Label" parent="loadoutHUD/itemInfo"]
+offset_left = 3.0
+offset_top = 133.667
+offset_right = 108.0
+offset_bottom = 144.667
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_0w7s1")
+theme_override_font_sizes/font_size = 8
+text = " mana"
 
 [node name="unitLoadout" type="NinePatchRect" parent="loadoutHUD"]
 offset_left = 196.0
@@ -812,6 +833,73 @@ layout_mode = 0
 offset_top = 525.0
 offset_bottom = 600.0
 
+[node name="towerLoadout" type="NinePatchRect" parent="loadoutHUD/unitLoadout"]
+layout_mode = 0
+offset_top = 356.667
+offset_right = 585.0
+offset_bottom = 506.667
+texture = ExtResource("5_c8gt1")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Slot1" parent="loadoutHUD/unitLoadout/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+
+[node name="Slot2" parent="loadoutHUD/unitLoadout/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 117.0
+offset_right = 234.0
+
+[node name="Slot3" parent="loadoutHUD/unitLoadout/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 234.0
+offset_right = 351.0
+
+[node name="Slot4" parent="loadoutHUD/unitLoadout/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 351.0
+offset_right = 468.0
+
+[node name="Slot5" parent="loadoutHUD/unitLoadout/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 468.0
+offset_right = 585.0
+
+[node name="Slot6" parent="loadoutHUD/unitLoadout/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_top = 75.0
+offset_bottom = 150.0
+
+[node name="Slot7" parent="loadoutHUD/unitLoadout/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 75.0
+offset_right = 234.0
+offset_bottom = 150.0
+
+[node name="Slot8" parent="loadoutHUD/unitLoadout/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 75.0
+offset_right = 351.0
+offset_bottom = 150.0
+
+[node name="Slot9" parent="loadoutHUD/unitLoadout/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 75.0
+offset_right = 468.0
+offset_bottom = 150.0
+
+[node name="Slot10" parent="loadoutHUD/unitLoadout/towerLoadout" instance=ExtResource("9_s4wna")]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 75.0
+offset_right = 585.0
+offset_bottom = 150.0
+
 [node name="SlotSelect" type="NinePatchRect" parent="loadoutHUD/unitLoadout"]
 layout_mode = 0
 offset_left = -4.0
@@ -823,74 +911,6 @@ patch_margin_left = 20
 patch_margin_top = 18
 patch_margin_right = 20
 patch_margin_bottom = 18
-
-[node name="towerLoadout" type="NinePatchRect" parent="loadoutHUD"]
-offset_left = 196.0
-offset_top = 469.0
-offset_right = 781.0
-offset_bottom = 619.0
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("5_c8gt1")
-patch_margin_left = 10
-patch_margin_top = 10
-patch_margin_right = 10
-patch_margin_bottom = 10
-
-[node name="Slot1" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-
-[node name="Slot2" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_left = 117.0
-offset_right = 234.0
-
-[node name="Slot3" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_left = 234.0
-offset_right = 351.0
-
-[node name="Slot4" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_left = 351.0
-offset_right = 468.0
-
-[node name="Slot5" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_left = 468.0
-offset_right = 585.0
-
-[node name="Slot6" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_top = 75.0
-offset_bottom = 150.0
-
-[node name="Slot7" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_left = 117.0
-offset_top = 75.0
-offset_right = 234.0
-offset_bottom = 150.0
-
-[node name="Slot8" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_left = 234.0
-offset_top = 75.0
-offset_right = 351.0
-offset_bottom = 150.0
-
-[node name="Slot9" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_left = 351.0
-offset_top = 75.0
-offset_right = 468.0
-offset_bottom = 150.0
-
-[node name="Slot10" parent="loadoutHUD/towerLoadout" instance=ExtResource("9_s4wna")]
-layout_mode = 0
-offset_left = 468.0
-offset_top = 75.0
-offset_right = 585.0
-offset_bottom = 150.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://df442pebjo11j"]
 
-[ext_resource type="Texture2D" uid="uid://cy2sdmbbne34a" path="res://Content/Graphics/Sprites/enemy/acid_spiter.png" id="1_oyxrd"]
+[ext_resource type="Texture2D" uid="uid://cy2sdmbbne34a" path="res://Content/Graphics/Sprites/enemy/spitter.png" id="1_oyxrd"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_pboyr"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_mgbje"]
 [ext_resource type="Resource" uid="uid://c3umxm71r5r5t" path="res://Content/Scripts/Resources/unitData/spitter.tres" id="3_rylcw"]
@@ -231,7 +231,7 @@ size = Vector2(384, 192)
 position = Vector2(-1, -33)
 texture = ExtResource("1_oyxrd")
 hframes = 6
-vframes = 3
+vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

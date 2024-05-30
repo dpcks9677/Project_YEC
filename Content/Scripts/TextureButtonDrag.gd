@@ -36,7 +36,7 @@ func _drop_data(_at_position, data):
 	var area = Area2D.new()
 	var collision = CollisionShape2D.new()
 	var rect = RectangleShape2D.new()
-	rect.size = Vector2(1, 1)
+	rect.size = Vector2(50, 50)
 	collision.shape = rect
 	
 	area.set_meta("data", data)

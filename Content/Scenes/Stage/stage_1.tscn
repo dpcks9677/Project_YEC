@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=80 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Handler/resourceHandler.gd" id="1_jgakt"]
 [ext_resource type="PackedScene" uid="uid://c201rvxgq5e35" path="res://Content/Scenes/Stage/stage_1_scenario.tscn" id="2_n5lwx"]
@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://dpd05uv4svud6" path="res://Content/Graphics/UI/mana.png" id="15_rhukf"]
 [ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="16_ij1sc"]
 [ext_resource type="Texture2D" uid="uid://cpxdp0psf36ck" path="res://Content/Graphics/UI/att.png" id="17_okgo7"]
-[ext_resource type="PackedScene" uid="uid://d0qy58xe4nqwd" path="res://Content/Scenes/Units/enemy/smasher.tscn" id="26_tukdn"]
 [ext_resource type="PackedScene" uid="uid://i2skwycpspr7" path="res://Content/Scenes/Units/ally/mage.tscn" id="28_5vl1m"]
 [ext_resource type="PackedScene" uid="uid://lvj2dgisufqd" path="res://Content/Scenes/Units/enemy/witch.tscn" id="28_ywfgx"]
 
@@ -853,10 +852,6 @@ script = ExtResource("6_1or2k")
 
 [node name="mage" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("28_5vl1m")]
 position = Vector2(-892.026, 73.6852)
-
-[node name="smasher" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("26_tukdn")]
-position = Vector2(893.151, 65.8162)
-progress = 1800.0
 
 [node name="witch" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("28_ywfgx")]
 position = Vector2(-892.026, 73.6852)

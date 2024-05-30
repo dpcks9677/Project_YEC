@@ -273,7 +273,7 @@ loop = false
 texture = ExtResource("1_bdxdh")
 flip_h = true
 hframes = 10
-vframes = 3
+vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

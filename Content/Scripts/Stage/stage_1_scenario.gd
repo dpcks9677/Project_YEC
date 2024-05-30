@@ -11,7 +11,7 @@ func _process(delta):
 
 func setNormalWave(delta):
 	timer += delta
-	if timer >= 10.0:
+	if timer >= 7.0:
 		timer = 0
 		spawnTop("raptor")
 		spawnBottom("raptor")

@@ -118,7 +118,7 @@ radius = 24.0
 height = 112.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pomqy"]
-size = Vector2(183, 176)
+size = Vector2(96, 176)
 
 [node name="hero" type="PathFollow2D"]
 rotates = false
@@ -188,7 +188,7 @@ shape = SubResource("CapsuleShape2D_q1rwd")
 script = ExtResource("3_ffnlw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
-position = Vector2(91.5, -40)
+position = Vector2(48, -40)
 shape = SubResource("RectangleShape2D_pomqy")
 debug_color = Color(1, 0.490196, 0, 0.419608)
 

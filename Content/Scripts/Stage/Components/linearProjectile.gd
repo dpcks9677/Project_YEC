@@ -81,4 +81,5 @@ func get_start_point():
 
 func get_end_point():
 	if get_parent().castTarget != null:
-		end_point = get_parent().castTarget.get_parent().global_position
+		end_point = get_parent().castTarget.get_parent().global_position #- $"../../../..".global_position
+		end_point.x -= 10 #마진값 추가
