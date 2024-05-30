@@ -25,10 +25,10 @@ func _get_drag_data(at_position):
 		set_drag_preview(prev)
 	return data
 
-func _can_drop_data(at_position, data):
+func _can_drop_data(at_position, _data):
 	return true #데이터가 존재하면 false 출력하도록 변경 
 	
-func _drop_data(at_position, data):
+func _drop_data(_at_position, data):
 	#데이터 전달방식 -> drop시 마우스좌표에 data가 저장된 1px by 1px의 collision 생성. 
 	if isMouseIn == false:
 		print("ayyy")

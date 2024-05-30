@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="statusResource" load_steps=2 format=3 uid="uid://ctorypci2s5pu"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Resources/unitData/statusResource.gd" id="1_0cu1r"]
+
+[resource]
+script = ExtResource("1_0cu1r")
+type = "unit"
+faction = "enemy"
+size = "small"
+includedUnit = []
+health = 2000
+speed = 1.0
+mana = 30

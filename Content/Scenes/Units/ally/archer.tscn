@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://cv1h8mnftsm3h"]
 
-[ext_resource type="Texture2D" uid="uid://dtnblhdmbntsa" path="res://Content/Graphics/Sprites/ally/archer.png" id="1_bdxdh"]
+[ext_resource type="Texture2D" uid="uid://bqbxxbusi3ngs" path="res://Content/Graphics/Sprites/ally/archer.png" id="1_bdxdh"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_85ohq"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="3_1csq0"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_vt62x"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/rangeSingleAttack.gd" id="6_wke1r"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/projectile.gd" id="8_66n73"]
 [ext_resource type="Resource" uid="uid://bdjucmvu5jw0d" path="res://Content/Scripts/Resources/castData/archer_normal.tres" id="8_i46jk"]
-[ext_resource type="Texture2D" uid="uid://xleu3kwbm73e" path="res://Content/Graphics/Sprites/etc/weapon.png" id="8_ykkvl"]
+[ext_resource type="Texture2D" uid="uid://c4g7ixcrpqtxh" path="res://Content/Graphics/Sprites/etc/weapon.png" id="8_ykkvl"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/knockBack.gd" id="10_bscpu"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/additionalState.gd" id="12_7yf77"]
 
@@ -262,7 +262,7 @@ radius = 24.0
 height = 100.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rxks"]
-size = Vector2(430, 210)
+size = Vector2(430, 208)
 
 [node name="archer" type="PathFollow2D"]
 position = Vector2(3.8147e-06, 7.62939e-06)
@@ -330,7 +330,7 @@ shape = SubResource("CapsuleShape2D_flsgr")
 script = ExtResource("6_ljd7l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRangeComponent"]
-position = Vector2(215, -54.9999)
+position = Vector2(215, -56)
 shape = SubResource("RectangleShape2D_6rxks")
 debug_color = Color(1, 0.490196, 0, 0.419608)
 

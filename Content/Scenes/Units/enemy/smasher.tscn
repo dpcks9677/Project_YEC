@@ -1,10 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://d0qy58xe4nqwd"]
+[gd_scene load_steps=21 format=3 uid="uid://d0qy58xe4nqwd"]
 
-[ext_resource type="Gradient" uid="uid://ctj13kedc2ss5" path="res://Content/Scripts/Shader/colorGradient.tres" id="1_aa326"]
-[ext_resource type="Texture2D" uid="uid://bl5dx66cigudk" path="res://Content/Graphics/Sprites/enemy/smasher.png" id="1_wyfv3"]
+[ext_resource type="Texture2D" uid="uid://cg733jbw700y6" path="res://Content/Graphics/Sprites/enemy/smasher.png" id="1_wyfv3"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_mkhuw"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_8qxn5"]
-[ext_resource type="Texture2D" uid="uid://cmeisel062aor" path="res://Content/Graphics/effects/rectangle.png" id="3_5612l"]
 [ext_resource type="Resource" uid="uid://lfnblcoe53gh" path="res://Content/Scripts/Resources/unitData/smasher.tres" id="3_v1a53"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="4_5a362"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/meleeAreaAttack.gd" id="5_qa7ja"]
@@ -13,73 +11,6 @@
 [ext_resource type="Resource" uid="uid://cl3iv5lreluxm" path="res://Content/Scripts/Resources/castData/smasher_normal.tres" id="7_6hc0a"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="7_nrp0w"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="9_g5yue"]
-[ext_resource type="Texture2D" uid="uid://cfcri16cqrs37" path="res://Content/Graphics/effects/explosion.png" id="13_dssxm"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fg0ab"]
-particles_animation = true
-particles_anim_h_frames = 13
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="Curve" id="Curve_wqt4i"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.44, 1), 0.0, 0.0, 0, 0, Vector2(0.84, 0.9), 0.0, 0.0, 0, 0, Vector2(1, 0.207692), -2.96704, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_hq327"]
-curve = SubResource("Curve_wqt4i")
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_vuhl5"]
-gradient = ExtResource("1_aa326")
-
-[sub_resource type="Curve" id="Curve_kilqa"]
-max_value = 2.0
-_data = [Vector2(0, 0.615385), 0.0, 0.0, 0, 0, Vector2(0.0933333, 1.07692), 0.0, 0.0, 0, 0, Vector2(0.2, 1.38462), 1.77515, 1.77515, 0, 0, Vector2(1, 1.82418), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_o0xcl"]
-curve = SubResource("Curve_kilqa")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uniu7"]
-particle_flag_disable_z = true
-angle_min = -7.0
-angle_max = -7.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.5
-scale_max = 0.5
-scale_curve = SubResource("CurveTexture_o0xcl")
-color_ramp = SubResource("GradientTexture1D_vuhl5")
-alpha_curve = SubResource("CurveTexture_hq327")
-anim_speed_min = 1.0
-anim_speed_max = 1.0
-
-[sub_resource type="Curve" id="Curve_1pba7"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.32, 0), 0.0, 0.0, 0, 0, Vector2(0.32001, 1), -0.0433796, -0.0433796, 0, 0, Vector2(0.633333, 0), -10.8791, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_fyep6"]
-curve = SubResource("Curve_1pba7")
-
-[sub_resource type="Curve" id="Curve_y6pno"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_ygya7"]
-curve = SubResource("Curve_y6pno")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h4fg0"]
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(50, 50, 1)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-angle_min = -180.0
-angle_max = 180.0
-gravity = Vector3(500, -300, 0)
-scale_min = 0.7
-scale_max = 0.7
-scale_curve = SubResource("CurveTexture_ygya7")
-color_ramp = SubResource("GradientTexture1D_vuhl5")
-alpha_curve = SubResource("CurveTexture_fyep6")
-turbulence_enabled = true
 
 [sub_resource type="Animation" id="Animation_1pxr2"]
 length = 0.001
@@ -246,23 +177,6 @@ size = Vector2(32, 120)
 
 [node name="smasher" type="PathFollow2D"]
 rotates = false
-
-[node name="explosion" type="GPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_fg0ab")
-position = Vector2(-193, -79)
-amount = 1
-process_material = SubResource("ParticleProcessMaterial_uniu7")
-texture = ExtResource("13_dssxm")
-lifetime = 1.8
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="explosion"]
-visible = false
-position = Vector2(-64, 70)
-amount = 15
-process_material = SubResource("ParticleProcessMaterial_h4fg0")
-texture = ExtResource("3_5612l")
-lifetime = 1.8
-explosiveness = 0.56
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-32, -104)

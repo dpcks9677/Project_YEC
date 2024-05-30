@@ -14,11 +14,8 @@ var slotSide : bool
 func _init():
 	#SaveData의 equippedList를 참조해서 데이터 삽입 
 	for i in range(8):
-<<<<<<< Updated upstream
 		unitName[i] = SaveData.equippedList[i][0]
-=======
 		unitName[i] = SaveData.getEquippedListItemName(i)
->>>>>>> Stashed changes
 	
 	slotSide = false
 

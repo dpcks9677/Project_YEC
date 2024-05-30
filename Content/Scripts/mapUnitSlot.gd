@@ -36,7 +36,7 @@ func _gui_input(event):
 						SaveData.ownedUnitList[i][2] = 0 
 						itemName = ""
 						itemID = 0
-						$TextureButton/Sprite2D.texture = null		
+						$TextureButton/Sprite2D.texture = null
 
 func _process(delta):
 	if itemName != "" and itemID != 0:

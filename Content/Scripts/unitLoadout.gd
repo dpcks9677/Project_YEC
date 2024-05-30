@@ -12,7 +12,7 @@ func _ready():
 		slot.itemName = SaveData.ownedUnitList[i][0]
 		slot.itemID = SaveData.ownedUnitList[i][1]
 
-func _process(delta):
+func _process(_delta):
 	for i in range(20):
 		var slot = get_node("Slot" + str(i+1))
 		if SaveData.ownedUnitList[i][2] != 0:

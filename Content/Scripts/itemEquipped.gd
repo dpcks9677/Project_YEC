@@ -9,7 +9,7 @@ func _ready():
 		child.itemEquip.connect(_on_itemEquip)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	for i in range(8):
 		var slot = get_node("Slot" + str(i+1))
 		if SaveData.ownedUnitList[i][2] != 0:

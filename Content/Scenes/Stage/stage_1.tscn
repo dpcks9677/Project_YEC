@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Handler/resourceHandler.gd" id="1_jgakt"]
 [ext_resource type="PackedScene" uid="uid://c201rvxgq5e35" path="res://Content/Scenes/Stage/stage_1_scenario.tscn" id="2_n5lwx"]
-[ext_resource type="Texture2D" uid="uid://da0ookto71ovf" path="res://Content/Graphics/Background/stage1.png" id="3_22536"]
+[ext_resource type="Texture2D" uid="uid://cp7bvp80hcopu" path="res://Content/Graphics/Background/stage1.png" id="3_22536"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/unitSummoner.gd" id="3_jveqw"]
 [ext_resource type="PackedScene" uid="uid://dqhjv2biwvh6a" path="res://Content/Scenes/Stage/Interfaces/unit_button.tscn" id="4_6klob"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/Camera.gd" id="4_b0td4"]
@@ -12,23 +12,23 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/idle.gd" id="6_1or2k"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/manaUI.gd" id="6_l1odv"]
 [ext_resource type="Resource" uid="uid://bs8061ffaprvh" path="res://Content/Scripts/Resources/unitData/enemyBase.tres" id="6_qu5pd"]
-[ext_resource type="FontFile" uid="uid://bh1fyhhplmkk6" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="7_q3e13"]
+[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="7_q3e13"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/baseHealthBar.gd" id="8_kb7w1"]
-[ext_resource type="FontFile" uid="uid://dmqe6y2i5ag0h" path="res://Content/Graphics/UI/font/Pixel Gosub.otf" id="9_juunw"]
-[ext_resource type="Texture2D" uid="uid://d36lb4co7y18r" path="res://Content/Graphics/UI/UI.png" id="10_57egk"]
-[ext_resource type="Texture2D" uid="uid://b07je714605i8" path="res://Content/Graphics/Sprites/object/base.png" id="10_foypc"]
-[ext_resource type="Texture2D" uid="uid://sbqr8tnibyip" path="res://Content/Graphics/UI/UIset.png" id="11_22pvb"]
+[ext_resource type="FontFile" uid="uid://i8yrjuivbwjv" path="res://Content/Graphics/UI/font/Pixel Gosub.otf" id="9_juunw"]
+[ext_resource type="Texture2D" uid="uid://cw2clweh6qd5h" path="res://Content/Graphics/UI/UI.png" id="10_57egk"]
+[ext_resource type="Texture2D" uid="uid://blxslptm71fvn" path="res://Content/Graphics/Sprites/object/base.png" id="10_foypc"]
+[ext_resource type="Texture2D" uid="uid://u7oq6qprstaa" path="res://Content/Graphics/UI/UIset.png" id="11_22pvb"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/populationUI.gd" id="12_2y76e"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/minimapUI.gd" id="13_ecmny"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/base.gd" id="13_p2anb"]
-[ext_resource type="Texture2D" uid="uid://cw6s0arboielv" path="res://Content/Graphics/UI/pop.png" id="14_cf7r0"]
+[ext_resource type="Texture2D" uid="uid://ll6heg42m50h" path="res://Content/Graphics/UI/pop.png" id="14_cf7r0"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/upgradeUI.gd" id="14_et0ei"]
-[ext_resource type="Texture2D" uid="uid://bh6d4lefujc0j" path="res://Content/Graphics/UI/mana.png" id="15_rhukf"]
-[ext_resource type="Texture2D" uid="uid://dmu4ln7wf4prh" path="res://Content/Graphics/Sprites/object/crystal.png" id="16_ij1sc"]
-[ext_resource type="Texture2D" uid="uid://bticvy518opfb" path="res://Content/Graphics/UI/att.png" id="17_okgo7"]
+[ext_resource type="Texture2D" uid="uid://dpd05uv4svud6" path="res://Content/Graphics/UI/mana.png" id="15_rhukf"]
+[ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="16_ij1sc"]
+[ext_resource type="Texture2D" uid="uid://cpxdp0psf36ck" path="res://Content/Graphics/UI/att.png" id="17_okgo7"]
 [ext_resource type="PackedScene" uid="uid://d0qy58xe4nqwd" path="res://Content/Scenes/Units/enemy/smasher.tscn" id="26_tukdn"]
-[ext_resource type="PackedScene" uid="uid://brhy872g4qvjq" path="res://Content/Scenes/Units/enemy/toad.tscn" id="27_1mddk"]
 [ext_resource type="PackedScene" uid="uid://i2skwycpspr7" path="res://Content/Scenes/Units/ally/mage.tscn" id="28_5vl1m"]
+[ext_resource type="PackedScene" uid="uid://lvj2dgisufqd" path="res://Content/Scenes/Units/enemy/witch.tscn" id="28_ywfgx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_30u2j"]
 atlas = ExtResource("11_22pvb")
@@ -851,16 +851,16 @@ initial_state = NodePath("Idle")
 [node name="Idle" type="Node2D" parent="resourceHandler/laneSetter/topLane/enemyBase/stateComponent"]
 script = ExtResource("6_1or2k")
 
-[node name="toad" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("27_1mddk")]
-position = Vector2(429.159, 51.3594)
-progress = 1333.84
-
 [node name="mage" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("28_5vl1m")]
 position = Vector2(-892.026, 73.6852)
 
 [node name="smasher" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("26_tukdn")]
 position = Vector2(893.151, 65.8162)
 progress = 1800.0
+
+[node name="witch" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("28_ywfgx")]
+position = Vector2(-892.026, 73.6852)
+rotation = 0.000351868
 
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]
 position = Vector2(251, -40.218)

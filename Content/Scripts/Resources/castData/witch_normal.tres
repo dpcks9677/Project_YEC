@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="attackTypeResource" load_steps=2 format=3 uid="uid://bbc6ntog2bog1"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Resources/castData/attackTypeResource.gd" id="1_cohm1"]
+
+[resource]
+script = ExtResource("1_cohm1")
+damage = 250
+damageType = "magic"
+cooltime = 4.8
+triggerCount = 1
+isStun = false
+isSKnockBack = false
+isSlow = false

@@ -1,6 +1,6 @@
 [gd_scene load_steps=37 format=3 uid="uid://i2skwycpspr7"]
 
-[ext_resource type="Texture2D" uid="uid://dq8fqe12qxtbw" path="res://Content/Graphics/Sprites/ally/mage.png" id="1_4iv67"]
+[ext_resource type="Texture2D" uid="uid://clh2jehkmlgh0" path="res://Content/Graphics/Sprites/ally/mage.png" id="1_4iv67"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_a58hb"]
 [ext_resource type="Resource" uid="uid://dlvc1kh3m7en5" path="res://Content/Scripts/Resources/unitData/mage.tres" id="3_lqu0u"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_n6qkt"]
@@ -10,9 +10,9 @@
 [ext_resource type="Resource" uid="uid://drxjsch5uh27u" path="res://Content/Scripts/Resources/castData/mage_normal.tres" id="7_3eanv"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/dead.gd" id="8_ngdoq"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/idle.gd" id="9_ytios"]
-[ext_resource type="Texture2D" uid="uid://oivhlo83hnb7" path="res://Content/Graphics/effects/gadient_circle3.png" id="10_k6tqm"]
+[ext_resource type="Texture2D" uid="uid://5u2xlp1aleb4" path="res://Content/Graphics/effects/gadient_circle3.png" id="10_k6tqm"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="10_kj2qo"]
-[ext_resource type="Texture2D" uid="uid://baukdxhk8rsw8" path="res://Content/Graphics/effects/gradient_circle.png" id="10_qn86d"]
+[ext_resource type="Texture2D" uid="uid://b1pdxweh7gfpp" path="res://Content/Graphics/effects/gradient_circle.png" id="10_qn86d"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="13_4usuw"]
 
 [sub_resource type="Animation" id="Animation_dyktv"]

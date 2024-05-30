@@ -89,6 +89,6 @@ func _on_stage_3_pressed():
 	target_pos = button_position
 
 
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed(object, _key):
 	print("Movement completed!")
 	
