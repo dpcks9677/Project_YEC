@@ -52,6 +52,10 @@ func _process(delta):
 		$TextureButton/manaTag/mana.text = str(unitRes.mana)
 		$TextureButton/manaTag.visible = true
 		
+	if itemName != "" and get_parent().get_name() == "itemInfo": #itemInfo에 있는 Slot에 적용되는 코드 
+		$TextureButton/Sprite2D.texture = load("res://Content/Graphics/Sprites/portrait/" + itemName + ".png")
+		$TextureButton/manaTag.visible = false
+		
 	elif itemName == "" and itemID == 0:
 		has_run_once = true
 		$TextureButton.disabled = true
