@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://oms4xo8wpeo7"]
 
-[ext_resource type="Texture2D" uid="uid://dh1xyy2u8gbw8" path="res://Content/Graphics/Sprites/ally/knight.png" id="1_2vx0n"]
-[ext_resource type="AudioStream" uid="uid://chuwuntwib3a" path="res://Content/Sound/sfx/sword-hit_1.mp3" id="2_clo4l"]
+[ext_resource type="Texture2D" uid="uid://desh5w0ghu1ws" path="res://Content/Graphics/Sprites/ally/knight.png" id="1_2vx0n"]
+[ext_resource type="AudioStream" uid="uid://b58d44sjwrkni" path="res://Content/Sound/sfx/sword-hit_1.mp3" id="2_clo4l"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_u0rxm"]
 [ext_resource type="Resource" uid="uid://dmej1s0qks1mo" path="res://Content/Scripts/Resources/unitData/knight.tres" id="3_1txna"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_b2rvq"]

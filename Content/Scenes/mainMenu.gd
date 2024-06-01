@@ -1,12 +1,12 @@
 extends Control
 
 const savePath = "res://Saves/"
-const saveFile = "save1.json"
+var saveFile : String
 
 #Scene preload
 const map = preload("res://Content/Scenes/map.tscn")
 
-var currentSave = null
+var currentSave : int = 0
 
 var savedata = saveData.new() #불러온 데이터가 저장되는 변수. 이 변수를 호출해서 데이터를 불러오면 됨.
 
@@ -28,7 +28,10 @@ func save_data(path : String): #메인메뉴에서 사용하지 않는 기능. �
 		"save_data": {
 			"gold" : savedata.gold,
 			"currentStage" : savedata.currentStage,
-			"playTime" : savedata.playTime
+			"playTime" : savedata.playTime,
+			
+			"ownedUnitList" : savedata.ownedUnitList,
+			"ownedTowerList" : savedata.ownedTowerList
 		}
 	}
 
@@ -52,11 +55,13 @@ func load_data(path : String):
 			printerr("Cannot parse %s as a json string: (%s)!" %[path, content])
 			return
 		
+		SaveData.saveIdx = currentSave
+		
 		SaveData.gold = data.save_data.gold
 		SaveData.currentStage = data.save_data.currentStage
 		SaveData.playTime = data.save_data.playTime
-		
 		SaveData.ownedUnitList = data.save_data.ownedUnitList
+		SaveData.ownedTowerList = data.save_data.ownedTowerList
 		
 	else:
 		printerr("Cannot open non-existent file at %s!" %[path])
@@ -76,6 +81,7 @@ func _on_back_button_pressed():
 
 func _on_button_1_pressed():
 	currentSave = 1
+	saveFile = "save" + str(currentSave) + ".json"
 	load_data(savePath+saveFile)
 	get_node("LoadScene").get_node("saveInfo").text = str("gold : " , SaveData.gold, " / ", "stage : ", SaveData.currentStage)
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=3 uid="uid://brhy872g4qvjq"]
 
-[ext_resource type="Texture2D" uid="uid://bqc73yxer4vhl" path="res://Content/Graphics/Sprites/enemy/toad.png" id="1_p4lca"]
+[ext_resource type="Texture2D" uid="uid://ommhhhgvfnb5" path="res://Content/Graphics/Sprites/enemy/toad.png" id="1_p4lca"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_4f6wm"]
 [ext_resource type="PackedScene" uid="uid://can6h63aa7cw6" path="res://Content/Scenes/Stage/Components/effectComponent.tscn" id="2_bnrm5"]
 [ext_resource type="Resource" uid="uid://durdht0t7gsde" path="res://Content/Scripts/Resources/unitData/toad.tres" id="3_74wxm"]
@@ -12,9 +12,9 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/parabola.gd" id="7_w06xh"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="10_ikvem"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="10_qdp80"]
-[ext_resource type="Texture2D" uid="uid://dswxav7a8ntan" path="res://Content/Graphics/effects/gradient_circle.png" id="10_r7wn1"]
+[ext_resource type="Texture2D" uid="uid://b1pdxweh7gfpp" path="res://Content/Graphics/effects/gradient_circle.png" id="10_r7wn1"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/additionalState.gd" id="11_ixuq7"]
-[ext_resource type="Texture2D" uid="uid://cvsmjoawswbkw" path="res://Content/Graphics/effects/toad_effect.png" id="11_qqfkt"]
+[ext_resource type="Texture2D" uid="uid://cma0grjgaac6i" path="res://Content/Graphics/effects/toad_effect.png" id="11_qqfkt"]
 
 [sub_resource type="Animation" id="Animation_unevw"]
 length = 0.001

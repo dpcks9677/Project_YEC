@@ -70,7 +70,7 @@ func slide_tween_in():
 
 func slide_tween_out():
 	var tween = create_tween()
-	tween.tween_property($stageInfoHUDSprite2D, "position", Vector2(-432, 0), 0.1)
+	tween.tween_property($stageInfoHUD/Sprite2D, "position", Vector2(-432, 0), 0.1)
 
 #signal
 func _on_stage_1_pressed():

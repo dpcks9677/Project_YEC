@@ -1,28 +1,28 @@
 [gd_scene load_steps=31 format=3 uid="uid://dppjey0wno2wc"]
 
 [ext_resource type="Script" path="res://Content/Scripts/map.gd" id="1_nt3rt"]
-[ext_resource type="Texture2D" uid="uid://cfqptwjdgy3g2" path="res://Content/Graphics/UI/scrollsandblocks.png" id="2_a5kwd"]
-[ext_resource type="Texture2D" uid="uid://bgxqppt3i78ly" path="res://Content/Graphics/Background/map2.png" id="2_k8b43"]
+[ext_resource type="Texture2D" uid="uid://dtox1n3kpx6a1" path="res://Content/Graphics/UI/scrollsandblocks.png" id="2_a5kwd"]
+[ext_resource type="Texture2D" uid="uid://dd0ak4rmh5t8p" path="res://Content/Graphics/Background/map2.png" id="2_k8b43"]
 [ext_resource type="Script" path="res://Content/Scripts/stageInfoHUD.gd" id="2_teyaw"]
-[ext_resource type="Texture2D" uid="uid://dfct4d6sqvwbg" path="res://Content/Graphics/Background/map.png" id="2_w22pa"]
-[ext_resource type="FontFile" uid="uid://do5aqgufsvrc2" path="res://Content/Graphics/UI/font/SDMiSaeng.ttf" id="3_cofno"]
-[ext_resource type="Texture2D" uid="uid://bvwalbr36h5dh" path="res://Content/Graphics/UI/load.png" id="3_ewfwv"]
-[ext_resource type="FontFile" uid="uid://2voekqgf574h" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="4_0w7s1"]
-[ext_resource type="Texture2D" uid="uid://ddsfrwmm2cyle" path="res://Content/Graphics/UI/unitSlot.png" id="5_c8gt1"]
-[ext_resource type="Texture2D" uid="uid://brb2v50hpj6n4" path="res://Content/Graphics/Sprites/portrait/rhino.png" id="5_grmiy"]
-[ext_resource type="Texture2D" uid="uid://44heku2b83eu" path="res://Content/Graphics/Sprites/object/crystal.png" id="5_lit45"]
+[ext_resource type="Texture2D" uid="uid://d3blumgkggh7u" path="res://Content/Graphics/Background/map.png" id="2_w22pa"]
+[ext_resource type="FontFile" uid="uid://cg5spy66unpeq" path="res://Content/Graphics/UI/font/SDMiSaeng.ttf" id="3_cofno"]
+[ext_resource type="Texture2D" uid="uid://d2xucu6flctgv" path="res://Content/Graphics/UI/load.png" id="3_ewfwv"]
+[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="4_0w7s1"]
+[ext_resource type="Texture2D" uid="uid://cinj6g22wdc3l" path="res://Content/Graphics/UI/unitSlot.png" id="5_c8gt1"]
+[ext_resource type="Texture2D" uid="uid://ddp2tpbccm8nq" path="res://Content/Graphics/Sprites/portrait/rhino.png" id="5_grmiy"]
+[ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="5_lit45"]
 [ext_resource type="Script" path="res://Content/Scripts/unitLoadout.gd" id="9_bicc5"]
 [ext_resource type="Script" path="res://Content/Scripts/loadoutBackground.gd" id="9_dtd1d"]
 [ext_resource type="PackedScene" uid="uid://bq3x14mwss3w2" path="res://Content/Scenes/slot.tscn" id="9_s4wna"]
 [ext_resource type="Script" path="res://Content/Scripts/loadoutHUD.gd" id="9_xtc0a"]
-[ext_resource type="Texture2D" uid="uid://qpurbveh8qoc" path="res://Content/Graphics/UI/unitSlot_select.png" id="10_7qqmw"]
-[ext_resource type="Texture2D" uid="uid://bvq3lobh3fsa3" path="res://Content/Graphics/Sprites/portrait/hero.png" id="12_iwf60"]
-[ext_resource type="Texture2D" uid="uid://lcxsos2aflpn" path="res://Content/Graphics/UI/unitSlot_select2.png" id="12_ktf23"]
+[ext_resource type="Texture2D" uid="uid://ctvpdgdxd0yhh" path="res://Content/Graphics/UI/unitSlot_select.png" id="10_7qqmw"]
+[ext_resource type="Texture2D" uid="uid://dkauxm6umjmd0" path="res://Content/Graphics/Sprites/portrait/hero.png" id="12_iwf60"]
+[ext_resource type="Texture2D" uid="uid://crm3orc1ml6jr" path="res://Content/Graphics/UI/unitSlot_select2.png" id="12_ktf23"]
 [ext_resource type="Script" path="res://Content/Scripts/itemInfo.gd" id="12_qttvi"]
 [ext_resource type="Script" path="res://Content/Scripts/itemEquipped.gd" id="13_kxqaj"]
-[ext_resource type="FontFile" uid="uid://cl6ffjywcgihb" path="res://Content/Graphics/UI/font/ThaleahFat.ttf" id="13_xmsbm"]
-[ext_resource type="Texture2D" uid="uid://b2lw0f838p4sr" path="res://Content/Graphics/UI/arrow.png" id="18_u7anm"]
-[ext_resource type="Texture2D" uid="uid://8743oqhtuunh" path="res://Content/Graphics/UI/arrow_pressed.png" id="19_2hl7v"]
+[ext_resource type="FontFile" uid="uid://by7s4na4k8udg" path="res://Content/Graphics/UI/font/ThaleahFat.ttf" id="13_xmsbm"]
+[ext_resource type="Texture2D" uid="uid://ripr74d7d2tl" path="res://Content/Graphics/UI/arrow.png" id="18_u7anm"]
+[ext_resource type="Texture2D" uid="uid://do5xbatstlv7r" path="res://Content/Graphics/UI/arrow_pressed.png" id="19_2hl7v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvue5"]
 bg_color = Color(0.580392, 0.74902, 0.976471, 1)
@@ -549,6 +549,7 @@ text = "입장
 "
 
 [node name="loadoutHUD" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("9_xtc0a")
 
 [node name="ColorRect" type="ColorRect" parent="loadoutHUD"]
@@ -848,6 +849,7 @@ offset_right = 39.0
 offset_bottom = 327.0
 texture_normal = ExtResource("18_u7anm")
 texture_pressed = ExtResource("19_2hl7v")
+texture_disabled = ExtResource("19_2hl7v")
 flip_h = true
 
 [node name="unitLoadoutBack" type="TextureButton" parent="loadoutHUD/unitLoadout"]
@@ -858,6 +860,7 @@ offset_right = 609.0
 offset_bottom = 327.0
 texture_normal = ExtResource("18_u7anm")
 texture_pressed = ExtResource("19_2hl7v")
+texture_disabled = ExtResource("19_2hl7v")
 
 [node name="itemEquipped" type="NinePatchRect" parent="loadoutHUD/unitLoadout"]
 layout_mode = 0
@@ -986,6 +989,7 @@ offset_right = 39.0
 offset_bottom = 178.0
 texture_normal = ExtResource("18_u7anm")
 texture_pressed = ExtResource("19_2hl7v")
+texture_disabled = ExtResource("19_2hl7v")
 flip_h = true
 
 [node name="towerLoadoutBack" type="TextureButton" parent="loadoutHUD/unitLoadout/towerLoadout"]
@@ -996,6 +1000,7 @@ offset_right = 609.0
 offset_bottom = 178.0
 texture_normal = ExtResource("18_u7anm")
 texture_pressed = ExtResource("19_2hl7v")
+texture_disabled = ExtResource("19_2hl7v")
 
 [node name="SlotSelect" type="NinePatchRect" parent="loadoutHUD/unitLoadout"]
 layout_mode = 0
@@ -1017,6 +1022,7 @@ offset_bottom = 600.0
 scale = Vector2(2.2, 2.2)
 texture_normal = ExtResource("18_u7anm")
 texture_pressed = ExtResource("19_2hl7v")
+texture_disabled = ExtResource("19_2hl7v")
 
 [node name="backButton" type="TextureButton" parent="loadoutHUD"]
 offset_left = -4.0
@@ -1026,6 +1032,7 @@ offset_bottom = 600.0
 scale = Vector2(2.2, 2.2)
 texture_normal = ExtResource("18_u7anm")
 texture_pressed = ExtResource("19_2hl7v")
+texture_disabled = ExtResource("19_2hl7v")
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

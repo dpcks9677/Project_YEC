@@ -12,10 +12,11 @@ var slotSide : bool
 @export var rsc : resourceHandler
 
 func _init():
-	#SaveData의 equippedList를 참조해서 데이터 삽입 
+	#SaveData를 참조해서 데이터 삽입 
 	for i in range(8):
-		unitName[i] = SaveData.equippedList[i][0]
-		unitName[i] = SaveData.getEquippedListItemName(i)
+		for j in range(20):
+			if SaveData.getOwnedUnitListSlot(j) == i+1:
+				unitName[i] = SaveData.getOwnedUnitListName(j)
 	
 	slotSide = false
 

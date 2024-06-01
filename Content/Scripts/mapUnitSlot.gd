@@ -30,18 +30,17 @@ func _gui_input(event):
 			else:
 				# Stop dragging
 				undo_modulate($TextureButton)
-				
+
 	if event is InputEventMouseButton: #더블클릭 
 		if event.double_click == true:
 			if get_parent().get_name() == "itemEquipped":
 				for i in range(20):
-					if SaveData.ownedUnitList[i][0] == itemName and SaveData.ownedUnitList[i][1] == itemID: 
-						SaveData.ownedUnitList[i][2] = 0 
+					if SaveData.getOwnedUnitListName(i) == itemName and SaveData.getOwnedUnitListID(i) == itemID: 
+						SaveData.setOwnedUnitListSlot(i, 0) #idx, value
 						itemName = ""
 						itemID = 0
 						$TextureButton/Sprite2D.texture = null
 						undo_modulate($TextureButton)
-						
 
 func _process(delta):
 	if itemName != "" and itemID != 0:
