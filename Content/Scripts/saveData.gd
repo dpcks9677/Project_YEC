@@ -8,9 +8,9 @@ class_name saveData
 #null String, 기본 페이지 수에 따라 확장 
 @export var ownedUnitList : Array = [
 	#name, id(0 = null), isEquipped(idx, 0 = null)
-	["spearman", 1, 1],
-	["knight", 1, 2],
-	["hero", 1, 5], 
+	["spearman", 1, 0],
+	["knight", 1, 0],
+	["hero", 1, 0], 
 	["spearman", 2, 0], 
 	["", 0, 0],  
 	["", 0, 0], 

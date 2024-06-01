@@ -2,6 +2,8 @@ extends Control
 
 @onready var camera = $Camera2D
 
+var stageScene : String
+
 #드래그 관련 변수 
 var isButtonMove : bool = false
 var target_pos : Vector2
@@ -56,7 +58,12 @@ func _input(event): #카메라 드래그 관련 함수
 			camera.position -= offset
 			# Update the last mouse position
 			last_mouse_position = event.position
+			
+#func
+func getStageScene():
+	return stageScene
 
+#tween func
 func slide_tween_in():
 	var tween = create_tween()
 	tween.tween_property($stageInfoHUD/Sprite2D, "position", Vector2(15, 0), 0.3)
@@ -69,6 +76,8 @@ func slide_tween_out():
 func _on_stage_1_pressed():
 	slide_tween_in()
 	
+	stageScene = "stage_1"
+	
 	isButtonMove = true
 	var button_position = get_node("stage1").get_global_position()
 	target_pos = button_position
@@ -80,7 +89,6 @@ func _on_stage_2_pressed():
 	var button_position = get_node("stage2").get_global_position()
 	target_pos = button_position
 
-
 func _on_stage_3_pressed():
 	slide_tween_in()
 	
@@ -88,7 +96,6 @@ func _on_stage_3_pressed():
 	var button_position = get_node("stage3").get_global_position()
 	target_pos = button_position
 
-
 func _on_Tween_tween_completed(object, _key):
 	print("Movement completed!")
-	
+

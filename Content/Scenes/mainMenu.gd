@@ -87,6 +87,5 @@ func _on_next_button_pressed():
 		#transfer_data_between_scenes(self, map)
 		get_node("transition").play("fade_out")
 
-
 func _on_transition_animation_finished(anim_name):
 	get_tree().change_scene_to_packed(map)
