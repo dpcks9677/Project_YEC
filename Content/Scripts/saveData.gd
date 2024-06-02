@@ -2,7 +2,7 @@ extends Node
 class_name saveData
 
 #데이터 저장을 위한 변수 
-var saveIdx : int
+var saveIdx : int = 1
 
 const savePath = "res://Saves/"
 var saveFile = "save1.json"
@@ -69,7 +69,6 @@ func save_data(path : String):
 	
 	var json_data = JSON.new().stringify(data)
 	json_data = JSONBeautifier.beautify_json(json_data)
-	print(json_data)
 	file.store_string(json_data)
 	file.close()
 	file = null
