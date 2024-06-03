@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://25330bywv47t"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="1_662x8"]
-[ext_resource type="Texture2D" uid="uid://b3wvmj26t4gsh" path="res://Content/Graphics/Sprites/ally/healer.png" id="1_hwnxa"]
+[ext_resource type="Texture2D" uid="uid://bodlv1q8xbuwm" path="res://Content/Graphics/Sprites/ally/healer.png" id="1_hwnxa"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="2_520ck"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_d10nn"]
 [ext_resource type="PackedScene" uid="uid://can6h63aa7cw6" path="res://Content/Scenes/Stage/Components/effectComponent.tscn" id="2_lnnl5"]

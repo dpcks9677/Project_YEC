@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://cv1h8mnftsm3h"]
 
-[ext_resource type="Texture2D" uid="uid://bqbxxbusi3ngs" path="res://Content/Graphics/Sprites/ally/archer.png" id="1_bdxdh"]
+[ext_resource type="Texture2D" uid="uid://btjjwrvfdcvt4" path="res://Content/Graphics/Sprites/ally/archer.png" id="1_bdxdh"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_85ohq"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="3_1csq0"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_vt62x"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/rangeSingleAttack.gd" id="6_wke1r"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/projectile.gd" id="8_66n73"]
 [ext_resource type="Resource" uid="uid://bdjucmvu5jw0d" path="res://Content/Scripts/Resources/castData/archer_normal.tres" id="8_i46jk"]
-[ext_resource type="Texture2D" uid="uid://c4g7ixcrpqtxh" path="res://Content/Graphics/Sprites/etc/weapon.png" id="8_ykkvl"]
+[ext_resource type="Texture2D" uid="uid://di7gd6yso17iv" path="res://Content/Graphics/Sprites/etc/weapon.png" id="8_ykkvl"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/knockBack.gd" id="10_bscpu"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/additionalState.gd" id="12_7yf77"]
 
@@ -258,8 +258,8 @@ region = Rect2(4.5477, 43.2286, 49.4018, 14.1459)
 size = Vector2(60, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_flsgr"]
-radius = 24.0
-height = 100.0
+radius = 32.0
+height = 80.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rxks"]
 size = Vector2(430, 208)
@@ -270,6 +270,8 @@ rotates = false
 loop = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.8147e-06, -16)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_bdxdh")
 flip_h = true
 hframes = 10
@@ -323,7 +325,7 @@ script = ExtResource("12_7yf77")
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(-16, -7.62939e-06)
+position = Vector2(-8, -16)
 shape = SubResource("CapsuleShape2D_flsgr")
 
 [node name="attackRangeComponent" type="Area2D" parent="."]

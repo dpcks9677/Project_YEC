@@ -1,6 +1,6 @@
-[gd_scene load_steps=38 format=3 uid="uid://brhy872g4qvjq"]
+[gd_scene load_steps=39 format=3 uid="uid://brhy872g4qvjq"]
 
-[ext_resource type="Texture2D" uid="uid://ommhhhgvfnb5" path="res://Content/Graphics/Sprites/enemy/toad.png" id="1_p4lca"]
+[ext_resource type="Texture2D" uid="uid://bqc73yxer4vhl" path="res://Content/Graphics/Sprites/enemy/toad.png" id="1_p4lca"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_4f6wm"]
 [ext_resource type="PackedScene" uid="uid://can6h63aa7cw6" path="res://Content/Scenes/Stage/Components/effectComponent.tscn" id="2_bnrm5"]
 [ext_resource type="Resource" uid="uid://durdht0t7gsde" path="res://Content/Scripts/Resources/unitData/toad.tres" id="3_74wxm"]
@@ -12,9 +12,9 @@
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/parabola.gd" id="7_w06xh"]
 [ext_resource type="PackedScene" uid="uid://camdjwn2n8x8g" path="res://Content/Scenes/Stage/Components/healthbar_component.tscn" id="10_ikvem"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/attackRangeComponent.gd" id="10_qdp80"]
-[ext_resource type="Texture2D" uid="uid://b1pdxweh7gfpp" path="res://Content/Graphics/effects/gradient_circle.png" id="10_r7wn1"]
+[ext_resource type="Texture2D" uid="uid://dswxav7a8ntan" path="res://Content/Graphics/effects/gradient_circle.png" id="10_r7wn1"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/additionalState.gd" id="11_ixuq7"]
-[ext_resource type="Texture2D" uid="uid://cma0grjgaac6i" path="res://Content/Graphics/effects/toad_effect.png" id="11_qqfkt"]
+[ext_resource type="Texture2D" uid="uid://cvsmjoawswbkw" path="res://Content/Graphics/effects/toad_effect.png" id="11_qqfkt"]
 
 [sub_resource type="Animation" id="Animation_unevw"]
 length = 0.001
@@ -41,6 +41,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, -72)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_gvjcu"]
@@ -75,17 +99,55 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_03lhj"]
 resource_name = "dead"
+length = 0.35
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 0
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.87451), Color(1, 1, 1, 0.74902), Color(1, 1, 1, 0.498039), Color(1, 1, 1, 0.247059), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-16, -72), Vector2(56, -120), Vector2(112, -80)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.05, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.523599]
 }
 
 [sub_resource type="Animation" id="Animation_ohoj8"]
@@ -105,11 +167,28 @@ tracks/0/keys = {
 "values": [0, 1, 3, 2]
 }
 
+[sub_resource type="Animation" id="Animation_ea34m"]
+resource_name = "idle"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_txi3n"]
 _data = {
 "RESET": SubResource("Animation_unevw"),
 "attack": SubResource("Animation_gvjcu"),
 "dead": SubResource("Animation_03lhj"),
+"idle": SubResource("Animation_ea34m"),
 "walk": SubResource("Animation_ohoj8")
 }
 

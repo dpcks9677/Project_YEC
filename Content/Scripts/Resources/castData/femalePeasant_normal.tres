@@ -6,7 +6,7 @@
 script = ExtResource("1_jwwt7")
 damage = 25
 damageType = "physics"
-cooltime = 1.5
+cooltime = 1.9
 triggerCount = 1
 isStun = false
 isSKnockBack = false
