@@ -1,5 +1,7 @@
 extends CastState
 
+signal increaseAttackCounter
+
 var castTarget : Area2D
 @onready var anim = $"../../../AnimationPlayer" #경로가 확정된 노드에 한해 onready 사용 할 것.
 
@@ -9,10 +11,22 @@ var castTarget : Area2D
 @export var damageType : String
 @export var cooltime : float
 
+@export var triggerCount : int
+
+@export var isStun : bool
+@export var isKnockBack : bool
+@export var isSlow : bool
+
 func _enter_tree():
 	damage = castData.damage
 	damageType = castData.damageType
 	cooltime = castData.cooltime
+	
+	triggerCount = castData.triggerCount
+	
+	isStun = castData.isStun
+	isKnockBack = castData.isSKnockBack
+	isSlow = castData.isSlow
 	
 func _ready():
 	if get_parent().get_parent().get_parent().get_parent().get_name() == "topLane":
@@ -40,6 +54,7 @@ func waiting_animation(): #await 키워드와 함께 사용
 func _on_damage_box_area_entered(area): #데미지 계산시에 활성화 됨. #area = 충돌된 콜리전, target = 공격대상 
 	if area == castTarget and is_instance_valid(area):
 		castTarget.get_parent().get_node("stateComponent").damaged(damage)
+		emit_signal("increaseAttackCounter")
 		$"../../../AudioStreamPlayer2D".play()
 		#castTarget.get_parent().get_node("stateComponent").force_change_state("KnockBack") #거리값 추가 필요
 		if area.get_parent().get_node("stateComponent").property_exists(area.get_parent().get_node("stateComponent"), "health"):
@@ -47,3 +62,7 @@ func _on_damage_box_area_entered(area): #데미지 계산시에 활성화 됨. #
 	else:
 		#print(castTarget)
 		pass
+
+#getter
+func get_triggerCount():
+	return triggerCount

@@ -88,11 +88,10 @@ func _ready():
 	get_parent().get_parent().get_parent().get_parent().get_node("HUD").get_node("minimapUI").spawnMarker(self)
 	
 	#위치 초기화 및 인구수 추가 
-	if get_faction() == "enemy":
+	if get_faction() == "enemy": #중간 스폰을 해야할 필요가 있을 때 코드 변경 필요 (스포너에 의해 소환 시 progress_ratio = 1.0으로 설정 
 		get_parent().progress_ratio = 1.0
-	else:
-		#인구수 1 증가 
-		rsc.increasePopulation()
+	else: #중간 스폰을 해야할 필요가 있을 때 코드 변경 필요 (스포너에 의해 소환 시 progress_ratio = 0.0으로 설정 
+		rsc.increasePopulation() #인구수 1 증가 
 		get_parent().progress_ratio = 0.0
 		
 	#스프라이트 보정치 추가
@@ -145,8 +144,6 @@ func force_change_state(new_state_name : String):
 	new_state.Enter()
 	
 	current_state = new_state
-	
-
 #내부 값 변경 함수
 func damaged(amount):
 	hitShader()
