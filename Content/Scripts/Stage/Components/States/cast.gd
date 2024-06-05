@@ -31,9 +31,12 @@ func Update(delta):
 		if target not in $"../../attackRangeComponent".get_overlapping_areas(): #target이 공격범위 내 없는 경우 
 			target = null
 		else:
-			cast_normal.Update(delta) #현재는 하드코딩
-			if check_attackCounter(cast_skill1.get_triggerCount()) and cast_skill1 != null: #n-1타 후 n타 공격이 나가야 할 때 
+			if cast_skill1 != null and check_attackCounter(cast_skill1.get_triggerCount()): #n-1타 후 n타 공격이 나가야 할 때 
+				waiting_animation()
 				cast_skill1.Update(delta)
+			else:
+				waiting_animation()
+				cast_normal.Update(delta) #현재는 하드코딩
 
 func Exit():
 	pass
@@ -49,7 +52,7 @@ func initQueue():
 #4타 검사 함수
 func check_attackCounter(triggerCount):
 	if attackCounter % triggerCount == triggerCount - 1:
-		print("next attack will be stun attack")
+		return true
 
 #signal
 func _on_attack_range_component_enqueue_target(object):
@@ -58,3 +61,7 @@ func _on_attack_range_component_enqueue_target(object):
 	
 func _on_increaseAttackCounter():
 	attackCounter += 1
+
+#getter
+func get_target():
+	return target

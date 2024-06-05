@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bq3x14mwss3w2"]
 
-[ext_resource type="Texture2D" uid="uid://bocndbbsobclu" path="res://Content/Graphics/UI/unitBackground.png" id="1_w1tr5"]
+[ext_resource type="Texture2D" uid="uid://ci336xa80soml" path="res://Content/Graphics/UI/unitBackground.png" id="1_w1tr5"]
 [ext_resource type="Script" path="res://Content/Scripts/mapUnitSlot.gd" id="2_aq33f"]
-[ext_resource type="FontFile" uid="uid://2voekqgf574h" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="3_m4d3y"]
+[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="3_m4d3y"]
 [ext_resource type="Script" path="res://Content/Scripts/TextureButtonDrag.gd" id="3_okw4n"]
-[ext_resource type="Texture2D" uid="uid://44heku2b83eu" path="res://Content/Graphics/Sprites/object/crystal.png" id="4_5vcg7"]
+[ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="4_5vcg7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k53gg"]
 bg_color = Color(0.580392, 0.74902, 0.976471, 1)

@@ -11,5 +11,5 @@ class_name attackTypeResource
 
 #CC
 @export var isStun : bool = false
-@export var isSKnockBack : bool = false
+@export var isKnockBack : bool = false
 @export var isSlow : bool = false

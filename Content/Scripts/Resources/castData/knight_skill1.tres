@@ -9,5 +9,5 @@ damageType = "physics"
 cooltime = 3.5
 triggerCount = 4
 isStun = false
-isSKnockBack = true
+isKnockBack = true
 isSlow = false

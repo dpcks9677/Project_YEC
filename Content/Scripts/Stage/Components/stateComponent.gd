@@ -104,8 +104,18 @@ func _ready():
 		$"../HealthBarComponent".position.y += yRand
 	
 func _process(delta):
+	#사망 판정 
 	if health <= 0:
 		force_change_state("Dead")
+	else:
+		#넉백인지 판정 
+		if current_state is KnockBack:
+			print("passsss")
+			pass
+		#캐스트 상태인지 판정 
+		elif get_node("Cast").get_target() != null and !(current_state is Cast):
+			change_state(current_state, "Cast")
+	
 	if current_state:
 		current_state.Update(delta)
 		

@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://6aiiqqk4vwat"]
+[gd_scene load_steps=22 format=3 uid="uid://6aiiqqk4vwat"]
 
-[ext_resource type="Texture2D" uid="uid://dyucyvlxj81j7" path="res://Content/Graphics/Sprites/enemy/raptor.png" id="1_8yf45"]
+[ext_resource type="Texture2D" uid="uid://yvdpqpr55nkb" path="res://Content/Graphics/Sprites/enemy/raptor.png" id="1_8yf45"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_hup7k"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="2_mlc0k"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/cast.gd" id="3_11dyu"]
@@ -51,6 +51,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, -24)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_joa7e"]
 resource_name = "attack"
@@ -83,6 +107,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_eyqol"]
 resource_name = "dead"
+length = 0.35
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -94,6 +120,59 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.87451), Color(1, 1, 1, 0.74902), Color(1, 1, 1, 0.498039), Color(1, 1, 1, 0.247059), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [24]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-8, -24), Vector2(56, -56), Vector2(112, -16)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.741765, 0.0959931]
+}
+
+[sub_resource type="Animation" id="Animation_h0u8a"]
+resource_name = "idle"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_x6jcc"]
@@ -117,11 +196,12 @@ _data = {
 "RESET": SubResource("Animation_udgof"),
 "attack": SubResource("Animation_joa7e"),
 "dead": SubResource("Animation_eyqol"),
+"idle": SubResource("Animation_h0u8a"),
 "walk": SubResource("Animation_x6jcc")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e30ng"]
-size = Vector2(40, 32)
+size = Vector2(52, 32)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3sfp"]
 radius = 40.0
@@ -135,7 +215,7 @@ rotates = false
 loop = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -24)
+position = Vector2(-8, -24)
 texture = ExtResource("1_8yf45")
 hframes = 8
 vframes = 4
@@ -168,7 +248,7 @@ castData = ExtResource("7_1vh3y")
 [node name="damageBox" type="Area2D" parent="stateComponent/Cast/meleeSingleAttack"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stateComponent/Cast/meleeSingleAttack/damageBox"]
-position = Vector2(-40, 0)
+position = Vector2(-46, 0)
 shape = SubResource("RectangleShape2D_e30ng")
 disabled = true
 debug_color = Color(1, 0, 0, 0.419608)

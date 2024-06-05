@@ -1,7 +1,7 @@
 extends State
 class_name KnockBack
 
-var MOVEMENT_VALUE = 0.0016
+var MOVEMENT_VALUE = 0.0020
 
 var duration : float
 var distanceRatio : float
@@ -9,13 +9,14 @@ var distanceRatio : float
 var timer : Timer
 
 func Enter():
-	get_parent().get_node("Cast").initQueue() #target, targetQueue 초기화
 	get_parent().off_attackRangeComponent() #attackRangeComponent 비활성화 
+	get_parent().get_node("Cast").initQueue() #target, targetQueue 초기화 
+	
 	
 	#timer 생성 후 카운트 시작 
 	timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = 0.1 
+	timer.wait_time = 0.08
 	timer.one_shot = true
 	timer.timeout.connect(_on_Timer_timeout)
 	timer.start()
