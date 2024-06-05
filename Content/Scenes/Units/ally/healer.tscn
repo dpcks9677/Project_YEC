@@ -210,8 +210,9 @@ _status = ExtResource("3_djdto")
 [node name="Move" type="Node2D" parent="stateComponent"]
 script = ExtResource("2_520ck")
 
-[node name="Cast" type="Node2D" parent="stateComponent"]
+[node name="Cast" type="Node2D" parent="stateComponent" node_paths=PackedStringArray("cast_normal")]
 script = ExtResource("1_662x8")
+cast_normal = NodePath("rangeAreaHeal")
 
 [node name="rangeAreaHeal" type="Node2D" parent="stateComponent/Cast"]
 script = ExtResource("4_4iowu")

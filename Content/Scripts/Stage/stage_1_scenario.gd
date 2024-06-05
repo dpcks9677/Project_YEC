@@ -1,12 +1,14 @@
 extends stageLib
 
+#enemyBase 체력은 시나리오에서 참조하도록 변경 
+
 var timer = 0
 
 func _ready():
 	pass
 
 func _process(delta):
-	#setNormalWave(delta) #delta로 초딩 스폰 제어 
+	setNormalWave(delta) #delta로 초딩 스폰 제어 
 	pass
 
 func setNormalWave(delta):

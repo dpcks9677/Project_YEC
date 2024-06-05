@@ -63,7 +63,6 @@ texture_under = SubResource("GradientTexture2D_6ci1o")
 texture_progress = SubResource("GradientTexture2D_w1nos")
 
 [node name="UpgradeProgress" type="TextureProgressBar" parent="TextureButton"]
-visible = false
 layout_mode = 0
 offset_right = 160.0
 offset_bottom = 90.0

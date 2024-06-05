@@ -1,17 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqhjv2biwvh6a"]
+[gd_scene load_steps=8 format=3 uid="uid://dqhjv2biwvh6a"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/unitButton.gd" id="1_po7nm"]
 [ext_resource type="Texture2D" uid="uid://ci336xa80soml" path="res://Content/Graphics/UI/unitBackground.png" id="2_33mrh"]
 [ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="2_a41co"]
 [ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="3_lp3bx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms08w"]
-bg_color = Color(0.109804, 0.490196, 0.964706, 0.611765)
-corner_radius_top_left = 7
-corner_radius_top_right = 7
-corner_radius_bottom_right = 7
-corner_radius_bottom_left = 7
-anti_aliasing = false
+[sub_resource type="Gradient" id="Gradient_ft2rt"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.392157)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j6luj"]
+gradient = SubResource("Gradient_ft2rt")
+width = 113
+height = 65
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypga7"]
 bg_color = Color(0.580392, 0.74902, 0.976471, 1)
@@ -21,73 +22,73 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 anti_aliasing = false
 
-[node name="unitButton" type="Control"]
-clip_contents = true
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1039.0
-offset_bottom = -573.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_po7nm")
-
-[node name="background" type="Panel" parent="."]
-clip_contents = true
-layout_mode = 0
-offset_top = 10.0
-offset_right = 113.0
-offset_bottom = 75.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ms08w")
-
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 0
+[node name="unitButton" type="NinePatchRect"]
 offset_left = -2.0
 offset_top = 8.0
 offset_right = 115.0
 offset_bottom = 77.0
+mouse_filter = 1
 texture = ExtResource("2_33mrh")
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
+script = ExtResource("1_po7nm")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 115.0
+offset_bottom = 67.0
+max_value = 3.0
+step = 0.1
+fill_mode = 5
+texture_progress = SubResource("GradientTexture2D_j6luj")
 
 [node name="TextureButton" type="TextureButton" parent="."]
+clip_contents = true
 layout_mode = 0
-offset_left = -4.0
-offset_top = -14.0
-offset_right = 124.0
-offset_bottom = 114.0
-scale = Vector2(0.4, 0.4)
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 111.0
+offset_bottom = 63.0
 action_mode = 0
 
-[node name="manaTag" type="Control" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="TextureButton"]
+position = Vector2(10, -4)
+scale = Vector2(0.26, 0.26)
+centered = false
+
+[node name="manaTag" type="Control" parent="TextureButton"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -4.0
+offset_top = -14.0
+offset_right = 109.0
+offset_bottom = 61.0
+mouse_filter = 1
 
-[node name="ColorRect" type="Panel" parent="manaTag"]
+[node name="ColorRect" type="Panel" parent="TextureButton/manaTag"]
 layout_mode = 0
-offset_left = 68.0
-offset_top = 56.0
-offset_right = 111.0
-offset_bottom = 74.0
+offset_left = 65.25
+offset_top = 52.25
+offset_right = 108.25
+offset_bottom = 70.25
 theme_override_styles/panel = SubResource("StyleBoxFlat_ypga7")
 
-[node name="mana" type="Label" parent="manaTag"]
+[node name="mana" type="Label" parent="TextureButton/manaTag"]
 layout_mode = 0
-offset_left = 87.0
-offset_top = 59.0
-offset_right = 110.0
-offset_bottom = 73.0
+offset_left = 84.25
+offset_top = 55.25
+offset_right = 107.25
+offset_bottom = 69.25
 theme_override_fonts/font = ExtResource("2_a41co")
 theme_override_font_sizes/font_size = 13
 text = "00"
 
-[node name="crystal" type="Sprite2D" parent="manaTag"]
-position = Vector2(77, 65)
+[node name="crystal" type="Sprite2D" parent="TextureButton/manaTag"]
+position = Vector2(74.25, 61.25)
 scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("3_lp3bx")
 

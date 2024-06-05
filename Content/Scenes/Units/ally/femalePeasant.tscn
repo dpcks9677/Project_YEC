@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://4vaswcuj74qy"]
 
-[ext_resource type="Texture2D" uid="uid://dn4kc3brabdn" path="res://Content/Graphics/Sprites/ally/femalePeasant.png" id="1_fromu"]
+[ext_resource type="Texture2D" uid="uid://dvs35qesddqif" path="res://Content/Graphics/Sprites/ally/femalePeasant.png" id="1_fromu"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/stateComponent.gd" id="2_lac77"]
 [ext_resource type="Resource" uid="uid://dcfn6fx8eqjbq" path="res://Content/Scripts/Resources/unitData/femalePeasant.tres" id="3_en1of"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/move.gd" id="3_s2e54"]
@@ -149,8 +149,9 @@ _status = ExtResource("3_en1of")
 [node name="Move" type="Node2D" parent="stateComponent"]
 script = ExtResource("3_s2e54")
 
-[node name="Cast" type="Node2D" parent="stateComponent"]
+[node name="Cast" type="Node2D" parent="stateComponent" node_paths=PackedStringArray("cast_normal")]
 script = ExtResource("4_ha022")
+cast_normal = NodePath("meleeSingleAttack")
 
 [node name="meleeSingleAttack" type="Node2D" parent="stateComponent/Cast"]
 script = ExtResource("5_2kksc")

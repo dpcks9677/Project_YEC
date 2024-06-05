@@ -46,8 +46,9 @@ offset_right = 106.0
 offset_bottom = 63.0
 
 [node name="Sprite2D" type="Sprite2D" parent="TextureButton"]
-position = Vector2(48, 26)
+position = Vector2(3.8147e-06, -9)
 scale = Vector2(0.33, 0.33)
+centered = false
 
 [node name="manaTag" type="Control" parent="TextureButton"]
 layout_mode = 3

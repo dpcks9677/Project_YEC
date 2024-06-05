@@ -287,8 +287,9 @@ _status = ExtResource("3_lqu0u")
 [node name="Move" type="Node2D" parent="stateComponent"]
 script = ExtResource("3_n6qkt")
 
-[node name="Cast" type="Node2D" parent="stateComponent"]
+[node name="Cast" type="Node2D" parent="stateComponent" node_paths=PackedStringArray("cast_normal")]
 script = ExtResource("4_wvdts")
+cast_normal = NodePath("rangeAreaAttack")
 
 [node name="rangeAreaAttack" type="Node2D" parent="stateComponent/Cast"]
 script = ExtResource("5_acvwl")

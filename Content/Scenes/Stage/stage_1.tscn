@@ -1,6 +1,8 @@
-[gd_scene load_steps=80 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=82 format=3 uid="uid://ocgj24hkyqfm"]
 
+[ext_resource type="Script" path="res://Content/Scripts/Stage/dialogue.gd" id="1_2m1pa"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Handler/resourceHandler.gd" id="1_jgakt"]
+[ext_resource type="Texture2D" uid="uid://ci336xa80soml" path="res://Content/Graphics/UI/unitBackground.png" id="1_uexeb"]
 [ext_resource type="PackedScene" uid="uid://c201rvxgq5e35" path="res://Content/Scenes/Stage/stage_1_scenario.tscn" id="2_n5lwx"]
 [ext_resource type="Texture2D" uid="uid://cp7bvp80hcopu" path="res://Content/Graphics/Background/stage1.png" id="3_22536"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/unitSummoner.gd" id="3_jveqw"]
@@ -276,6 +278,39 @@ fill_to = Vector2(1, 0.486239)
 
 [node name="stage1" type="Node2D"]
 
+[node name="Dialogue" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("1_2m1pa")
+
+[node name="dialogueBox" type="NinePatchRect" parent="Dialogue"]
+offset_left = 64.0
+offset_top = 415.0
+offset_right = 1088.0
+offset_bottom = 622.0
+texture = ExtResource("1_uexeb")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="charName" type="RichTextLabel" parent="Dialogue/dialogueBox"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 17.0
+offset_right = 192.0
+offset_bottom = 73.0
+theme_override_font_sizes/normal_font_size = 40
+text = "민병대원"
+
+[node name="chat" type="RichTextLabel" parent="Dialogue/dialogueBox"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 73.0
+offset_right = 976.0
+offset_bottom = 177.0
+theme_override_font_sizes/normal_font_size = 25
+text = "오늘 점심은... 육개장..."
+
 [node name="resourceHandler" type="Node" parent="."]
 script = ExtResource("1_jgakt")
 
@@ -296,31 +331,33 @@ anchors_preset = 0
 offset_top = 110.0
 offset_right = 380.0
 offset_bottom = 481.0
+mouse_filter = 1
 script = ExtResource("3_jveqw")
 metadata/_edit_use_anchors_ = true
 
 [node name="unitButton1" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
 layout_mode = 1
-offset_right = -267.0
-offset_bottom = -296.0
+offset_top = 0.0
+offset_right = 113.0
+offset_bottom = 67.0
 
 [node name="unitButton2" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
 layout_mode = 1
 offset_top = 75.0
-offset_right = -267.0
-offset_bottom = -221.0
+offset_right = 113.0
+offset_bottom = 142.0
 
 [node name="unitButton3" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
 layout_mode = 1
 offset_top = 150.0
-offset_right = -267.0
-offset_bottom = -146.0
+offset_right = 113.0
+offset_bottom = 217.0
 
 [node name="unitButton4" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
 layout_mode = 1
 offset_top = 225.0
-offset_right = -267.0
-offset_bottom = -71.0
+offset_right = 113.0
+offset_bottom = 292.0
 
 [node name="slotChanger" type="TextureButton" parent="resourceHandler/HUD/unitSummoner"]
 layout_mode = 0
@@ -335,29 +372,30 @@ texture_normal = SubResource("AtlasTexture_30u2j")
 [node name="unitButton5" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
 visible = false
 layout_mode = 1
-offset_right = -267.0
-offset_bottom = -296.0
+offset_top = 0.0
+offset_right = 113.0
+offset_bottom = 67.0
 
 [node name="unitButton6" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
 visible = false
 layout_mode = 1
 offset_top = 75.0
-offset_right = -267.0
-offset_bottom = -221.0
+offset_right = 113.0
+offset_bottom = 142.0
 
 [node name="unitButton7" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
 visible = false
 layout_mode = 1
 offset_top = 150.0
-offset_right = -267.0
-offset_bottom = -146.0
+offset_right = 113.0
+offset_bottom = 217.0
 
 [node name="unitButton8" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
 visible = false
 layout_mode = 1
 offset_top = 225.0
-offset_right = -267.0
-offset_bottom = -71.0
+offset_right = 113.0
+offset_bottom = 292.0
 
 [node name="laneUI" type="Control" parent="resourceHandler/HUD"]
 layout_mode = 3
@@ -782,6 +820,7 @@ scale = Vector2(1.3, 1.3)
 texture = SubResource("AtlasTexture_7c4e5")
 
 [node name="Camera2D" type="Camera2D" parent="resourceHandler"]
+zoom = Vector2(0.8, 0.8)
 limit_left = -1304
 limit_right = 1304
 script = ExtResource("4_b0td4")
@@ -902,7 +941,7 @@ initial_state = NodePath("Idle")
 script = ExtResource("6_1or2k")
 
 [node name="ground" type="Sprite2D" parent="."]
-position = Vector2(-0.499964, 177.5)
+position = Vector2(-0.499964, 216)
 scale = Vector2(40.7656, 6.23438)
 texture = SubResource("GradientTexture2D_r8qrj")
 

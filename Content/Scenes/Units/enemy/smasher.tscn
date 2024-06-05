@@ -199,8 +199,9 @@ _status = ExtResource("3_v1a53")
 [node name="Move" type="Node2D" parent="stateComponent"]
 script = ExtResource("3_8qxn5")
 
-[node name="Cast" type="Node2D" parent="stateComponent"]
+[node name="Cast" type="Node2D" parent="stateComponent" node_paths=PackedStringArray("cast_normal")]
 script = ExtResource("4_5a362")
+cast_normal = NodePath("meleeAreaAttack")
 
 [node name="meleeAreaAttack" type="Node2D" parent="stateComponent/Cast"]
 script = ExtResource("5_qa7ja")

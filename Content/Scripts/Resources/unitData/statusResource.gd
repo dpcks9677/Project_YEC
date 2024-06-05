@@ -8,6 +8,8 @@ class_name statusResource
 
 @export var includedUnit : Array
 
+@export var cooltime : int
+
 @export var health : int
 @export var speed : float
 @export var mana : int

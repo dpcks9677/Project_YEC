@@ -303,8 +303,9 @@ _status = ExtResource("4_rj1s3")
 [node name="Move" type="Node2D" parent="stateComponent"]
 script = ExtResource("3_tmuem")
 
-[node name="Cast" type="Node2D" parent="stateComponent"]
+[node name="Cast" type="Node2D" parent="stateComponent" node_paths=PackedStringArray("cast_normal")]
 script = ExtResource("4_hdwgf")
+cast_normal = NodePath("meleeAreaAttack")
 
 [node name="meleeAreaAttack" type="Node2D" parent="stateComponent/Cast"]
 script = ExtResource("8_kcv40")

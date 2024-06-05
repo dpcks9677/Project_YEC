@@ -8,6 +8,7 @@ type = "unit"
 faction = "ally"
 size = "small"
 includedUnit = []
+cooltime = 5.0
 health = 800
 speed = 0.8
 mana = 20

@@ -46,24 +46,24 @@
 		],
 		"ownedUnitList": [
 			[
-				"spearman",
+				"malePeasant",
 				1,
 				1
 			],
 			[
-				"knight",
+				"femalePeasant",
 				1,
 				2
 			],
 			[
-				"hero",
-				1,
-				3
+				"",
+				0,
+				0
 			],
 			[
-				"archer",
-				1,
-				4
+				"",
+				0,
+				0
 			],
 			[
 				"",
