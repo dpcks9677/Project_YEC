@@ -6,6 +6,8 @@ var type : String
 var faction : String
 @onready var health : int
 
+signal stageEnd(isWin)
+
 func _enter_tree():
 	type = status.type
 	faction = status.faction
@@ -33,10 +35,10 @@ func _process(delta):
 	if health <= 0:
 		if faction == "ally":
 			print("you lose")
-			get_tree().paused = true
+			emit_signal("stageEnd", false)
 		else:
 			print("you win")
-			get_tree().paused = true
+			emit_signal("stageEnd", true)
 
 #getter
 func get_health():

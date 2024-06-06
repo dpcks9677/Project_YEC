@@ -1,0 +1,149 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmixq34uuue3e"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Stage/resultHUD.gd" id="1_aua4k"]
+[ext_resource type="Texture2D" uid="uid://ci336xa80soml" path="res://Content/Graphics/UI/unitBackground.png" id="1_y0aib"]
+[ext_resource type="FontFile" uid="uid://cg5spy66unpeq" path="res://Content/Graphics/UI/font/SDMiSaeng.ttf" id="2_vuldq"]
+
+[node name="ResultHUD" type="CanvasLayer"]
+script = ExtResource("1_aua4k")
+metadata/_edit_vertical_guides_ = [576.0]
+metadata/_edit_horizontal_guides_ = [324.0]
+
+[node name="Wrapper" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -712.0
+offset_right = 40.0
+offset_bottom = -672.0
+
+[node name="canvas" type="NinePatchRect" parent="Wrapper"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 364.0
+offset_top = 68.0
+offset_right = 748.0
+offset_bottom = 556.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_y0aib")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="resultBackground" type="NinePatchRect" parent="Wrapper"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 428.0
+offset_top = 36.0
+offset_right = 684.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_y0aib")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="resultLabel" type="Label" parent="Wrapper"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 492.0
+offset_top = 36.0
+offset_right = 620.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_vuldq")
+theme_override_font_sizes/font_size = 50
+text = "승리!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Wrapper"]
+offset_left = 392.0
+offset_top = 128.0
+offset_right = 760.0
+offset_bottom = 568.0
+
+[node name="playtimeTitle" type="Label" parent="Wrapper/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vuldq")
+theme_override_font_sizes/font_size = 40
+text = "게임 시간"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="playtimeResult" type="Label" parent="Wrapper/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vuldq")
+theme_override_font_sizes/font_size = 50
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Wrapper/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="unitInfoTitle" type="Label" parent="Wrapper/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vuldq")
+theme_override_font_sizes/font_size = 40
+text = "처치한 유닛 / 사망 유닛"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="unitInfoResult" type="Label" parent="Wrapper/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vuldq")
+theme_override_font_sizes/font_size = 50
+text = "00기 / 00기"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="Wrapper/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="rewardTitle" type="Label" parent="Wrapper/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vuldq")
+theme_override_font_sizes/font_size = 40
+text = "획득 보상"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="rewardBox" type="HBoxContainer" parent="Wrapper/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Wrapper/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Wrapper/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Wrapper/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vuldq")
+theme_override_font_sizes/font_size = 35
+text = "확인"
+
+[connection signal="pressed" from="Wrapper/VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_pressed"]

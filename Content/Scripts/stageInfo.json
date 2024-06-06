@@ -6,7 +6,11 @@
 			"raptor"
 		],
 		"synopsis" : "무언가... 다가오고 있습니다...",
-		"scenePath" : "res://Content/Scenes/Stage/stage_1.tscn"  
+		"scenePath" : "res://Content/Scenes/Stage/stage_1.tscn",
+		"clearReward" : [
+			"hero",
+			"spearman"
+		]
 	},
 	
 	 "stage2" : {
@@ -17,7 +21,10 @@
 			"spitter"
 		],
 		"synopsis" : "당신의 첫번째 수습 임무가 시작됩니다. 준비되셨나요?",
-		"scenePath" : "res://Content/Scenes/Stage/stage_2.tscn"  
+		"scenePath" : "res://Content/Scenes/Stage/stage_2.tscn",
+		"clearReward" : [
+
+		]
 	},
 	
 	 "stage3" : {
@@ -29,6 +36,9 @@
 			"rhino"
 		],
 		"synopsis" : "이 녀석들은 어디서 만들어지는거죠?",
-		"scenePath" : "res://Content/Scenes/Stage/stage_3.tscn"  
+		"scenePath" : "res://Content/Scenes/Stage/stage_3.tscn",
+		"clearReward" : [
+			"knight"
+		]
 	}
 }

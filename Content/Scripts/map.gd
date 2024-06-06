@@ -66,11 +66,11 @@ func getStageScene():
 #tween func
 func slide_tween_in():
 	var tween = create_tween()
-	tween.tween_property($stageInfoHUD/Sprite2D, "position", Vector2(15, 0), 0.3)
+	tween.tween_property($stageInfoHUD/Sprite2D, "position", Vector2(15, 0), 0.3).set_ease(Tween.EASE_IN_OUT)
 
 func slide_tween_out():
 	var tween = create_tween()
-	tween.tween_property($stageInfoHUD/Sprite2D, "position", Vector2(-432, 0), 0.1)
+	tween.tween_property($stageInfoHUD/Sprite2D, "position", Vector2(-432, 0), 0.1).set_ease(Tween.EASE_IN_OUT)
 
 #signal
 func _on_stage_1_pressed():

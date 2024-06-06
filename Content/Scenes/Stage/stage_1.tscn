@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=81 format=3 uid="uid://ocgj24hkyqfm"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Stage/dialogue.gd" id="1_2m1pa"]
 [ext_resource type="Script" path="res://Content/Scripts/Stage/Handler/resourceHandler.gd" id="1_jgakt"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dpd05uv4svud6" path="res://Content/Graphics/UI/mana.png" id="15_rhukf"]
 [ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="16_ij1sc"]
 [ext_resource type="Texture2D" uid="uid://cpxdp0psf36ck" path="res://Content/Graphics/UI/att.png" id="17_okgo7"]
+[ext_resource type="PackedScene" uid="uid://cmixq34uuue3e" path="res://Content/Scenes/Stage/Interfaces/resultHUD.tscn" id="29_xn6i8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_30u2j"]
 atlas = ExtResource("11_22pvb")
@@ -308,8 +309,6 @@ offset_right = 976.0
 offset_bottom = 177.0
 theme_override_font_sizes/normal_font_size = 25
 text = "오늘 점심은... 육개장..."
-
-[node name="ResultHUD" type="CanvasLayer" parent="."]
 
 [node name="resourceHandler" type="Node" parent="."]
 script = ExtResource("1_jgakt")
@@ -945,6 +944,9 @@ texture = SubResource("GradientTexture2D_hpwid")
 position = Vector2(1, 59.0003)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("3_22536")
+
+[node name="ResultHUD" parent="." instance=ExtResource("29_xn6i8")]
+visible = false
 
 [connection signal="timeout" from="resourceHandler/manaGenerator" to="resourceHandler" method="_on_mana_generator_timeout"]
 [connection signal="toggled" from="resourceHandler/HUD/unitSummoner/slotChanger" to="resourceHandler/HUD/unitSummoner" method="_on_slot_changer_toggled"]

@@ -19,6 +19,7 @@ size = Vector2(105, 63)
 
 [node name="Slot" type="NinePatchRect"]
 clip_contents = true
+custom_minimum_size = Vector2(117, 75)
 offset_right = 117.0
 offset_bottom = 75.0
 mouse_filter = 1

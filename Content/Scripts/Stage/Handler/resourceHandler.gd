@@ -2,13 +2,13 @@ extends Node
 class_name resourceHandler
 
 #마나 
-@export var mana_lv : int
-@export var mana_lv_cost : int
+@export var mana_lv : int 
+@export var mana_lv_cost : int 
 @export var max_mana : int 
 @export var regen_mana : int 
-@export var current_mana : int
-@export var isManaCooldown : bool
-@export var isManaUpgrade : bool
+@export var current_mana : int 
+@export var isManaCooldown : bool 
+@export var isManaUpgrade : bool 
 
 #인구 수 
 @export var population_lv : int
@@ -28,6 +28,9 @@ class_name resourceHandler
 #체력
 @export var allyBaseHealth : int
 @export var enemyBaseHealth : int
+
+#플레이타임
+var playTime : float
 	
 func _init():
 	#고정 값 대신 stage 별 기본 정보들을 참조해서 불러올 수 있도록 설계하기 
@@ -58,7 +61,12 @@ func _init():
 	allyBaseHealth = 4000
 	enemyBaseHealth = 4000
 	
-func _process(_delta):
+func _ready():
+	$laneSetter/allyBase.stageEnd.connect(_on_stage_end)
+	$laneSetter/enemyBase.stageEnd.connect(_on_stage_end)
+
+func _process(delta):
+	playTime += delta #실행시간 계산 
 	atkHandler()
 	populationHandler()
 	manaHandler()
@@ -173,3 +181,8 @@ func get_atk_lv_cost():
 #mana관련
 func set_current_mana(value):
 	current_mana = value
+	
+#signal
+func _on_stage_end(_isWin):
+	$"../ResultHUD".set_playtime(playTime)
+	get_tree().paused = true #게임 정지 
