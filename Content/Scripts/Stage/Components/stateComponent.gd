@@ -39,7 +39,7 @@ func _ready():
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.state_transition.connect(change_state)
-			
+	
 	if initial_state:
 		initial_state.Enter() 
 		current_state = initial_state

@@ -6,8 +6,8 @@
 script = ExtResource("1_25ksj")
 damage = 100
 damageType = "physical"
-cooltime = 3.0
+cooltime = 2.1
 triggerCount = 1
 isStun = false
-isSKnockBack = false
+isKnockBack = false
 isSlow = false

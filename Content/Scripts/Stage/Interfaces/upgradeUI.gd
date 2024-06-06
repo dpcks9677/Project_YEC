@@ -8,6 +8,10 @@ var manaButton : TextureButton
 var popButton : TextureButton
 var attButton : TextureButton
 
+var isManaUpgradeProgress : bool = false
+var isPopUpgradeProgress : bool = false
+var isAttUpgradeProgress : bool = false
+
 func _ready():
 	rsc = $"../.."
 	
@@ -40,7 +44,8 @@ func _on_mana_upgrade_button_button_down():
 
 func _on_mana_upgrade_button_button_up():
 	undo_modulate(manaButton)
-	if rsc.get_mana_lv() <= 5 and rsc.get_current_mana() >= rsc.get_mana_lv_cost():
+	if rsc.get_mana_lv() <= 5 and rsc.get_current_mana() >= rsc.get_mana_lv_cost() and !isManaUpgradeProgress:
+		print(rsc.get_current_mana(), rsc.get_mana_lv_cost())
 		rsc.set_current_mana(rsc.get_current_mana() - rsc.get_mana_lv_cost()) #마나지불
 		manaButton.disabled = true
 		$manaUpgradeButton/UpgradeProgress.visible = true
@@ -75,8 +80,8 @@ func _on_pop_upgrade_button_button_down():
 func _on_pop_upgrade_button_button_up():
 	undo_modulate(popButton)
 	
-	if rsc.get_mana_lv() <= 5 and rsc.get_current_mana() >= rsc.get_population_lv_cost():
-		rsc.set_current_mana(rsc.get_current_mana() - rsc.get_mana_lv_cost()) #마나지불
+	if rsc.get_mana_lv() <= 5 and rsc.get_current_mana() >= rsc.get_population_lv_cost() and !isPopUpgradeProgress:
+		rsc.set_current_mana(rsc.get_current_mana() - rsc.get_population_lv_cost()) #마나지불
 		popButton.disabled = true
 		$popUpgradeButton/UpgradeProgress.visible = true
 		

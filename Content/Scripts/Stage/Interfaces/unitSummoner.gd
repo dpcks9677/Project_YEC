@@ -66,9 +66,11 @@ func spawn(unit):
 	else: #단일 유닛을 소환하는 코드 
 		if rsc.get_population() >= rsc.get_max_population(): #인구 수 확인 
 			print("Population limit exceeded.")
+			return 0
 		else: #마나 여부 확인 
 			if target.get_node("stateComponent").get_mana() > rsc.get_current_mana(): 
 				print("no mana")
+				return 0
 			else:
 				#마나 지불 
 				rsc.set_current_mana(rsc.get_current_mana() - target.get_node("stateComponent").get_mana())
@@ -77,9 +79,11 @@ func spawn(unit):
 				if get_parent().get_node("laneUI").currentLane == true:
 					get_parent().get_parent().get_node("laneSetter").get_node("bottomLane").add_child(target)
 					print("bottom spawned")
+					return 1
 				else:
 					get_parent().get_parent().get_node("laneSetter").get_node("topLane").add_child(target)
 					print("top spawned")
+					return 1
 
 func _on_slot_changer_toggled(toggled_on):
 	if slotSide == false:

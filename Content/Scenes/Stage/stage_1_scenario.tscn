@@ -4,3 +4,9 @@
 
 [node name="stage_1_scenario" type="Node"]
 script = ExtResource("1_qg1s6")
+
+[node name="basicSpawner" type="Timer" parent="."]
+
+[node name="waveSpawner" type="Timer" parent="."]
+
+[connection signal="timeout" from="basicSpawner" to="." method="_on_basic_spawner_timeout"]

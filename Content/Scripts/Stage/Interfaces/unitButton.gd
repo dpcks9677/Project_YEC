@@ -9,6 +9,8 @@ var elapsed_time : float = 0.0
 var cooltime : int
 var isCooldown : bool
 
+var isUnitSpawned : bool
+
 func _enter_tree():
 	if get_name() == str("unitButton1") and get_parent().unitName[0] != null:
 		unitName = get_parent().unitName[0]
@@ -58,7 +60,6 @@ func _process(delta):
 		$TextureButton.disabled = true #버튼 비활성화 
 		elapsed_time += delta
 		if elapsed_time >= cooltime:
-			elapsed_time = cooltime
 			isCooldown = false
 			$TextureButton.disabled = false #버튼 활성화 
 			$TextureProgressBar.value = cooltime #progressBar value 초기화 
@@ -68,20 +69,22 @@ func _process(delta):
 			
 		$TextureProgressBar.value = cooltime - elapsed_time
 		
-
-func _on_texture_button_pressed():
+func _on_texture_button_button_down():
 	modulate = Color(0.5, 0.5, 0.5, 1) #색조 변경 
 	
 	$TextureButton/Sprite2D.position.x -= 3
 	$TextureButton/Sprite2D.position.y += 3
-		
-	
+
 func _on_texture_button_button_up():
-	get_parent().spawn(unitName)
+	isUnitSpawned =  get_parent().spawn(unitName) # 유닛 스폰 명령 후 그 결과 값을 변수에 저장 
+	
+	if isUnitSpawned: #스폰되었다면 쿨다운 표기 
+		set_process(true)
+		
 	modulate = Color(1, 1, 1, 1) #색조 변경 (원래대로) 
 
-	$TextureButton/Sprite2D.position.x += 3
+	$TextureButton/Sprite2D.position.x += 3 
 	$TextureButton/Sprite2D.position.y -= 3
 
 	isCooldown = true
-	set_process(true)
+	
