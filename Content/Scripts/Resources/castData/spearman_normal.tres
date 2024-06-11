@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource("1_oq3fe")
-damage = 100
+damage = 150
 damageType = "physics"
 cooltime = 3.5
 triggerCount = 1
 isStun = false
-isSKnockBack = false
+isKnockBack = false
 isSlow = false

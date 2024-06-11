@@ -10,26 +10,49 @@ func _ready():
 	$basicSpawner.wait_time = 15.0
 	$basicSpawner.start()
 	
-	await get_tree().create_timer(3).timeout #3초 대기 후 랜덤한 라인에 랩터 소환 
+	$waveSpawner.wait_time = 30.0
+	$waveSpawner.start()
+	
+	await get_tree().create_timer(5).timeout #5초 후 랜덤한 라인에 스피터 소환 후 5초 뒤 반대 라인에 랩터 소환 
 	if randi_range(0,1) == 0:
-		spawnTop("raptor")
-	else:
+		spawnTop("spitter")
+		await get_tree().create_timer(5).timeout
 		spawnBottom("raptor")
+	else:
+		spawnBottom("spitter")
+		await get_tree().create_timer(5).timeout
+		spawnTop("raptor")
 
 func _on_basic_spawner_timeout():
 	var value = randomWaveValue()
 	if value == 1: #raptor 상하부 하나
-		spawnTop("raptor")
-		spawnBottom("raptor")
+		spawnTop("spitter")
+		spawnBottom("spitter")
 	elif value == 2: #raptor 상부에 두개 
 		spawnTop("raptor")
 		await get_tree().create_timer(0.5).timeout #0.5초 대기후 한 마리 더
 		spawnTop("raptor")
 		#wait_time 길이 조절 코드 추가
-	elif value == 3: #raptor 히부에 두개 
-		spawnBottom("raptor")
+	elif value == 3: #spitter 히부에 두개 
+		spawnBottom("spitter")
 		await get_tree().create_timer(0.5).timeout #0.5초 대기후 한 마리 더
+		spawnBottom("spitter")
+		
+func _on_wave_spawner_timeout():
+	if randi_range(0,1) == 0:
+		spawnTop("smasher")
+		await get_tree().create_timer(0.5).timeout #0.5초 대기후 한 마리 더
+		spawnTop("spitter")
+		await get_tree().create_timer(5).timeout #0.5초 대기후 한 마리 더
+		spawnTop("raptor")
 		spawnBottom("raptor")
+	else:
+		spawnBottom("smasher")
+		await get_tree().create_timer(0.5).timeout #0.5초 대기후 한 마리 더
+		spawnBottom("spitter")
+		await get_tree().create_timer(5).timeout #0.5초 대기후 한 마리 더
+		spawnBottom("raptor")
+		spawnTop("raptor")
 	
 func randomWaveValue() -> int:
 	#random값 다 사용시 초기화 
@@ -44,3 +67,4 @@ func randomWaveValue() -> int:
 	availableWaves.remove_at(randomIdx)
 	
 	return randomValue
+

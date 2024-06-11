@@ -23,18 +23,13 @@ func load_json_file(filePath : String):
 
 func _on_stage_1_pressed():
 	var data = infoFile["stage1"] #dictionary
+	print(data)
 	
 	$Sprite2D/stageNumber.text = "Stage 1" #스테이지 넘버링 
 	$Sprite2D/stageName.text = data["stageName"] #스테이지 이름 
 	
-	for i in range(2):
-		var unitArr = data["enemyUnits"]
-		var img = load("res://Content/Graphics/Sprites/portrait/" + str(unitArr[i]) + ".png")
-		
-		var unitSlotStr = "unitSlot" + str(i+1)
-		print(unitSlotStr)
-		get_node("Sprite2D/unitInfo").get_node(unitSlotStr).get_node("Sprite2D").texture = img
-	
+	clearImg()
+	addImg(data)
 
 func _on_stage_2_pressed():
 	var data = infoFile["stage2"] #dictionary
@@ -42,22 +37,34 @@ func _on_stage_2_pressed():
 	$Sprite2D/stageNumber.text = "Stage 2" #스테이지 넘버링 
 	$Sprite2D/stageName.text = data["stageName"] #스테이지 이름 
 	
-	for i in range(2):
-		var unitArr = data["enemyUnits"]
-		var img = load("res://Content/Graphics/Sprites/portrait/" + str(unitArr[i]) + ".png")
-		
-		var unitSlotStr = "unitSlot" + str(i+1)
-		print(unitSlotStr)
-		get_node("Sprite2D/unitInfo").get_node(unitSlotStr).get_node("Sprite2D").texture = img
-
+	clearImg()
+	addImg(data)
 
 func _on_stage_3_pressed():
 	var data = infoFile["stage3"] #dictionary
 	
 	$Sprite2D/stageNumber.text = "Stage 3" #스테이지 넘버링 
 	$Sprite2D/stageName.text = data["stageName"] #스테이지 이름 
+	
+	clearImg()
+	addImg(data)
 
+func clearImg(): #버튼 이미지 삭제 
+	for i in range(8):
+		var unitSlotStr = "unitSlot" + str(i+1)
+		get_node("Sprite2D/unitInfo").get_node(unitSlotStr).get_node("Sprite2D").texture = null
 
+func addImg(data : Dictionary): #버튼 이미지 추가 
+	for i in len(data["enemyUnits"]):
+		var unitArr = data["enemyUnits"]
+		var img : CompressedTexture2D
+		
+		if unitArr[i]:
+			img = load("res://Content/Graphics/Sprites/portrait/" + str(unitArr[i]) + ".png")
+		
+		var unitSlotStr = "unitSlot" + str(i+1)
+		get_node("Sprite2D/unitInfo").get_node(unitSlotStr).get_node("Sprite2D").texture = img
+	
 func _on_enter_pressed():
 	visible = false
 	get_parent().get_node("loadoutHUD").visible = true

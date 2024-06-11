@@ -6,8 +6,8 @@
 script = ExtResource("1_swrgw")
 damage = 100
 damageType = "physics"
-cooltime = 1.5
+cooltime = 2.3
 triggerCount = 1
 isStun = false
-isSKnockBack = false
+isKnockBack = false
 isSlow = false

@@ -1,5 +1,7 @@
 extends CastState
 
+signal increaseAttackCounter
+
 var castTarget : Area2D
 @onready var anim = $"../../../AnimationPlayer" #경로가 확정된 노드에 한해 onready 사용 할 것.
 
@@ -42,4 +44,5 @@ func _on_damage_box_area_entered(area): #데미지 계산시에 활성화 됨. #
 			area.get_parent().get_node("stateComponent").damaged(damage)
 			$"../../../AudioStreamPlayer2D".play()
 			if area.get_parent().get_node("stateComponent").property_exists(area.get_parent().get_node("stateComponent"), "health"):
+				emit_signal("increaseAttackCounter")
 				print(area.get_parent().get_node("stateComponent").health)

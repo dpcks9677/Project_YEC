@@ -85,6 +85,9 @@ func _on_stage_1_pressed():
 func _on_stage_2_pressed():
 	slide_tween_in()
 	
+	stageScene = "stage_2"
+	print(stageScene)
+	
 	isButtonMove = true
 	var button_position = get_node("stage2").get_global_position()
 	target_pos = button_position
@@ -97,5 +100,5 @@ func _on_stage_3_pressed():
 	target_pos = button_position
 
 func _on_Tween_tween_completed(object, _key):
-	print("Movement completed!")
+	print("tween completed!")
 

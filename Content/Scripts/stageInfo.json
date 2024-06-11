@@ -18,7 +18,7 @@
 		"enemyUnits" : [
 			"raptor",
 			"spitter",
-			"spitter"
+			"smasher"
 		],
 		"synopsis" : "당신의 첫번째 수습 임무가 시작됩니다. 준비되셨나요?",
 		"scenePath" : "res://Content/Scenes/Stage/stage_2.tscn",
@@ -31,9 +31,11 @@
 		"stageName" : "역겨운 놈들",
 		"enemyUnits" : [
 			"raptor",
-			"raptor",
 			"spitter",
-			"rhino"
+			"smasher",
+			"rhino",
+			"witch",
+			"toad"
 		],
 		"synopsis" : "이 녀석들은 어디서 만들어지는거죠?",
 		"scenePath" : "res://Content/Scenes/Stage/stage_3.tscn",

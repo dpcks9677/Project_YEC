@@ -87,12 +87,16 @@ func _ready():
 	#미니맵 마커 추가 
 	get_parent().get_parent().get_parent().get_parent().get_node("HUD").get_node("minimapUI").spawnMarker(self)
 	
-	#위치 초기화 및 인구수 추가 
+	#위치 초기화 및 인구수 추가, 그룹 추가 
 	if get_faction() == "enemy": #중간 스폰을 해야할 필요가 있을 때 코드 변경 필요 (스포너에 의해 소환 시 progress_ratio = 1.0으로 설정 
 		get_parent().progress_ratio = 1.0
+		
+		self.add_to_group("enemy")
 	else: #중간 스폰을 해야할 필요가 있을 때 코드 변경 필요 (스포너에 의해 소환 시 progress_ratio = 0.0으로 설정 
 		rsc.increasePopulation() #인구수 1 증가 
 		get_parent().progress_ratio = 0.0
+		
+		self.add_to_group("ally")
 		
 	#스프라이트 보정치 추가
 	if get_parent().has_node("Sprite2D"):

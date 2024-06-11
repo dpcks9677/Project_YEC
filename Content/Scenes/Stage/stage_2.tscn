@@ -1,38 +1,37 @@
-[gd_scene load_steps=82 format=3 uid="uid://ocgj24hkyqfm"]
+[gd_scene load_steps=81 format=3 uid="uid://djrtibfhq5w0l"]
 
-[ext_resource type="Script" path="res://Content/Scripts/Stage/dialogue.gd" id="1_2m1pa"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Handler/resourceHandler.gd" id="1_jgakt"]
-[ext_resource type="Texture2D" uid="uid://ci336xa80soml" path="res://Content/Graphics/UI/unitBackground.png" id="1_uexeb"]
-[ext_resource type="PackedScene" uid="uid://c201rvxgq5e35" path="res://Content/Scenes/Stage/stage_1_scenario.tscn" id="2_n5lwx"]
-[ext_resource type="Texture2D" uid="uid://cp7bvp80hcopu" path="res://Content/Graphics/Background/stage1.png" id="3_22536"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/unitSummoner.gd" id="3_jveqw"]
-[ext_resource type="PackedScene" uid="uid://dqhjv2biwvh6a" path="res://Content/Scenes/Stage/Interfaces/unit_button.tscn" id="4_6klob"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/Camera.gd" id="4_b0td4"]
-[ext_resource type="Resource" uid="uid://dak7qnv3rx26r" path="res://Content/Scripts/Resources/unitData/allyBase.tres" id="5_67dra"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/baseStateComponent.gd" id="5_d50ui"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/laneUI.gd" id="5_smyv0"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/idle.gd" id="6_1or2k"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/manaUI.gd" id="6_l1odv"]
-[ext_resource type="Resource" uid="uid://bs8061ffaprvh" path="res://Content/Scripts/Resources/unitData/enemyBase.tres" id="6_qu5pd"]
-[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="7_q3e13"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/baseHealthBar.gd" id="8_kb7w1"]
-[ext_resource type="FontFile" uid="uid://i8yrjuivbwjv" path="res://Content/Graphics/UI/font/Pixel Gosub.otf" id="9_juunw"]
-[ext_resource type="Texture2D" uid="uid://cw2clweh6qd5h" path="res://Content/Graphics/UI/UI.png" id="10_57egk"]
-[ext_resource type="Texture2D" uid="uid://blxslptm71fvn" path="res://Content/Graphics/Sprites/object/base.png" id="10_foypc"]
-[ext_resource type="Texture2D" uid="uid://u7oq6qprstaa" path="res://Content/Graphics/UI/UIset.png" id="11_22pvb"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/populationUI.gd" id="12_2y76e"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/minimapUI.gd" id="13_ecmny"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/base.gd" id="13_p2anb"]
-[ext_resource type="Texture2D" uid="uid://ll6heg42m50h" path="res://Content/Graphics/UI/pop.png" id="14_cf7r0"]
-[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/upgradeUI.gd" id="14_et0ei"]
-[ext_resource type="Texture2D" uid="uid://dpd05uv4svud6" path="res://Content/Graphics/UI/mana.png" id="15_rhukf"]
-[ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="16_ij1sc"]
-[ext_resource type="Texture2D" uid="uid://cpxdp0psf36ck" path="res://Content/Graphics/UI/att.png" id="17_okgo7"]
-[ext_resource type="PackedScene" uid="uid://cv1h8mnftsm3h" path="res://Content/Scenes/Units/ally/archer.tscn" id="28_qrlyc"]
-[ext_resource type="PackedScene" uid="uid://cmixq34uuue3e" path="res://Content/Scenes/Stage/Interfaces/resultHUD.tscn" id="29_xn6i8"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/dialogue.gd" id="1_3m8wn"]
+[ext_resource type="Texture2D" uid="uid://ci336xa80soml" path="res://Content/Graphics/UI/unitBackground.png" id="2_uuih6"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Handler/resourceHandler.gd" id="3_oe0xs"]
+[ext_resource type="PackedScene" uid="uid://f744pwd2irmi" path="res://Content/Scenes/Stage/stage_2_scenario.tscn" id="4_8hlqp"]
+[ext_resource type="Texture2D" uid="uid://cw2clweh6qd5h" path="res://Content/Graphics/UI/UI.png" id="5_77530"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/unitSummoner.gd" id="6_bgjru"]
+[ext_resource type="PackedScene" uid="uid://dqhjv2biwvh6a" path="res://Content/Scenes/Stage/Interfaces/unit_button.tscn" id="7_1hmsu"]
+[ext_resource type="Texture2D" uid="uid://u7oq6qprstaa" path="res://Content/Graphics/UI/UIset.png" id="8_uomvb"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/laneUI.gd" id="9_e204h"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/manaUI.gd" id="10_iwpon"]
+[ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="11_tbmy7"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/baseHealthBar.gd" id="12_f83v3"]
+[ext_resource type="FontFile" uid="uid://i8yrjuivbwjv" path="res://Content/Graphics/UI/font/Pixel Gosub.otf" id="13_1dnbt"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/populationUI.gd" id="14_56a0c"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/minimapUI.gd" id="15_rx8pt"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/upgradeUI.gd" id="16_mrgy6"]
+[ext_resource type="Texture2D" uid="uid://dpd05uv4svud6" path="res://Content/Graphics/UI/mana.png" id="17_jwv7h"]
+[ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="18_hq8mc"]
+[ext_resource type="Texture2D" uid="uid://ll6heg42m50h" path="res://Content/Graphics/UI/pop.png" id="19_5ubbj"]
+[ext_resource type="Texture2D" uid="uid://cpxdp0psf36ck" path="res://Content/Graphics/UI/att.png" id="20_navt1"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Interfaces/Camera.gd" id="21_qqk3d"]
+[ext_resource type="Texture2D" uid="uid://blxslptm71fvn" path="res://Content/Graphics/Sprites/object/base.png" id="22_weocf"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/base.gd" id="23_232et"]
+[ext_resource type="Resource" uid="uid://bs8061ffaprvh" path="res://Content/Scripts/Resources/unitData/enemyBase.tres" id="24_443tu"]
+[ext_resource type="Resource" uid="uid://dak7qnv3rx26r" path="res://Content/Scripts/Resources/unitData/allyBase.tres" id="25_ibh2g"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/baseStateComponent.gd" id="26_ih0do"]
+[ext_resource type="Script" path="res://Content/Scripts/Stage/Components/States/idle.gd" id="27_xafl2"]
+[ext_resource type="Texture2D" uid="uid://cp7bvp80hcopu" path="res://Content/Graphics/Background/stage1.png" id="29_p7ido"]
+[ext_resource type="PackedScene" uid="uid://cmixq34uuue3e" path="res://Content/Scenes/Stage/Interfaces/resultHUD.tscn" id="30_g73mc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_30u2j"]
-atlas = ExtResource("11_22pvb")
+atlas = ExtResource("8_uomvb")
 region = Rect2(218, 81, 14, 14)
 
 [sub_resource type="Gradient" id="Gradient_dk8t7"]
@@ -103,15 +102,15 @@ height = 17
 fill_to = Vector2(0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oljt8"]
-atlas = ExtResource("11_22pvb")
+atlas = ExtResource("8_uomvb")
 region = Rect2(16, 40, 112, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldq16"]
-atlas = ExtResource("11_22pvb")
+atlas = ExtResource("8_uomvb")
 region = Rect2(264, 48, 96, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f6eb5"]
-atlas = ExtResource("11_22pvb")
+atlas = ExtResource("8_uomvb")
 region = Rect2(368, 48, 96, 32)
 
 [sub_resource type="Curve2D" id="Curve2D_fl7fx"]
@@ -127,11 +126,11 @@ _data = {
 point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pidw1"]
-atlas = ExtResource("11_22pvb")
+atlas = ExtResource("8_uomvb")
 region = Rect2(185, 124, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_42hfk"]
-atlas = ExtResource("11_22pvb")
+atlas = ExtResource("8_uomvb")
 region = Rect2(202, 124, 10, 10)
 
 [sub_resource type="Gradient" id="Gradient_er4y5"]
@@ -223,15 +222,15 @@ width = 165
 height = 25
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7c4e5"]
-atlas = ExtResource("11_22pvb")
+atlas = ExtResource("8_uomvb")
 region = Rect2(16, 151, 90, 74)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rnbpd"]
-atlas = ExtResource("10_foypc")
+atlas = ExtResource("22_weocf")
 region = Rect2(1193.8, 0, 342.2, 300)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvy7y"]
-atlas = ExtResource("10_foypc")
+atlas = ExtResource("22_weocf")
 region = Rect2(1.00006, -0.182327, 254.71, 299.182)
 
 [sub_resource type="Curve2D" id="Curve2D_6u51i"]
@@ -276,18 +275,18 @@ height = 128
 fill_from = Vector2(0, 0.490826)
 fill_to = Vector2(1, 0.486239)
 
-[node name="stage1" type="Node2D"]
+[node name="stage2" type="Node2D"]
 
 [node name="Dialogue" type="CanvasLayer" parent="."]
 visible = false
-script = ExtResource("1_2m1pa")
+script = ExtResource("1_3m8wn")
 
 [node name="dialogueBox" type="NinePatchRect" parent="Dialogue"]
 offset_left = 64.0
 offset_top = 415.0
 offset_right = 1088.0
 offset_bottom = 622.0
-texture = ExtResource("1_uexeb")
+texture = ExtResource("2_uuih6")
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
@@ -312,18 +311,18 @@ theme_override_font_sizes/normal_font_size = 25
 text = "오늘 점심은... 육개장..."
 
 [node name="resourceHandler" type="Node" parent="."]
-script = ExtResource("1_jgakt")
+script = ExtResource("3_oe0xs")
 
 [node name="manaGenerator" type="Timer" parent="resourceHandler"]
 
-[node name="stage_1_scenario" parent="resourceHandler" instance=ExtResource("2_n5lwx")]
+[node name="stage_2_scenario" parent="resourceHandler" instance=ExtResource("4_8hlqp")]
 
 [node name="HUD" type="CanvasLayer" parent="resourceHandler"]
 
 [node name="UIFrame" type="Sprite2D" parent="resourceHandler/HUD"]
 position = Vector2(576, 324)
 scale = Vector2(2.17043, 2.16333)
-texture = ExtResource("10_57egk")
+texture = ExtResource("5_77530")
 
 [node name="unitSummoner" type="Control" parent="resourceHandler/HUD"]
 layout_mode = 3
@@ -332,28 +331,28 @@ offset_top = 110.0
 offset_right = 380.0
 offset_bottom = 481.0
 mouse_filter = 1
-script = ExtResource("3_jveqw")
+script = ExtResource("6_bgjru")
 metadata/_edit_use_anchors_ = true
 
-[node name="unitButton1" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
+[node name="unitButton1" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("7_1hmsu")]
 layout_mode = 1
 offset_top = 0.0
 offset_right = 113.0
 offset_bottom = 67.0
 
-[node name="unitButton2" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
+[node name="unitButton2" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("7_1hmsu")]
 layout_mode = 1
 offset_top = 75.0
 offset_right = 113.0
 offset_bottom = 142.0
 
-[node name="unitButton3" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
+[node name="unitButton3" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("7_1hmsu")]
 layout_mode = 1
 offset_top = 150.0
 offset_right = 113.0
 offset_bottom = 217.0
 
-[node name="unitButton4" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
+[node name="unitButton4" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("7_1hmsu")]
 layout_mode = 1
 offset_top = 225.0
 offset_right = 113.0
@@ -369,28 +368,28 @@ scale = Vector2(3, 3)
 toggle_mode = true
 texture_normal = SubResource("AtlasTexture_30u2j")
 
-[node name="unitButton5" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
+[node name="unitButton5" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("7_1hmsu")]
 visible = false
 layout_mode = 1
 offset_top = 0.0
 offset_right = 113.0
 offset_bottom = 67.0
 
-[node name="unitButton6" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
+[node name="unitButton6" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("7_1hmsu")]
 visible = false
 layout_mode = 1
 offset_top = 75.0
 offset_right = 113.0
 offset_bottom = 142.0
 
-[node name="unitButton7" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
+[node name="unitButton7" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("7_1hmsu")]
 visible = false
 layout_mode = 1
 offset_top = 150.0
 offset_right = 113.0
 offset_bottom = 217.0
 
-[node name="unitButton8" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("4_6klob")]
+[node name="unitButton8" parent="resourceHandler/HUD/unitSummoner" instance=ExtResource("7_1hmsu")]
 visible = false
 layout_mode = 1
 offset_top = 225.0
@@ -402,7 +401,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("5_smyv0")
+script = ExtResource("9_e204h")
 metadata/_edit_use_anchors_ = true
 
 [node name="laneSelector" type="CheckButton" parent="resourceHandler/HUD/laneUI"]
@@ -419,7 +418,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("6_l1odv")
+script = ExtResource("10_iwpon")
 metadata/_edit_use_anchors_ = true
 
 [node name="manaBar" type="TextureProgressBar" parent="resourceHandler/HUD/manaUI"]
@@ -438,7 +437,7 @@ offset_left = 125.0
 offset_top = 73.0
 offset_right = 223.0
 offset_bottom = 92.0
-theme_override_fonts/font = ExtResource("7_q3e13")
+theme_override_fonts/font = ExtResource("11_tbmy7")
 theme_override_font_sizes/font_size = 10
 text = "this is mana"
 horizontal_alignment = 2
@@ -448,7 +447,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("8_kb7w1")
+script = ExtResource("12_f83v3")
 metadata/_edit_use_anchors_ = true
 
 [node name="allyHealthBar" type="TextureProgressBar" parent="resourceHandler/HUD/healthUI"]
@@ -478,7 +477,7 @@ offset_left = 482.0
 offset_top = 9.0
 offset_right = 525.0
 offset_bottom = 32.0
-theme_override_fonts/font = ExtResource("9_juunw")
+theme_override_fonts/font = ExtResource("13_1dnbt")
 text = "4000"
 horizontal_alignment = 2
 
@@ -488,7 +487,7 @@ offset_left = 623.0
 offset_top = 9.0
 offset_right = 666.0
 offset_bottom = 32.0
-theme_override_fonts/font = ExtResource("9_juunw")
+theme_override_fonts/font = ExtResource("13_1dnbt")
 text = "4000"
 
 [node name="manaBorder" type="Sprite2D" parent="resourceHandler/HUD"]
@@ -501,7 +500,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("12_2y76e")
+script = ExtResource("14_56a0c")
 metadata/_edit_use_anchors_ = true
 
 [node name="populationLabel" type="Label" parent="resourceHandler/HUD/resourceUI"]
@@ -510,7 +509,7 @@ offset_left = 160.0
 offset_top = 36.0
 offset_right = 232.0
 offset_bottom = 54.0
-theme_override_fonts/font = ExtResource("7_q3e13")
+theme_override_fonts/font = ExtResource("11_tbmy7")
 theme_override_font_sizes/font_size = 13
 text = "00/00"
 
@@ -520,7 +519,7 @@ offset_left = 56.0
 offset_top = 36.0
 offset_right = 99.0
 offset_bottom = 59.0
-theme_override_fonts/font = ExtResource("7_q3e13")
+theme_override_fonts/font = ExtResource("11_tbmy7")
 theme_override_font_sizes/font_size = 13
 text = "0/0"
 
@@ -541,7 +540,7 @@ offset_left = 458.0
 offset_top = 539.0
 offset_right = 498.0
 offset_bottom = 579.0
-script = ExtResource("13_ecmny")
+script = ExtResource("15_rx8pt")
 metadata/_edit_use_anchors_ = true
 
 [node name="background" type="Polygon2D" parent="resourceHandler/HUD/minimapUI"]
@@ -582,7 +581,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("14_et0ei")
+script = ExtResource("16_mrgy6")
 metadata/_edit_use_anchors_ = true
 
 [node name="manaUpgradeButton" type="TextureButton" parent="resourceHandler/HUD/upgradeUI"]
@@ -598,7 +597,7 @@ offset_right = 353.0
 offset_bottom = 652.0
 scale = Vector2(0.65, 0.65)
 action_mode = 0
-texture_normal = ExtResource("15_rhukf")
+texture_normal = ExtResource("17_jwv7h")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="resourceHandler/HUD/upgradeUI/manaUpgradeButton"]
@@ -651,14 +650,14 @@ offset_left = 22.3269
 offset_top = 41.1987
 offset_right = 45.3269
 offset_bottom = 55.1987
-theme_override_fonts/font = ExtResource("7_q3e13")
+theme_override_fonts/font = ExtResource("11_tbmy7")
 theme_override_font_sizes/font_size = 13
 text = "00"
 
 [node name="crystal" type="Sprite2D" parent="resourceHandler/HUD/upgradeUI/manaUpgradeButton/manaTag"]
 position = Vector2(12.3269, 47.1987)
 scale = Vector2(0.578125, 0.578125)
-texture = ExtResource("16_ij1sc")
+texture = ExtResource("18_hq8mc")
 
 [node name="popUpgradeButton" type="TextureButton" parent="resourceHandler/HUD/upgradeUI"]
 layout_mode = 1
@@ -673,7 +672,7 @@ offset_right = 441.0
 offset_bottom = 652.0
 scale = Vector2(0.65, 0.65)
 action_mode = 0
-texture_normal = ExtResource("14_cf7r0")
+texture_normal = ExtResource("19_5ubbj")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="resourceHandler/HUD/upgradeUI/popUpgradeButton"]
@@ -725,14 +724,14 @@ offset_left = 22.3269
 offset_top = 41.1987
 offset_right = 45.3269
 offset_bottom = 55.1987
-theme_override_fonts/font = ExtResource("7_q3e13")
+theme_override_fonts/font = ExtResource("11_tbmy7")
 theme_override_font_sizes/font_size = 13
 text = "00"
 
 [node name="crystal" type="Sprite2D" parent="resourceHandler/HUD/upgradeUI/popUpgradeButton/manaTag"]
 position = Vector2(12.3269, 47.1987)
 scale = Vector2(0.578125, 0.578125)
-texture = ExtResource("16_ij1sc")
+texture = ExtResource("18_hq8mc")
 
 [node name="attackUpgradeButton" type="TextureButton" parent="resourceHandler/HUD/upgradeUI"]
 layout_mode = 1
@@ -747,7 +746,7 @@ offset_right = 527.0
 offset_bottom = 652.0
 scale = Vector2(0.65, 0.65)
 action_mode = 0
-texture_normal = ExtResource("17_okgo7")
+texture_normal = ExtResource("20_navt1")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="resourceHandler/HUD/upgradeUI/attackUpgradeButton"]
@@ -795,14 +794,14 @@ offset_left = 22.3269
 offset_top = 41.1987
 offset_right = 45.3269
 offset_bottom = 55.1987
-theme_override_fonts/font = ExtResource("7_q3e13")
+theme_override_fonts/font = ExtResource("11_tbmy7")
 theme_override_font_sizes/font_size = 13
 text = "00"
 
 [node name="crystal" type="Sprite2D" parent="resourceHandler/HUD/upgradeUI/attackUpgradeButton/manaTag"]
 position = Vector2(12.3269, 47.1987)
 scale = Vector2(0.578125, 0.578125)
-texture = ExtResource("16_ij1sc")
+texture = ExtResource("18_hq8mc")
 
 [node name="border" type="Sprite2D" parent="resourceHandler/HUD/upgradeUI"]
 position = Vector2(382.5, 574.1)
@@ -823,7 +822,7 @@ texture = SubResource("AtlasTexture_7c4e5")
 zoom = Vector2(0.8, 0.8)
 limit_left = -1304
 limit_right = 1304
-script = ExtResource("4_b0td4")
+script = ExtResource("21_qqk3d")
 
 [node name="laneSetter" type="Node2D" parent="resourceHandler"]
 
@@ -831,15 +830,15 @@ script = ExtResource("4_b0td4")
 position = Vector2(1010, 89)
 scale = Vector2(1.5, 1.5)
 texture = SubResource("AtlasTexture_rnbpd")
-script = ExtResource("13_p2anb")
-status = ExtResource("6_qu5pd")
+script = ExtResource("23_232et")
+status = ExtResource("24_443tu")
 
 [node name="allyBase" type="Sprite2D" parent="resourceHandler/laneSetter"]
 position = Vector2(-1113, 67)
 scale = Vector2(1.5, 1.5)
 texture = SubResource("AtlasTexture_wvy7y")
-script = ExtResource("13_p2anb")
-status = ExtResource("5_67dra")
+script = ExtResource("23_232et")
+status = ExtResource("25_ibh2g")
 
 [node name="topLane" type="Path2D" parent="resourceHandler/laneSetter"]
 position = Vector2(-48, 56)
@@ -861,11 +860,11 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_r5bsn")
 
 [node name="stateComponent" type="Node2D" parent="resourceHandler/laneSetter/topLane/allyBase" node_paths=PackedStringArray("initial_state")]
-script = ExtResource("5_d50ui")
+script = ExtResource("26_ih0do")
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node2D" parent="resourceHandler/laneSetter/topLane/allyBase/stateComponent"]
-script = ExtResource("6_1or2k")
+script = ExtResource("27_xafl2")
 
 [node name="enemyBase" type="PathFollow2D" parent="resourceHandler/laneSetter/topLane"]
 position = Vector2(931.977, 65.3289)
@@ -883,14 +882,11 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_nq36a")
 
 [node name="stateComponent" type="Node2D" parent="resourceHandler/laneSetter/topLane/enemyBase" node_paths=PackedStringArray("initial_state")]
-script = ExtResource("5_d50ui")
+script = ExtResource("26_ih0do")
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node2D" parent="resourceHandler/laneSetter/topLane/enemyBase/stateComponent"]
-script = ExtResource("6_1or2k")
-
-[node name="archer" parent="resourceHandler/laneSetter/topLane" instance=ExtResource("28_qrlyc")]
-position = Vector2(-892.026, 73.6852)
+script = ExtResource("27_xafl2")
 
 [node name="bottomLane" type="Path2D" parent="resourceHandler/laneSetter"]
 position = Vector2(251, -40.218)
@@ -909,11 +905,11 @@ position = Vector2(0, -72)
 shape = SubResource("RectangleShape2D_o67e3")
 
 [node name="stateComponent" type="Node2D" parent="resourceHandler/laneSetter/bottomLane/allyBase" node_paths=PackedStringArray("initial_state")]
-script = ExtResource("5_d50ui")
+script = ExtResource("26_ih0do")
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node2D" parent="resourceHandler/laneSetter/bottomLane/allyBase/stateComponent"]
-script = ExtResource("6_1or2k")
+script = ExtResource("27_xafl2")
 
 [node name="enemyBase" type="PathFollow2D" parent="resourceHandler/laneSetter/bottomLane"]
 position = Vector2(692, 278.218)
@@ -928,11 +924,11 @@ loop = false
 shape = SubResource("RectangleShape2D_gih4f")
 
 [node name="stateComponent" type="Node2D" parent="resourceHandler/laneSetter/bottomLane/enemyBase" node_paths=PackedStringArray("initial_state")]
-script = ExtResource("5_d50ui")
+script = ExtResource("26_ih0do")
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node2D" parent="resourceHandler/laneSetter/bottomLane/enemyBase/stateComponent"]
-script = ExtResource("6_1or2k")
+script = ExtResource("27_xafl2")
 
 [node name="ground" type="Sprite2D" parent="."]
 position = Vector2(-0.499964, 216)
@@ -947,9 +943,9 @@ texture = SubResource("GradientTexture2D_hpwid")
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(1, 59.0003)
 scale = Vector2(1.7, 1.7)
-texture = ExtResource("3_22536")
+texture = ExtResource("29_p7ido")
 
-[node name="ResultHUD" parent="." instance=ExtResource("29_xn6i8")]
+[node name="ResultHUD" parent="." instance=ExtResource("30_g73mc")]
 visible = false
 
 [connection signal="timeout" from="resourceHandler/manaGenerator" to="resourceHandler" method="_on_mana_generator_timeout"]
@@ -966,5 +962,5 @@ visible = false
 [connection signal="ally_base_hitted" from="resourceHandler/laneSetter/bottomLane/allyBase/stateComponent" to="resourceHandler/laneSetter/allyBase" method="_on_state_component_ally_base_hitted"]
 [connection signal="enemy_base_hitted" from="resourceHandler/laneSetter/bottomLane/enemyBase/stateComponent" to="resourceHandler/laneSetter/enemyBase" method="_on_state_component_enemy_base_hitted"]
 
-[editable path="resourceHandler/stage_1_scenario"]
+[editable path="resourceHandler/stage_2_scenario"]
 [editable path="resourceHandler/HUD/unitSummoner/unitButton1"]

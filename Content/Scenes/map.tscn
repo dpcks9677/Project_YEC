@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dppjey0wno2wc"]
+[gd_scene load_steps=29 format=3 uid="uid://dppjey0wno2wc"]
 
 [ext_resource type="Script" path="res://Content/Scripts/map.gd" id="1_nt3rt"]
 [ext_resource type="Texture2D" uid="uid://dtox1n3kpx6a1" path="res://Content/Graphics/UI/scrollsandblocks.png" id="2_a5kwd"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://d2xucu6flctgv" path="res://Content/Graphics/UI/load.png" id="3_ewfwv"]
 [ext_resource type="FontFile" uid="uid://e6v3vtobkbj3" path="res://Content/Graphics/UI/font/GravityBold8.ttf" id="4_0w7s1"]
 [ext_resource type="Texture2D" uid="uid://cinj6g22wdc3l" path="res://Content/Graphics/UI/unitSlot.png" id="5_c8gt1"]
-[ext_resource type="Texture2D" uid="uid://ddp2tpbccm8nq" path="res://Content/Graphics/Sprites/portrait/rhino.png" id="5_grmiy"]
 [ext_resource type="Texture2D" uid="uid://dhl7l2prcno8a" path="res://Content/Graphics/Sprites/object/crystal.png" id="5_lit45"]
 [ext_resource type="Script" path="res://Content/Scripts/unitLoadout.gd" id="9_bicc5"]
 [ext_resource type="Script" path="res://Content/Scripts/loadoutBackground.gd" id="9_dtd1d"]
@@ -30,14 +29,6 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sicyd"]
-bg_color = Color(0.109804, 0.490196, 0.964706, 0.611765)
-corner_radius_top_left = 7
-corner_radius_top_right = 7
-corner_radius_bottom_right = 7
-corner_radius_bottom_left = 7
 anti_aliasing = false
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_0aic4"]
@@ -189,7 +180,6 @@ texture = ExtResource("5_c8gt1")
 
 [node name="Sprite2D" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot1"]
 scale = Vector2(0.18, 0.18)
-texture = ExtResource("5_grmiy")
 centered = false
 
 [node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot1"]
@@ -229,22 +219,19 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="unitSlot2" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo"]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = 54.5455
 offset_top = 116.364
-offset_right = 54.5455
-offset_bottom = 116.364
+offset_right = 111.545
+offset_bottom = 158.364
 scale = Vector2(0.6, 0.6)
 
-[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot2"]
-clip_contents = true
-layout_mode = 0
-offset_top = 10.0
-offset_right = 113.0
-offset_bottom = 75.0
+[node name="background" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot2"]
+position = Vector2(28.3333, 26.3636)
 scale = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+texture = ExtResource("5_c8gt1")
 
 [node name="Sprite2D" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot2"]
 scale = Vector2(0.18, 0.18)
@@ -281,17 +268,29 @@ position = Vector2(77, 65)
 scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("5_lit45")
 
-[node name="unitSlot3" type="Node2D" parent="stageInfoHUD/Sprite2D/unitInfo"]
-position = Vector2(90.9091, 116.364)
+[node name="Control" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot2"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="unitSlot3" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 90.9091
+offset_top = 116.0
+offset_right = 147.909
+offset_bottom = 158.0
 scale = Vector2(0.6, 0.6)
 
-[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot3"]
-clip_contents = true
-offset_top = 10.0
-offset_right = 113.0
-offset_bottom = 75.0
+[node name="background" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot3"]
+position = Vector2(28.3333, 26.3636)
 scale = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+texture = ExtResource("5_c8gt1")
+
+[node name="Sprite2D" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot3"]
+scale = Vector2(0.18, 0.18)
+centered = false
 
 [node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot3"]
 layout_mode = 3
@@ -324,17 +323,29 @@ position = Vector2(77, 65)
 scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("5_lit45")
 
-[node name="unitSlot4" type="Node2D" parent="stageInfoHUD/Sprite2D/unitInfo"]
-position = Vector2(127.727, 116.364)
+[node name="Control" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot3"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="unitSlot4" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 127.273
+offset_top = 116.0
+offset_right = 184.273
+offset_bottom = 158.0
 scale = Vector2(0.6, 0.6)
 
-[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot4"]
-clip_contents = true
-offset_top = 10.0
-offset_right = 113.0
-offset_bottom = 75.0
+[node name="background" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot4"]
+position = Vector2(28.3333, 26.3636)
 scale = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+texture = ExtResource("5_c8gt1")
+
+[node name="Sprite2D" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot4"]
+scale = Vector2(0.18, 0.18)
+centered = false
 
 [node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot4"]
 layout_mode = 3
@@ -367,17 +378,29 @@ position = Vector2(77, 65)
 scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("5_lit45")
 
-[node name="unitSlot5" type="Node2D" parent="stageInfoHUD/Sprite2D/unitInfo"]
-position = Vector2(18.1818, 138.636)
+[node name="Control" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot4"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="unitSlot5" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 18.0
+offset_top = 138.182
+offset_right = 75.0
+offset_bottom = 180.182
 scale = Vector2(0.6, 0.6)
 
-[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot5"]
-clip_contents = true
-offset_top = 10.0
-offset_right = 113.0
-offset_bottom = 75.0
+[node name="background" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot5"]
+position = Vector2(28.3333, 26.3636)
 scale = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+texture = ExtResource("5_c8gt1")
+
+[node name="Sprite2D" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot5"]
+scale = Vector2(0.18, 0.18)
+centered = false
 
 [node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot5"]
 layout_mode = 3
@@ -410,17 +433,29 @@ position = Vector2(77, 65)
 scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("5_lit45")
 
-[node name="unitSlot6" type="Node2D" parent="stageInfoHUD/Sprite2D/unitInfo"]
-position = Vector2(54.5455, 138.636)
+[node name="Control" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot5"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="unitSlot6" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 54.5455
+offset_top = 138.182
+offset_right = 111.545
+offset_bottom = 180.182
 scale = Vector2(0.6, 0.6)
 
-[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot6"]
-clip_contents = true
-offset_top = 10.0
-offset_right = 113.0
-offset_bottom = 75.0
+[node name="background" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot6"]
+position = Vector2(28.3333, 26.3636)
 scale = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+texture = ExtResource("5_c8gt1")
+
+[node name="Sprite2D" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot6"]
+scale = Vector2(0.18, 0.18)
+centered = false
 
 [node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot6"]
 layout_mode = 3
@@ -453,17 +488,29 @@ position = Vector2(77, 65)
 scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("5_lit45")
 
-[node name="unitSlot7" type="Node2D" parent="stageInfoHUD/Sprite2D/unitInfo"]
-position = Vector2(90.9091, 138.636)
+[node name="Control" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot6"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="unitSlot7" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 90.9091
+offset_top = 138.182
+offset_right = 147.909
+offset_bottom = 180.182
 scale = Vector2(0.6, 0.6)
 
-[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot7"]
-clip_contents = true
-offset_top = 10.0
-offset_right = 113.0
-offset_bottom = 75.0
+[node name="background" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot7"]
+position = Vector2(28.3333, 26.3636)
 scale = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+texture = ExtResource("5_c8gt1")
+
+[node name="Sprite2D" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot7"]
+scale = Vector2(0.18, 0.18)
+centered = false
 
 [node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot7"]
 layout_mode = 3
@@ -496,17 +543,29 @@ position = Vector2(77, 65)
 scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("5_lit45")
 
-[node name="unitSlot8" type="Node2D" parent="stageInfoHUD/Sprite2D/unitInfo"]
-position = Vector2(127.727, 138.636)
+[node name="Control" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot7"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="unitSlot8" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 127.273
+offset_top = 138.182
+offset_right = 184.273
+offset_bottom = 180.182
 scale = Vector2(0.6, 0.6)
 
-[node name="background" type="Panel" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot8"]
-clip_contents = true
-offset_top = 10.0
-offset_right = 113.0
-offset_bottom = 75.0
+[node name="background" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot8"]
+position = Vector2(28.3333, 26.3636)
 scale = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_sicyd")
+texture = ExtResource("5_c8gt1")
+
+[node name="Sprite2D" type="Sprite2D" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot8"]
+scale = Vector2(0.18, 0.18)
+centered = false
 
 [node name="manaTag" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot8"]
 layout_mode = 3
@@ -538,6 +597,11 @@ text = "00"
 position = Vector2(77, 65)
 scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("5_lit45")
+
+[node name="Control" type="Control" parent="stageInfoHUD/Sprite2D/unitInfo/unitSlot8"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="enter" type="Button" parent="stageInfoHUD/Sprite2D"]
 offset_left = 62.2727
