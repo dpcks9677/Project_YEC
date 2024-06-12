@@ -10,7 +10,7 @@ func _ready():
 	$basicSpawner.wait_time = 15.0
 	$basicSpawner.start()
 	
-	$waveSpawner.wait_time = 30.0
+	$waveSpawner.wait_time = 35.0
 	$waveSpawner.start()
 	
 	await get_tree().create_timer(5).timeout #5초 후 랜덤한 라인에 스피터 소환 후 5초 뒤 반대 라인에 랩터 소환 
@@ -41,19 +41,17 @@ func _on_basic_spawner_timeout():
 func _on_wave_spawner_timeout():
 	if randi_range(0,1) == 0:
 		spawnTop("smasher")
+		spawnTop("raptor")
 		await get_tree().create_timer(0.5).timeout #0.5초 대기후 한 마리 더
 		spawnTop("spitter")
-		await get_tree().create_timer(5).timeout #0.5초 대기후 한 마리 더
-		spawnTop("raptor")
-		spawnBottom("raptor")
+		spawnBottom("spitter")
 	else:
 		spawnBottom("smasher")
+		spawnBottom("raptor")
 		await get_tree().create_timer(0.5).timeout #0.5초 대기후 한 마리 더
 		spawnBottom("spitter")
-		await get_tree().create_timer(5).timeout #0.5초 대기후 한 마리 더
-		spawnBottom("raptor")
-		spawnTop("raptor")
-	
+		spawnTop("spitter")
+
 func randomWaveValue() -> int:
 	#random값 다 사용시 초기화 
 	if availableWaves.size() == 0:

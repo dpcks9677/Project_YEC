@@ -23,7 +23,8 @@
 		"synopsis" : "당신의 첫번째 수습 임무가 시작됩니다. 준비되셨나요?",
 		"scenePath" : "res://Content/Scenes/Stage/stage_2.tscn",
 		"clearReward" : [
-
+			"knight",
+			"militia"
 		]
 	},
 	

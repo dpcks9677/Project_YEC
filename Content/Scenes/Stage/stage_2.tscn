@@ -946,7 +946,6 @@ scale = Vector2(1.7, 1.7)
 texture = ExtResource("29_p7ido")
 
 [node name="ResultHUD" parent="." instance=ExtResource("30_g73mc")]
-visible = false
 
 [connection signal="timeout" from="resourceHandler/manaGenerator" to="resourceHandler" method="_on_mana_generator_timeout"]
 [connection signal="toggled" from="resourceHandler/HUD/unitSummoner/slotChanger" to="resourceHandler/HUD/unitSummoner" method="_on_slot_changer_toggled"]

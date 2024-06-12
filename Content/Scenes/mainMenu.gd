@@ -6,7 +6,7 @@ var saveFile : String
 #Scene preload
 const map = preload("res://Content/Scenes/map.tscn")
 
-var currentSave : int = 0
+var currentSaveFile : int = 0
 
 var savedata = saveData.new() #불러온 데이터가 저장되는 변수. 이 변수를 호출해서 데이터를 불러오면 됨.
 
@@ -55,7 +55,7 @@ func load_data(path : String):
 			printerr("Cannot parse %s as a json string: (%s)!" %[path, content])
 			return
 		
-		SaveData.saveIdx = currentSave
+		SaveData.saveIdx = currentSaveFile
 		
 		SaveData.gold = data.save_data.gold
 		SaveData.currentStage = data.save_data.currentStage
@@ -74,24 +74,47 @@ func _on_quit_button_pressed():
 	get_tree().quit()
 
 func _on_continue_button_pressed():
-	get_node("LoadScene").visible = true
+	$LoadScene.visible = true
+	$newGameScene.visible = false
 
 func _on_back_button_pressed():
-	get_node("LoadScene").visible = false
-
-func _on_button_1_pressed():
-	currentSave = 1
-	saveFile = "save" + str(currentSave) + ".json"
-	load_data(savePath+saveFile)
-	get_node("LoadScene").get_node("saveInfo").text = str("gold : " , SaveData.gold, " / ", "stage : ", SaveData.currentStage)
+	$LoadScene.visible = false
+	$newGameScene.visible = false
 
 func _on_new_game_button_pressed():
-	save_data(savePath+saveFile)
+	$newGameScene.visible = true
+	$LoadScene.visible = false
 
 func _on_next_button_pressed():
-	if currentSave != 0:
+	if currentSaveFile != 0:
 		#transfer_data_between_scenes(self, map)
 		get_node("transition").play("fade_out")
 
 func _on_transition_animation_finished(anim_name):
 	get_tree().change_scene_to_packed(map)
+
+func _on_button_1_pressed():
+	currentSaveFile = 1
+	displayFileInfo(savePath + "save1.json")
+
+func _on_button_2_pressed():
+	currentSaveFile = 2
+	displayFileInfo(savePath + "save2.json")
+
+func _on_button_3_pressed():
+	currentSaveFile = 3
+	displayFileInfo(savePath + "save3.json")
+	
+func displayFileInfo(path : String):
+	if FileAccess.file_exists(path):
+		load_data(path)
+		$LoadScene/saveInfo.text = str("gold : " , SaveData.gold, " / ", "stage : ", SaveData.currentStage)
+		$newGameScene/saveInfo.text = str("gold : " , SaveData.gold, " / ", "stage : ", SaveData.currentStage)
+	else:
+		$LoadScene/saveInfo.text = "empty"
+		$newGameScene/saveInfo.text = "empty"
+		
+#savefile이 없는 상태로 nextButton을 눌렀다면 기본 세이브파일을 작성해서 저장하는 코드를 짜기 
+func createSaveFile(path : String):
+	pass
+	

@@ -123,6 +123,13 @@ func _process(delta):
 	if current_state:
 		current_state.Update(delta)
 		
+func _exit_tree(): #사망 시
+	var resultHUD = $"../../../../../ResultHUD"
+	if faction == "ally":
+		resultHUD.increaseAllyDead()
+	elif faction == "enemy":
+		resultHUD.increaseEnemyDead()
+
 #상태 변경 함수 
 func change_state(state : State, new_state_name : String):
 	if state != current_state:
