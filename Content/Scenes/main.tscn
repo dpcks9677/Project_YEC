@@ -303,6 +303,7 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="transition"]
+visible = false
 self_modulate = Color(0, 0, 0, 1)
 offset_right = 1152.0
 offset_bottom = 648.0

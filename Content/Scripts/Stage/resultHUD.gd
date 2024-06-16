@@ -50,7 +50,10 @@ func load_json_file(filePath : String):
 
 #setter
 func set_playtime(time : float): #resourceHandler가 실행 
-	$Wrapper/VBoxContainer/playtimeResult.text = str(int(time)/60) + ":" + str(int(time)%60)
+	if int(time) % 60 < 10:
+		$Wrapper/VBoxContainer/playtimeResult.text = str(int(time)/60) + ":0" + str(int(time)%60)
+	else:
+		$Wrapper/VBoxContainer/playtimeResult.text = str(int(time)/60) + ":" + str(int(time)%60)
 
 #increase function
 func increaseAllyDead():
@@ -71,6 +74,19 @@ func _on_stage_end(isWin): #스테이지 종료시 할 작업들 모두 추가
 	#승패여부 확인 
 	if isWin:
 		$Wrapper/resultLabel.text = "승리!!!"
+		
+		var clearReward = infoFile[self.get_parent().get_name()]["clearReward"]
+		
+		for rewardName in clearReward:
+			var sameUnitCounter : int = 1
+			for i in range(20):
+				if SaveData.getOwnedUnitListName(i) == rewardName:
+					sameUnitCounter += 1
+				elif SaveData.getOwnedUnitListName(i) == "":
+					SaveData.setOwnedUnitListName(i, rewardName)
+					SaveData.setOwnedUnitListID(i, sameUnitCounter)
+					SaveData.setOwnedUnitListSlot(i, 0)
+					break
 	else:
 		$Wrapper/resultLabel.text = "패배..."
 	

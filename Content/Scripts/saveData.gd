@@ -2,10 +2,9 @@ extends Node
 class_name saveData
 
 #데이터 저장을 위한 변수 
-var saveIdx : int = 1
+var saveIdx : int = 0
 
 const savePath = "res://Saves/"
-var saveFile = "save1.json"
 
 @export var gold : int
 @export var currentStage : int

@@ -698,7 +698,7 @@ offset_bottom = 90.0
 max_value = 30.0
 step = 0.01
 value = 30.0
-fill_mode = 3
+fill_mode = 5
 texture_progress = SubResource("GradientTexture2D_6fs36")
 
 [node name="manaTag" type="Control" parent="resourceHandler/HUD/upgradeUI/popUpgradeButton"]
@@ -768,7 +768,7 @@ offset_bottom = 90.0
 max_value = 30.0
 step = 0.01
 value = 30.0
-fill_mode = 3
+fill_mode = 5
 texture_progress = SubResource("GradientTexture2D_6fs36")
 
 [node name="manaTag" type="Control" parent="resourceHandler/HUD/upgradeUI/attackUpgradeButton"]
@@ -946,6 +946,7 @@ scale = Vector2(1.7, 1.7)
 texture = ExtResource("29_p7ido")
 
 [node name="ResultHUD" parent="." instance=ExtResource("30_g73mc")]
+visible = false
 
 [connection signal="timeout" from="resourceHandler/manaGenerator" to="resourceHandler" method="_on_mana_generator_timeout"]
 [connection signal="toggled" from="resourceHandler/HUD/unitSummoner/slotChanger" to="resourceHandler/HUD/unitSummoner" method="_on_slot_changer_toggled"]

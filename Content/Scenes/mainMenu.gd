@@ -6,7 +6,12 @@ var saveFile : String
 #Scene preload
 const map = preload("res://Content/Scenes/map.tscn")
 
-var currentSaveFile : int = 0
+#현재 탭
+@export var currentTap : int = 0 # 0 : 바탕화면 / 1 : New Game / 2 : Load Games
+
+#세이브파일 
+@export var currentSaveFile : int = 0
+var currentSaveFileExist : bool = 0
 
 var savedata = saveData.new() #불러온 데이터가 저장되는 변수. 이 변수를 호출해서 데이터를 불러오면 됨.
 
@@ -74,20 +79,38 @@ func _on_quit_button_pressed():
 	get_tree().quit()
 
 func _on_continue_button_pressed():
+	currentTap = 2
 	$LoadScene.visible = true
 	$newGameScene.visible = false
 
 func _on_back_button_pressed():
+	currentTap = 0
 	$LoadScene.visible = false
 	$newGameScene.visible = false
 
 func _on_new_game_button_pressed():
+	currentTap = 1
 	$newGameScene.visible = true
 	$LoadScene.visible = false
 
 func _on_next_button_pressed():
-	if currentSaveFile != 0:
-		#transfer_data_between_scenes(self, map)
+	if currentSaveFile != 0: #현재 클릭한 세이브 파일 
+		if currentTap == 1 and currentSaveFileExist == false: #New Game 탭이고, 클릭한 세이브 파일이 비어있음 
+			var defaultFile = FileAccess.open("res://Saves/default_save.json", FileAccess.READ) #기본 세이브파일 불러오기 
+			var file = FileAccess.open(savePath + "save" + str(currentSaveFile) + ".json", 7) # ModeFlags WRITE_READ == 7 
+			file.store_buffer(defaultFile.get_buffer(defaultFile.get_length())) 
+			
+			defaultFile.close() 
+			file.close() 
+		elif currentTap == 1 and currentSaveFileExist == true:
+			print("save file is exist")
+			return 0
+			
+		elif currentTap == 2 and currentSaveFileExist == false:
+			print("file is empty!")
+			return 0
+			
+		load_data(savePath + "save" + str(currentSaveFile) + ".json")
 		get_node("transition").play("fade_out")
 
 func _on_transition_animation_finished(anim_name):
@@ -107,14 +130,11 @@ func _on_button_3_pressed():
 	
 func displayFileInfo(path : String):
 	if FileAccess.file_exists(path):
+		currentSaveFileExist = true
 		load_data(path)
 		$LoadScene/saveInfo.text = str("gold : " , SaveData.gold, " / ", "stage : ", SaveData.currentStage)
 		$newGameScene/saveInfo.text = str("gold : " , SaveData.gold, " / ", "stage : ", SaveData.currentStage)
 	else:
+		currentSaveFileExist = false
 		$LoadScene/saveInfo.text = "empty"
 		$newGameScene/saveInfo.text = "empty"
-		
-#savefile이 없는 상태로 nextButton을 눌렀다면 기본 세이브파일을 작성해서 저장하는 코드를 짜기 
-func createSaveFile(path : String):
-	pass
-	

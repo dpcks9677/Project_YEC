@@ -168,7 +168,10 @@ func force_change_state(new_state_name : String):
 #내부 값 변경 함수
 func damaged(amount):
 	hitShader()
-	health -= amount
+	if faction == "enemy": #데미지를 입는 주체가 적 -> 공격하는 유닛이 아군이므로 공격력 계수 적용해서 데미지 받음 
+		health -= int(amount * rsc.get_atk_multiplier()) #공격력 계수 적용 후 정수화 
+	else:
+		health -= amount
 	
 func healed(amount):
 	if health + amount > max_health: #최대체력 초과시 

@@ -37,7 +37,7 @@ func _init():
 	
 	#마나
 	mana_lv = 1
-	mana_lv_cost = 25 #마나 업그레이드 비용 공식 20 + 15 * (mana_lv - 1)
+	mana_lv_cost = 20 #마나 업그레이드 비용 공식 20 + 15 * (mana_lv - 1)
 	max_mana = 30 #최대 마나량 공식: 30 + 15 * (mana_lv - 1)
 	regen_mana = 2 #리젠 마나량 공식 만들기 
 	current_mana = 10
@@ -45,7 +45,7 @@ func _init():
 	
 	#인구 수 
 	population_lv = 1
-	population_lv_cost = 20 #인구 업그레이드 비용 공식 20 + 25 * (population_lv - 1)
+	population_lv_cost = 20 #인구 업그레이드 비용 공식 20 + 15 * (population_lv - 1)
 	max_population = 10
 	population = 0
 	isPopulationFull = false
@@ -53,8 +53,9 @@ func _init():
 	
 	#공격력 
 	atk_lv = 1
+	atk_lv_cost = 20 #공격력 업그레이드 비용 공식 25 + 15 * (atk_lv - 1)
 	atk_max_lv = 3
-	atk_multiplier = 1.0 + atk_lv * 0.1 #공격력 공식 = 100% + 10% * lv
+	atk_multiplier = 1.0 + atk_lv * 0.1  #공격력 증가 공식 100% + (lv * 25)%
 	isAttackUpgrade = false
 	
 	#베이스 체력
@@ -116,10 +117,11 @@ func popLevelUp():
 
 #공격력에 관한 기능들을 처리 
 func atkHandler():
-	pass
+	atk_multiplier = 1.0 + ((atk_lv - 1) * 0.25) #공격력 증가 공식 100% + (lv * 25)%
+	atk_lv_cost = 25 + 15 * (atk_lv - 1)
 	
-func doAttackUpgrade():
-	pass
+func atkLevelUp():
+	atk_lv += 1
 
 #베이스 체력 관련 처리 
 func get_allyBaseHealth():
@@ -176,6 +178,9 @@ func get_atk_lv():
 	
 func get_atk_lv_cost():
 	return atk_lv_cost
+	
+func get_atk_multiplier():
+	return atk_multiplier
 
 #setter
 #mana관련

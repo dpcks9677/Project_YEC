@@ -19,6 +19,7 @@ var tolerance = 20.0
 @export var isLoadoutOn : bool = false
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS #퍼즈 해제 
 	print("scene started")
 	get_node("transition/ColorRect").visible = true
 	get_node("transition").play("fade_in")

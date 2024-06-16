@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://cg5spy66unpeq" path="res://Content/Graphics/UI/font/SDMiSaeng.ttf" id="2_vuldq"]
 
 [node name="ResultHUD" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_aua4k")
 metadata/_edit_vertical_guides_ = [576.0]
 metadata/_edit_horizontal_guides_ = [324.0]
