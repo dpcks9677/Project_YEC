@@ -1,6 +1,10 @@
 extends Node
 class_name StateComponent
 
+signal increasePopulation
+signal allyDead
+signal enemyDead
+
 #state 관련 인자들 
 var current_state : State
 
@@ -10,6 +14,7 @@ var states : Dictionary = {}
 #Unit info
 @export var _status: statusResource
 @export var rsc : resourceHandler
+@export var resultHUD : CanvasLayer
 
 @export var faction : String
 @export var type : String
@@ -21,7 +26,16 @@ var states : Dictionary = {}
 @export var mana : int
 
 func _enter_tree():
-	rsc = get_parent().get_parent().get_parent().get_parent()
+	#시그널 연결
+	
+	rsc = $"../../../.." #rsc 노드 
+	if rsc:
+		connect("increasePopulation", rsc.increasePopulation)
+		
+	resultHUD = $"../../../../../ResultHUD"
+	if resultHUD:
+		connect("allyDead", resultHUD.increaseAllyDead)
+		connect("enemyDead", resultHUD.increaseEnemyDead)
 	
 	#유닛 데이터 입력 
 	faction = _status.faction
@@ -85,7 +99,9 @@ func _ready():
 		$"../Sprite2D".material = currentShader
 		
 	#미니맵 마커 추가 
-	get_parent().get_parent().get_parent().get_parent().get_node("HUD").get_node("minimapUI").spawnMarker(self)
+	var minimap = $"../../../../HUD/minimapUI"
+	if minimap:
+		minimap.spawnMarker(self) #미니맵에 시그널을 보내는 방향으로 구조 변경 
 	
 	#위치 초기화 및 인구수 추가, 그룹 추가 
 	if get_faction() == "enemy": #중간 스폰을 해야할 필요가 있을 때 코드 변경 필요 (스포너에 의해 소환 시 progress_ratio = 1.0으로 설정 
@@ -93,7 +109,7 @@ func _ready():
 		
 		self.add_to_group("enemy")
 	else: #중간 스폰을 해야할 필요가 있을 때 코드 변경 필요 (스포너에 의해 소환 시 progress_ratio = 0.0으로 설정 
-		rsc.increasePopulation() #인구수 1 증가 
+		emit_signal("increasePopulation") #인구수 증가 매커니즘을 시그널 방출로 변경
 		get_parent().progress_ratio = 0.0
 		
 		self.add_to_group("ally")
@@ -124,11 +140,10 @@ func _process(delta):
 		current_state.Update(delta)
 		
 func _exit_tree(): #사망 시
-	var resultHUD = $"../../../../../ResultHUD"
 	if faction == "ally":
-		resultHUD.increaseAllyDead()
+		emit_signal("allyDead")
 	elif faction == "enemy":
-		resultHUD.increaseEnemyDead()
+		emit_signal("enemyDead")
 
 #상태 변경 함수 
 func change_state(state : State, new_state_name : String):
